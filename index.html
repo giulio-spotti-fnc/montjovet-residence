@@ -1017,6 +1017,123 @@
     .form-status.success { display: block; background: rgba(76, 175, 80, 0.2); border: 1px solid #4CAF50; color: #b9f6ca; }
     .form-status.error { display: block; background: rgba(244, 67, 54, 0.2); border: 1px solid #f44336; color: #ffcdd2; }
 
+    /* GDPR CONSENT CHECKBOX & PRIVACY MODAL */
+    .gdpr-box {
+      text-align: left;
+      padding: 0.75rem 0.95rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 4px;
+    }
+    .gdpr-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.86);
+      line-height: 1.45;
+      cursor: pointer;
+    }
+    .gdpr-checkbox {
+      margin-top: 3px;
+      width: 17px;
+      height: 17px;
+      accent-color: var(--accent-gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .inline-privacy-link {
+      background: none;
+      border: none;
+      padding: 0;
+      color: #E6D8BE;
+      text-decoration: underline;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .inline-privacy-link:hover {
+      color: var(--white);
+    }
+    .footer-privacy-row {
+      margin-top: 0.9rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.2rem;
+    }
+    .cookie-free-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.74rem;
+      color: #E6D8BE;
+      background: rgba(176, 141, 87, 0.14);
+      border: 1px solid rgba(176, 141, 87, 0.35);
+      padding: 0.28rem 0.75rem;
+      border-radius: 20px;
+    }
+    .footer-privacy-btn {
+      background: none;
+      border: none;
+      color: #E6D8BE;
+      text-decoration: underline;
+      font-family: inherit;
+      font-size: 0.78rem;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+    }
+    .footer-privacy-btn:hover {
+      color: var(--white);
+    }
+    .privacy-modal-card {
+      background: var(--bg-cream);
+      color: var(--text-dark);
+      max-width: 680px;
+      width: 94%;
+      max-height: 86vh;
+      overflow-y: auto;
+      border-radius: 8px;
+      padding: 2rem 2.2rem;
+      position: relative;
+      text-align: left;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.65);
+      border-top: 4px solid var(--accent);
+    }
+    .privacy-modal-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.9rem;
+      color: var(--primary);
+    }
+    .privacy-modal-card h4 {
+      font-size: 1.05rem;
+      margin: 1.1rem 0 0.35rem;
+      color: var(--accent-hover);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .privacy-modal-card p {
+      font-size: 0.86rem;
+      color: #36393B;
+      line-height: 1.55;
+      margin-bottom: 0.65rem;
+    }
+    .privacy-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--primary);
+      cursor: pointer;
+      line-height: 1;
+    }
+
   
     /* DETAILS SLIDER SECTION */
     .details-slider-section {
@@ -1999,8 +2116,8 @@
             <dd data-i18n="ts_5_val">Direct van eigenaar (0% makelaarscourtage) • Vrij opleverbaar</dd>
           </div>
           <div class="tech-spec-row">
-            <dt data-i18n="ts_6_lbl">Documentatie</dt>
-            <dd data-i18n="ts_6_val">Kadastrale kaarten, plattegronden & dossier op aanvraag</dd>
+            <dt data-i18n="ts_6_lbl">Documentatie & Energielabel (APE)</dt>
+            <dd data-i18n="ts_6_val">Kadaster & plattegronden op aanvraag • Energielabel (APE) in uitvoering</dd>
           </div>
         </dl>
       </div>
@@ -2575,6 +2692,18 @@
           <small class="error-msg" id="captchaError" role="alert" aria-live="polite"></small>
         </div>
 
+        <!-- CONSENSO GDPR (ART. 13 GDPR) -->
+        <div class="form-group gdpr-box">
+          <label for="gdprConsent" class="gdpr-label">
+            <input type="checkbox" id="gdprConsent" name="gdpr_consent" class="gdpr-checkbox" required aria-required="true" aria-describedby="gdprError">
+            <span>
+              <span data-i18n="gdpr_consent_text">Ik ga akkoord met de verwerking van mijn gegevens uitsluitend om op deze aanvraag te reageren</span>
+              (<button type="button" class="inline-privacy-link" onclick="openPrivacyModal()" data-i18n="gdpr_policy_link">Privacy & Cookieverklaring</button>) *
+            </span>
+          </label>
+          <small class="error-msg" id="gdprError" role="alert" aria-live="polite"></small>
+        </div>
+
         <button type="submit" id="submitBtn" class="btn btn-primary" style="margin-top: 0.5rem;" data-i18n="btn_submit">Aanvraag Verzenden</button>
         <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
       </form>
@@ -2585,6 +2714,22 @@
   <div class="lightbox" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Image preview" onclick="closeLightbox()">
     <button type="button" class="lightbox-close" aria-label="Close preview" style="background:none;border:none;" onclick="closeLightbox()">&times;</button>
     <img id="lightboxImg" src="" alt="Enlarged view">
+  </div>
+
+  <!-- PRIVACY & COOKIE-FREE MODAL (GDPR ART. 13) -->
+  <div class="lightbox" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle" onclick="if(event.target===this)closePrivacyModal()">
+    <div class="privacy-modal-card">
+      <button type="button" class="privacy-modal-close" aria-label="Close privacy policy" onclick="closePrivacyModal()">&times;</button>
+      <h3 id="privacyModalTitle" data-i18n="priv_title">Privacy- & Cookieverklaring (AVG / GDPR)</h3>
+      <h4 data-i18n="priv_h1">1. Verwerkingsverantwoordelijke (Art. 13 GDPR)</h4>
+      <p data-i18n="priv_p1">Deze website is een particulier informatief initiatief van de eigenaar voor de rechtstreekse verkoop van het beschreven pand in Montjovet (AO), Italië. Contactadres voor privacyzaken: giulio.spotti@gmail.com.</p>
+      <h4 data-i18n="priv_h2">2. Doel van de gegevensverwerking (Contactformulier)</h4>
+      <p data-i18n="priv_p2">De persoonsgegevens die u vrijwillig invult in het contactformulier (naam, e-mailadres, telefoonnummer en bericht) worden uitsluitend gebruikt om uw informatie- of bezichtigingsaanvraag te beantwoorden. Uw gegevens worden nooit verkocht, niet aan derden verstrekt en niet gebruikt voor nieuwsbrieven of commerciële mailinglijsten. Het verzenden verloopt versleuteld (HTTPS) via de technische doorstuurservice FormSubmit.co rechtstreeks naar de mailbox van de eigenaar.</p>
+      <h4 data-i18n="priv_h3">3. Bewaartermijn & Rechten van Betrokkenen (Art. 15–22 GDPR)</h4>
+      <p data-i18n="priv_p3">Gegevens worden niet langer bewaard dan nodig om uw aanvraag af te handelen. U heeft te allen tijde het recht op inzage, rectificatie of onmiddellijke verwijdering van uw gegevens door een e-mail te sturen naar giulio.spotti@gmail.com.</p>
+      <h4 data-i18n="priv_h4">4. Cookiebeleid (100% Cookie-Free)</h4>
+      <p data-i18n="priv_p4">Deze website plaatst géén profileringscookies, géén advertentiecookies en géén analytische trackingcookies van derden. Omdat er geen persoonsgegevens via cookies worden opgeslagen of gevolgd, is conform de Europese ePrivacy-richtlijn en de richtlijnen van de privacyautoriteit geen cookiebanner vereist.</p>
+    </div>
   </div>
 
   <!-- BACK TO TOP BUTTON -->
@@ -2598,8 +2743,12 @@
   <footer>
     <p>&copy; 2026 Maison Montjovet • Valle d'Aosta Real Estate Opportunity. All rights reserved.</p>
     <p class="footer-disclaimer" data-i18n="footer_disclaimer">
-      Disclaimer: De informatie, oppervlakten, beschrijvingen, plattegronden en 3D-renderings op deze website zijn uitsluitend bedoeld ter illustratie en oriëntatie en vormen geen contractueel aanbod of juridische verbintenis. Er kunnen geen rechten worden ontleend aan eventuele onjuistheden of onvolledigheden.
+      Disclaimer: De informatie, oppervlakten, beschrijvingen, plattegronden en 3D-renderings op deze website zijn uitsluitend bedoeld ter illustratie en oriëntatie en vormen geen contractueel aanbod of juridische verbintenis. Energielabel (APE) in uitvoering. Er kunnen geen rechten worden ontleend aan eventuele onjuistheden of onvolledigheden.
     </p>
+    <div class="footer-privacy-row">
+      <span class="cookie-free-badge">🛡️ <span data-i18n="cookie_free_tag">100% Cookie-Free (Geen Tracking)</span></span>
+      <button type="button" class="footer-privacy-btn" onclick="openPrivacyModal()" data-i18n="gdpr_policy_link">Privacy & Cookieverklaring (GDPR)</button>
+    </div>
   </footer>
 
   <!-- MULTILANGUAGE JAVASCRIPT & LOGICA -->
@@ -2702,8 +2851,8 @@
         ts_4_val: "Actieve aansluitingen (water, elektra, verwarming, gemeenteriool)",
         ts_5_lbl: "Verkoopvoorwaarden",
         ts_5_val: "Direct van eigenaar (0% makelaarscourtage) • Vrij opleverbaar",
-        ts_6_lbl: "Documentatie",
-        ts_6_val: "Kadastrale kaarten, plattegronden & dossier op aanvraag",
+        ts_6_lbl: "Documentatie & Energielabel (APE)",
+        ts_6_val: "Kadaster & plattegronden op aanvraag • Energielabel (APE) in uitvoering",
 
         tag_projects: "Visie & Ontwikkeling",
         projects_title: "Ontwikkelingsprojecten & Voor/Na",
@@ -2786,9 +2935,22 @@
         form_err_phone: "Vul een geldig telefoonnummer in (bijv. +31 6... of 06...)",
         form_err_message: "Bericht moet minimaal 10 tekens bevatten",
         form_err_captcha: "Onjuist antwoord op de som",
+        form_err_gdpr: "U dient akkoord te gaan met de privacyverklaring om uw aanvraag te verzenden",
         form_err_send: "Er is een fout opgetreden. U kunt ook direct mailen naar giulio.spotti@gmail.com",
         alert_sent: "Bedankt voor uw aanvraag. We nemen spoedig contact met u op!",
-        footer_disclaimer: "Disclaimer: De informatie, oppervlakten, beschrijvingen, plattegronden en 3D-renderings op deze website zijn uitsluitend bedoeld ter illustratie en oriëntatie en vormen geen contractueel aanbod of juridische verbintenis. Er kunnen geen rechten worden ontleend aan eventuele onjuistheden of onvolledigheden."
+        gdpr_consent_text: "Ik heb de privacyverklaring (Art. 13 AVG/GDPR) gelezen en ga akkoord met de verwerking van mijn gegevens uitsluitend om mijn informatie- of bezichtigingsaanvraag te beantwoorden. *",
+        gdpr_policy_link: "Privacy- & Cookiebeleid (AVG/GDPR)",
+        cookie_free_tag: "100% Cookie-Free Website (Geen tracking)",
+        priv_title: "Privacyverklaring (Art. 13 AVG / GDPR) & Cookiebeleid",
+        priv_h1: "1. Verwerkingsverantwoordelijke",
+        priv_p1: "Deze website betreft een particuliere vastgoedpresentatie zonder tussenkomst van een makelaar. De verwerkingsverantwoordelijke voor de persoonsgegevens is de particuliere eigenaar, bereikbaar via e-mail op: giulio.spotti@gmail.com.",
+        priv_h2: "2. Doeleinden, Rechtsgrondslag & Gegevensverwerking",
+        priv_p2: "De persoonsgegevens die u vrijwillig invult via het contactformulier (naam, e-mailadres, telefoonnummer en bericht) worden uitsluitend verwerkt om uw informatieaanvraag of verzoek tot bezichtiging van het pand in Montjovet te beantwoorden (Art. 6 lid 1 sub a en b AVG). Uw gegevens worden nooit verkocht, niet voor commerciële nieuwsbrieven gebruikt en alleen gedeeld met de technische formulierdienst (FormSubmit) en hostingprovider (Netlify) voor het afleveren van uw bericht.",
+        priv_h3: "3. Bewaartermijn & Rechten van Betrokkenen (Art. 15–22 AVG)",
+        priv_p3: "De gegevens worden niet langer bewaard dan noodzakelijk is om uw aanvraag af te handelen (maximaal 12 maanden na het laatste contact). U heeft te allen tijde het recht op inzage, rectificatie, verwijdering ('recht op vergetelheid'), beperking van de verwerking en intrekking van uw toestemming door een e-mail te sturen naar giulio.spotti@gmail.com.",
+        priv_h4: "4. Cookiebeleid (100% Cookie-Free)",
+        priv_p4: "Deze website maakt GEEN gebruik van profileringscookies, analytische cookies of trackingscripts van derden en slaat geen gegevens op in uw browser (localStorage/cookies). Omdat er geen tracking plaatsvindt, is er op grond van de Europese ePrivacy-richtlijn geen cookiebanner nodig.",
+        footer_disclaimer: "Disclaimer: De informatie, oppervlakten, beschrijvingen, plattegronden en 3D-renderings op deze website zijn uitsluitend bedoeld ter illustratie en oriëntatie en vormen geen contractueel aanbod of juridische verbintenis. Het energieprestatiecertificaat (APE / Energielabel) bevindt zich momenteel in de uitvoeringsfase. Er kunnen geen rechten worden ontleend aan eventuele onjuistheden of onvolledigheden."
       },
       en: {
         skip_to_content: "Skip to main content",
@@ -2887,8 +3049,8 @@
         ts_4_val: "Active connections (water, electricity, heating system, municipal mains)",
         ts_5_lbl: "Sale Terms",
         ts_5_val: "Direct from private owner (0% agency commission) • Free at deed",
-        ts_6_lbl: "Documentation",
-        ts_6_val: "Cadastral records, floor plans & technical dossier available on request",
+        ts_6_lbl: "Documentation & Energy Certificate (APE)",
+        ts_6_val: "Cadastral records & floor plans on request • Energy Certificate (APE) in preparation",
 
         tag_projects: "Vision & Development",
         projects_title: "Development Concepts & Before/After",
@@ -2971,9 +3133,22 @@
         form_err_phone: "Please enter a valid phone number",
         form_err_message: "Message must contain at least 10 characters",
         form_err_captcha: "Incorrect answer to the security sum",
+        form_err_gdpr: "Please accept the privacy policy to send your inquiry",
         form_err_send: "An error occurred while sending. You can also email giulio.spotti@gmail.com directly",
         alert_sent: "Thank you for your inquiry. We will get back to you shortly!",
-        footer_disclaimer: "Legal Disclaimer: All information, measurements, descriptions, floor plans, and 3D renderings (including 'Before/After' concepts) shown on this website are purely indicative and illustrative and do not constitute a contractual element or binding offer. No warranty is given as to the accuracy or completeness of the contents."
+        gdpr_consent_text: "I have read the Privacy Policy (Art. 13 EU GDPR) and consent to the processing of my personal data solely to respond to my inquiry or viewing request. *",
+        gdpr_policy_link: "Privacy & Cookie Policy (GDPR)",
+        cookie_free_tag: "100% Cookie-Free Website (No Tracking)",
+        priv_title: "Privacy Policy (Art. 13 EU GDPR) & Cookie Notice",
+        priv_h1: "1. Data Controller",
+        priv_p1: "This website presents a private real estate property sold directly by the owner without agency intermediation. The Data Controller is the private property owner, reachable via email at: giulio.spotti@gmail.com.",
+        priv_h2: "2. Purpose, Legal Basis & Data Processing",
+        priv_p2: "Personal data voluntarily submitted through the contact form (name, email address, phone number, and message content) are processed exclusively to respond to your information or property viewing request (Art. 6(1)(a) and (b) GDPR). Your data are never sold, never used for marketing newsletters, and only processed via technical providers (FormSubmit for email routing and Netlify for web hosting).",
+        priv_h3: "3. Data Retention & Your Rights (Arts. 15–22 GDPR)",
+        priv_p3: "Your personal data are retained only as long as necessary to fulfill your request (maximum 12 months from last contact). You may exercise your rights of access, rectification, erasure ('right to be forgotten'), restriction, or withdrawal of consent at any time by writing to giulio.spotti@gmail.com.",
+        priv_h4: "4. Cookie Policy (100% Cookie-Free)",
+        priv_p4: "This website uses ZERO profiling, analytics, or third-party tracking cookies and stores no persistent identifiers in your browser (no cookies or localStorage tracking). In accordance with the EU ePrivacy Directive, no cookie consent banner is required.",
+        footer_disclaimer: "Legal Disclaimer: All information, measurements, descriptions, floor plans, and 3D renderings (including 'Before/After' concepts) shown on this website are purely indicative and illustrative and do not constitute a contractual element or binding offer. The Energy Performance Certificate (APE) is currently in preparation. No warranty is given as to the accuracy or completeness of the contents."
       },
       it: {
         skip_to_content: "Vai al contenuto principale",
@@ -3072,8 +3247,8 @@
         ts_4_val: "Allacciamenti attivi (acqua, elettricità, riscaldamento, fognatura)",
         ts_5_lbl: "Regime di Vendita",
         ts_5_val: "Diretta da privato (0% commissioni d'agenzia) • Libera al rogito",
-        ts_6_lbl: "Documentazione",
-        ts_6_val: "Visure catastali, planimetrie e dossier tecnico su richiesta",
+        ts_6_lbl: "Documentazione & APE",
+        ts_6_val: "Visure e planimetrie su richiesta • Attestato APE in fase di realizzazione",
 
         tag_projects: "Visione & Sviluppo",
         projects_title: "Progetti & Idee di Sviluppo",
@@ -3156,9 +3331,22 @@
         form_err_phone: "Inserisci un numero di telefono valido",
         form_err_message: "Il messaggio deve contenere almeno 10 caratteri",
         form_err_captcha: "Risultato della somma non corretto",
+        form_err_gdpr: "È necessario acconsentire all'informativa privacy per inviare la richiesta",
         form_err_send: "Si è verificato un errore nell'invio. Puoi scrivere direttamente a giulio.spotti@gmail.com",
         alert_sent: "Grazie! Abbiamo ricevuto la tua richiesta.",
-        footer_disclaimer: "Disclaimer legale: Le informazioni, le metrature, le descrizioni, le ipotesi progettuali e i rendering (inclusi i confronti 'Prima/Dopo') presenti in questo sito hanno carattere puramente indicativo e illustrativo e non costituiscono in alcun modo elemento contrattuale né vincolo precontrattuale. L'autore non assume alcuna responsabilità per eventuali inesattezze, omissioni o incompletezze dei dati riportati."
+        gdpr_consent_text: "Ho letto l'Informativa Privacy (Art. 13 GDPR) e acconsento al trattamento dei miei dati personali esclusivamente per ricevere risposta alla mia richiesta di informazioni o visita. *",
+        gdpr_policy_link: "Informativa Privacy & Cookie (GDPR)",
+        cookie_free_tag: "Sito 100% Cookie-Free (Zero tracciamento)",
+        priv_title: "Informativa Privacy (Art. 13 Reg. UE 2016/679 - GDPR) & Cookie Policy",
+        priv_h1: "1. Titolare del Trattamento",
+        priv_p1: "Il presente sito web ha finalità puramente informativa per la vendita diretta tra privati di un immobile sito in Montjovet (AO), senza alcuna intermediazione immobiliare. Il Titolare del trattamento dei dati è il proprietario privato, contattabile all'indirizzo email: giulio.spotti@gmail.com.",
+        priv_h2: "2. Finalità, Base Giuridica e Modalità del Trattamento",
+        priv_p2: "I dati personali conferiti volontariamente dall'utente tramite il modulo di contatto (nome, email, telefono e testo del messaggio) vengono trattati esclusivamente per rispondere alle richieste di informazioni o di visita dell'immobile (Art. 6, par. 1, lett. a e b del GDPR). I dati non vengono ceduti a terzi, non vengono utilizzati per invio di newsletter o marketing e transitano unicamente tramite il servizio tecnico di inoltro email (FormSubmit) e l'infrastruttura di hosting (Netlify).",
+        priv_h3: "3. Conservazione dei Dati e Diritti dell'Interessato (Artt. 15–22 GDPR)",
+        priv_p3: "I dati sono conservati per il solo tempo strettamente necessario a gestire la richiesta (e comunque non oltre 12 mesi dall'ultimo contatto). L'interessato può esercitare in ogni momento i diritti di accesso, rettifica, cancellazione ('diritto all'oblio'), limitazione o revoca del consenso scrivendo a giulio.spotti@gmail.com, oltre al diritto di proporre reclamo al Garante per la Protezione dei Dati Personali.",
+        priv_h4: "4. Cookie Policy (Sito 100% Cookie-Free)",
+        priv_p4: "Questo sito web NON utilizza cookie di profilazione, né cookie analitici, né script di tracciamento di terze parti e non memorizza dati nel browser dell'utente (nessun uso di cookie o localStorage). In conformità alle Linee Guida del Garante Privacy e alla Direttiva ePrivacy UE, non è pertanto richiesto alcun banner di blocco preventivo.",
+        footer_disclaimer: "Disclaimer legale: Le informazioni, le metrature, le descrizioni, le ipotesi progettuali e i rendering (inclusi i confronti 'Prima/Dopo') presenti in questo sito hanno carattere puramente indicativo e illustrativo e non costituiscono in alcun modo elemento contrattuale né vincolo precontrattuale. L'Attestato di Prestazione Energetica (APE) non è ancora pronto ed è attualmente in fase di realizzazione. L'autore non assume alcuna responsabilità per eventuali inesattezze, omissioni o incompletezze dei dati riportati."
       },
       fr: {
         skip_to_content: "Aller au contenu principal",
@@ -3257,8 +3445,8 @@
         ts_4_val: "Raccordements actifs (eau, électricité, chauffage, tout-à-l'égout)",
         ts_5_lbl: "Conditions de Vente",
         ts_5_val: "Vente directe propriétaire (0% frais d'agence) • Libre à l'acte",
-        ts_6_lbl: "Documentation",
-        ts_6_val: "Extraits cadastraux, plans & dossier technique sur demande",
+        ts_6_lbl: "Documentation & DPE (APE)",
+        ts_6_val: "Cadastre & plans sur demande • Certificat énergétique (APE) en cours de réalisation",
 
         tag_projects: "Vision & Développement",
         projects_title: "Projets d'Aménagement & Avant/Après",
@@ -3341,9 +3529,22 @@
         form_err_phone: "Veuillez saisir un numéro de téléphone valide",
         form_err_message: "Le message doit contenir au moins 10 caractères",
         form_err_captcha: "Réponse au calcul incorrecte",
+        form_err_gdpr: "Veuillez accepter la politique de confidentialité pour envoyer votre demande",
         form_err_send: "Une erreur est survenue lors de l'envoi. Vous pouvez aussi écrire directement à giulio.spotti@gmail.com",
         alert_sent: "Merci ! Votre demande a bien été envoyée.",
-        footer_disclaimer: "Mentions légales : Les informations, surfaces, descriptions, plans et rendus 3D (y compris les visuels 'Avant/Après') figurant sur ce site sont fournis à titre purement indicatif et illustratif et ne constituent en aucun cas un document contractuel. Aucune garantie n'est donnée quant à l'exactitude ou l'exhaustivité des données présentées."
+        gdpr_consent_text: "J'ai lu la Politique de Confidentialité (Art. 13 RGPD) et je consens au traitement de mes données personnelles uniquement pour répondre à ma demande d'information ou de visite. *",
+        gdpr_policy_link: "Politique de Confidentialité & Cookies (RGPD)",
+        cookie_free_tag: "Site 100% Sans Cookies (Aucun suivi)",
+        priv_title: "Politique de Confidentialité (Art. 13 RGPD) & Politique relative aux Cookies",
+        priv_h1: "1. Responsable du Traitement",
+        priv_p1: "Ce site présente un bien immobilier vendu directement par son propriétaire particulier, sans intermédiaire. Le responsable du traitement des données est le propriétaire privé, joignable par e-mail à : giulio.spotti@gmail.com.",
+        priv_h2: "2. Finalités, Base Légale & Traitement des Données",
+        priv_p2: "Les données personnelles soumises volontairement via le formulaire de contact (nom, e-mail, téléphone et message) sont traitées exclusivement pour répondre à votre demande d'information ou de visite (Art. 6.1.a et b du RGPD). Vos données ne sont jamais vendues ni utilisées à des fins de prospection commerciale, et transitent uniquement par le service technique d'envoi (FormSubmit) et l'hébergeur (Netlify).",
+        priv_h3: "3. Durée de Conservation & Vos Droits (Art. 15–22 RGPD)",
+        priv_p3: "Les données sont conservées uniquement le temps nécessaire au traitement de votre demande (maximum 12 mois après le dernier contact). Vous disposez à tout moment d'un droit d'accès, de rectification, d'effacement, de limitation et de retrait de votre consentement en écrivant à giulio.spotti@gmail.com.",
+        priv_h4: "4. Politique de Cookies (100% Sans Cookies)",
+        priv_p4: "Ce site n'utilise AUCUN cookie de profilage, d'analyse ou de suivi tiers et n'enregistre aucune donnée dans votre navigateur (ni cookies ni localStorage). Conformément à la directive européenne ePrivacy, aucun bandeau de consentement aux cookies n'est requis.",
+        footer_disclaimer: "Mentions légales : Les informations, surfaces, descriptions, plans et rendus 3D (y compris les visuels 'Avant/Après') figurant sur ce site sont fournis à titre purement indicatif et illustratif et ne constituent en aucun cas un document contractuel. Le diagnostic de performance énergétique (APE / DPE) est actuellement en cours de réalisation. Aucune garantie n'est donnée quant à l'exactitude ou l'exhaustivité des données présentées."
       },
       de: {
         skip_to_content: "Zum Hauptinhalt springen",
@@ -3442,8 +3643,8 @@
         ts_4_val: "Aktive Versorgungsanschlüsse (Wasser, Strom, Heizung, Kanalisation)",
         ts_5_lbl: "Verkaufskonditionen",
         ts_5_val: "Direkt vom Eigentümer (0% Maklerprovision) • Frei nach Vereinbarung",
-        ts_6_lbl: "Unterlagen",
-        ts_6_val: "Katasterauszüge, Grundrisse & Exposé auf Anfrage",
+        ts_6_lbl: "Unterlagen & Energieausweis (APE)",
+        ts_6_val: "Kataster & Grundrisse auf Anfrage • Energieausweis (APE) in Erstellung",
 
         tag_projects: "Vision & Entwicklung",
         projects_title: "Entwicklungsprojekte & Vorher/Nachher",
@@ -3526,9 +3727,22 @@
         form_err_phone: "Bitte geben Sie eine gültige Telefonnummer ein",
         form_err_message: "Die Nachricht muss mindestens 10 Zeichen enthalten",
         form_err_captcha: "Falsches Ergebnis der Sicherheitsabfrage",
+        form_err_gdpr: "Bitte stimmen Sie der Datenschutzerklärung zu, um Ihre Anfrage zu senden",
         form_err_send: "Beim Senden ist ein Fehler aufgetreten. Sie können auch direkt an giulio.spotti@gmail.com schreiben",
         alert_sent: "Vielen Dank! Ihre Anfrage wurde übermittelt.",
-        footer_disclaimer: "Haftungsausschluss (Disclaimer): Alle auf dieser Website enthaltenen Informationen, Flächenangaben, Beschreibungen, Grundrisse und 3D-Visualisierungen (einschließlich der 'Vorher/Nachher'-Darstellungen) dienen ausschließlich zur unverbindlichen Veranschaulichung und stellen kein vertragliches Angebot dar. Für die Richtigkeit und Vollständigkeit der Angaben wird keine Haftung übernommen."
+        gdpr_consent_text: "Ich habe die Datenschutzerklärung (Art. 13 DSGVO) gelesen und willige in die Verarbeitung meiner personenbezogenen Daten ausschließlich zur Beantwortung meiner Anfrage oder meines Besichtigungswunsches ein. *",
+        gdpr_policy_link: "Datenschutz & Cookie-Richtlinie (DSGVO)",
+        cookie_free_tag: "100% Cookie-freie Website (Kein Tracking)",
+        priv_title: "Datenschutzerklärung (Art. 13 DSGVO) & Cookie-Hinweis",
+        priv_h1: "1. Verantwortlicher für die Datenverarbeitung",
+        priv_p1: "Diese Website dient ausschließlich der privaten Präsentation einer direkt vom Eigentümer (ohne Makler) angebotenen Immobilie in Montjovet (AO, Italien). Verantwortlicher ist der private Eigentümer, erreichbar per E-Mail unter: giulio.spotti@gmail.com.",
+        priv_h2: "2. Zwecke, Rechtsgrundlage & Datenverarbeitung",
+        priv_p2: "Die über das Kontaktformular freiwillig übermittelten Daten (Name, E-Mail-Adresse, Telefonnummer und Nachricht) werden ausschließlich zur Beantwortung Ihrer Anfrage oder zur Vereinbarung eines Besichtigungstermins verarbeitet (Art. 6 Abs. 1 lit. a und b DSGVO). Ihre Daten werden niemals verkauft oder für Werbezwecke genutzt und lediglich über den technischen Formular-Dienstleister (FormSubmit) und den Hosting-Anbieter (Netlify) übermittelt.",
+        priv_h3: "3. Speicherdauer & Ihre Rechte (Art. 15–22 DSGVO)",
+        priv_p3: "Ihre Daten werden nur so lange gespeichert, wie es für die Bearbeitung Ihrer Anfrage erforderlich ist (maximal 12 Monate nach dem letzten Kontakt). Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie auf Widerruf Ihrer Einwilligung per E-Mail an giulio.spotti@gmail.com.",
+        priv_h4: "4. Cookie-Richtlinie (100% Cookie-frei)",
+        priv_p4: "Diese Website verwendet KEINE Profiling-, Analyse- oder Drittanbieter-Tracking-Cookies und speichert keine Daten in Ihrem Browser (weder Cookies noch localStorage). Gemäß der EU-ePrivacy-Richtlinie ist daher kein Cookie-Banner erforderlich.",
+        footer_disclaimer: "Haftungsausschluss (Disclaimer): Alle auf dieser Website enthaltenen Informationen, Flächenangaben, Beschreibungen, Grundrisse und 3D-Visualisierungen (einschließlich der 'Vorher/Nachher'-Darstellungen) dienen ausschließlich zur unverbindlichen Veranschaulichung und stellen kein vertragliches Angebot dar. Der Energieausweis (APE) ist noch nicht fertiggestellt und befindet sich derzeit in Erstellung. Für die Richtigkeit und Vollständigkeit der Angaben wird keine Haftung übernommen."
       }
     };
 
@@ -3644,7 +3858,7 @@
       }
     }
 
-    // Lightbox
+    // Lightbox & Privacy Modal
     function openLightbox(src) {
       const modal = document.getElementById('lightboxModal');
       const img = document.getElementById('lightboxImg');
@@ -3657,9 +3871,20 @@
       modal.classList.remove('active');
     }
 
+    function openPrivacyModal() {
+      const modal = document.getElementById('privacyModal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closePrivacyModal() {
+      const modal = document.getElementById('privacyModal');
+      if (modal) modal.classList.remove('active');
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeLightbox();
+        closePrivacyModal();
         closeProjectGallery();
         const welcomeOverlay = document.getElementById('langWelcomeOverlay');
         if (welcomeOverlay && !welcomeOverlay.classList.contains('hidden')) {
@@ -3718,6 +3943,7 @@
       const phone = document.getElementById('senderPhone').value.trim();
       const message = document.getElementById('senderMessage').value.trim();
       const captchaInput = parseInt(document.getElementById('captchaAnswer').value.trim(), 10);
+      const gdprChecked = document.getElementById('gdprConsent')?.checked;
 
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       // Accetta sia formato internazionale (+31 6..., 0031...) sia formato nazionale olandese/europeo (06 12345678)
@@ -3730,8 +3956,9 @@
       const v3 = validateField('senderPhone', 'phoneError', phoneValid, dict.form_err_phone);
       const v4 = validateField('senderMessage', 'messageError', message.length >= 10, dict.form_err_message);
       const v5 = validateField('captchaAnswer', 'captchaError', captchaInput === (captchaA + captchaB), dict.form_err_captcha);
+      const v6 = validateField('gdprConsent', 'gdprError', !!gdprChecked, dict.form_err_gdpr);
 
-      if (!v1 || !v2 || !v3 || !v4 || !v5) {
+      if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6) {
         return;
       }
 
