@@ -377,36 +377,6 @@
       align-items: center;
       margin-bottom: 4rem;
     }
-    #about .grid-story {
-      grid-template-columns: 1.02fr 1fr;
-      gap: 2.8rem;
-      align-items: stretch;
-      margin-bottom: 1.8rem;
-    }
-    #about .story-img-container {
-      height: 100%;
-      min-height: 360px;
-    }
-    #about .story-img {
-      height: 100%;
-      min-height: 360px;
-      max-height: 440px;
-      border-radius: 6px;
-    }
-    #about .story-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    #about .story-content h3 {
-      margin-bottom: 0.75rem;
-    }
-    #about .story-content p {
-      margin-bottom: 0.8rem;
-    }
-    #about .opportunity-callout {
-      margin-top: 0.6rem;
-    }
     .grid-story.reverse { direction: rtl; }
     .grid-story.reverse > * { direction: ltr; }
     .story-img-container { position: relative; cursor: pointer; }
@@ -428,6 +398,44 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem;
       box-shadow: var(--shadow);
+    }
+    #about .grid-story {
+      grid-template-columns: 1.05fr 1fr;
+      gap: 1.2rem 2.8rem;
+      align-items: stretch;
+      margin-bottom: 2.2rem;
+    }
+    #about .about-full-title {
+      grid-column: 1 / -1;
+      font-size: clamp(1.65rem, 2.6vw, 2.15rem);
+      margin: 0 0 0.2rem 0;
+      line-height: 1.25;
+      color: var(--primary);
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid rgba(176, 141, 87, 0.25);
+    }
+    #about .story-img-container {
+      height: 100%;
+      min-height: 320px;
+      display: flex;
+    }
+    #about .story-img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    #about .story-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #about .story-content p {
+      margin-bottom: 0.85rem;
+    }
+    #about .opportunity-callout {
+      margin-top: auto;
     }
     .story-content h3 { font-size: 2.1rem; margin-bottom: 1.1rem; line-height: 1.25; }
     .story-content p { margin-bottom: 1rem; color: #484b4e; font-size: 0.95rem; }
@@ -1944,12 +1952,12 @@
       </div>
 
       <div class="grid-story">
+        <h3 class="about-full-title" data-i18n="story1_title">Ruimte om Uw Droom te Realiseren</h3>
         <div class="story-img-container" onclick="openLightbox('images/street-view.jpg')">
           <img src="images/street-view.jpg" alt="Façade van het historische landhuis in Montjovet" class="story-img" loading="lazy">
           <div class="badge-accent" data-i18n="badge_story">> 300 m² • 1.000 m² Tuin</div>
         </div>
         <div class="story-content">
-          <h3 data-i18n="story1_title">Ruimte om Uw Droom te Realiseren</h3>
           <p data-i18n="story1_p1">
             Dit pand biedt maximale architectonische vrijheid: het kan worden beleefd als één grandioze privéresidentie met de mogelijkheid van een dépendance of conciërgewoning, of worden opgesplitst in twee of meer zelfstandige appartementen (ideaal voor meerdere gezinnen of verhuur).
           </p>
