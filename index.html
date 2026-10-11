@@ -3570,6 +3570,39 @@
       });
 
       document.documentElement.lang = lang;
+
+      const seoMeta = {
+        nl: {
+          title: "Historische Residentie te Koop in Montjovet | Valle d'Aosta – Italiaanse Alpen",
+          desc: "Authentiek 19e-eeuws stenen herenhuis (>300 m²) te koop in Montjovet (Aostavallei, Italië) met 1.000 m² privétuin, gewelfde wijnkelder en stal voor privé-spa. Direct van eigenaar."
+        },
+        en: {
+          title: "Historic Alpine Residence for Sale in Montjovet | Aosta Valley, Italy",
+          desc: "Late 19th-century stone residence (>300 sqm) for sale in Montjovet (Aosta Valley, Italy) with 1,000 sqm private garden, vaulted wine cellar, and stable for private spa. Direct from owner."
+        },
+        it: {
+          title: "Dimora Storica in Vendita a Montjovet | Valle d'Aosta – Alpi Italiane",
+          desc: "Dimora storica di fine '800 (>300 m²) in vendita a Montjovet (Valle d'Aosta) con 1.000 m² di giardino privato, cantina a volta e antica stalla per SPA privata. Vendita diretta da privato."
+        },
+        fr: {
+          title: "Demeure Historique à Vendre à Montjovet | Vallée d'Aoste – Alpes Italiennes",
+          desc: "Demeure historique de la fin du XIXe siècle (>300 m²) à vendre à Montjovet (Vallée d'Aoste, Italie) avec 1 000 m² de jardin privé, cave voûtée et écurie pour spa privé. Vente directe propriétaire."
+        },
+        de: {
+          title: "Historisches Anwesen zu Verkaufen in Montjovet | Aostatal – Italienische Alpen",
+          desc: "Herrschaftliches Naturstein-Anwesen aus dem 19. Jh. (>300 m²) in Montjovet (Aostatal, Italien) mit 1.000 m² Privatgarten, Gewölbekeller und Stall für Privat-Spa. Direkt vom Eigentümer."
+        }
+      };
+      if (seoMeta[lang]) {
+        document.title = seoMeta[lang].title;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', seoMeta[lang].desc);
+      }
+      const urlParams = new URLSearchParams(window.location.search);
+      const canonicalEl = document.querySelector('link[rel="canonical"]');
+      if (canonicalEl && urlParams.get('lang') === lang) {
+        canonicalEl.setAttribute('href', `https://www.montjovet-residence.nl/?lang=${lang}`);
+      }
     }
 
     // Mobile nav
