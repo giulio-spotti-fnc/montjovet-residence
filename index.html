@@ -1908,6 +1908,329 @@
       }
     }
 
+    /* INTERACTIVE ARCHITECTURAL FLOOR PLAN & MASTERPLAN EXPLORER */
+    .floorplan-explorer {
+      margin-top: 3.5rem;
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid rgba(176, 141, 87, 0.28);
+      box-shadow: 0 18px 48px rgba(24, 32, 30, 0.08);
+      overflow: hidden;
+    }
+    .fp-header {
+      background: linear-gradient(135deg, #18201E 0%, #222E2B 100%);
+      color: var(--white);
+      padding: 2rem 2.4rem 1.6rem;
+      border-bottom: 2px solid var(--accent-gold);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.4rem;
+    }
+    .fp-header-text {
+      max-width: 620px;
+    }
+    .fp-eyebrow {
+      display: inline-block;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .fp-header h3 {
+      color: var(--white);
+      font-size: clamp(1.55rem, 2.5vw, 2.05rem);
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+    .fp-header p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .fp-level-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 0.45rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .fp-level-btn {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.55rem 1rem;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+      min-width: 96px;
+    }
+    .fp-level-btn .fp-lvl-num {
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    .fp-level-btn .fp-lvl-sub {
+      font-size: 0.67rem;
+      font-weight: 500;
+      opacity: 0.78;
+      margin-top: 2px;
+    }
+    .fp-level-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+    }
+    .fp-level-btn.active {
+      background: var(--accent-gold);
+      color: #121816;
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 14px rgba(176, 141, 87, 0.4);
+    }
+    .fp-level-btn.active .fp-lvl-sub {
+      opacity: 0.95;
+    }
+    .fp-summary-banner {
+      background: #F6F3EC;
+      padding: 0.95rem 2.4rem;
+      border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .fp-summary-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+    .fp-summary-badge {
+      background: var(--primary);
+      color: var(--accent-gold);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .fp-all-toggle {
+      appearance: none;
+      background: var(--white);
+      border: 1.5px solid var(--accent);
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.42rem 0.9rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .fp-all-toggle:hover,
+    .fp-all-toggle.active {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .fp-panels-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 0;
+    }
+    .fp-panel {
+      padding: 1.75rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .fp-panel-left {
+      border-right: 1px solid rgba(0, 0, 0, 0.08);
+      background: #FCFBF8;
+    }
+    .fp-panel-right {
+      background: var(--white);
+    }
+    .fp-panel-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .fp-panel-head h4 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.15rem;
+    }
+    .fp-panel-head p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .fp-panel-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.28rem 0.65rem;
+      border-radius: 4px;
+      background: rgba(158, 123, 70, 0.14);
+      color: var(--accent-hover);
+      white-space: nowrap;
+    }
+    .fp-canvas-wrap {
+      position: relative;
+      background: #F4F1EA;
+      border: 1px solid rgba(24, 32, 30, 0.12);
+      border-radius: 10px;
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 390px;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .fp-svg {
+      width: 100%;
+      height: auto;
+      max-height: 430px;
+      display: block;
+      user-select: none;
+    }
+    .fp-master-block {
+      transition: opacity 0.3s ease, filter 0.25s ease, stroke-width 0.2s ease;
+      cursor: pointer;
+    }
+    .fp-master-block.is-dimmed {
+      opacity: 0.18;
+      filter: grayscale(35%);
+    }
+    .fp-master-block.is-active {
+      opacity: 1;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.16));
+    }
+    .fp-master-block.is-active:hover,
+    .fp-master-block.is-highlighted {
+      filter: brightness(1.06) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.26));
+    }
+    .fp-room-group {
+      transition: filter 0.2s ease, opacity 0.25s ease;
+      cursor: pointer;
+    }
+    .fp-room-group:hover {
+      filter: brightness(1.06) drop-shadow(0 3px 8px rgba(0,0,0,0.18));
+    }
+    .fp-legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 0.45rem 0.65rem;
+      margin-top: 1.1rem;
+    }
+    .fp-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--text);
+      padding: 0.36rem 0.55rem;
+      border-radius: 6px;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .fp-legend-item:hover,
+    .fp-legend-item.is-active-legend {
+      border-color: var(--accent-gold);
+      background: #FAF6EE;
+      transform: translateY(-1px);
+    }
+    .fp-legend-item.is-inactive-floor {
+      opacity: 0.45;
+    }
+    .fp-swatch {
+      width: 13px;
+      height: 13px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.18);
+    }
+    .fp-room-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.1rem;
+    }
+    .fp-room-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      background: #F6F4EF;
+      border: 1px solid rgba(0,0,0,0.08);
+      color: var(--primary);
+    }
+    .fp-room-pill-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    @media (max-width: 980px) {
+      .fp-panels-grid {
+        grid-template-columns: 1fr;
+      }
+      .fp-panel-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .fp-header,
+      .fp-summary-banner {
+        padding-left: 1.35rem;
+        padding-right: 1.35rem;
+      }
+      .fp-panel {
+        padding: 1.35rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .fp-level-bar {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .fp-level-btn {
+        min-width: 0;
+      }
+      .fp-canvas-wrap {
+        min-height: 300px;
+        padding: 0.4rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2617,7 +2940,7 @@
           <div class="project-body">
             <div class="project-header-row">
               <span class="project-badge">📐 <span data-i18n="proj_layout_badge">Flessibilità Spazi</span></span>
-              <span class="coming-soon-ribbon" data-i18n="cs_ribbon">Coming Soon</span>
+              <span class="coming-soon-ribbon" style="background: rgba(176, 141, 87, 0.18); color: var(--accent-hover); border-color: rgba(176, 141, 87, 0.45);" data-i18n="cs_ribbon">✦ Interattivo</span>
             </div>
             <h3 data-i18n="proj_layout_title">Sviluppo & Divisione Spazi</h3>
             <p data-i18n="proj_layout_desc">
@@ -2629,8 +2952,8 @@
               <span class="proj-chip">🚗 <span data-i18n="proj_layout_chip3">Cortile & Box</span></span>
             </div>
           </div>
-          <div class="project-footer static-footer">
-            <span data-i18n="proj_plans">Planimetrie architettoniche in elaborazione</span>
+          <div class="project-footer" role="button" tabindex="0" onclick="document.getElementById('floorplanExplorer').scrollIntoView({behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('floorplanExplorer').scrollIntoView({behavior:'smooth'});}">
+            <span data-i18n="proj_plans">Esplora la planimetria interattiva per livello &darr;</span>
             <span aria-hidden="true">✦</span>
           </div>
         </div>
@@ -2640,6 +2963,593 @@
         <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('projects', -1)" aria-label="Precedente">&#10094;</button>
         <div class="mob-carousel-dots" id="projectsCarouselDots"></div>
         <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('projects', 1)" aria-label="Successiva">&#10095;</button>
+      </div>
+
+      <!-- INTERACTIVE ARCHITECTURAL FLOOR PLAN & MASTERPLAN EXPLORER -->
+      <div id="floorplanExplorer" class="floorplan-explorer" aria-label="Interactive Floor Plan">
+        <div class="fp-header">
+          <div class="fp-header-text">
+            <span class="fp-eyebrow" data-i18n="fp_eyebrow">✦ Planimetria Interattiva & Volumi</span>
+            <h3 data-i18n="fp_title">Esplora la Proprietà Livello per Livello</h3>
+            <p data-i18n="fp_subtitle">Seleziona un piano per visualizzare in contemporanea gli edifici/spazi esterni attivi a quel livello (a sinistra) e la disposizione interna stanza per stanza della Casa Principale (a destra).</p>
+          </div>
+          <div class="fp-level-bar" role="tablist" aria-label="Seleziona il livello">
+            <button type="button" class="fp-level-btn" id="fpBtn_m1" role="tab" aria-selected="false" onclick="selectFloorPlanLevel('-1')">
+              <span class="fp-lvl-num" data-i18n="fp_tab_m1">Piano -1</span>
+              <span class="fp-lvl-sub" data-i18n="fp_tab_m1_sub">Cantine &amp; Taverna</span>
+            </button>
+            <button type="button" class="fp-level-btn active" id="fpBtn_0" role="tab" aria-selected="true" onclick="selectFloorPlanLevel('0')">
+              <span class="fp-lvl-num" data-i18n="fp_tab_0">Piano 0</span>
+              <span class="fp-lvl-sub" data-i18n="fp_tab_0_sub">Piano Terra &amp; Corte</span>
+            </button>
+            <button type="button" class="fp-level-btn" id="fpBtn_1" role="tab" aria-selected="false" onclick="selectFloorPlanLevel('1')">
+              <span class="fp-lvl-num" data-i18n="fp_tab_1">Piano 1</span>
+              <span class="fp-lvl-sub" data-i18n="fp_tab_1_sub">1° Piano &amp; Terrazzi</span>
+            </button>
+            <button type="button" class="fp-level-btn" id="fpBtn_2" role="tab" aria-selected="false" onclick="selectFloorPlanLevel('2')">
+              <span class="fp-lvl-num" data-i18n="fp_tab_2">Piano 2</span>
+              <span class="fp-lvl-sub" data-i18n="fp_tab_2_sub">2° Piano Notte</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="fp-summary-banner">
+          <div class="fp-summary-info">
+            <span class="fp-summary-badge" id="fpActiveBadge" data-i18n="fp_tab_0">Piano 0</span>
+            <span id="fpActiveDesc" data-i18n="fp_desc_0">Piano Terra: Casa principale con doppio ingresso, grande cortile auto, box coperto, antica stalla voltata, dépendance e giardino d'ingresso.</span>
+          </div>
+          <button type="button" class="fp-all-toggle" id="fpAllMasterBtn" onclick="toggleAllMasterplan()" aria-pressed="false">
+            <span aria-hidden="true">🗺️</span>
+            <span data-i18n="fp_btn_all_master">Mostra Complesso Totale (Tutti i Livelli)</span>
+          </button>
+        </div>
+
+        <div class="fp-panels-grid">
+          <!-- LEFT PANEL: MASTERPLAN DEL COMPLESSO -->
+          <div class="fp-panel fp-panel-left">
+            <div class="fp-panel-head">
+              <div>
+                <h4 data-i18n="fp_left_title">1. Complesso Generale &amp; Spazi Esterni</h4>
+                <p data-i18n="fp_left_sub">I volumi attivi al piano selezionato sono evidenziati a colori; gli altri livelli restano visibili in filigrana.</p>
+              </div>
+              <span class="fp-panel-tag" id="fpLeftFloorTag" data-i18n="fp_tab_0">Piano 0</span>
+            </div>
+
+            <div class="fp-canvas-wrap">
+              <svg id="fpMasterSvg" class="fp-svg" viewBox="0 0 760 660" role="img" aria-label="Planimetria generale del complesso">
+                <defs>
+                  <pattern id="fpGridPat" width="24" height="24" patternUnits="userSpaceOnUse">
+                    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(24,32,30,0.045)" stroke-width="1"/>
+                  </pattern>
+                  <pattern id="fpGrassPat" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+                    <line x1="0" y1="0" x2="0" y2="16" stroke="rgba(255,255,255,0.14)" stroke-width="2"/>
+                  </pattern>
+                  <pattern id="fpStonePat" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <rect width="20" height="20" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                    <line x1="0" y1="10" x2="20" y2="10" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                    <line x1="10" y1="0" x2="10" y2="10" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                  </pattern>
+                </defs>
+
+                <!-- Background architectural grid -->
+                <rect x="0" y="0" width="760" height="660" fill="url(#fpGridPat)" rx="8"/>
+
+                <!-- Compass / North indicator top-left -->
+                <g transform="translate(86, 86)">
+                  <circle cx="0" cy="0" r="28" fill="rgba(255,255,255,0.85)" stroke="rgba(176,141,87,0.5)" stroke-width="1.5"/>
+                  <polygon points="0,-20 -6,6 0,1 6,6" fill="#B08D57"/>
+                  <polygon points="0,20 -5,-2 0,1 5,-2" fill="rgba(24,32,30,0.25)"/>
+                  <text x="0" y="-22" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="9" font-weight="700" fill="#18201E">N</text>
+                </g>
+
+                <!-- 1. CORTILE AUTO (Active: 0) -->
+                <g id="mpBlock_courtyard" class="fp-master-block is-active" data-floors="0" onclick="selectFloorPlanLevel('0')">
+                  <path d="M 140,24 L 340,24 L 340,278 L 534,278 L 534,324 L 438,324 L 438,484 L 324,484 L 324,324 L 42,324 L 42,243 L 140,243 Z" fill="#8C949A" stroke="#5A6268" stroke-width="2.5" stroke-linejoin="round"/>
+                  <path d="M 140,24 L 340,24 L 340,278 L 534,278 L 534,324 L 438,324 L 438,484 L 324,484 L 324,324 L 42,324 L 42,243 L 140,243 Z" fill="url(#fpStonePat)" pointer-events="none"/>
+                  <foreignObject x="148" y="112" width="184" height="90">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:4px;text-shadow:0 1px 3px rgba(0,0,0,0.45);">
+                      <span style="font-size:13px;font-weight:700;line-height:1.2;" data-i18n="fp_lbl_courtyard">Cortile auto</span>
+                      <span style="font-size:10px;opacity:0.9;margin-top:2px;">Piano 0</span>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                <!-- 2. BOX AUTO (Active: 0) -->
+                <g id="mpBlock_garage" class="fp-master-block is-active" data-floors="0" onclick="selectFloorPlanLevel('0')">
+                  <rect x="42" y="178" width="98" height="65" rx="4" fill="#1D2428" stroke="#0B0F12" stroke-width="2.5"/>
+                  <foreignObject x="44" y="180" width="94" height="61">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:3px;">
+                      <span style="font-size:11.5px;font-weight:700;line-height:1.15;" data-i18n="fp_lbl_garage">Box auto</span>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                <!-- 3. STALLA (Piano 0) / TERRAZZO PRINCIPALE (Piano 1) -->
+                <g id="mpBlock_stable" class="fp-master-block is-active" data-floors="0,1" onclick="selectFloorPlanLevel(currentFpLevel === '1' ? '0' : '1')">
+                  <rect x="342" y="24" width="192" height="254" rx="4" fill="#3C8D40" stroke="#245C27" stroke-width="2.5"/>
+                  <foreignObject x="350" y="74" width="176" height="154">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:6px;text-shadow:0 1px 3px rgba(0,0,0,0.35);">
+                      <span id="mpStableLabel" style="font-size:14px;font-weight:700;line-height:1.22;" data-i18n="fp_lbl_stable">Stalla</span>
+                      <span id="mpStableSub" style="font-size:10.5px;opacity:0.92;margin-top:4px;background:rgba(0,0,0,0.22);padding:2px 8px;border-radius:10px;" data-i18n="fp_sub_stable_terrace">P.0 Stalla • P.1 Terrazzo</span>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                <!-- 4. DÉPENDANCE (Piano 0) / SECONDO TERRAZZO (Piano 1) -->
+                <g id="mpBlock_dependance" class="fp-master-block is-active" data-floors="0,1" onclick="selectFloorPlanLevel(currentFpLevel === '1' ? '0' : '1')">
+                  <rect x="438" y="324" width="96" height="160" rx="4" fill="#F2CA19" stroke="#B89606" stroke-width="2.5"/>
+                  <foreignObject x="441" y="344" width="90" height="120">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#18201E;font-family:'Montserrat',sans-serif;padding:3px;">
+                      <span id="mpDepLabel" style="font-size:11.5px;font-weight:700;line-height:1.18;" data-i18n="fp_lbl_dependance">Dépendance</span>
+                      <span style="font-size:9.5px;font-weight:600;opacity:0.82;margin-top:4px;">P.0 / P.1</span>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                <!-- 5. CASA PRINCIPALE (Piano 0,1,2) / CANTINE A VOLTA (Piano -1) -->
+                <g id="mpBlock_mainhouse" class="fp-master-block is-active" data-floors="-1,0,1,2" onclick="pulseHousePanel()">
+                  <rect x="42" y="325" width="281" height="159" rx="4" fill="#C92A2A" stroke="#7F1515" stroke-width="3"/>
+                  <rect x="47" y="330" width="271" height="149" rx="2" fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="1" stroke-dasharray="4 3"/>
+                  <foreignObject x="52" y="336" width="261" height="136">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:6px;text-shadow:0 1px 3px rgba(0,0,0,0.4);">
+                      <span id="mpHouseLabel" style="font-size:15px;font-weight:700;line-height:1.2;" data-i18n="fp_lbl_main_house">Casa principale</span>
+                      <span id="mpHouseFloorPill" style="font-size:10.5px;font-weight:600;margin-top:5px;background:rgba(0,0,0,0.28);padding:2px 10px;border-radius:12px;">Piano -1 • 0 • 1 • 2</span>
+                      <span style="font-size:10px;opacity:0.92;margin-top:5px;text-decoration:underline;" data-i18n="fp_see_right">Vedi pianta interna a destra &rarr;</span>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                <!-- 6. GIARDINO / INGRESSO DAVANTI A CASA (Active: 0) -->
+                <g id="mpBlock_frontgarden" class="fp-master-block is-active" data-floors="0" onclick="selectFloorPlanLevel('0')">
+                  <rect x="42" y="486" width="338" height="154" rx="4" fill="#16537E" stroke="#0D3654" stroke-width="2.5"/>
+                  <rect x="42" y="486" width="338" height="154" rx="4" fill="url(#fpGrassPat)" pointer-events="none"/>
+                  <foreignObject x="58" y="518" width="306" height="90">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:4px;text-shadow:0 1px 3px rgba(0,0,0,0.4);">
+                      <span style="font-size:14px;font-weight:700;line-height:1.2;" data-i18n="fp_lbl_front_garden">Giardino / ingresso</span>
+                      <span style="font-size:10.5px;opacity:0.88;margin-top:3px;">Piano 0</span>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                <!-- 7. ALTRO SCANTINATO (Active: -1) -->
+                <g id="mpBlock_othercellar" class="fp-master-block is-dimmed" data-floors="-1" onclick="selectFloorPlanLevel('-1')">
+                  <rect x="382" y="486" width="152" height="154" rx="4" fill="#C98BDB" stroke="#8E4CA3" stroke-width="2.5"/>
+                  <foreignObject x="388" y="518" width="140" height="90">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#23112B;font-family:'Montserrat',sans-serif;padding:4px;">
+                      <span style="font-size:12.5px;font-weight:700;line-height:1.2;" data-i18n="fp_lbl_other_cellar">Altro Scantinato</span>
+                      <span style="font-size:10px;font-weight:600;opacity:0.85;margin-top:3px;">Piano -1</span>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                <!-- 8. GIARDINO SUPERIORE DIETRO LA STALLA (Active: 1) -->
+                <g id="mpBlock_uppergarden" class="fp-master-block is-dimmed" data-floors="1" onclick="selectFloorPlanLevel('1')">
+                  <rect x="538" y="24" width="196" height="460" rx="4" fill="#B3DCF2" stroke="#62A8D1" stroke-width="2.5"/>
+                  <rect x="538" y="24" width="196" height="460" rx="4" fill="url(#fpGrassPat)" pointer-events="none"/>
+                  <foreignObject x="548" y="185" width="176" height="135">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#123047;font-family:'Montserrat',sans-serif;padding:6px;">
+                      <span style="font-size:14px;font-weight:700;line-height:1.22;" data-i18n="fp_lbl_upper_garden">Giardino</span>
+                      <span style="font-size:10.5px;font-weight:600;opacity:0.85;margin-top:4px;" data-i18n="fp_sub_upper_garden">(Dietro la stalla • Piano 1)</span>
+                    </div>
+                  </foreignObject>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Interactive Legend of the 8 Complex Elements -->
+            <div class="fp-legend-grid" aria-label="Legenda edifici">
+              <div class="fp-legend-item" data-legend-floors="-1,0,1,2" onclick="pulseHousePanel()">
+                <span class="fp-swatch" style="background:#C92A2A;"></span>
+                <span data-i18n="fp_leg_house">Casa principale / Cantine</span>
+              </div>
+              <div class="fp-legend-item" data-legend-floors="0,1" onclick="selectFloorPlanLevel(currentFpLevel === '1' ? '1' : '0')">
+                <span class="fp-swatch" style="background:#3C8D40;"></span>
+                <span data-i18n="fp_leg_stable">Stalla (P.0) / Terrazzo (P.1)</span>
+              </div>
+              <div class="fp-legend-item" data-legend-floors="0,1" onclick="selectFloorPlanLevel(currentFpLevel === '1' ? '1' : '0')">
+                <span class="fp-swatch" style="background:#F2CA19;"></span>
+                <span data-i18n="fp_leg_dep">Dépendance / 2° Terrazzo</span>
+              </div>
+              <div class="fp-legend-item" data-legend-floors="0" onclick="selectFloorPlanLevel('0')">
+                <span class="fp-swatch" style="background:#8C949A;"></span>
+                <span data-i18n="fp_lbl_courtyard">Cortile auto</span>
+              </div>
+              <div class="fp-legend-item" data-legend-floors="0" onclick="selectFloorPlanLevel('0')">
+                <span class="fp-swatch" style="background:#1D2428;"></span>
+                <span data-i18n="fp_lbl_garage">Box auto</span>
+              </div>
+              <div class="fp-legend-item" data-legend-floors="0" onclick="selectFloorPlanLevel('0')">
+                <span class="fp-swatch" style="background:#16537E;"></span>
+                <span data-i18n="fp_lbl_front_garden">Giardino / ingresso</span>
+              </div>
+              <div class="fp-legend-item" data-legend-floors="1" onclick="selectFloorPlanLevel('1')">
+                <span class="fp-swatch" style="background:#B3DCF2;"></span>
+                <span data-i18n="fp_leg_up_garden">Giardino (Piano 1)</span>
+              </div>
+              <div class="fp-legend-item" data-legend-floors="-1" onclick="selectFloorPlanLevel('-1')">
+                <span class="fp-swatch" style="background:#C98BDB;"></span>
+                <span data-i18n="fp_lbl_other_cellar">Altro Scantinato</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT PANEL: DISPOSIZIONE INTERNA CASA PRINCIPALE -->
+          <div class="fp-panel fp-panel-right" id="fpRightHousePanel">
+            <div class="fp-panel-head">
+              <div>
+                <h4 data-i18n="fp_right_title">2. Disposizione Interna — Casa Principale</h4>
+                <p data-i18n="fp_right_sub">Suddivisione degli ambienti interni, scale e accessi per il piano selezionato.</p>
+              </div>
+              <span class="fp-panel-tag" id="fpRightFloorTag" data-i18n="fp_tab_0">Piano 0</span>
+            </div>
+
+            <div class="fp-canvas-wrap">
+              <svg id="fpHouseSvg" class="fp-svg" viewBox="0 0 680 480" role="img" aria-label="Pianta interna della Casa Principale">
+                <rect x="0" y="0" width="680" height="480" fill="url(#fpGridPat)" rx="8"/>
+
+                <!-- ================= PIANO -1 (INTERNO CASA PRINCIPALE) ================= -->
+                <g id="fpHouseFloor_m1" style="display:none;">
+                  <!-- Unexcavated west wing footprint reference -->
+                  <rect x="90" y="84" width="72" height="301" rx="3" fill="rgba(24,32,30,0.04)" stroke="rgba(24,32,30,0.22)" stroke-width="1.5" stroke-dasharray="5 4"/>
+                  <!-- Outer structural wall perimeter for Piano -1 -->
+                  <rect x="161" y="81" width="483" height="307" rx="5" fill="#FFFFFF" stroke="#18201E" stroke-width="4"/>
+
+                  <!-- Taverna con tavolo -->
+                  <g class="fp-room-group">
+                    <rect x="164" y="84" width="218" height="301" rx="2" fill="#E36E2B" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="172" y="186" width="202" height="180">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:6px;">
+                        <span style="font-size:14.5px;font-weight:700;line-height:1.25;" data-i18n="fp_rm_taverna">Taverna con tavolo</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Sala caldaia (top-left of Taverna) -->
+                  <g class="fp-room-group">
+                    <rect x="164" y="84" width="112" height="90" rx="2" fill="#175682" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="168" y="88" width="104" height="82">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:12.5px;font-weight:700;line-height:1.2;" data-i18n="fp_rm_boiler">Sala caldaia</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Corridoio centrale a C -->
+                  <g class="fp-room-group">
+                    <path d="M 385,84 L 532,84 L 532,138 L 456,138 L 456,304 L 532,304 L 532,385 L 385,385 Z" fill="#BCE0F5" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="390" y="318" width="138" height="60">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#143246;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13px;font-weight:700;" data-i18n="fp_rm_corridor">Corridoio</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Scala che scende in cantina -->
+                  <g class="fp-room-group">
+                    <rect x="459" y="140" width="73" height="162" rx="2" fill="#E61919" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <!-- Stair treads -->
+                    <line x1="463" y1="158" x2="528" y2="158" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="176" x2="528" y2="176" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="266" x2="528" y2="266" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="284" x2="528" y2="284" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <foreignObject x="461" y="144" width="69" height="112">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:3px;">
+                        <span style="font-size:10.5px;font-weight:700;line-height:1.18;" data-i18n="fp_rm_stairs_down">Scala che scende in cantina</span>
+                      </div>
+                    </foreignObject>
+                    <!-- Upward arrow at bottom of stairs (as in PDF page 7) -->
+                    <path d="M 495,294 L 495,262 M 495,262 L 487,272 M 495,262 L 503,272" stroke="#16537E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 495,294 L 495,262 M 495,262 L 487,272 M 495,262 L 503,272" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+
+                  <!-- Cantina botti -->
+                  <g class="fp-room-group">
+                    <rect x="535" y="84" width="106" height="301" rx="2" fill="#E36E2B" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="539" y="160" width="98" height="150">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:5px;">
+                        <span style="font-size:14px;font-weight:700;line-height:1.25;" data-i18n="fp_rm_barrel_cellar">Cantina botti</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+                </g>
+
+                <!-- ================= PIANO 0 (INTERNO CASA PRINCIPALE) ================= -->
+                <g id="fpHouseFloor_0">
+                  <!-- Porta ingresso secondaria (North / Courtyard side) -->
+                  <foreignObject x="310" y="8" width="290" height="32">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#18201E;font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:700;">
+                      <span data-i18n="fp_rm_sec_door">Porta ingresso secondaria</span>
+                    </div>
+                  </foreignObject>
+                  <path d="M 455,42 L 455,75 M 455,75 L 446,64 M 455,75 L 464,64" stroke="#16537E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+                  <!-- Outer structural wall perimeter for Piano 0 -->
+                  <rect x="87" y="81" width="557" height="307" rx="5" fill="#FFFFFF" stroke="#18201E" stroke-width="4"/>
+
+                  <!-- Letto matrimoniale (top-left) -->
+                  <g class="fp-room-group">
+                    <rect x="90" y="84" width="136" height="150" rx="2" fill="#9A2B98" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="94" y="104" width="128" height="110">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:5px;">
+                        <span style="font-size:13px;font-weight:700;line-height:1.22;" data-i18n="fp_rm_double_bed">Camera matrimoniale</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Bagno (bottom-left) -->
+                  <g class="fp-room-group">
+                    <rect x="90" y="237" width="84" height="148" rx="2" fill="#FAF214" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="92" y="275" width="80" height="72">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#B71C1C;font-family:'Montserrat',sans-serif;padding:3px;">
+                        <span style="font-size:12.5px;font-weight:700;line-height:1.2;" data-i18n="fp_rm_bath">Bagno</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Corridoio ovest (between Bagno and Soggiorno) -->
+                  <g class="fp-room-group">
+                    <rect x="176" y="237" width="50" height="148" rx="2" fill="#2B7A2E" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="177" y="245" width="48" height="132">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:2px;">
+                        <span style="font-size:10px;font-weight:700;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:0.5px;" data-i18n="fp_rm_corridor">Corridoio</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Cucina (top center-left) -->
+                  <g class="fp-room-group">
+                    <rect x="229" y="84" width="153" height="88" rx="2" fill="#175682" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="235" y="96" width="141" height="64">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13.5px;font-weight:700;line-height:1.2;" data-i18n="fp_rm_kitchen">Cucina</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Soggiorno (bottom center-left) -->
+                  <g class="fp-room-group">
+                    <rect x="229" y="175" width="153" height="210" rx="2" fill="#E36E2B" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="235" y="235" width="141" height="90">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:5px;">
+                        <span style="font-size:14px;font-weight:700;line-height:1.22;" data-i18n="fp_rm_living">Soggiorno</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Corridoio centrale a C -->
+                  <g class="fp-room-group">
+                    <path d="M 385,84 L 532,84 L 532,138 L 456,138 L 456,304 L 532,304 L 532,385 L 385,385 Z" fill="#BCE0F5" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="390" y="318" width="138" height="60">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#143246;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13px;font-weight:700;" data-i18n="fp_rm_corridor">Corridoio</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Scala che sale al 1 -->
+                  <g class="fp-room-group">
+                    <rect x="459" y="140" width="73" height="162" rx="2" fill="#E61919" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <line x1="463" y1="158" x2="528" y2="158" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="176" x2="528" y2="176" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="266" x2="528" y2="266" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="284" x2="528" y2="284" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <!-- Downward arrow at top of stairs (as in PDF page 8) -->
+                    <path d="M 495,146 L 495,178 M 495,178 L 487,168 M 495,178 L 503,168" stroke="#16537E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 495,146 L 495,178 M 495,178 L 487,168 M 495,178 L 503,168" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <foreignObject x="461" y="182" width="69" height="114">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:3px;">
+                        <span style="font-size:10.5px;font-weight:700;line-height:1.18;" data-i18n="fp_rm_stairs_up1">Scala che sale al 1</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Sala camino (full-height right) -->
+                  <g class="fp-room-group">
+                    <rect x="535" y="84" width="106" height="301" rx="2" fill="#E36E2B" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="539" y="175" width="98" height="120">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:5px;">
+                        <span style="font-size:14px;font-weight:700;line-height:1.25;" data-i18n="fp_rm_fireplace_room">Sala camino</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Porta ingresso principale (South / Front Garden side) -->
+                  <path d="M 455,432 L 455,394 M 455,394 L 446,405 M 455,394 L 464,405" stroke="#16537E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <foreignObject x="310" y="438" width="290" height="34">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#18201E;font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:700;">
+                      <span data-i18n="fp_rm_main_door">Porta ingresso principale</span>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                <!-- ================= PIANO 1 (INTERNO CASA PRINCIPALE) ================= -->
+                <g id="fpHouseFloor_1" style="display:none;">
+                  <!-- Outer structural wall perimeter for Piano 1 -->
+                  <rect x="87" y="81" width="557" height="307" rx="5" fill="#FFFFFF" stroke="#18201E" stroke-width="4"/>
+
+                  <!-- Balcone Ovest (protruding left of Tinello) -->
+                  <g class="fp-room-group">
+                    <rect x="34" y="264" width="53" height="94" rx="3" fill="#FAF214" stroke="#B89606" stroke-width="2.5"/>
+                    <foreignObject x="35" y="270" width="51" height="82">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#B71C1C;font-family:'Montserrat',sans-serif;padding:2px;">
+                        <span style="font-size:10px;font-weight:700;writing-mode:vertical-rl;transform:rotate(180deg);" data-i18n="fp_rm_balcony">Balcone</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Cucina (top-left) -->
+                  <g class="fp-room-group">
+                    <rect x="90" y="84" width="136" height="150" rx="2" fill="#9A2B98" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="96" y="122" width="124" height="74">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13.5px;font-weight:700;line-height:1.2;" data-i18n="fp_rm_kitchen">Cucina</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Tinello (bottom-left) -->
+                  <g class="fp-room-group">
+                    <rect x="90" y="237" width="136" height="148" rx="2" fill="#FAF214" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="96" y="274" width="124" height="74">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#B71C1C;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13.5px;font-weight:700;line-height:1.2;" data-i18n="fp_rm_dining">Tinello</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Salone (full-height center-left) -->
+                  <g class="fp-room-group">
+                    <rect x="229" y="84" width="153" height="301" rx="2" fill="#2B7A2E" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="236" y="185" width="139" height="100">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:5px;">
+                        <span style="font-size:15px;font-weight:700;line-height:1.22;" data-i18n="fp_rm_grand_salon">Salone</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Corridoio centrale a C -->
+                  <g class="fp-room-group">
+                    <path d="M 385,84 L 532,84 L 532,138 L 456,138 L 456,304 L 532,304 L 532,385 L 385,385 Z" fill="#BCE0F5" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="390" y="318" width="138" height="60">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#143246;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13px;font-weight:700;" data-i18n="fp_rm_corridor">Corridoio</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Scala che sale al 2 -->
+                  <g class="fp-room-group">
+                    <rect x="459" y="140" width="73" height="162" rx="2" fill="#E61919" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <line x1="463" y1="158" x2="528" y2="158" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="176" x2="528" y2="176" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="266" x2="528" y2="266" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <line x1="463" y1="284" x2="528" y2="284" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                    <path d="M 495,146 L 495,178 M 495,178 L 487,168 M 495,178 L 503,168" stroke="#16537E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 495,146 L 495,178 M 495,178 L 487,168 M 495,178 L 503,168" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <foreignObject x="461" y="182" width="69" height="114">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:3px;">
+                        <span style="font-size:10.5px;font-weight:700;line-height:1.18;" data-i18n="fp_rm_stairs_up2">Scala che sale al 2</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Bagno (top-right) -->
+                  <g class="fp-room-group">
+                    <rect x="535" y="84" width="106" height="96" rx="2" fill="#32A2E0" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="540" y="98" width="96" height="68">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13px;font-weight:700;line-height:1.2;" data-i18n="fp_rm_bath">Bagno</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Camera da letto (middle/bottom-right) -->
+                  <g class="fp-room-group">
+                    <rect x="535" y="183" width="106" height="202" rx="2" fill="#E36E2B" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="540" y="232" width="96" height="104">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13.5px;font-weight:700;line-height:1.22;" data-i18n="fp_rm_bedroom">Camera da letto</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Balcone Sud (protruding below Camera da letto) -->
+                  <g class="fp-room-group">
+                    <rect x="535" y="388" width="106" height="52" rx="3" fill="#E36E2B" stroke="#9E4412" stroke-width="2.5"/>
+                    <foreignObject x="539" y="392" width="98" height="44">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:2px;">
+                        <span style="font-size:12px;font-weight:700;" data-i18n="fp_rm_balcony">Balcone</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+                </g>
+
+                <!-- ================= PIANO 2 (INTERNO CASA PRINCIPALE) ================= -->
+                <g id="fpHouseFloor_2" style="display:none;">
+                  <!-- Outer structural wall perimeter for Piano 2 -->
+                  <rect x="87" y="81" width="557" height="307" rx="5" fill="#FFFFFF" stroke="#18201E" stroke-width="4"/>
+
+                  <!-- Letto matrimoniale (top-left) -->
+                  <g class="fp-room-group">
+                    <rect x="90" y="84" width="136" height="150" rx="2" fill="#9A2B98" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="94" y="104" width="128" height="110">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:5px;">
+                        <span style="font-size:13px;font-weight:700;line-height:1.22;" data-i18n="fp_rm_double_bed">Camera matrimoniale</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Bagno (bottom-left) -->
+                  <g class="fp-room-group">
+                    <rect x="90" y="237" width="88" height="148" rx="2" fill="#FAF214" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="93" y="275" width="82" height="72">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#B71C1C;font-family:'Montserrat',sans-serif;padding:3px;">
+                        <span style="font-size:12.5px;font-weight:700;line-height:1.2;" data-i18n="fp_rm_bath">Bagno</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Camera da letto principale (center-left) -->
+                  <g class="fp-room-group">
+                    <rect x="229" y="84" width="153" height="226" rx="2" fill="#2B7A2E" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="235" y="138" width="141" height="118">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:5px;">
+                        <span style="font-size:13.5px;font-weight:700;line-height:1.24;" data-i18n="fp_rm_master_bedroom">Camera da letto principale</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Ripostiglio (inverted L-shape in dark navy) -->
+                  <g class="fp-room-group">
+                    <path d="M 385,84 L 532,84 L 532,138 L 452,138 L 452,310 L 385,310 Z" fill="#08245B" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="387" y="142" width="63" height="162">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:2px;">
+                        <span style="font-size:11px;font-weight:700;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:0.5px;" data-i18n="fp_rm_storage">Ripostiglio</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Vano arrivo scala dal Piano 1 -->
+                  <g class="fp-room-group">
+                    <rect x="455" y="140" width="77" height="170" rx="2" fill="#F8F6F1" stroke="#D0C9B8" stroke-width="1.5"/>
+                    <line x1="460" y1="162" x2="527" y2="162" stroke="rgba(24,32,30,0.12)" stroke-width="1.5"/>
+                    <line x1="460" y1="184" x2="527" y2="184" stroke="rgba(24,32,30,0.12)" stroke-width="1.5"/>
+                    <line x1="460" y1="206" x2="527" y2="206" stroke="rgba(24,32,30,0.12)" stroke-width="1.5"/>
+                    <line x1="460" y1="228" x2="527" y2="228" stroke="rgba(24,32,30,0.12)" stroke-width="1.5"/>
+                    <foreignObject x="457" y="185" width="73" height="80">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#505457;font-family:'Montserrat',sans-serif;padding:3px;">
+                        <span style="font-size:10px;font-weight:600;line-height:1.2;" data-i18n="fp_rm_stairs_arr">Vano Scala</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Corridoio a L (bottom) -->
+                  <g class="fp-room-group">
+                    <path d="M 181,250 L 226,250 L 226,313 L 532,313 L 532,385 L 181,385 Z" fill="#BCE0F5" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="230" y="320" width="280" height="58">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#143246;font-family:'Montserrat',sans-serif;padding:4px;">
+                        <span style="font-size:13px;font-weight:700;" data-i18n="fp_rm_corridor">Corridoio</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+
+                  <!-- Camera da letto (full-height right) -->
+                  <g class="fp-room-group">
+                    <rect x="535" y="84" width="106" height="301" rx="2" fill="#E36E2B" stroke="#FFFFFF" stroke-width="2.5"/>
+                    <foreignObject x="539" y="175" width="98" height="120">
+                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:5px;">
+                        <span style="font-size:14px;font-weight:700;line-height:1.25;" data-i18n="fp_rm_bedroom">Camera da letto</span>
+                      </div>
+                    </foreignObject>
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Room summary pills for the active floor -->
+            <div class="fp-room-pills" id="fpHouseRoomPills"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2872,7 +3782,7 @@
         proj_spa_chip2: "Jacuzzi & Kneipp",
         proj_spa_chip3: "Relaxruimte",
         proj_layout_badge: "Ruimtelijke Indeling",
-        cs_ribbon: "Coming Soon",
+        cs_ribbon: "✦ Interactief",
         proj_layout_title: "Indeling & Splitsingsopties",
         proj_layout_desc: "Maximale vrijheid dankzij dubbele toegangen, meer dan 300 m² op meerdere woonlagen en 1.000 m² buitenruimte.",
         proj_layout_chip1: "1 Villa + Dépendance",
@@ -2886,7 +3796,68 @@
         layout_opt3_sub: "Historische kelder met vaten bestemd voor wijnproeverijen (carnotzet)",
         proj_click_gallery: "Open volledig scherm (Voor/Na) →",
         proj_photos_count: "📸 2 weergaven",
-        proj_plans: "Architectonische plattegronden in voorbereiding",
+        proj_plans: "Bekijk interactieve plattegrond per verdieping ↓",
+
+        fp_eyebrow: "✦ Interactieve Plattegrond & Volumes",
+        fp_title: "Ontdek het Landgoed per Verdieping",
+        fp_subtitle: "Selecteer een woonlaag om tegelijkertijd de gebouwen en buitenruimtes op dat niveau (links) en de kamerindeling van het Hoofdhuis (rechts) te bekijken.",
+        fp_tab_m1: "Verdieping -1",
+        fp_tab_m1_sub: "Kelders & Taverne",
+        fp_tab_0: "Verdieping 0",
+        fp_tab_0_sub: "Begane Grond & Hof",
+        fp_tab_1: "Verdieping 1",
+        fp_tab_1_sub: "1e Etage & Terrassen",
+        fp_tab_2: "Verdieping 2",
+        fp_tab_2_sub: "2e Etage Slaapverdieping",
+        fp_tab_all: "Volledig Complex",
+        fp_btn_all_master: "Toon Volledig Complex (Alle Niveaus)",
+        fp_desc_m1: "Niveau -1 (Souterrain): Gewelfde wijnkelder met historische vaten, grote taverne met eettafel, stookruimte en een tweede aparte kelder.",
+        fp_desc_0: "Niveau 0 (Begane Grond): Hoofdhuis met dubbele entree, grote auto-binnenplaats, overdekte garagebox, gewelfde stal, dépendance en voortuin.",
+        fp_desc_1: "Niveau 1 (Eerste Verdieping): Hoofdhuis met grote salon en 2 balkons, groot panoramaterras boven de stal, tweede terras boven de dépendance en grote achtertuin.",
+        fp_desc_2: "Niveau 2 (Tweede Verdieping): Slaapverdieping in het Hoofdhuis met drie ruime slaapkamers, badkamer, grote berging en gang.",
+        fp_left_title: "1. Overzicht Complex & Buitenruimtes",
+        fp_left_sub: "Actieve volumes op de gekozen woonlaag zijn gekleurd; overige niveaus blijven subtiel zichtbaar.",
+        fp_right_title: "2. Interne Indeling — Hoofdhuis",
+        fp_right_sub: "Indeling van de kamers, trappen en entrees op de geselecteerde verdieping.",
+        fp_lbl_courtyard: "Binnenplaats (Auto's)",
+        fp_lbl_garage: "Garagebox",
+        fp_lbl_stable: "Gewelfde Stal",
+        fp_lbl_main_terrace: "Hoofdterras",
+        fp_sub_stable_terrace: "Niv. 0 Stal • Niv. 1 Terras",
+        fp_lbl_dependance: "Dépendance",
+        fp_lbl_sec_terrace: "Tweede terras",
+        fp_lbl_main_house: "Hoofdhuis",
+        fp_lbl_vaulted_cellars: "Gewelfde kelders",
+        fp_see_right: "Zie kamerindeling rechts →",
+        fp_lbl_front_garden: "Voortuin / Entree",
+        fp_lbl_other_cellar: "Tweede Kelder",
+        fp_lbl_upper_garden: "Grote Tuin",
+        fp_sub_upper_garden: "(Achter de stal • Niveau 1)",
+        fp_leg_house: "Hoofdhuis / Kelders",
+        fp_leg_stable: "Stal (0) / Hoofdterras (1)",
+        fp_leg_dep: "Dépendance (0) / 2e Terras (1)",
+        fp_leg_up_garden: "Grote Tuin (Niveau 1)",
+        fp_rm_taverna: "Taverne met tafel",
+        fp_rm_boiler: "Stookruimte (CV)",
+        fp_rm_corridor: "Gang / Hal",
+        fp_rm_stairs_down: "Trap naar de kelder",
+        fp_rm_barrel_cellar: "Wijnkelder (Vaten)",
+        fp_rm_sec_door: "Tweede entree (vanuit binnenplaats)",
+        fp_rm_main_door: "Hoofdentree (vanuit voortuin)",
+        fp_rm_double_bed: "Tweepersoonskamer",
+        fp_rm_bath: "Badkamer",
+        fp_rm_kitchen: "Keuken",
+        fp_rm_living: "Woonkamer",
+        fp_rm_stairs_up1: "Trap naar verdieping 1",
+        fp_rm_fireplace_room: "Haardkamer",
+        fp_rm_dining: "Eetkamer (Tinello)",
+        fp_rm_balcony: "Balkon",
+        fp_rm_grand_salon: "Grote Salon",
+        fp_rm_stairs_up2: "Trap naar verdieping 2",
+        fp_rm_bedroom: "Slaapkamer",
+        fp_rm_master_bedroom: "Hoofdslaapkamer",
+        fp_rm_storage: "Berging",
+        fp_rm_stairs_arr: "Trappenhuis",
 
         tag_terrace: "Exclusieve Buitenruimte",
         terrace_title: "Het Grote Panoramische Terras",
@@ -3070,7 +4041,7 @@
         proj_spa_chip2: "Hot Tub & Kneipp",
         proj_spa_chip3: "Relaxation Lounge",
         proj_layout_badge: "Space Flexibility",
-        cs_ribbon: "Coming Soon",
+        cs_ribbon: "✦ Interactive",
         proj_layout_title: "Space Layout & Subdivision",
         proj_layout_desc: "Complete design freedom thanks to dual entrances, over 300 sqm across multiple levels, and 1,000 sqm of grounds.",
         proj_layout_chip1: "1 Manor + Dépendance",
@@ -3084,7 +4055,68 @@
         layout_opt3_sub: "Vaulted cellar with vintage barrels dedicated to wine tasting & carnotzet",
         proj_click_gallery: "Open fullscreen comparison →",
         proj_photos_count: "📸 2 views",
-        proj_plans: "Architectural floor plans in preparation",
+        proj_plans: "Explore interactive floor plan by level ↓",
+
+        fp_eyebrow: "✦ Interactive Floor Plan & Volumes",
+        fp_title: "Explore the Estate Level by Level",
+        fp_subtitle: "Select a floor to simultaneously view the active buildings and outdoor spaces at that level (on the left) and the room-by-room layout of the Main House (on the right).",
+        fp_tab_m1: "Level -1",
+        fp_tab_m1_sub: "Cellars & Tavern",
+        fp_tab_0: "Level 0",
+        fp_tab_0_sub: "Ground Floor & Court",
+        fp_tab_1: "Level 1",
+        fp_tab_1_sub: "1st Floor & Terraces",
+        fp_tab_2: "Level 2",
+        fp_tab_2_sub: "2nd Floor Bedrooms",
+        fp_tab_all: "Full Estate",
+        fp_btn_all_master: "Show Full Estate (All Levels)",
+        fp_desc_m1: "Level -1 (Basement): Historic vaulted barrel cellar, spacious tavern with dining table, boiler room, plus a second separate cellar.",
+        fp_desc_0: "Level 0 (Ground Floor): Main house with dual entrance, spacious car courtyard, covered garage box, vaulted stable, dépendance, and front garden.",
+        fp_desc_1: "Level 1 (First Floor): Main house with grand salon and 2 balconies, main panoramic terrace above the stable, second terrace above the dépendance, and large upper garden.",
+        fp_desc_2: "Level 2 (Second Floor): Sleeping quarters in the Main House featuring three spacious bedrooms, bathroom, large walk-in storage, and hallway.",
+        fp_left_title: "1. Estate Masterplan & Outdoor Spaces",
+        fp_left_sub: "Active volumes on the selected floor are highlighted in color; other levels remain subtly visible in outline.",
+        fp_right_title: "2. Internal Layout — Main House",
+        fp_right_sub: "Room-by-room distribution, staircases, and entrances for the selected level.",
+        fp_lbl_courtyard: "Car Courtyard",
+        fp_lbl_garage: "Garage Box",
+        fp_lbl_stable: "Vaulted Stable",
+        fp_lbl_main_terrace: "Main Terrace",
+        fp_sub_stable_terrace: "Lv.0 Stable • Lv.1 Terrace",
+        fp_lbl_dependance: "Dépendance",
+        fp_lbl_sec_terrace: "Second Terrace",
+        fp_lbl_main_house: "Main House",
+        fp_lbl_vaulted_cellars: "Vaulted Cellars",
+        fp_see_right: "See internal floor plan on right →",
+        fp_lbl_front_garden: "Front Garden / Entrance",
+        fp_lbl_other_cellar: "Second Cellar",
+        fp_lbl_upper_garden: "Upper Garden",
+        fp_sub_upper_garden: "(Behind the stable • Level 1)",
+        fp_leg_house: "Main House / Cellars",
+        fp_leg_stable: "Stable (0) / Main Terrace (1)",
+        fp_leg_dep: "Dépendance (0) / 2nd Terrace (1)",
+        fp_leg_up_garden: "Upper Garden (Level 1)",
+        fp_rm_taverna: "Tavern with table",
+        fp_rm_boiler: "Boiler Room",
+        fp_rm_corridor: "Hallway",
+        fp_rm_stairs_down: "Stairs down to cellar",
+        fp_rm_barrel_cellar: "Barrel Wine Cellar",
+        fp_rm_sec_door: "Secondary Entrance (from courtyard)",
+        fp_rm_main_door: "Main Entrance (from front garden)",
+        fp_rm_double_bed: "Double Bedroom",
+        fp_rm_bath: "Bathroom",
+        fp_rm_kitchen: "Kitchen",
+        fp_rm_living: "Living Room",
+        fp_rm_stairs_up1: "Stairs up to Level 1",
+        fp_rm_fireplace_room: "Fireplace Room",
+        fp_rm_dining: "Dining Room (Tinello)",
+        fp_rm_balcony: "Balcony",
+        fp_rm_grand_salon: "Grand Salon",
+        fp_rm_stairs_up2: "Stairs up to Level 2",
+        fp_rm_bedroom: "Bedroom",
+        fp_rm_master_bedroom: "Master Bedroom",
+        fp_rm_storage: "Storage Room",
+        fp_rm_stairs_arr: "Stairwell",
 
         tag_terrace: "Outdoor Living",
         terrace_title: "The Expansive Panoramic Terrace",
@@ -3268,7 +4300,7 @@
         proj_spa_chip2: "Idromassaggio & Kneipp",
         proj_spa_chip3: "Area Relax",
         proj_layout_badge: "Flessibilità Spazi",
-        cs_ribbon: "Coming Soon",
+        cs_ribbon: "✦ Interattivo",
         proj_layout_title: "Sviluppo & Divisione Spazi",
         proj_layout_desc: "Massima libertà progettuale grazie a doppi accessi, oltre 300 m² su più livelli e 1.000 m² di corte e giardini.",
         proj_layout_chip1: "1 Villa + Dépendance",
@@ -3282,7 +4314,68 @@
         layout_opt3_sub: "Volte con botti d'epoca dedicate a vini e carnotzet conviviale",
         proj_click_gallery: "Apri confronto a tutto schermo →",
         proj_photos_count: "📸 2 viste",
-        proj_plans: "Planimetrie architettoniche in elaborazione",
+        proj_plans: "Esplora la planimetria interattiva per livello ↓",
+
+        fp_eyebrow: "✦ Planimetria Interattiva & Volumi",
+        fp_title: "Esplora la Proprietà Livello per Livello",
+        fp_subtitle: "Seleziona un piano per visualizzare in contemporanea gli edifici e gli spazi esterni attivi a quel livello (a sinistra) e la disposizione interna stanza per stanza della Casa Principale (a destra).",
+        fp_tab_m1: "Piano -1",
+        fp_tab_m1_sub: "Cantine & Taverna",
+        fp_tab_0: "Piano 0",
+        fp_tab_0_sub: "Piano Terra & Corte",
+        fp_tab_1: "Piano 1",
+        fp_tab_1_sub: "1° Piano & Terrazzi",
+        fp_tab_2: "Piano 2",
+        fp_tab_2_sub: "2° Piano Notte",
+        fp_tab_all: "Complesso Totale",
+        fp_btn_all_master: "Mostra Complesso Totale (Tutti i Livelli)",
+        fp_desc_m1: "Piano -1 (Seminterrato): Cantine a volta con botti storiche, grande taverna con tavolo, sala caldaia e un secondo scantinato indipendente.",
+        fp_desc_0: "Piano 0 (Piano Terra): Casa principale con doppio ingresso, grande cortile auto, box auto coperto, antica stalla voltata, dépendance e giardino d'ingresso.",
+        fp_desc_1: "Piano 1 (Primo Piano): Casa principale con grande salone e 2 balconi, terrazzo principale sopra la stalla, secondo terrazzo sopra la dépendance e grande giardino dietro la stalla.",
+        fp_desc_2: "Piano 2 (Secondo Piano): Zona notte nella Casa Principale con tre ampie camere da letto, bagno, grande ripostiglio e corridoio.",
+        fp_left_title: "1. Complesso Generale & Spazi Esterni",
+        fp_left_sub: "I volumi attivi al piano selezionato sono evidenziati a colori; gli altri livelli restano visibili in filigrana.",
+        fp_right_title: "2. Disposizione Interna — Casa Principale",
+        fp_right_sub: "Suddivisione degli ambienti interni, scale e accessi per il piano selezionato.",
+        fp_lbl_courtyard: "Cortile auto",
+        fp_lbl_garage: "Box auto",
+        fp_lbl_stable: "Stalla",
+        fp_lbl_main_terrace: "Terrazzo principale",
+        fp_sub_stable_terrace: "P.0 Stalla • P.1 Terrazzo",
+        fp_lbl_dependance: "Dépendance",
+        fp_lbl_sec_terrace: "Secondo terrazzo",
+        fp_lbl_main_house: "Casa principale",
+        fp_lbl_vaulted_cellars: "Cantine a volta",
+        fp_see_right: "Vedi pianta interna a destra →",
+        fp_lbl_front_garden: "Giardino / ingresso",
+        fp_lbl_other_cellar: "Altro Scantinato",
+        fp_lbl_upper_garden: "Giardino",
+        fp_sub_upper_garden: "(Dietro la stalla • Piano 1)",
+        fp_leg_house: "Casa principale / Cantine",
+        fp_leg_stable: "Stalla (P.0) / Terrazzo (P.1)",
+        fp_leg_dep: "Dépendance / 2° Terrazzo",
+        fp_leg_up_garden: "Giardino (Piano 1)",
+        fp_rm_taverna: "Taverna con tavolo",
+        fp_rm_boiler: "Sala caldaia",
+        fp_rm_corridor: "Corridoio",
+        fp_rm_stairs_down: "Scala che scende in cantina",
+        fp_rm_barrel_cellar: "Cantina botti",
+        fp_rm_sec_door: "Porta ingresso secondaria (dal cortile)",
+        fp_rm_main_door: "Porta ingresso principale (dal giardino)",
+        fp_rm_double_bed: "Letto matrimoniale",
+        fp_rm_bath: "Bagno",
+        fp_rm_kitchen: "Cucina",
+        fp_rm_living: "Soggiorno",
+        fp_rm_stairs_up1: "Scala che sale al 1",
+        fp_rm_fireplace_room: "Sala camino",
+        fp_rm_dining: "Tinello",
+        fp_rm_balcony: "Balcone",
+        fp_rm_grand_salon: "Salone",
+        fp_rm_stairs_up2: "Scala che sale al 2",
+        fp_rm_bedroom: "Camera da letto",
+        fp_rm_master_bedroom: "Camera da letto principale",
+        fp_rm_storage: "Ripostiglio",
+        fp_rm_stairs_arr: "Vano Scala",
 
         tag_terrace: "Spazi Aperti",
         terrace_title: "Il Grande Terrazzo Panoramico",
@@ -3466,7 +4559,7 @@
         proj_spa_chip2: "Jacuzzi & Kneipp",
         proj_spa_chip3: "Espace Détente",
         proj_layout_badge: "Flexibilité des Espaces",
-        cs_ribbon: "Coming Soon",
+        cs_ribbon: "✦ Interactif",
         proj_layout_title: "Aménagement & Division",
         proj_layout_desc: "Liberté de conception maximale grâce aux doubles accès, plus de 300 m² sur plusieurs niveaux et 1 000 m² d'extérieurs.",
         proj_layout_chip1: "1 Villa + Dépendance",
@@ -3480,7 +4573,68 @@
         layout_opt3_sub: "Voûtes avec foudres d'époque dédiées au vin et carnotzet convivial",
         proj_click_gallery: "Ouvrir le comparatif plein écran →",
         proj_photos_count: "📸 2 vues",
-        proj_plans: "Plans architecturaux en cours d'élaboration",
+        proj_plans: "Explorer le plan interactif par niveau ↓",
+
+        fp_eyebrow: "✦ Plan Interactif & Volumes",
+        fp_title: "Explorez la Propriété Niveau par Niveau",
+        fp_subtitle: "Sélectionnez un étage pour visualiser simultanément les bâtiments et espaces extérieurs actifs à ce niveau (à gauche) et la disposition intérieure pièce par pièce de la Maison Principale (à droite).",
+        fp_tab_m1: "Niveau -1",
+        fp_tab_m1_sub: "Caves & Taverne",
+        fp_tab_0: "Niveau 0",
+        fp_tab_0_sub: "Rez-de-chaussée & Cour",
+        fp_tab_1: "Niveau 1",
+        fp_tab_1_sub: "1er Étage & Terrasses",
+        fp_tab_2: "Niveau 2",
+        fp_tab_2_sub: "2e Étage Nuit",
+        fp_tab_all: "Ensemble Complet",
+        fp_btn_all_master: "Afficher l'Ensemble Complet (Tous Niveaux)",
+        fp_desc_m1: "Niveau -1 (Sous-sol) : Caves voûtées avec foudres historiques, grande taverne avec table, chaufferie et une seconde cave indépendante.",
+        fp_desc_0: "Niveau 0 (Rez-de-chaussée) : Maison principale avec double entrée, grande cour voitures, box garage couvert, ancienne écurie voûtée, dépendance et jardin d'entrée.",
+        fp_desc_1: "Niveau 1 (Premier Étage) : Maison principale avec grand salon et 2 balcons, terrasse principale sur l'écurie, seconde terrasse sur la dépendance et grand jardin supérieur.",
+        fp_desc_2: "Niveau 2 (Deuxième Étage) : Espace nuit de la Maison Principale comprenant trois grandes chambres, salle de bain, grand débarras et couloir.",
+        fp_left_title: "1. Plan Général & Espaces Extérieurs",
+        fp_left_sub: "Les volumes actifs à l'étage choisi sont colorés ; les autres niveaux restent visibles en filigrane.",
+        fp_right_title: "2. Disposition Intérieure — Maison Principale",
+        fp_right_sub: "Répartition des pièces, escaliers et accès pour le niveau sélectionné.",
+        fp_lbl_courtyard: "Cour voitures",
+        fp_lbl_garage: "Box garage",
+        fp_lbl_stable: "Écurie voûtée",
+        fp_lbl_main_terrace: "Terrasse principale",
+        fp_sub_stable_terrace: "Niv.0 Écurie • Niv.1 Terrasse",
+        fp_lbl_dependance: "Dépendance",
+        fp_lbl_sec_terrace: "Seconde terrasse",
+        fp_lbl_main_house: "Maison principale",
+        fp_lbl_vaulted_cellars: "Caves voûtées",
+        fp_see_right: "Voir plan intérieur à droite →",
+        fp_lbl_front_garden: "Jardin / Entrée",
+        fp_lbl_other_cellar: "Autre Cave",
+        fp_lbl_upper_garden: "Grand Jardin",
+        fp_sub_upper_garden: "(Derrière l'écurie • Niveau 1)",
+        fp_leg_house: "Maison principale / Caves",
+        fp_leg_stable: "Écurie (0) / Terrasse (1)",
+        fp_leg_dep: "Dépendance / 2e Terrasse",
+        fp_leg_up_garden: "Grand Jardin (Niveau 1)",
+        fp_rm_taverna: "Taverne avec table",
+        fp_rm_boiler: "Chaufferie",
+        fp_rm_corridor: "Couloir",
+        fp_rm_stairs_down: "Escalier vers la cave",
+        fp_rm_barrel_cellar: "Cave à foudres",
+        fp_rm_sec_door: "Entrée secondaire (depuis la cour)",
+        fp_rm_main_door: "Entrée principale (depuis le jardin)",
+        fp_rm_double_bed: "Chambre double",
+        fp_rm_bath: "Salle de bain",
+        fp_rm_kitchen: "Cuisine",
+        fp_rm_living: "Séjour",
+        fp_rm_stairs_up1: "Escalier vers le 1er",
+        fp_rm_fireplace_room: "Salle cheminée",
+        fp_rm_dining: "Salle à manger",
+        fp_rm_balcony: "Balcon",
+        fp_rm_grand_salon: "Grand Salon",
+        fp_rm_stairs_up2: "Escalier vers le 2e",
+        fp_rm_bedroom: "Chambre",
+        fp_rm_master_bedroom: "Chambre principale",
+        fp_rm_storage: "Débarras",
+        fp_rm_stairs_arr: "Cage d'escalier",
 
         tag_terrace: "Espaces Extérieurs",
         terrace_title: "La Vaste Terrasse Panoramique",
@@ -3664,7 +4818,7 @@
         proj_spa_chip2: "Whirlpool & Kneipp",
         proj_spa_chip3: "Ruhezone",
         proj_layout_badge: "Raumflexibilität",
-        cs_ribbon: "Coming Soon",
+        cs_ribbon: "✦ Interaktiv",
         proj_layout_title: "Raumkonzept & Aufteilung",
         proj_layout_desc: "Maximale Planungsfreiheit dank separater Zugänge, über 300 m² auf mehreren Ebenen und 1.000 m² Außenfläche.",
         proj_layout_chip1: "1 Villa + Dépendance",
@@ -3678,7 +4832,68 @@
         layout_opt3_sub: "Gewölbekeller mit Originalfässern für Weinverkostung & Carnotzet",
         proj_click_gallery: "Vollbild-Vergleich öffnen →",
         proj_photos_count: "📸 2 Ansichten",
-        proj_plans: "Architektonische Grundrisse in Vorbereitung",
+        proj_plans: "Interaktiven Grundriss nach Etagen erkunden ↓",
+
+        fp_eyebrow: "✦ Interaktiver Grundriss & Baukörper",
+        fp_title: "Entdecken Sie das Anwesen Ebene für Ebene",
+        fp_subtitle: "Wählen Sie eine Etage, um gleichzeitig die aktiven Gebäude und Außenbereiche dieser Ebene (links) sowie die Raumaufteilung des Haupthauses (rechts) anzuzeigen.",
+        fp_tab_m1: "Ebene -1",
+        fp_tab_m1_sub: "Keller & Taverne",
+        fp_tab_0: "Ebene 0",
+        fp_tab_0_sub: "Erdgeschoss & Hof",
+        fp_tab_1: "Ebene 1",
+        fp_tab_1_sub: "1. OG & Terrassen",
+        fp_tab_2: "Ebene 2",
+        fp_tab_2_sub: "2. OG Schlafbereich",
+        fp_tab_all: "Gesamtanlage",
+        fp_btn_all_master: "Gesamtanlage anzeigen (Alle Ebenen)",
+        fp_desc_m1: "Ebene -1 (Untergeschoss): Historischer Gewölbekeller mit Holzfässern, große Taverne mit Tisch, Heizraum sowie ein zweiter separater Keller.",
+        fp_desc_0: "Ebene 0 (Erdgeschoss): Haupthaus mit zwei Eingängen, großer Pkw-Innenhof, überdachte Garage, gewölbter Stall, Dépendance und Vorgarten.",
+        fp_desc_1: "Ebene 1 (1. Obergeschoss): Haupthaus mit großem Salon und 2 Balkonen, Hauptterrasse über dem Stall, zweite Terrasse über der Dépendance und großer Garten hinter dem Stall.",
+        fp_desc_2: "Ebene 2 (2. Obergeschoss): Schlafetage im Haupthaus mit drei geräumigen Schlafzimmern, Badezimmer, großem Abstellraum und Flur.",
+        fp_left_title: "1. Lageplan Gesamtanlage & Außenbereiche",
+        fp_left_sub: "Aktive Bereiche der gewählten Ebene sind farbig hervorgehoben; andere Ebenen bleiben dezent sichtbar.",
+        fp_right_title: "2. Raumaufteilung — Haupthaus",
+        fp_right_sub: "Aufteilung der Innenräume, Treppen und Zugänge auf der gewählten Ebene.",
+        fp_lbl_courtyard: "Pkw-Innenhof",
+        fp_lbl_garage: "Garage (Box)",
+        fp_lbl_stable: "Gewölbter Stall",
+        fp_lbl_main_terrace: "Hauptterrasse",
+        fp_sub_stable_terrace: "Eb.0 Stall • Eb.1 Terrasse",
+        fp_lbl_dependance: "Dépendance",
+        fp_lbl_sec_terrace: "Zweite Terrasse",
+        fp_lbl_main_house: "Haupthaus",
+        fp_lbl_vaulted_cellars: "Gewölbekeller",
+        fp_see_right: "Siehe Innengrundriss rechts →",
+        fp_lbl_front_garden: "Vorgarten / Eingang",
+        fp_lbl_other_cellar: "Zweiter Keller",
+        fp_lbl_upper_garden: "Großer Garten",
+        fp_sub_upper_garden: "(Hinter dem Stall • Ebene 1)",
+        fp_leg_house: "Haupthaus / Keller",
+        fp_leg_stable: "Stall (0) / Hauptterrasse (1)",
+        fp_leg_dep: "Dépendance / 2. Terrasse",
+        fp_leg_up_garden: "Garten (Ebene 1)",
+        fp_rm_taverna: "Taverne mit Tisch",
+        fp_rm_boiler: "Heizraum",
+        fp_rm_corridor: "Flur",
+        fp_rm_stairs_down: "Treppe in den Keller",
+        fp_rm_barrel_cellar: "Fass-Weinkeller",
+        fp_rm_sec_door: "Nebeneingang (vom Innenhof)",
+        fp_rm_main_door: "Haupteingang (vom Vorgarten)",
+        fp_rm_double_bed: "Doppelzimmer",
+        fp_rm_bath: "Badezimmer",
+        fp_rm_kitchen: "Küche",
+        fp_rm_living: "Wohnzimmer",
+        fp_rm_stairs_up1: "Treppe zum 1. OG",
+        fp_rm_fireplace_room: "Kaminzimmer",
+        fp_rm_dining: "Esszimmer (Tinello)",
+        fp_rm_balcony: "Balkon",
+        fp_rm_grand_salon: "Großer Salon",
+        fp_rm_stairs_up2: "Treppe zum 2. OG",
+        fp_rm_bedroom: "Schlafzimmer",
+        fp_rm_master_bedroom: "Hauptschlafzimmer",
+        fp_rm_storage: "Abstellraum",
+        fp_rm_stairs_arr: "Treppenhaus",
 
         tag_terrace: "Freiraum & Sonne",
         terrace_title: "Die Großzügige Panoramaterrasse",
@@ -3747,6 +4962,175 @@
     };
 
     let currentLang = 'nl';
+    let currentFpLevel = '0';
+    let showAllMasterplan = false;
+
+    function updateFloorPlanUI() {
+      const dict = i18n[currentLang] || i18n.nl;
+      const lvlKeyMap = { '-1': 'm1', '0': '0', '1': '1', '2': '2' };
+      const suffix = lvlKeyMap[currentFpLevel] || '0';
+
+      // Update level buttons
+      ['-1', '0', '1', '2'].forEach(lvl => {
+        const sfx = lvlKeyMap[lvl];
+        const btn = document.getElementById('fpBtn_' + sfx);
+        if (btn) {
+          const isAct = (lvl === currentFpLevel);
+          btn.classList.toggle('active', isAct);
+          btn.setAttribute('aria-selected', isAct ? 'true' : 'false');
+        }
+      });
+
+      // Update summary badge & description
+      const badgeEl = document.getElementById('fpActiveBadge');
+      const descEl = document.getElementById('fpActiveDesc');
+      const leftTag = document.getElementById('fpLeftFloorTag');
+      const rightTag = document.getElementById('fpRightFloorTag');
+      const lvlTitle = dict['fp_tab_' + suffix] || ('Piano ' + currentFpLevel);
+
+      if (badgeEl) {
+        badgeEl.setAttribute('data-i18n', 'fp_tab_' + suffix);
+        badgeEl.textContent = lvlTitle;
+      }
+      if (descEl) {
+        descEl.setAttribute('data-i18n', 'fp_desc_' + suffix);
+        descEl.textContent = dict['fp_desc_' + suffix] || '';
+      }
+      if (leftTag) {
+        leftTag.textContent = showAllMasterplan ? (dict.fp_tab_all || 'Totale') : lvlTitle;
+      }
+      if (rightTag) {
+        rightTag.textContent = lvlTitle;
+      }
+
+      // Update dynamic labels on Masterplan blocks (Stalla vs Terrazzo principale, Dépendance vs Secondo terrazzo, Casa principale vs Cantine a volta)
+      const stableLbl = document.getElementById('mpStableLabel');
+      if (stableLbl) {
+        const stKey = (currentFpLevel === '1') ? 'fp_lbl_main_terrace' : 'fp_lbl_stable';
+        stableLbl.setAttribute('data-i18n', stKey);
+        stableLbl.textContent = dict[stKey] || '';
+      }
+      const depLbl = document.getElementById('mpDepLabel');
+      if (depLbl) {
+        const depKey = (currentFpLevel === '1') ? 'fp_lbl_sec_terrace' : 'fp_lbl_dependance';
+        depLbl.setAttribute('data-i18n', depKey);
+        depLbl.textContent = dict[depKey] || '';
+      }
+      const houseLbl = document.getElementById('mpHouseLabel');
+      if (houseLbl) {
+        const hsKey = (currentFpLevel === '-1') ? 'fp_lbl_vaulted_cellars' : 'fp_lbl_main_house';
+        houseLbl.setAttribute('data-i18n', hsKey);
+        houseLbl.textContent = dict[hsKey] || '';
+      }
+      const houseFloorPill = document.getElementById('mpHouseFloorPill');
+      if (houseFloorPill) {
+        houseFloorPill.textContent = lvlTitle;
+      }
+
+      // Highlight or dim Masterplan blocks
+      document.querySelectorAll('#fpMasterSvg .fp-master-block').forEach(block => {
+        const floors = (block.getAttribute('data-floors') || '').split(',');
+        const activeOnFloor = showAllMasterplan || floors.includes(currentFpLevel);
+        block.classList.toggle('is-active', activeOnFloor);
+        block.classList.toggle('is-dimmed', !activeOnFloor);
+      });
+
+      // Highlight or dim Legend items
+      document.querySelectorAll('.fp-legend-item[data-legend-floors]').forEach(item => {
+        const floors = (item.getAttribute('data-legend-floors') || '').split(',');
+        const activeOnFloor = showAllMasterplan || floors.includes(currentFpLevel);
+        item.classList.toggle('is-inactive-floor', !activeOnFloor);
+      });
+
+      // Toggle internal house floor group
+      ['m1', '0', '1', '2'].forEach(sfx => {
+        const grp = document.getElementById('fpHouseFloor_' + sfx);
+        if (grp) {
+          grp.style.display = (sfx === suffix) ? 'block' : 'none';
+        }
+      });
+
+      // Render room summary pills below the right panel
+      const pillsWrap = document.getElementById('fpHouseRoomPills');
+      if (pillsWrap) {
+        const roomsByFloor = {
+          '-1': [
+            { color: '#E36E2B', key: 'fp_rm_barrel_cellar' },
+            { color: '#E36E2B', key: 'fp_rm_taverna' },
+            { color: '#175682', key: 'fp_rm_boiler' },
+            { color: '#BCE0F5', key: 'fp_rm_corridor' },
+            { color: '#E61919', key: 'fp_rm_stairs_down' }
+          ],
+          '0': [
+            { color: '#E36E2B', key: 'fp_rm_fireplace_room' },
+            { color: '#E36E2B', key: 'fp_rm_living' },
+            { color: '#175682', key: 'fp_rm_kitchen' },
+            { color: '#9A2B98', key: 'fp_rm_double_bed' },
+            { color: '#FAF214', key: 'fp_rm_bath' },
+            { color: '#BCE0F5', key: 'fp_rm_corridor' },
+            { color: '#E61919', key: 'fp_rm_stairs_up1' }
+          ],
+          '1': [
+            { color: '#2B7A2E', key: 'fp_rm_grand_salon' },
+            { color: '#9A2B98', key: 'fp_rm_kitchen' },
+            { color: '#FAF214', key: 'fp_rm_dining' },
+            { color: '#E36E2B', key: 'fp_rm_bedroom' },
+            { color: '#32A2E0', key: 'fp_rm_bath' },
+            { color: '#FAF214', key: 'fp_rm_balcony' },
+            { color: '#E61919', key: 'fp_rm_stairs_up2' }
+          ],
+          '2': [
+            { color: '#2B7A2E', key: 'fp_rm_master_bedroom' },
+            { color: '#E36E2B', key: 'fp_rm_bedroom' },
+            { color: '#9A2B98', key: 'fp_rm_double_bed' },
+            { color: '#FAF214', key: 'fp_rm_bath' },
+            { color: '#08245B', key: 'fp_rm_storage' },
+            { color: '#BCE0F5', key: 'fp_rm_corridor' }
+          ]
+        };
+        const list = roomsByFloor[currentFpLevel] || [];
+        pillsWrap.innerHTML = list.map(r => `
+          <span class="fp-room-pill">
+            <span class="fp-room-pill-dot" style="background:${r.color};border:1px solid rgba(0,0,0,0.2);"></span>
+            <span>${dict[r.key] || ''}</span>
+          </span>
+        `).join('');
+      }
+    }
+
+    function selectFloorPlanLevel(lvl) {
+      currentFpLevel = String(lvl);
+      showAllMasterplan = false;
+      const allBtn = document.getElementById('fpAllMasterBtn');
+      if (allBtn) {
+        allBtn.classList.remove('active');
+        allBtn.setAttribute('aria-pressed', 'false');
+      }
+      updateFloorPlanUI();
+    }
+
+    function toggleAllMasterplan() {
+      showAllMasterplan = !showAllMasterplan;
+      const allBtn = document.getElementById('fpAllMasterBtn');
+      if (allBtn) {
+        allBtn.classList.toggle('active', showAllMasterplan);
+        allBtn.setAttribute('aria-pressed', showAllMasterplan ? 'true' : 'false');
+      }
+      updateFloorPlanUI();
+    }
+
+    function pulseHousePanel() {
+      const panel = document.getElementById('fpRightHousePanel');
+      if (!panel) return;
+      if (window.innerWidth <= 980) {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      panel.style.transition = 'box-shadow 0.3s ease, background-color 0.3s ease';
+      panel.style.backgroundColor = '#FAF6EE';
+      setTimeout(() => {
+        panel.style.backgroundColor = '';
+      }, 650);
+    }
 
     function setLanguage(lang) {
       if (!i18n[lang]) return;
@@ -3818,6 +5202,7 @@
       if (canonicalEl && urlParams.get('lang') === lang) {
         canonicalEl.setAttribute('href', `https://www.montjovet-residence.nl/?lang=${lang}`);
       }
+      updateFloorPlanUI();
     }
 
     // Mobile nav
