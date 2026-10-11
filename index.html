@@ -13,25 +13,37 @@
   <!-- SEO PRIMARIO & INDICIZZAZIONE -->
   <title>Maison Montjovet | Karakteristiek Landhuis te Koop in Valle d'Aosta</title>
   <meta name="description" content="Exclusief te koop: authentiek 19e-eeuws herenhuis in Montjovet, Valle d'Aosta. Meer dan 300 m² woonoppervlakte en 1.000 m² privétuin. Geschikt als grandioze familievilla met dépendance/conciërgewoning of op te splitsen in twee of meer zelfstandige appartementen.">
-  <meta name="keywords" content="huis kopen Valle d'Aosta, rustiek huis Italië te koop, historisch pand Alpen, landhuis Aostadal, villa Montjovet, appartementen Aostadal, skihuis Cervinia">
+  <meta name="keywords" content="huis kopen Valle d'Aosta, tweede huis Italië Alpen, rustiek huis Italië te koop, historisch pand Alpen, landhuis Aostadal, villa Montjovet, skihuis Cervinia">
   <meta name="author" content="Maison Montjovet">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.tuodominio.nl/">
+  <link rel="canonical" href="https://www.montjovet-residence.nl/">
 
   <!-- HREFLANG MULTILINGUA -->
-  <link rel="alternate" hreflang="nl" href="https://www.tuodominio.nl/#nl">
-  <link rel="alternate" hreflang="en" href="https://www.tuodominio.nl/#en">
-  <link rel="alternate" hreflang="it" href="https://www.tuodominio.nl/#it">
-  <link rel="alternate" hreflang="fr" href="https://www.tuodominio.nl/#fr">
-  <link rel="alternate" hreflang="de" href="https://www.tuodominio.nl/#de">
-  <link rel="alternate" hreflang="x-default" href="https://www.tuodominio.nl/">
+  <link rel="alternate" hreflang="nl" href="https://www.montjovet-residence.nl/?lang=nl">
+  <link rel="alternate" hreflang="en" href="https://www.montjovet-residence.nl/?lang=en">
+  <link rel="alternate" hreflang="it" href="https://www.montjovet-residence.nl/?lang=it">
+  <link rel="alternate" hreflang="fr" href="https://www.montjovet-residence.nl/?lang=fr">
+  <link rel="alternate" hreflang="de" href="https://www.montjovet-residence.nl/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://www.montjovet-residence.nl/">
 
   <!-- OPEN GRAPH (Social, WhatsApp & iMessage preview) -->
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.montjovet-residence.nl/">
+  <meta property="og:site_name" content="Maison Montjovet">
   <meta property="og:title" content="Maison Montjovet | Historisch Alpenpand in Valle d'Aosta (>300m² & 1.000m² Tuin)">
   <meta property="og:description" content="Karakteristieke residentie uit eind 19e eeuw. Grandioze villa met dépendance of 2 of meer ruime appartementen met historische wijnkelder, gewelfde stal voor privé-spa, panoramaterras en 1.000 m² tuin.">
-  <meta property="og:image" content="images/facade-main.jpg">
+  <meta property="og:image" content="https://www.montjovet-residence.nl/images/facade-main.jpg">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maison Montjovet | Karakteristiek Landhuis te Koop in Valle d'Aosta">
+  <meta name="twitter:description" content="19e-eeuws herenhuis (>300 m²) met 1.000 m² privétuin, panoramaterras, historische wijnkelder en gewelfde stal voor privé-spa in het hart van de Aostavallei.">
+  <meta name="twitter:image" content="https://www.montjovet-residence.nl/images/facade-main.jpg">
 
   <!-- SCHEMA.ORG DATI STRUTTURATI IMMOBILIARI (Google Rich Snippets) -->
   <script type="application/ld+json">
@@ -39,6 +51,8 @@
     "@context": "https://schema.org",
     "@type": "SingleFamilyResidence",
     "name": "Maison Montjovet - Historisch Landhuis",
+    "url": "https://www.montjovet-residence.nl/",
+    "image": "https://www.montjovet-residence.nl/images/facade-main.jpg",
     "description": "Karakteristiek 19e-eeuws herenhuis met meer dan 300 m² woonoppervlakte en 1.000 m² privétuin. Mogelijkheid tot één grandioze residentie met dépendance/conciërgewoning of splitsing in twee of meer zelfstandige appartementen.",
     "floorSize": {
       "@type": "QuantitativeValue",
@@ -49,6 +63,7 @@
       "@type": "PostalAddress",
       "addressLocality": "Montjovet",
       "addressRegion": "Valle d'Aosta",
+      "postalCode": "11020",
       "addressCountry": "IT"
     },
     "geo": {
@@ -75,12 +90,13 @@
   <style>
     :root {
       --primary: #18201E;
-      --accent: #B08D57;
-      --accent-hover: #967442;
+      --accent: #9E7B46;
+      --accent-gold: #B08D57;
+      --accent-hover: #826232;
       --bg-cream: #FAF9F6;
       --bg-light: #F3F1EC;
-      --text: #2B2D2F;
-      --text-muted: #646769;
+      --text: #222527;
+      --text-muted: #505457;
       --white: #FFFFFF;
       --shadow: 0 10px 30px rgba(0,0,0,0.08);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -94,6 +110,45 @@
       background-color: var(--bg-cream);
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    /* ACCESSIBILITÀ WCAG: Focus visibile & Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.75rem 1.25rem;
+      z-index: 5000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 2px solid var(--accent-gold);
+      border-radius: 4px;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 12px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    [tabindex="0"]:focus-visible {
+      outline: 2.5px solid var(--accent-gold);
+      outline-offset: 3px;
     }
 
     h1, h2, h3, h4, .serif {
@@ -369,6 +424,66 @@
       font-size: 1.2rem;
       color: var(--accent-hover);
       margin-bottom: 0.25rem;
+    }
+
+    /* COMPACT TECHNICAL SPECS (KENMERKEN / SCHEDA TECNICA) */
+    .tech-specs-card {
+      margin-top: 1.4rem;
+      background: var(--bg-light);
+      border: 1px solid rgba(176, 141, 87, 0.28);
+      border-radius: 6px;
+      padding: 1.15rem 1.35rem;
+    }
+    .tech-specs-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-hover);
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .tech-specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1.4rem;
+      margin: 0;
+    }
+    .tech-spec-row {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      padding-bottom: 0.55rem;
+    }
+    .tech-spec-row:nth-last-child(-n+2) {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .tech-spec-row dt {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    .tech-spec-row dd {
+      margin: 0;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.35;
+    }
+    @media (max-width: 600px) {
+      .tech-specs-grid {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+      }
+      .tech-spec-row:nth-last-child(2) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        padding-bottom: 0.55rem;
+      }
     }
 
     /* REDESIGNED PROJECTS & BEFORE/AFTER SLIDER SECTION */
@@ -761,18 +876,22 @@
       font-family: inherit;
       font-size: 0.95rem;
     }
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.72);
+    }
     .form-control:focus {
-      outline: none;
-      border-color: var(--accent);
+      outline: 2px solid var(--accent-gold);
+      outline-offset: 2px;
+      border-color: var(--accent-gold);
       background: rgba(255,255,255,0.12);
     }
 
     footer {
       background: #121816;
-      color: #8c9092;
+      color: #C2C7C9;
       text-align: center;
       padding: 2.5rem 1rem;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
     /* MEDIA QUERIES MOBILE & TABLET */
@@ -1199,9 +1318,9 @@
       max-width: 960px;
       margin: 1.2rem auto 0;
       padding-top: 1.2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.72rem;
-      color: #6f7476;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.74rem;
+      color: #9FA5A8;
       line-height: 1.55;
     }
 
@@ -1217,7 +1336,7 @@
       background:
         radial-gradient(circle at 50% 25%, rgba(176, 141, 87, 0.22) 0%, transparent 60%),
         linear-gradient(160deg, rgba(16, 23, 20, 0.90) 0%, rgba(22, 31, 27, 0.94) 100%),
-        url('images/hero-mountain.jpg') center/cover no-repeat;
+        url('images/facade-main.jpg') center/cover no-repeat;
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       opacity: 1;
@@ -1386,6 +1505,128 @@
       }
     }
 
+    /* COMPACT & ELEGANT EUROPEAN ROUTE + FLIGHTS WIDGET */
+    .eu-route-banner {
+      margin-top: 2.2rem;
+      background: linear-gradient(135deg, #18201E 0%, #212C29 100%);
+      border: 1px solid rgba(176, 141, 87, 0.4);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      color: var(--white);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .eu-map-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(176, 141, 87, 0.28);
+      border-radius: 8px;
+      padding: 1rem 1.1rem 0.85rem;
+      position: relative;
+      text-align: center;
+    }
+    .eu-map-svg {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .eu-map-legend {
+      display: flex;
+      justify-content: center;
+      gap: 1.1rem;
+      margin-top: 0.55rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.82);
+    }
+    .eu-map-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .legend-line-car {
+      width: 16px;
+      height: 2.5px;
+      background: #E6D8BE;
+      display: inline-block;
+      border-radius: 2px;
+    }
+    .legend-line-air {
+      width: 16px;
+      height: 0;
+      border-top: 2px dashed #B08D57;
+      display: inline-block;
+    }
+    .eu-route-content h3 {
+      color: var(--white);
+      font-size: 1.55rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+    .eu-route-sub {
+      color: #E6D8BE;
+      font-size: 0.86rem;
+      margin-bottom: 1.15rem;
+      display: block;
+    }
+    .eu-travel-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+    .eu-travel-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-left: 3px solid var(--accent-gold);
+      border-radius: 6px;
+      padding: 0.95rem 1.1rem;
+    }
+    .eu-travel-box h4 {
+      color: #E6D8BE;
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    .eu-travel-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.5;
+    }
+    .eu-travel-list li {
+      margin-bottom: 0.35rem;
+    }
+    .eu-travel-list li:last-child {
+      margin-bottom: 0;
+    }
+    .eu-travel-list strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+    @media (max-width: 960px) {
+      .eu-route-banner {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1.3rem;
+        gap: 1.4rem;
+      }
+      .eu-map-box {
+        max-width: 360px;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+    @media (max-width: 640px) {
+      .eu-travel-cols {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* MOBILE HORIZONTAL PEEK SLIDER FOR LOCATION & PROJECTS */
     .mobile-clone {
       display: none !important;
@@ -1492,9 +1733,10 @@
   </style>
 </head>
 <body>
+  <a href="#mainContent" class="skip-link" data-i18n="skip_to_content">Ga naar hoofdinhoud</a>
 
   <!-- WELCOME LANGUAGE SELECTION OVERLAY -->
-  <div id="langWelcomeOverlay" class="lang-welcome-overlay" role="dialog" aria-modal="true" aria-label="Language Selection">
+  <div id="langWelcomeOverlay" class="lang-welcome-overlay" role="dialog" aria-modal="true" aria-label="Language Selection" onclick="if(event.target===this) selectWelcomeLanguage(currentLang)">
     <div class="lang-welcome-box">
       <div class="lang-welcome-crest" aria-hidden="true">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1599,7 +1841,7 @@
   </header>
 
   <!-- HERO -->
-  <main>
+  <main id="mainContent">
     <section class="hero" aria-label="Introductie">
       <div class="hero-content">
         <span class="hero-subtitle" data-i18n="hero_sub">Aosta-vallei • Exclusief Te Koop</span>
@@ -1666,12 +1908,38 @@
             <strong data-i18n="opp_title">✦ Solide Basis met Buitengewoon Renovatiepotentieel</strong>
             <span data-i18n="opp_desc">De woning is tot 2025 doorlopend bewoond geweest, verkeert dankzij zorgvuldig onderhoud in goede staat en is direct bruikbaar. De ware kracht van dit pand schuilt echter in de unieke kans om het met een eigentijds renovatieproject naar zijn oorspronkelijke grandeur terug te brengen en het volledige architectonische potentieel te ontsluiten.</span>
           </div>
-          <ul class="feature-list">
-            <li data-i18n="feat_1">Meer dan 300 m² overdekt oppervlak op meerdere niveaus</li>
-            <li data-i18n="feat_2">1.000 m² privétuin, grote binnenplaats voor meerdere auto's en overdekte garage</li>
-            <li data-i18n="feat_3">Grandioze residentie met dépendance/conciërgewoning of 2 of meer appartementen</li>
-            <li data-i18n="feat_4">Panoramisch terras, historische wijnkelder en gewelfde stenen stal</li>
-          </ul>
+          <div class="tech-specs-card" aria-label="Technical specifications">
+            <div class="tech-specs-title">
+              <span aria-hidden="true">✦</span>
+              <span data-i18n="ts_title">Kenmerken & Technische Gegevens</span>
+            </div>
+            <dl class="tech-specs-grid">
+              <div class="tech-spec-row">
+                <dt data-i18n="ts_1_lbl">Bouwperiode & Bouwaard</dt>
+                <dd data-i18n="ts_1_val">Eind 19e eeuw • Natuursteen, massief hout & traditioneel lose-dak</dd>
+              </div>
+              <div class="tech-spec-row">
+                <dt data-i18n="ts_2_lbl">Hoogte & Klimaat</dt>
+                <dd data-i18n="ts_2_val">~400 m hoogte • Zonnige valleiligging, 365 dagen sneeuwvrij bereikbaar</dd>
+              </div>
+              <div class="tech-spec-row">
+                <dt data-i18n="ts_3_lbl">Toegangen</dt>
+                <dd data-i18n="ts_3_val">Dubbele onafhankelijke entree (dorpspad + privé-oprit met poort)</dd>
+              </div>
+              <div class="tech-spec-row">
+                <dt data-i18n="ts_4_lbl">Nutsvoorzieningen</dt>
+                <dd data-i18n="ts_4_val">Actieve aansluitingen (water, elektra, verwarming, gemeenteriool)</dd>
+              </div>
+              <div class="tech-spec-row">
+                <dt data-i18n="ts_5_lbl">Verkoopvoorwaarden</dt>
+                <dd data-i18n="ts_5_val">Direct van eigenaar (0% makelaarscourtage) • Vrij opleverbaar</dd>
+              </div>
+              <div class="tech-spec-row">
+                <dt data-i18n="ts_6_lbl">Documentatie</dt>
+                <dd data-i18n="ts_6_val">Kadastrale kaarten, plattegronden & dossier op aanvraag</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
     </section>
@@ -1971,6 +2239,7 @@
             <p data-i18n="loc_cities_desc">Accesso rapido all'autostrada A5: Torino e l'aeroporto di Caselle (TRN) a circa 50 min, Milano Malpensa (MXP) a 1h 20m, Svizzera e Francia agevolmente raggiungibili tramite i trafori alpini.</p>
             <div class="loc-card-footer">
               <a href="https://www.milanomalpensa-airport.com" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_cities">Aeroporto Milano Malpensa (MXP)</span> &rarr;</a>
+              <a href="https://www.aeroportoditorino.it" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_turin">Aeroporto Torino (TRN)</span> &rarr;</a>
             </div>
           </div>
         </div>
@@ -1980,6 +2249,89 @@
         <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('location', -1)" aria-label="Precedente">&#10094;</button>
         <div class="mob-carousel-dots" id="locationCarouselDots"></div>
         <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('location', 1)" aria-label="Successiva">&#10095;</button>
+      </div>
+
+      <!-- COLLEGAMENTI EUROPA / UTRECHT & VOLI DIRETTI (MAPPA + INFO) -->
+      <div class="eu-route-banner" aria-label="European route map and flight connections">
+        <div class="eu-map-box">
+          <svg class="eu-map-svg" viewBox="0 0 320 220" role="img" aria-label="Route map from Utrecht and Amsterdam to Montjovet in Aosta Valley">
+            <defs>
+              <linearGradient id="mapBgGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1E2926"/>
+                <stop offset="100%" stop-color="#141C1A"/>
+              </linearGradient>
+              <filter id="glowGold" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <!-- Stylized subtle map background & grid -->
+            <rect width="320" height="220" rx="6" fill="url(#mapBgGrad)"/>
+            <path d="M0 55 H320 M0 110 H320 M0 165 H320 M80 0 V220 M160 0 V220 M240 0 V220" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+            <!-- Stylized Alpine Arch silhouette -->
+            <path d="M105 152 L120 134 L132 146 L148 124 L164 144 L177 130 L192 150 Z" fill="rgba(176,141,87,0.14)" stroke="rgba(230,216,190,0.28)" stroke-width="1"/>
+            <!-- Car Highway Route: Utrecht -> Basel -> Grand St. Bernard -> Montjovet -->
+            <path d="M 92 36 C 108 68, 134 95, 142 122 C 146 138, 148 152, 152 168" fill="none" stroke="#E6D8BE" stroke-width="2.4" stroke-linecap="round"/>
+            <!-- Flight Route Arc: Schiphol/Eindhoven -> MXP / TRN / GVA -->
+            <path d="M 92 36 Q 215 78 168 172" fill="none" stroke="#B08D57" stroke-width="2" stroke-dasharray="5,4" stroke-linecap="round"/>
+
+            <!-- Waypoint: Basel / Swiss Alps -->
+            <circle cx="142" cy="122" r="3" fill="#E6D8BE" opacity="0.8"/>
+            <text x="128" y="125" fill="rgba(255,255,255,0.62)" font-size="8.5" font-family="Montserrat, sans-serif" text-anchor="end">Basel / CH</text>
+
+            <!-- Origin: Utrecht / Amsterdam (NL) -->
+            <circle cx="92" cy="36" r="7" fill="rgba(176,141,87,0.28)"/>
+            <circle cx="92" cy="36" r="4" fill="#FFFFFF" stroke="#B08D57" stroke-width="2"/>
+            <text x="104" y="34" fill="#FFFFFF" font-size="10" font-weight="700" font-family="Montserrat, sans-serif">Utrecht / AMS</text>
+            <text x="104" y="45" fill="#E6D8BE" font-size="8" font-family="Montserrat, sans-serif">Nederland</text>
+
+            <!-- Airport node MXP / TRN -->
+            <circle cx="168" cy="172" r="3.2" fill="#B08D57"/>
+            <text x="176" y="175" fill="#E6D8BE" font-size="8.5" font-weight="600" font-family="Montserrat, sans-serif">MXP / TRN ✈️</text>
+
+            <!-- Destination: Montjovet (Valle d'Aosta) -->
+            <circle cx="152" cy="168" r="9" fill="rgba(176,141,87,0.32)" filter="url(#glowGold)"/>
+            <circle cx="152" cy="168" r="4.5" fill="#B08D57" stroke="#FFFFFF" stroke-width="1.8"/>
+            <text x="142" y="192" fill="#FFFFFF" font-size="10.5" font-weight="700" font-family="Montserrat, sans-serif" text-anchor="end">Montjovet</text>
+            <text x="142" y="203" fill="#E6D8BE" font-size="8" font-family="Montserrat, sans-serif" text-anchor="end">Valle d'Aosta (IT)</text>
+
+            <!-- Distance & Flight pills inside SVG -->
+            <rect x="14" y="76" width="84" height="22" rx="11" fill="rgba(24,32,30,0.9)" stroke="rgba(230,216,190,0.4)" stroke-width="1"/>
+            <text x="56" y="90" fill="#E6D8BE" font-size="8.5" font-weight="600" font-family="Montserrat, sans-serif" text-anchor="middle">🚗 ~980 km</text>
+
+            <rect x="194" y="92" width="96" height="22" rx="11" fill="rgba(176,141,87,0.92)"/>
+            <text x="242" y="106" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="Montserrat, sans-serif" text-anchor="middle">✈️ ~1h 35m</text>
+          </svg>
+          <div class="eu-map-legend">
+            <span><i class="legend-line-car" aria-hidden="true"></i> <span data-i18n="eu_legend_car">Autostrada (~980 km)</span></span>
+            <span><i class="legend-line-air" aria-hidden="true"></i> <span data-i18n="eu_legend_air">Volo diretto (1h 35m)</span></span>
+          </div>
+        </div>
+
+        <div class="eu-route-content">
+          <h3 data-i18n="eu_route_title">Vlot Bereikbaar vanuit Nederland & Europa</h3>
+          <span class="eu-route-sub" data-i18n="eu_route_sub">De eerste Italiaanse alpenregio direct na de Zwitserse en Franse grens: ideaal voor een lang weekend of vakantie met auto of vliegtuig.</span>
+
+          <div class="eu-travel-cols">
+            <div class="eu-travel-box">
+              <h4>✈️ <span data-i18n="eu_air_title">Rechtstreekse Vluchten (1u 35m)</span></h4>
+              <ul class="eu-travel-list">
+                <li data-i18n="eu_air_1"><strong>Milaan Malpensa (MXP) – 1u 20m rijden:</strong> Dagelijkse directe vluchten vanaf Amsterdam Schiphol (KLM, easyJet) en Eindhoven (Ryanair).</li>
+                <li data-i18n="eu_air_2"><strong>Turijn Caselle (TRN) – 50 min rijden:</strong> Directe wintervluchten vanaf Schiphol/Rotterdam en snelle verbinding via snelweg A5.</li>
+                <li data-i18n="eu_air_3"><strong>Genève (GVA) – 1u 45m rijden:</strong> Meerdere dagelijkse vluchten vanaf Schiphol & Brussel via de Mont Blanctunnel.</li>
+              </ul>
+            </div>
+
+            <div class="eu-travel-box">
+              <h4>🚗 <span data-i18n="eu_car_title">Met de Auto vanuit Utrecht (~980 km)</span></h4>
+              <ul class="eu-travel-list">
+                <li data-i18n="eu_car_1"><strong>Utrecht – Montjovet (~9,5 uur):</strong> Volledig snelweg via Duitsland en Zwitserland (rote Sint-Bernhard of Simplonpas).</li>
+                <li data-i18n="eu_car_2"><strong>Directe afrit A5 (8 min):</strong> Gelegen tussen de afritten Verrès en Châtillon/Saint-Vincent, het hele jaar sneeuwvrij bereikbaar.</li>
+                <li data-i18n="eu_car_3"><strong>Elektrisch rijden (EV):</strong> Uitstekend netwerk van snelladers (Superchargers) langs de route en in het dorp.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2020,7 +2372,7 @@
               <span class="proj-chip">⇄ <span data-i18n="proj_ext_chip3">Before / After</span></span>
             </div>
           </div>
-          <div class="project-footer" onclick="openProjectGallery('ext')">
+          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('ext')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('ext');}">
             <span data-i18n="proj_click_gallery">Apri confronto a tutto schermo &rarr;</span>
             <span data-i18n="proj_photos_count">📸 2 viste</span>
           </div>
@@ -2052,7 +2404,7 @@
               <span class="proj-chip">🕯️ <span data-i18n="proj_spa_chip3">Area Relax</span></span>
             </div>
           </div>
-          <div class="project-footer" onclick="openProjectGallery('spa')">
+          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spa')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spa');}">
             <span data-i18n="proj_click_gallery">Apri confronto a tutto schermo &rarr;</span>
             <span data-i18n="proj_photos_count">📸 2 viste</span>
           </div>
@@ -2062,21 +2414,21 @@
         <div class="project-card">
           <div class="project-media layout-visual">
             <div class="layout-option-box">
-              <div class="layout-opt-icon">🏰</div>
+              <div class="layout-opt-icon" aria-hidden="true">🏰</div>
               <div class="layout-opt-text">
                 <h4 data-i18n="layout_opt1_title">Dimora Padronale + Dépendance</h4>
                 <span data-i18n="layout_opt1_sub">Unica grande residenza >300 m² con dépendance o casa del custode</span>
               </div>
             </div>
             <div class="layout-option-box">
-              <div class="layout-opt-icon">🔑</div>
+              <div class="layout-opt-icon" aria-hidden="true">🔑</div>
               <div class="layout-opt-text">
                 <h4 data-i18n="layout_opt2_title">Due o Più Appartamenti</h4>
                 <span data-i18n="layout_opt2_sub">Frazionamento flessibile in 2+ unità autonome per famiglie o reddito</span>
               </div>
             </div>
             <div class="layout-option-box">
-              <div class="layout-opt-icon">🍷</div>
+              <div class="layout-opt-icon" aria-hidden="true">🍷</div>
               <div class="layout-opt-text">
                 <h4 data-i18n="layout_opt3_title">Cantina Storica da Degustazione</h4>
                 <span data-i18n="layout_opt3_sub">Volte con botti d'epoca dedicate a vini e carnotzet conviviale</span>
@@ -2100,7 +2452,7 @@
           </div>
           <div class="project-footer static-footer">
             <span data-i18n="proj_plans">Planimetrie architettoniche in elaborazione</span>
-            <span>✦</span>
+            <span aria-hidden="true">✦</span>
           </div>
         </div>
       </div>
@@ -2128,45 +2480,48 @@
         <input type="hidden" name="_captcha" value="false">
 
         <div class="form-group">
-          <input type="text" id="senderName" name="name" class="form-control" data-i18n-placeholder="form_ph_name" placeholder="Uw naam *" required minlength="2" oninput="updateSubject()">
-          <small class="error-msg" id="nameError"></small>
+          <label for="senderName" class="sr-only" data-i18n="form_ph_name">Uw naam *</label>
+          <input type="text" id="senderName" name="name" class="form-control" autocomplete="name" data-i18n-placeholder="form_ph_name" placeholder="Uw naam *" required aria-required="true" aria-describedby="nameError" minlength="2" oninput="updateSubject()">
+          <small class="error-msg" id="nameError" role="alert" aria-live="polite"></small>
         </div>
 
         <div class="form-group">
-          <input type="email" id="senderEmail" name="email" class="form-control" data-i18n-placeholder="form_ph_email" placeholder="Uw e-mailadres *" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
-          <small class="error-msg" id="emailError"></small>
+          <label for="senderEmail" class="sr-only" data-i18n="form_ph_email">Uw e-mailadres *</label>
+          <input type="email" id="senderEmail" name="email" class="form-control" autocomplete="email" data-i18n-placeholder="form_ph_email" placeholder="Uw e-mailadres *" required aria-required="true" aria-describedby="emailError" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+          <small class="error-msg" id="emailError" role="alert" aria-live="polite"></small>
         </div>
 
         <div class="form-group">
-          <!-- Prefisso obbligatorio es: +31 612345678, +39 3401234567 -->
-          <input type="tel" id="senderPhone" name="phone" class="form-control" data-i18n-placeholder="form_ph_phone" placeholder="Telefoonnummer met landcode (bijv. +31 6...) *" required pattern="^\+[0-9]{1,4}[\s-]?[0-9]{6,14}$">
-          <small class="error-msg" id="phoneError"></small>
+          <label for="senderPhone" class="sr-only" data-i18n="form_ph_phone">Telefoonnummer (bijv. +31 6... of 06...) *</label>
+          <input type="tel" id="senderPhone" name="phone" class="form-control" autocomplete="tel" data-i18n-placeholder="form_ph_phone" placeholder="Telefoonnummer (bijv. +31 6... of 06...) *" required aria-required="true" aria-describedby="phoneError">
+          <small class="error-msg" id="phoneError" role="alert" aria-live="polite"></small>
         </div>
 
         <div class="form-group">
-          <textarea id="senderMessage" name="message" rows="4" class="form-control" data-i18n-placeholder="form_ph_message" placeholder="Uw bericht *" required minlength="10"></textarea>
-          <small class="error-msg" id="messageError"></small>
+          <label for="senderMessage" class="sr-only" data-i18n="form_ph_message">Uw bericht *</label>
+          <textarea id="senderMessage" name="message" rows="4" class="form-control" data-i18n-placeholder="form_ph_message" placeholder="Uw bericht *" required aria-required="true" aria-describedby="messageError" minlength="10"></textarea>
+          <small class="error-msg" id="messageError" role="alert" aria-live="polite"></small>
         </div>
 
         <!-- CAPTCHA ANTISPAM DINAMICO -->
         <div class="captcha-box">
-          <div class="captcha-label">
+          <label for="captchaAnswer" class="captcha-label">
             <span data-i18n="captcha_prompt">Veiligheidscontrole:</span>
-            <strong id="captchaQuestion" style="color: var(--accent); font-size: 1.1rem; margin-left: 6px;"></strong>
-          </div>
-          <input type="number" id="captchaAnswer" class="form-control captcha-input" data-i18n-placeholder="form_ph_captcha" placeholder="Resultaat *" required>
-          <small class="error-msg" id="captchaError"></small>
+            <strong id="captchaQuestion" style="color: var(--accent-gold); font-size: 1.1rem; margin-left: 6px;"></strong>
+          </label>
+          <input type="number" id="captchaAnswer" class="form-control captcha-input" data-i18n-placeholder="form_ph_captcha" placeholder="Resultaat *" required aria-required="true" aria-describedby="captchaError">
+          <small class="error-msg" id="captchaError" role="alert" aria-live="polite"></small>
         </div>
 
         <button type="submit" id="submitBtn" class="btn btn-primary" style="margin-top: 0.5rem;" data-i18n="btn_submit">Aanvraag Verzenden</button>
-        <div id="formStatus" class="form-status"></div>
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
       </form>
     </section>
   </main>
 
   <!-- LIGHTBOX CONTAINER -->
-  <div class="lightbox" id="lightboxModal" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
+  <div class="lightbox" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Image preview" onclick="closeLightbox()">
+    <button type="button" class="lightbox-close" aria-label="Close preview" style="background:none;border:none;" onclick="closeLightbox()">&times;</button>
     <img id="lightboxImg" src="" alt="Enlarged view">
   </div>
 
@@ -2189,6 +2544,7 @@
   <script>
     const i18n = {
       nl: {
+        skip_to_content: "Ga naar hoofdinhoud",
         nav_about: "Het Pand",
         nav_gallery: "Galerij",
         nav_location: "Locatie",
@@ -2222,7 +2578,20 @@
         loc_cities_title: "Turijn, Milaan & Luchthavens",
         loc_cities_sub: "Snelweg A5 & Internationale Hubs",
         loc_cities_desc: "Directe aansluiting op de snelweg A5: Turijn en luchthaven Caselle (TRN) op ~50 min, Milaan Malpensa (MXP) op 1u 20m, Frankrijk en Zwitserland vlot bereikbaar via de Alpentunnels.",
-        loc_btn_cities: "Luchthaven Milaan Malpensa (MXP)",
+        loc_btn_cities: "Milaan Malpensa (MXP)",
+        loc_btn_turin: "Turijn Caselle (TRN)",
+        eu_legend_car: "Snelweg (~980 km)",
+        eu_legend_air: "Directe vlucht (1u 35m)",
+        eu_route_title: "Vlot Bereikbaar vanuit Nederland & Europa",
+        eu_route_sub: "De eerste Italiaanse alpenregio direct na de Zwitserse en Franse grens: ideaal voor een lang weekend of vakantie met auto of vliegtuig.",
+        eu_air_title: "Rechtstreekse Vluchten (1u 35m)",
+        eu_air_1: "<strong>Milaan Malpensa (MXP) – 1u 20m rijden:</strong> Dagelijkse directe vluchten vanaf Amsterdam Schiphol (KLM, easyJet) en Eindhoven (Ryanair).",
+        eu_air_2: "<strong>Turijn Caselle (TRN) – 50 min rijden:</strong> Directe wintervluchten vanaf Schiphol/Rotterdam en snelle verbinding via snelweg A5.",
+        eu_air_3: "<strong>Genève (GVA) – 1u 45m rijden:</strong> Meerdere dagelijkse vluchten vanaf Schiphol & Brussel via de Mont Blanctunnel.",
+        eu_car_title: "Met de Auto vanuit Utrecht (~980 km)",
+        eu_car_1: "<strong>Utrecht – Montjovet (~9,5 uur):</strong> Volledig snelweg via Duitsland en Zwitserland (Grote Sint-Bernhard of Simplon).",
+        eu_car_2: "<strong>Directe afrit A5 (8 min):</strong> Gelegen tussen de afritten Verrès en Châtillon/Saint-Vincent, het hele jaar vlot bereikbaar.",
+        eu_car_3: "<strong>Elektrisch rijden (EV):</strong> Uitstekend netwerk van snelladers (Superchargers) langs de route en in de vallei.",
 
         tag_details: "Vakmanschap & Karakter",
         details_title: "Historische Details & Afwerkingen",
@@ -2260,10 +2629,19 @@
         story1_p2: "De woning beschikt over een grote afgesloten binnenplaats met parkeergelegenheid voor meerdere auto's, een eigen overdekte garage, 1.000 m² privétuin en een panoramisch zonneterras.",
         opp_title: "✦ Solide Basis met Buitengewoon Renovatiepotentieel",
         opp_desc: "De woning is tot 2025 doorlopend bewoond geweest, verkeert dankzij zorgvuldig onderhoud in goede staat en is direct bruikbaar. De ware kracht van dit pand schuilt echter in de unieke kans om het met een eigentijds renovatieproject naar zijn oorspronkelijke grandeur terug te brengen en het volledige architectonische potentieel te ontsluiten.",
-        feat_1: "Meer dan 300 m² overdekt oppervlak op meerdere niveaus",
-        feat_2: "1.000 m² privétuin, grote binnenplaats voor meerdere auto's en overdekte garage",
-        feat_3: "Grandioze residentie met dépendance/conciërgewoning of 2 of meer appartementen",
-        feat_4: "Panoramisch terras, historische wijnkelder en gewelfde stenen stal",
+        ts_title: "Kenmerken & Technische Gegevens",
+        ts_1_lbl: "Bouwperiode & Bouwaard",
+        ts_1_val: "Eind 19e eeuw • Natuursteen, massief hout & traditioneel lose-dak",
+        ts_2_lbl: "Hoogte & Klimaat",
+        ts_2_val: "~400 m hoogte • Zonnige valleiligging, 365 dagen sneeuwvrij bereikbaar",
+        ts_3_lbl: "Toegangen",
+        ts_3_val: "Dubbele onafhankelijke entree (dorpspad + privé-oprit met poort)",
+        ts_4_lbl: "Nutsvoorzieningen",
+        ts_4_val: "Actieve aansluitingen (water, elektra, verwarming, gemeenteriool)",
+        ts_5_lbl: "Verkoopvoorwaarden",
+        ts_5_val: "Direct van eigenaar (0% makelaarscourtage) • Vrij opleverbaar",
+        ts_6_lbl: "Documentatie",
+        ts_6_val: "Kadastrale kaarten, plattegronden & dossier op aanvraag",
 
         tag_projects: "Visie & Ontwikkeling",
         projects_title: "Ontwikkelingsprojecten & Voor/Na",
@@ -2335,7 +2713,7 @@
         contact_desc: "Neem direct contact op voor het complete dossier, plattegronden of om een privébezichtiging te plannen.",
         form_ph_name: "Uw naam *",
         form_ph_email: "Uw e-mailadres *",
-        form_ph_phone: "Telefoonnummer met landcode (bijv. +31 6...) *",
+        form_ph_phone: "Telefoonnummer (bijv. +31 6... of 06...) *",
         form_ph_message: "Uw bericht of vraag *",
         form_ph_captcha: "Resultaat *",
         captcha_prompt: "Veiligheidscontrole:",
@@ -2343,7 +2721,7 @@
         form_sending: "Verzenden...",
         form_err_name: "Vul een geldige naam in (min. 2 tekens)",
         form_err_email: "Vul een geldig e-mailadres in",
-        form_err_phone: "Landcode vereist (bijv. +31... of +39...)",
+        form_err_phone: "Vul een geldig telefoonnummer in (bijv. +31 6... of 06...)",
         form_err_message: "Bericht moet minimaal 10 tekens bevatten",
         form_err_captcha: "Onjuist antwoord op de som",
         form_err_send: "Er is een fout opgetreden. U kunt ook direct mailen naar giulio.spotti@gmail.com",
@@ -2351,6 +2729,7 @@
         footer_disclaimer: "Disclaimer: De informatie, oppervlakten, beschrijvingen, plattegronden en 3D-renderings op deze website zijn uitsluitend bedoeld ter illustratie en oriëntatie en vormen geen contractueel aanbod of juridische verbintenis. Er kunnen geen rechten worden ontleend aan eventuele onjuistheden of onvolledigheden."
       },
       en: {
+        skip_to_content: "Skip to main content",
         nav_about: "The Property",
         nav_gallery: "Gallery",
         nav_location: "Location",
@@ -2384,7 +2763,20 @@
         loc_cities_title: "Turin, Milan & International Airports",
         loc_cities_sub: "A5 Motorway & Major Transit Hubs",
         loc_cities_desc: "Swift motorway access: Turin and Caselle Airport (TRN) in ~50 mins, Milan Malpensa (MXP) in 1h 20m, with easy connections to France and Switzerland via Alpine tunnels.",
-        loc_btn_cities: "Milan Malpensa Airport (MXP)",
+        loc_btn_cities: "Milan Malpensa (MXP)",
+        loc_btn_turin: "Turin Caselle (TRN)",
+        eu_legend_car: "Motorway (~980 km)",
+        eu_legend_air: "Direct flight (1h 35m)",
+        eu_route_title: "Easy Access from the Netherlands & Europe",
+        eu_route_sub: "The first Italian Alpine valley right after the Swiss and French borders: ideal for long weekends or holidays by plane or car.",
+        eu_air_title: "Direct Flights (1h 35m)",
+        eu_air_1: "<strong>Milan Malpensa (MXP) – 1h 20m drive:</strong> Daily direct flights from Amsterdam Schiphol (KLM, easyJet), Eindhoven (Ryanair), London & Brussels.",
+        eu_air_2: "<strong>Turin Caselle (TRN) – 50m drive:</strong> Direct winter flights from Schiphol/Rotterdam & London, with fast A5 motorway link.",
+        eu_air_3: "<strong>Geneva (GVA) – 1h 45m drive:</strong> Frequent daily flights from Amsterdam, London & Brussels via the Mont Blanc Tunnel.",
+        eu_car_title: "By Car from Utrecht (~980 km)",
+        eu_car_1: "<strong>Utrecht – Montjovet (~9.5 hours):</strong> All-motorway journey via Germany and Switzerland (Great St. Bernard or Simplon).",
+        eu_car_2: "<strong>Direct A5 Exit (8 mins):</strong> Located between Verrès and Châtillon/Saint-Vincent motorway exits, easily accessible year-round.",
+        eu_car_3: "<strong>Electric Vehicles (EV):</strong> Extensive network of High-Power Chargers & Superchargers along the corridor and in the valley.",
 
         tag_details: "Craftsmanship & Heritage",
         details_title: "Authentic Heritage Details",
@@ -2422,10 +2814,19 @@
         story1_p2: "The estate boasts a large paved private courtyard with parking for multiple vehicles, a covered garage box, 1,000 sqm private gardens, and an expansive panoramic terrace.",
         opp_title: "✦ Solid Habitable Condition, Extraordinary Potential",
         opp_desc: "Continuously lived in until 2025 and carefully maintained over the years, the residence is structurally sound and immediately habitable. Its true value, however, lies in the rare opportunity for a bespoke modernization and restoration project that brings back its historic grandeur and unlocks its full architectural potential.",
-        feat_1: "Over 300 sqm of covered living space across multiple levels",
-        feat_2: "1,000 sqm private gardens, paved courtyard for multiple cars, and covered garage",
-        feat_3: "Grand manor with dépendance/caretaker's lodge or 2 or more independent apartments",
-        feat_4: "Panoramic mountain terrace, historic wine cellar, and vaulted stone stable",
+        ts_title: "Key Technical Specifications",
+        ts_1_lbl: "Era & Construction",
+        ts_1_val: "Late 19th century • Natural stone masonry, solid timber & traditional slate (lose) roof",
+        ts_2_lbl: "Elevation & Microclimate",
+        ts_2_val: "~400 m altitude • Sunny central valley position, snow-free access 365 days/year",
+        ts_3_lbl: "Access & Entrances",
+        ts_3_val: "Dual independent entrances (pedestrian village lane + gated private driveway)",
+        ts_4_lbl: "Utilities & Systems",
+        ts_4_val: "Active connections (water, electricity, heating system, municipal mains)",
+        ts_5_lbl: "Sale Terms",
+        ts_5_val: "Direct from private owner (0% agency commission) • Free at deed",
+        ts_6_lbl: "Documentation",
+        ts_6_val: "Cadastral records, floor plans & technical dossier available on request",
 
         tag_projects: "Vision & Development",
         projects_title: "Development Concepts & Before/After",
@@ -2497,7 +2898,7 @@
         contact_desc: "Contact us today for floor plans, technical details, or to arrange a private visit.",
         form_ph_name: "Your name *",
         form_ph_email: "Your email address *",
-        form_ph_phone: "Phone with country code (e.g. +44... or +31...) *",
+        form_ph_phone: "Phone number (e.g. +31 6... or +44...) *",
         form_ph_message: "Your message or inquiry *",
         form_ph_captcha: "Result *",
         captcha_prompt: "Security check:",
@@ -2505,7 +2906,7 @@
         form_sending: "Sending...",
         form_err_name: "Please enter a valid name (min. 2 characters)",
         form_err_email: "Please enter a valid email address",
-        form_err_phone: "Country code required (e.g. +44..., +31..., +39...)",
+        form_err_phone: "Please enter a valid phone number",
         form_err_message: "Message must contain at least 10 characters",
         form_err_captcha: "Incorrect answer to the security sum",
         form_err_send: "An error occurred while sending. You can also email giulio.spotti@gmail.com directly",
@@ -2513,6 +2914,7 @@
         footer_disclaimer: "Legal Disclaimer: All information, measurements, descriptions, floor plans, and 3D renderings (including 'Before/After' concepts) shown on this website are purely indicative and illustrative and do not constitute a contractual element or binding offer. No warranty is given as to the accuracy or completeness of the contents."
       },
       it: {
+        skip_to_content: "Vai al contenuto principale",
         nav_about: "La Proprietà",
         nav_gallery: "Galleria",
         nav_location: "Posizione",
@@ -2546,7 +2948,20 @@
         loc_cities_title: "Torino, Milano & Aeroporti",
         loc_cities_sub: "Autostrada A5 & Hub Internazionali",
         loc_cities_desc: "Accesso rapido all'autostrada A5: Torino e l'aeroporto di Caselle (TRN) a circa 50 min, Milano Malpensa (MXP) a 1h 20m, Svizzera e Francia agevolmente raggiungibili tramite i trafori alpini.",
-        loc_btn_cities: "Aeroporto Milano Malpensa (MXP)",
+        loc_btn_cities: "Milano Malpensa (MXP)",
+        loc_btn_turin: "Torino Caselle (TRN)",
+        eu_legend_car: "Autostrada (~980 km)",
+        eu_legend_air: "Volo diretto (1h 35m)",
+        eu_route_title: "Collegamenti Diretti da Paesi Bassi & Europa",
+        eu_route_sub: "La prima valle alpina italiana subito dopo il confine svizzero e francese: comodissima da raggiungere per un weekend lungo o le vacanze in aereo o in auto.",
+        eu_air_title: "Voli Diretti (1h 35m)",
+        eu_air_1: "<strong>Milano Malpensa (MXP) – 1h 20m in auto:</strong> Voli diretti giornalieri da Amsterdam Schiphol (KLM, easyJet) ed Eindhoven (Ryanair).",
+        eu_air_2: "<strong>Torino Caselle (TRN) – 50 min in auto:</strong> Voli diretti invernali da Schiphol/Rotterdam e collegamento immediato tramite autostrada A5.",
+        eu_air_3: "<strong>Ginevra (GVA) – 1h 45m in auto:</strong> Numerosi voli giornalieri da Amsterdam e Bruxelles attraverso il Traforo del Monte Bianco.",
+        eu_car_title: "In Auto da Utrecht (~980 km)",
+        eu_car_1: "<strong>Utrecht – Montjovet (~9,5 ore):</strong> Percorso interamente autostradale attraverso Germania e Svizzera (Gran San Bernardo o Sempione).",
+        eu_car_2: "<strong>Casello A5 a 8 minuti:</strong> Situata tra le uscite di Verrès e Châtillon/Saint-Vincent, comodamente accessibile tutto l'anno.",
+        eu_car_3: "<strong>Auto Elettriche (EV):</strong> Rete capillare di colonnine Fast e Supercharger lungo tutta la direttrice e in Valle d'Aosta.",
 
         tag_details: "Artigianalità & Carattere",
         details_title: "I Particolari d'Epoca",
@@ -2584,10 +2999,19 @@
         story1_p2: "La proprietà dispone di un comodo cortile privato pavimentato con spazio per più auto, un box auto coperto, 1.000 mq di giardini alberati e uno splendido terrazzo panoramico.",
         opp_title: "✦ Solida Base Abitativa, Straordinario Potenziale di Valorizzazione",
         opp_desc: "Abitata con continuità fino al 2025 e oggetto di numerosi interventi di cura e manutenzione nel corso degli anni, la dimora si presenta oggi solida e immediatamente fruibile. Il suo vero valore risiede tuttavia nella straordinaria opportunità di un progetto di restauro e ammodernamento su misura, capace di riportarla al suo antico splendore e sprigionarne appieno l'enorme potenziale.",
-        feat_1: "Oltre 300 mq coperti sviluppati su più livelli",
-        feat_2: "1.000 mq di giardini privati, comodo cortile pavimentato per più auto e box coperto",
-        feat_3: "Grandiosa dimora con dépendance/casa del custode oppure divisione in due o più appartamenti",
-        feat_4: "Grande terrazzo panoramico, cantina storica con botti e antica stalla a volta",
+        ts_title: "Scheda Tecnica & Dati Oggettivi",
+        ts_1_lbl: "Epoca & Costruzione",
+        ts_1_val: "Fine '800 • Muratura in pietra naturale, legno massello e tetto in lose",
+        ts_2_lbl: "Altitudine & Clima",
+        ts_2_val: "~400 m s.l.m. • Fondovalle soleggiato, accessibile 365 giorni senza neve",
+        ts_3_lbl: "Accessi",
+        ts_3_val: "Doppio ingresso indipendente (pedonale dal borgo + carraio nella corte)",
+        ts_4_lbl: "Utenze & Impianti",
+        ts_4_val: "Allacciamenti attivi (acqua, elettricità, riscaldamento, fognatura)",
+        ts_5_lbl: "Regime di Vendita",
+        ts_5_val: "Diretta da privato (0% commissioni d'agenzia) • Libera al rogito",
+        ts_6_lbl: "Documentazione",
+        ts_6_val: "Visure catastali, planimetrie e dossier tecnico su richiesta",
 
         tag_projects: "Visione & Sviluppo",
         projects_title: "Progetti & Idee di Sviluppo",
@@ -2659,7 +3083,7 @@
         contact_desc: "Contattaci per ricevere la documentazione completa e concordare un sopralluogo.",
         form_ph_name: "Il tuo nome *",
         form_ph_email: "Il tuo indirizzo email *",
-        form_ph_phone: "Telefono con prefisso internazionale (es. +39 340...) *",
+        form_ph_phone: "Telefono (es. +39 340... o +31 6...) *",
         form_ph_message: "Il tuo messaggio o richiesta *",
         form_ph_captcha: "Risultato *",
         captcha_prompt: "Verifica di sicurezza:",
@@ -2667,7 +3091,7 @@
         form_sending: "Invio in corso...",
         form_err_name: "Inserisci un nome valido (min. 2 caratteri)",
         form_err_email: "Inserisci un indirizzo email valido",
-        form_err_phone: "Prefisso internazionale obbligatorio (es. +39... o +31...)",
+        form_err_phone: "Inserisci un numero di telefono valido",
         form_err_message: "Il messaggio deve contenere almeno 10 caratteri",
         form_err_captcha: "Risultato della somma non corretto",
         form_err_send: "Si è verificato un errore nell'invio. Puoi scrivere direttamente a giulio.spotti@gmail.com",
@@ -2675,6 +3099,7 @@
         footer_disclaimer: "Disclaimer legale: Le informazioni, le metrature, le descrizioni, le ipotesi progettuali e i rendering (inclusi i confronti 'Prima/Dopo') presenti in questo sito hanno carattere puramente indicativo e illustrativo e non costituiscono in alcun modo elemento contrattuale né vincolo precontrattuale. L'autore non assume alcuna responsabilità per eventuali inesattezze, omissioni o incompletezze dei dati riportati."
       },
       fr: {
+        skip_to_content: "Aller au contenu principal",
         nav_about: "La Propriété",
         nav_gallery: "Galerie",
         nav_location: "Emplacement",
@@ -2708,7 +3133,20 @@
         loc_cities_title: "Turin, Milan & Aéroports",
         loc_cities_sub: "Autoroute A5 & Connexions Internationales",
         loc_cities_desc: "Accès autoroutier immédiat : Turin et l'aéroport de Caselle (TRN) à ~50 min, Milan Malpensa (MXP) à 1h20, la France et la Suisse via les tunnels du Mont-Blanc et du Grand-Saint-Bernard.",
-        loc_btn_cities: "Aéroport Milan Malpensa (MXP)",
+        loc_btn_cities: "Milan Malpensa (MXP)",
+        loc_btn_turin: "Turin Caselle (TRN)",
+        eu_legend_car: "Autoroute (~980 km)",
+        eu_legend_air: "Vol direct (1h 35m)",
+        eu_route_title: "Accès Rapide depuis l'Europe & le Benelux",
+        eu_route_sub: "La première vallée alpine italienne juste après les frontières suisse et française : idéale pour un long week-end ou des vacances en avion ou en voiture.",
+        eu_air_title: "Vols Directs (1h 35m)",
+        eu_air_1: "<strong>Milan Malpensa (MXP) – 1h 20m de route :</strong> Vols directs quotidiens depuis Amsterdam Schiphol, Eindhoven, Paris et Bruxelles.",
+        eu_air_2: "<strong>Turin Caselle (TRN) – 50 min de route :</strong> Liaison rapide par l'autoroute A5 et vols directs depuis Paris, Amsterdam et Londres.",
+        eu_air_3: "<strong>Genève (GVA) – 1h 45m de route :</strong> Nombreux vols quotidiens internationaux avec accès direct via le Tunnel du Mont-Blanc.",
+        eu_car_title: "En Voiture depuis Utrecht / Benelux (~980 km)",
+        eu_car_1: "<strong>Utrecht – Montjovet (~9h30) :</strong> Trajet entièrement autoroutier via la Suisse (Grand-Saint-Bernard) ou la France (Mont-Blanc).",
+        eu_car_2: "<strong>Sortie A5 à 8 minutes :</strong> Située entre les sorties Verrès et Châtillon/Saint-Vincent, facilement accessible toute l'année.",
+        eu_car_3: "<strong>Véhicules électriques (VE) :</strong> Réseau dense de bornes rapides et Superchargers sur tout le trajet et dans la vallée.",
 
         tag_details: "Artisanat & Caractère",
         details_title: "Les Détails d'Époque",
@@ -2746,10 +3184,19 @@
         story1_p2: "La propriété offre une cour privative pavée permettant le stationnement de plusieurs voitures, un garage couvert fermé, 1 000 m² de jardins et une vaste terrasse panoramique.",
         opp_title: "✦ Une Base Saine, un Potentiel de Valorisation Exceptionnel",
         opp_desc: "Habitée sans interruption jusqu'en 2025 et régulièrement entretenue au fil des décennies, la demeure est aujourd'hui saine et immédiatement habitable. Sa véritable valeur réside toutefois dans l'opportunité rare d'un projet de restauration et de modernisation sur mesure, capable de lui rendre toute sa splendeur d'antan et d'en révéler le plein potentiel.",
-        feat_1: "Plus de 300 m² de surface couverte sur plusieurs niveaux",
-        feat_2: "1 000 m² de jardins privés, cour pavée pour plusieurs véhicules et box garage fermé",
-        feat_3: "Grandiose demeure avec dépendance/maison de gardien ou division en 2 appartements ou plus",
-        feat_4: "Grande terrasse panoramique, cave historique avec foudres et ancienne écurie voûtée",
+        ts_title: "Fiche Technique & Données Clés",
+        ts_1_lbl: "Époque & Construction",
+        ts_1_val: "Fin XIXe siècle • Pierre de taille, bois massif & toit traditionnel en lauzes",
+        ts_2_lbl: "Altitude & Climat",
+        ts_2_val: "~400 m d'altitude • Fond de vallée ensoleillé, accès 365 j/an sans neige",
+        ts_3_lbl: "Accès",
+        ts_3_val: "Double entrée indépendante (ruelle du bourg + accès carrossable privé)",
+        ts_4_lbl: "Réseaux & Équipements",
+        ts_4_val: "Raccordements actifs (eau, électricité, chauffage, tout-à-l'égout)",
+        ts_5_lbl: "Conditions de Vente",
+        ts_5_val: "Vente directe propriétaire (0% frais d'agence) • Libre à l'acte",
+        ts_6_lbl: "Documentation",
+        ts_6_val: "Extraits cadastraux, plans & dossier technique sur demande",
 
         tag_projects: "Vision & Développement",
         projects_title: "Projets d'Aménagement & Avant/Après",
@@ -2821,7 +3268,7 @@
         contact_desc: "Contactez-nous pour recevoir le dossier complet ou convenir d'une visite privée.",
         form_ph_name: "Votre nom *",
         form_ph_email: "Votre adresse e-mail *",
-        form_ph_phone: "Téléphone avec indicatif pays (ex. +33... ou +41...) *",
+        form_ph_phone: "Téléphone (ex. +33... ou +32...) *",
         form_ph_message: "Votre message ou demande *",
         form_ph_captcha: "Résultat *",
         captcha_prompt: "Contrôle de sécurité :",
@@ -2829,7 +3276,7 @@
         form_sending: "Envoi en cours...",
         form_err_name: "Veuillez saisir un nom valide (min. 2 caractères)",
         form_err_email: "Veuillez saisir une adresse e-mail valide",
-        form_err_phone: "Indicatif international requis (ex. +33..., +41..., +39...)",
+        form_err_phone: "Veuillez saisir un numéro de téléphone valide",
         form_err_message: "Le message doit contenir au moins 10 caractères",
         form_err_captcha: "Réponse au calcul incorrecte",
         form_err_send: "Une erreur est survenue lors de l'envoi. Vous pouvez aussi écrire directement à giulio.spotti@gmail.com",
@@ -2837,6 +3284,7 @@
         footer_disclaimer: "Mentions légales : Les informations, surfaces, descriptions, plans et rendus 3D (y compris les visuels 'Avant/Après') figurant sur ce site sont fournis à titre purement indicatif et illustratif et ne constituent en aucun cas un document contractuel. Aucune garantie n'est donnée quant à l'exactitude ou l'exhaustivité des données présentées."
       },
       de: {
+        skip_to_content: "Zum Hauptinhalt springen",
         nav_about: "Die Immobilie",
         nav_gallery: "Galerie",
         nav_location: "Lage",
@@ -2870,7 +3318,20 @@
         loc_cities_title: "Turin, Mailand & Flughäfen",
         loc_cities_sub: "Autobahn A5 & Internationale Drehkreuze",
         loc_cities_desc: "Direkte Autobahnanbindung A5: Turin und Flughafen Caselle (TRN) in ~50 Min., Mailand Malpensa (MXP) in 1h 20 Min., Frankreich und Schweiz durch die Alpentunnel schnell erreichbar.",
-        loc_btn_cities: "Flughafen Mailand Malpensa (MXP)",
+        loc_btn_cities: "Mailand Malpensa (MXP)",
+        loc_btn_turin: "Turin Caselle (TRN)",
+        eu_legend_car: "Autobahn (~980 km)",
+        eu_legend_air: "Direktflug (1h 35m)",
+        eu_route_title: "Bequeme Anreise aus Europa & den Niederlanden",
+        eu_route_sub: "Das erste italienische Alpental direkt hinter der Schweizer und französischen Grenze: ideal für ein langes Wochenende oder den Urlaub mit dem Auto oder Flugzeug.",
+        eu_air_title: "Direktflüge (1h 35m)",
+        eu_air_1: "<strong>Mailand Malpensa (MXP) – 1h 20m Fahrt:</strong> Tägliche Direktflüge ab Amsterdam, Frankfurt, München, Düsseldorf und Wien.",
+        eu_air_2: "<strong>Turin Caselle (TRN) – 50 Min. Fahrt:</strong> Schnelle Anbindung über die Autobahn A5 und Flüge ab Frankfurt, München und Amsterdam.",
+        eu_air_3: "<strong>Genf (GVA) – 1h 45m Fahrt:</strong> Zahlreiche internationale Verbindungen und direkte Anfahrt durch den Mont-Blanc-Tunnel.",
+        eu_car_title: "Mit dem Auto ab Utrecht / Deutschland",
+        eu_car_1: "<strong>Durchgehende Autobahn:</strong> Ca. 980 km ab Utrecht (~9,5 Std.) bzw. ~620 km ab Frankfurt/München über die Schweiz (Großer St. Bernhard).",
+        eu_car_2: "<strong>Autobahnausfahrt A5 (8 Min.):</strong> Zwischen den Ausfahrten Verrès und Châtillon/Saint-Vincent gelegen, ganzjährig bequem erreichbar.",
+        eu_car_3: "<strong>Elektromobilität (EV):</strong> Dichtes Netz an Schnellladesäulen (Supercharger) entlang der gesamten Route und im Tal.",
 
         tag_details: "Handwerkskunst & Geschichte",
         details_title: "Historische Ausstattungsdetails",
@@ -2908,10 +3369,19 @@
         story1_p2: "Das Anwesen bietet einen geräumigen gepflasterten Innenhof mit Stellplätzen für mehrere Pkw, eine überdachte Einzelgarage, 1.000 m² Garten und eine großzügige Panoramaterrasse.",
         opp_title: "✦ Gepflegte Substanz mit Außergewöhnlichem Potenzial",
         opp_desc: "Bis 2025 durchgehend bewohnt und über die Jahre hinweg laufend instand gehalten, präsentiert sich das Anwesen heute solide und sofort nutzbar. Sein wahrer Wert liegt jedoch in der seltenen Gelegenheit, es durch eine maßgeschneiderte Modernisierung und Restaurierung in seinem historischen Glanz neu erstrahlen zu lassen und sein volles Potenzial auszuschöpfen.",
-        feat_1: "Über 300 m² überdachte Wohn- und Nutzfläche auf mehreren Ebenen",
-        feat_2: "1.000 m² Privatgärten, befestigter Innenhof für mehrere Pkw und überdachte Garage",
-        feat_3: "Großes Anwesen mit Dépendance/Verwalterhaus oder Aufteilung in 2 oder mehr Wohnungen",
-        feat_4: "Panoramaterrasse, historischer Weinkeller und gewölbter Steinstall",
+        ts_title: "Technische Eckdaten & Objektdetails",
+        ts_1_lbl: "Bauzeit & Bauweise",
+        ts_1_val: "Spätes 19. Jh. • Natursteinmauerwerk, Massivholz & traditionelles Lose-Steindach",
+        ts_2_lbl: "Höhenlage & Klima",
+        ts_2_val: "~400 m ü. M. • Sonnige Tallage, 365 Tage im Jahr schneefrei erreichbar",
+        ts_3_lbl: "Zugänge",
+        ts_3_val: "Zwei separate Eingänge (Fußweg vom Borgo + private Hofzufahrt)",
+        ts_4_lbl: "Haustechnik & Anschlüsse",
+        ts_4_val: "Aktive Versorgungsanschlüsse (Wasser, Strom, Heizung, Kanalisation)",
+        ts_5_lbl: "Verkaufskonditionen",
+        ts_5_val: "Direkt vom Eigentümer (0% Maklerprovision) • Frei nach Vereinbarung",
+        ts_6_lbl: "Unterlagen",
+        ts_6_val: "Katasterauszüge, Grundrisse & Exposé auf Anfrage",
 
         tag_projects: "Vision & Entwicklung",
         projects_title: "Entwicklungsprojekte & Vorher/Nachher",
@@ -2983,7 +3453,7 @@
         contact_desc: "Fordern Sie weitere Unterlagen an oder vereinbaren Sie Ihren persönlichen Besichtigungstermin.",
         form_ph_name: "Ihr Name *",
         form_ph_email: "Ihre E-Mail-Adresse *",
-        form_ph_phone: "Telefon mit Ländervorwahl (z.B. +49... oder +41...) *",
+        form_ph_phone: "Telefonnummer (z.B. +49... oder +41...) *",
         form_ph_message: "Ihre Nachricht oder Anfrage *",
         form_ph_captcha: "Ergebnis *",
         captcha_prompt: "Sicherheitsabfrage:",
@@ -2991,7 +3461,7 @@
         form_sending: "Wird gesendet...",
         form_err_name: "Bitte geben Sie einen gültigen Namen ein (mind. 2 Zeichen)",
         form_err_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-        form_err_phone: "Ländervorwahl erforderlich (z.B. +49..., +41..., +39...)",
+        form_err_phone: "Bitte geben Sie eine gültige Telefonnummer ein",
         form_err_message: "Die Nachricht muss mindestens 10 Zeichen enthalten",
         form_err_captcha: "Falsches Ergebnis der Sicherheitsabfrage",
         form_err_send: "Beim Senden ist ein Fehler aufgetreten. Sie können auch direkt an giulio.spotti@gmail.com schreiben",
@@ -3007,13 +3477,20 @@
       currentLang = lang;
       
       document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+        const isActive = btn.textContent.toLowerCase() === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (i18n[lang][key]) {
-          el.textContent = i18n[lang][key];
+        const val = i18n[lang][key];
+        if (val) {
+          if (val.includes('<strong>')) {
+            el.innerHTML = val;
+          } else {
+            el.textContent = val;
+          }
         }
       });
 
@@ -3089,6 +3566,10 @@
       if (e.key === 'Escape') {
         closeLightbox();
         closeProjectGallery();
+        const welcomeOverlay = document.getElementById('langWelcomeOverlay');
+        if (welcomeOverlay && !welcomeOverlay.classList.contains('hidden')) {
+          selectWelcomeLanguage(currentLang);
+        }
       }
       const projModal = document.getElementById('projectModal');
       if (projModal && projModal.classList.contains('active')) {
@@ -3122,11 +3603,13 @@
       const err = document.getElementById(errorId);
       if (!condition) {
         field.classList.add('invalid');
+        field.setAttribute('aria-invalid', 'true');
         err.textContent = errorMsg;
         err.classList.add('visible');
         return false;
       } else {
         field.classList.remove('invalid');
+        field.setAttribute('aria-invalid', 'false');
         err.classList.remove('visible');
         return true;
       }
@@ -3142,13 +3625,14 @@
       const captchaInput = parseInt(document.getElementById('captchaAnswer').value.trim(), 10);
 
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      // Obbligo prefisso internazionale es. +39..., +31..., +44...
-      const phoneRegex = /^\+[0-9]{1,4}[\s-]?[0-9]{6,14}$/;
+      // Accetta sia formato internazionale (+31 6..., 0031...) sia formato nazionale olandese/europeo (06 12345678)
+      const digitsOnly = phone.replace(/[\s\-().]/g, '');
+      const phoneValid = /^(\+|00)?[0-9]{8,15}$/.test(digitsOnly);
       const dict = i18n[currentLang] || i18n.nl;
 
       const v1 = validateField('senderName', 'nameError', name.length >= 2, dict.form_err_name);
       const v2 = validateField('senderEmail', 'emailError', emailRegex.test(email), dict.form_err_email);
-      const v3 = validateField('senderPhone', 'phoneError', phoneRegex.test(phone), dict.form_err_phone);
+      const v3 = validateField('senderPhone', 'phoneError', phoneValid, dict.form_err_phone);
       const v4 = validateField('senderMessage', 'messageError', message.length >= 10, dict.form_err_message);
       const v5 = validateField('captchaAnswer', 'captchaError', captchaInput === (captchaA + captchaB), dict.form_err_captcha);
 
@@ -3284,6 +3768,7 @@
 
     function selectWelcomeLanguage(lang) {
       setLanguage(lang);
+      try { localStorage.setItem('montjovet_lang', lang); } catch (e) {}
       const overlay = document.getElementById('langWelcomeOverlay');
       if (overlay) {
         overlay.classList.add('hidden');
@@ -3463,9 +3948,13 @@
       setLanguage('nl');
 
       const params = new URLSearchParams(window.location.search);
-      const urlLang = params.get('lang');
+      const urlLang = params.get('lang') || window.location.hash.replace('#', '');
+      let savedLang = null;
+      try { savedLang = localStorage.getItem('montjovet_lang'); } catch (e) {}
       if (urlLang && i18n[urlLang]) {
         selectWelcomeLanguage(urlLang);
+      } else if (savedLang && i18n[savedLang]) {
+        selectWelcomeLanguage(savedLang);
       }
     });
   </script>
