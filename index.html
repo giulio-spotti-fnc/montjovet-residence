@@ -2002,7 +2002,7 @@
               <img src="images/facade-main.jpg" alt="Prima: Facciata esterna attuale" class="ba-img-before" loading="lazy">
               <span class="ba-label before" data-i18n="ba_before">Attuale</span>
               <span class="ba-label after" data-i18n="ba_after">Progetto</span>
-              <div class="ba-divider"><div class="ba-handle">&#8596;</div></div>
+              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
               <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
             </div>
           </div>
@@ -2034,7 +2034,7 @@
               <img src="images/stables-vault.jpg" alt="Prima: Stalla voltata attuale" class="ba-img-before" loading="lazy">
               <span class="ba-label before" data-i18n="ba_before">Attuale</span>
               <span class="ba-label after" data-i18n="ba_after">Progetto</span>
-              <div class="ba-divider"><div class="ba-handle">&#8596;</div></div>
+              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
               <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
             </div>
           </div>
@@ -2128,33 +2128,33 @@
         <input type="hidden" name="_captcha" value="false">
 
         <div class="form-group">
-          <input type="text" id="senderName" name="name" class="form-control" placeholder="Uw Naam / Name / Nome *" required minlength="2" oninput="updateSubject()">
+          <input type="text" id="senderName" name="name" class="form-control" data-i18n-placeholder="form_ph_name" placeholder="Uw naam *" required minlength="2" oninput="updateSubject()">
           <small class="error-msg" id="nameError"></small>
         </div>
 
         <div class="form-group">
-          <input type="email" id="senderEmail" name="email" class="form-control" placeholder="E-mailadres / Email / Email *" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+          <input type="email" id="senderEmail" name="email" class="form-control" data-i18n-placeholder="form_ph_email" placeholder="Uw e-mailadres *" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
           <small class="error-msg" id="emailError"></small>
         </div>
 
         <div class="form-group">
           <!-- Prefisso obbligatorio es: +31 612345678, +39 3401234567 -->
-          <input type="tel" id="senderPhone" name="phone" class="form-control" placeholder="Telefoon met landcode / Phone with country code (bijv. +31 6... / +39...) *" required pattern="^\+[0-9]{1,4}[\s-]?[0-9]{6,14}$">
+          <input type="tel" id="senderPhone" name="phone" class="form-control" data-i18n-placeholder="form_ph_phone" placeholder="Telefoonnummer met landcode (bijv. +31 6...) *" required pattern="^\+[0-9]{1,4}[\s-]?[0-9]{6,14}$">
           <small class="error-msg" id="phoneError"></small>
         </div>
 
         <div class="form-group">
-          <textarea id="senderMessage" name="message" rows="4" class="form-control" placeholder="Uw bericht / Message / Messaggio *" required minlength="10"></textarea>
+          <textarea id="senderMessage" name="message" rows="4" class="form-control" data-i18n-placeholder="form_ph_message" placeholder="Uw bericht *" required minlength="10"></textarea>
           <small class="error-msg" id="messageError"></small>
         </div>
 
         <!-- CAPTCHA ANTISPAM DINAMICO -->
         <div class="captcha-box">
           <div class="captcha-label">
-            <span data-i18n="captcha_prompt">Beveiligingscontrole / Security:</span>
+            <span data-i18n="captcha_prompt">Veiligheidscontrole:</span>
             <strong id="captchaQuestion" style="color: var(--accent); font-size: 1.1rem; margin-left: 6px;"></strong>
           </div>
-          <input type="number" id="captchaAnswer" class="form-control captcha-input" placeholder="Resultaat / Answer *" required>
+          <input type="number" id="captchaAnswer" class="form-control captcha-input" data-i18n-placeholder="form_ph_captcha" placeholder="Resultaat *" required>
           <small class="error-msg" id="captchaError"></small>
         </div>
 
@@ -2333,8 +2333,20 @@
         tag_contact: "Informatie & Bezichtiging",
         contact_title: "Geïnteresseerd in deze Zeldzame Kans?",
         contact_desc: "Neem direct contact op voor het complete dossier, plattegronden of om een privébezichtiging te plannen.",
-        captcha_prompt: "Veiligheidscontrole / Security:",
+        form_ph_name: "Uw naam *",
+        form_ph_email: "Uw e-mailadres *",
+        form_ph_phone: "Telefoonnummer met landcode (bijv. +31 6...) *",
+        form_ph_message: "Uw bericht of vraag *",
+        form_ph_captcha: "Resultaat *",
+        captcha_prompt: "Veiligheidscontrole:",
         btn_submit: "Aanvraag Verzenden",
+        form_sending: "Verzenden...",
+        form_err_name: "Vul een geldige naam in (min. 2 tekens)",
+        form_err_email: "Vul een geldig e-mailadres in",
+        form_err_phone: "Landcode vereist (bijv. +31... of +39...)",
+        form_err_message: "Bericht moet minimaal 10 tekens bevatten",
+        form_err_captcha: "Onjuist antwoord op de som",
+        form_err_send: "Er is een fout opgetreden. U kunt ook direct mailen naar giulio.spotti@gmail.com",
         alert_sent: "Bedankt voor uw aanvraag. We nemen spoedig contact met u op!",
         footer_disclaimer: "Disclaimer: De informatie, oppervlakten, beschrijvingen, plattegronden en 3D-renderings op deze website zijn uitsluitend bedoeld ter illustratie en oriëntatie en vormen geen contractueel aanbod of juridische verbintenis. Er kunnen geen rechten worden ontleend aan eventuele onjuistheden of onvolledigheden."
       },
@@ -2483,8 +2495,20 @@
         tag_contact: "Get in Touch",
         contact_title: "Ready to Explore this Opportunity?",
         contact_desc: "Contact us today for floor plans, technical details, or to arrange a private visit.",
+        form_ph_name: "Your name *",
+        form_ph_email: "Your email address *",
+        form_ph_phone: "Phone with country code (e.g. +44... or +31...) *",
+        form_ph_message: "Your message or inquiry *",
+        form_ph_captcha: "Result *",
         captcha_prompt: "Security check:",
         btn_submit: "Send Inquiry",
+        form_sending: "Sending...",
+        form_err_name: "Please enter a valid name (min. 2 characters)",
+        form_err_email: "Please enter a valid email address",
+        form_err_phone: "Country code required (e.g. +44..., +31..., +39...)",
+        form_err_message: "Message must contain at least 10 characters",
+        form_err_captcha: "Incorrect answer to the security sum",
+        form_err_send: "An error occurred while sending. You can also email giulio.spotti@gmail.com directly",
         alert_sent: "Thank you for your inquiry. We will get back to you shortly!",
         footer_disclaimer: "Legal Disclaimer: All information, measurements, descriptions, floor plans, and 3D renderings (including 'Before/After' concepts) shown on this website are purely indicative and illustrative and do not constitute a contractual element or binding offer. No warranty is given as to the accuracy or completeness of the contents."
       },
@@ -2633,8 +2657,20 @@
         tag_contact: "Richiesta Informazioni",
         contact_title: "Vuoi Maggiori Informazioni o una Visita?",
         contact_desc: "Contattaci per ricevere la documentazione completa e concordare un sopralluogo.",
+        form_ph_name: "Il tuo nome *",
+        form_ph_email: "Il tuo indirizzo email *",
+        form_ph_phone: "Telefono con prefisso internazionale (es. +39 340...) *",
+        form_ph_message: "Il tuo messaggio o richiesta *",
+        form_ph_captcha: "Risultato *",
         captcha_prompt: "Verifica di sicurezza:",
         btn_submit: "Invia Richiesta",
+        form_sending: "Invio in corso...",
+        form_err_name: "Inserisci un nome valido (min. 2 caratteri)",
+        form_err_email: "Inserisci un indirizzo email valido",
+        form_err_phone: "Prefisso internazionale obbligatorio (es. +39... o +31...)",
+        form_err_message: "Il messaggio deve contenere almeno 10 caratteri",
+        form_err_captcha: "Risultato della somma non corretto",
+        form_err_send: "Si è verificato un errore nell'invio. Puoi scrivere direttamente a giulio.spotti@gmail.com",
         alert_sent: "Grazie! Abbiamo ricevuto la tua richiesta.",
         footer_disclaimer: "Disclaimer legale: Le informazioni, le metrature, le descrizioni, le ipotesi progettuali e i rendering (inclusi i confronti 'Prima/Dopo') presenti in questo sito hanno carattere puramente indicativo e illustrativo e non costituiscono in alcun modo elemento contrattuale né vincolo precontrattuale. L'autore non assume alcuna responsabilità per eventuali inesattezze, omissioni o incompletezze dei dati riportati."
       },
@@ -2783,8 +2819,20 @@
         tag_contact: "Contact & Visites",
         contact_title: "Intéressé par cette Opportunité ?",
         contact_desc: "Contactez-nous pour recevoir le dossier complet ou convenir d'une visite privée.",
+        form_ph_name: "Votre nom *",
+        form_ph_email: "Votre adresse e-mail *",
+        form_ph_phone: "Téléphone avec indicatif pays (ex. +33... ou +41...) *",
+        form_ph_message: "Votre message ou demande *",
+        form_ph_captcha: "Résultat *",
         captcha_prompt: "Contrôle de sécurité :",
         btn_submit: "Envoyer la Demande",
+        form_sending: "Envoi en cours...",
+        form_err_name: "Veuillez saisir un nom valide (min. 2 caractères)",
+        form_err_email: "Veuillez saisir une adresse e-mail valide",
+        form_err_phone: "Indicatif international requis (ex. +33..., +41..., +39...)",
+        form_err_message: "Le message doit contenir au moins 10 caractères",
+        form_err_captcha: "Réponse au calcul incorrecte",
+        form_err_send: "Une erreur est survenue lors de l'envoi. Vous pouvez aussi écrire directement à giulio.spotti@gmail.com",
         alert_sent: "Merci ! Votre demande a bien été envoyée.",
         footer_disclaimer: "Mentions légales : Les informations, surfaces, descriptions, plans et rendus 3D (y compris les visuels 'Avant/Après') figurant sur ce site sont fournis à titre purement indicatif et illustratif et ne constituent en aucun cas un document contractuel. Aucune garantie n'est donnée quant à l'exactitude ou l'exhaustivité des données présentées."
       },
@@ -2933,8 +2981,20 @@
         tag_contact: "Kontakt & Besichtigung",
         contact_title: "Interessiert an diesem besonderen Objekt?",
         contact_desc: "Fordern Sie weitere Unterlagen an oder vereinbaren Sie Ihren persönlichen Besichtigungstermin.",
+        form_ph_name: "Ihr Name *",
+        form_ph_email: "Ihre E-Mail-Adresse *",
+        form_ph_phone: "Telefon mit Ländervorwahl (z.B. +49... oder +41...) *",
+        form_ph_message: "Ihre Nachricht oder Anfrage *",
+        form_ph_captcha: "Ergebnis *",
         captcha_prompt: "Sicherheitsabfrage:",
         btn_submit: "Anfrage senden",
+        form_sending: "Wird gesendet...",
+        form_err_name: "Bitte geben Sie einen gültigen Namen ein (mind. 2 Zeichen)",
+        form_err_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+        form_err_phone: "Ländervorwahl erforderlich (z.B. +49..., +41..., +39...)",
+        form_err_message: "Die Nachricht muss mindestens 10 Zeichen enthalten",
+        form_err_captcha: "Falsches Ergebnis der Sicherheitsabfrage",
+        form_err_send: "Beim Senden ist ein Fehler aufgetreten. Sie können auch direkt an giulio.spotti@gmail.com schreiben",
         alert_sent: "Vielen Dank! Ihre Anfrage wurde übermittelt.",
         footer_disclaimer: "Haftungsausschluss (Disclaimer): Alle auf dieser Website enthaltenen Informationen, Flächenangaben, Beschreibungen, Grundrisse und 3D-Visualisierungen (einschließlich der 'Vorher/Nachher'-Darstellungen) dienen ausschließlich zur unverbindlichen Veranschaulichung und stellen kein vertragliches Angebot dar. Für die Richtigkeit und Vollständigkeit der Angaben wird keine Haftung übernommen."
       }
@@ -2956,6 +3016,21 @@
           el.textContent = i18n[lang][key];
         }
       });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[lang][key]) {
+          el.setAttribute('placeholder', i18n[lang][key]);
+        }
+      });
+
+      document.querySelectorAll('#contactForm .error-msg.visible').forEach(err => {
+        err.classList.remove('visible');
+      });
+      document.querySelectorAll('#contactForm .form-control.invalid').forEach(field => {
+        field.classList.remove('invalid');
+      });
+
       document.documentElement.lang = lang;
     }
 
@@ -3069,12 +3144,13 @@
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       // Obbligo prefisso internazionale es. +39..., +31..., +44...
       const phoneRegex = /^\+[0-9]{1,4}[\s-]?[0-9]{6,14}$/;
+      const dict = i18n[currentLang] || i18n.nl;
 
-      const v1 = validateField('senderName', 'nameError', name.length >= 2, 'Vul een geldige naam in (min. 2 tekens) / Enter valid name');
-      const v2 = validateField('senderEmail', 'emailError', emailRegex.test(email), 'Vul een geldig e-mailadres in (bijv. naam@domein.nl)');
-      const v3 = validateField('senderPhone', 'phoneError', phoneRegex.test(phone), 'Inclusief landcode vereist / Country code required (bijv. +31... of +39...)');
-      const v4 = validateField('senderMessage', 'messageError', message.length >= 10, 'Bericht moet minimaal 10 tekens bevatten / Min. 10 chars');
-      const v5 = validateField('captchaAnswer', 'captchaError', captchaInput === (captchaA + captchaB), 'Onjuist antwoord / Incorrect captcha');
+      const v1 = validateField('senderName', 'nameError', name.length >= 2, dict.form_err_name);
+      const v2 = validateField('senderEmail', 'emailError', emailRegex.test(email), dict.form_err_email);
+      const v3 = validateField('senderPhone', 'phoneError', phoneRegex.test(phone), dict.form_err_phone);
+      const v4 = validateField('senderMessage', 'messageError', message.length >= 10, dict.form_err_message);
+      const v5 = validateField('captchaAnswer', 'captchaError', captchaInput === (captchaA + captchaB), dict.form_err_captcha);
 
       if (!v1 || !v2 || !v3 || !v4 || !v5) {
         return;
@@ -3083,7 +3159,7 @@
       const submitBtn = document.getElementById('submitBtn');
       const statusDiv = document.getElementById('formStatus');
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Verzenden... / Sending...';
+      submitBtn.textContent = dict.form_sending;
 
       updateSubject();
       const subject = document.getElementById('emailSubject').value;
@@ -3108,7 +3184,7 @@
 
         if (response.ok) {
           statusDiv.className = 'form-status success';
-          statusDiv.textContent = i18n[currentLang].alert_sent || 'Aanvraag succesvol verzonden!';
+          statusDiv.textContent = dict.alert_sent;
           document.getElementById('contactForm').reset();
           generateCaptcha();
         } else {
@@ -3116,10 +3192,10 @@
         }
       } catch (err) {
         statusDiv.className = 'form-status error';
-        statusDiv.textContent = 'Er is een fout opgetreden bij het verzenden. U kunt ook direct mailen naar giulio.spotti@gmail.com';
+        statusDiv.textContent = dict.form_err_send;
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = i18n[currentLang].btn_submit;
+        submitBtn.textContent = dict.btn_submit;
       }
     }
 
@@ -3403,7 +3479,7 @@
         <img id="projModalBeforeImg" src="" alt="Prima: Stato Attuale" class="ba-img-before">
         <span class="ba-label before" data-i18n="ba_before">Attuale</span>
         <span class="ba-label after" data-i18n="ba_after">Progetto</span>
-        <div class="ba-divider"><div class="ba-handle">&#8596;</div></div>
+        <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
         <input type="range" id="projModalRange" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
       </div>
       <button class="modal-overlay-arrow prev" onclick="changeProjSlide(-1)" aria-label="Precedente">&#10094;</button>
