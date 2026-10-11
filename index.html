@@ -12,7 +12,7 @@
 
   <!-- SEO PRIMARIO & INDICIZZAZIONE -->
   <title>Maison Montjovet | Karakteristiek Landhuis te Koop in Valle d'Aosta</title>
-  <meta name="description" content="Exclusief te koop: authentiek 19e-eeuws herenhuis in Montjovet, Valle d'Aosta. Meer dan 300 m² woonoppervlakte en 1.000 m² privétuin. Geschikt als royale villa of 2-3 zelfstandige appartementen.">
+  <meta name="description" content="Exclusief te koop: authentiek 19e-eeuws herenhuis in Montjovet, Valle d'Aosta. Meer dan 300 m² woonoppervlakte en 1.000 m² privétuin. Geschikt als grandioze familievilla met dépendance/conciërgewoning of op te splitsen in twee of meer zelfstandige appartementen.">
   <meta name="keywords" content="huis kopen Valle d'Aosta, rustiek huis Italië te koop, historisch pand Alpen, landhuis Aostadal, villa Montjovet, appartementen Aostadal, skihuis Cervinia">
   <meta name="author" content="Maison Montjovet">
   <meta name="robots" content="index, follow">
@@ -29,7 +29,7 @@
   <!-- OPEN GRAPH (Social, WhatsApp & iMessage preview) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Maison Montjovet | Historisch Alpenpand in Valle d'Aosta (>300m² & 1.000m² Tuin)">
-  <meta property="og:description" content="Karakteristieke residentie uit eind 19e eeuw. Royale villa of 2-3 ruime appartementen met gewelven, panoramaterras en 1.000 m² tuin.">
+  <meta property="og:description" content="Karakteristieke residentie uit eind 19e eeuw. Grandioze villa met dépendance of 2 of meer ruime appartementen met historische wijnkelder, gewelfde stal voor privé-spa, panoramaterras en 1.000 m² tuin.">
   <meta property="og:image" content="images/facade-main.jpg">
   <meta property="og:locale" content="nl_NL">
 
@@ -39,7 +39,7 @@
     "@context": "https://schema.org",
     "@type": "SingleFamilyResidence",
     "name": "Maison Montjovet - Historisch Landhuis",
-    "description": "Karakteristiek 19e-eeuws herenhuis met meer dan 300 m² woonoppervlakte en 1.000 m² privétuin. Mogelijkheid tot 1 royale villa of 2-3 ruime appartementen.",
+    "description": "Karakteristiek 19e-eeuws herenhuis met meer dan 300 m² woonoppervlakte en 1.000 m² privétuin. Mogelijkheid tot één grandioze residentie met dépendance/conciërgewoning of splitsing in twee of meer zelfstandige appartementen.",
     "floorSize": {
       "@type": "QuantitativeValue",
       "value": 320,
@@ -59,8 +59,8 @@
     "amenityFeature": [
       { "@type": "LocationFeatureSpecification", "name": "Binnenruimte > 300 m²", "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Privétuin 1.000 m²", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Mogelijkheid 2-3 appartementen", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Gewelfde stenen wijnkelders", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Villa met dépendance of 2+ appartementen", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Historische wijnkelder voor degustatie & gewelfde stal voor privé-spa", "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Panoramisch terras", "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Garage en parkeerplaatsen", "value": true }
     ]
@@ -351,78 +351,301 @@
       color: var(--accent);
     }
 
-    /* COMING SOON - SEZIONE PROGETTI E SUDDIVISIONE */
+    /* OPPORTUNITY CALLOUT BOX */
+    .opportunity-callout {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.4rem;
+      background: linear-gradient(135deg, rgba(176, 141, 87, 0.11), rgba(243, 241, 236, 0.85));
+      border-left: 4px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      font-size: 0.92rem;
+      color: var(--primary);
+      line-height: 1.6;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .opportunity-callout strong {
+      display: block;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.2rem;
+      color: var(--accent-hover);
+      margin-bottom: 0.25rem;
+    }
+
+    /* REDESIGNED PROJECTS & BEFORE/AFTER SLIDER SECTION */
     .projects-section {
-      background-color: var(--white);
+      background: linear-gradient(180deg, var(--white) 0%, var(--bg-cream) 100%);
       position: relative;
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      margin-top: 2rem;
+      margin-top: 2.2rem;
     }
     .project-card {
-      background: var(--bg-cream);
-      border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 4px;
-      padding: 2.2rem 1.8rem;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      overflow: hidden;
       position: relative;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
       transition: var(--transition);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
       border-color: var(--accent);
     }
-    .project-badge {
-      display: inline-block;
-      align-self: flex-start;
+    .project-media {
+      position: relative;
+      width: 100%;
+      height: 320px;
       background: var(--primary);
-      color: #E6D8BE;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
+      overflow: hidden;
+      user-select: none;
+    }
+    /* Interactive Before/After Slider */
+    .ba-slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      --ba-pos: 50%;
+      background: #121816;
+    }
+    .ba-slider img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+    .ba-img-before {
+      z-index: 2;
+      clip-path: inset(0 calc(100% - var(--ba-pos, 50%)) 0 0);
+    }
+    .ba-img-after {
+      z-index: 1;
+    }
+    .ba-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--ba-pos, 50%);
+      width: 2.5px;
+      background: var(--white);
+      z-index: 4;
+      transform: translateX(-50%);
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      pointer-events: none;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--white);
+      border: 2.5px solid var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.45);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+    .ba-label {
+      position: absolute;
+      top: 12px;
+      z-index: 3;
       padding: 4px 10px;
       border-radius: 20px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      backdrop-filter: blur(6px);
+      pointer-events: none;
+    }
+    .ba-label.before {
+      left: 12px;
+      background: rgba(18, 24, 22, 0.82);
+      color: #E6D8BE;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .ba-label.after {
+      right: 12px;
+      background: rgba(176, 141, 87, 0.92);
+      color: var(--white);
+    }
+    .ba-range {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 5;
+      margin: 0;
+    }
+    /* Layout Visual Graphic Card Header */
+    .layout-visual {
+      background: linear-gradient(145deg, #18201E 0%, #24302C 100%);
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.85rem;
+      color: var(--white);
+      position: relative;
+    }
+    .layout-option-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(176, 141, 87, 0.35);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      transition: var(--transition);
+    }
+    .project-card:hover .layout-option-box {
+      background: rgba(176, 141, 87, 0.14);
+      border-color: var(--accent);
+    }
+    .layout-opt-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(176, 141, 87, 0.22);
+      color: #E6D8BE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+    .layout-opt-text h4 {
+      color: var(--white);
+      font-size: 1.1rem;
+      margin-bottom: 0.15rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    .layout-opt-text span {
+      display: block;
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.35;
+    }
+    .project-body {
+      padding: 1.6rem 1.6rem 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-light);
+      color: var(--primary);
+      border: 1px solid rgba(176, 141, 87, 0.35);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 4px 11px;
+      border-radius: 20px;
       font-weight: 600;
-      margin-bottom: 1.2rem;
     }
     .coming-soon-ribbon {
       background: var(--accent);
       color: var(--white);
-      font-size: 0.65rem;
+      font-size: 0.64rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       padding: 4px 10px;
-      border-radius: 12px;
+      border-radius: 20px;
       display: inline-block;
-      margin-bottom: 0.8rem;
     }
     .project-card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.55rem;
+      margin-bottom: 0.5rem;
       line-height: 1.2;
     }
     .project-card p {
-      font-size: 0.9rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+    .project-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: auto;
+    }
+    .proj-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-cream);
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--primary);
+    }
+    .proj-chip svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent);
+      flex-shrink: 0;
     }
     .project-footer {
-      border-top: 1px dashed rgba(0,0,0,0.1);
-      padding-top: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding: 1rem 1.6rem;
+      background: var(--bg-cream);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.82rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .project-footer:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .project-footer.static-footer {
+      cursor: default;
+      color: var(--accent-hover);
+    }
+    .project-footer.static-footer:hover {
+      background: var(--bg-cream);
+      color: var(--accent-hover);
+    }
+    @media (max-width: 992px) {
+      .projects-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
     }
 
     /* GALLERY GRID */
@@ -759,14 +982,15 @@
     }
 
   
-    /* Location Cards Redesign */
+    /* Location Cards Redesign (5 cards: 3 top + 2 bottom on desktop) */
     .location-showcase-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.8rem;
       margin-top: 2rem;
     }
     .loc-card {
+      grid-column: span 2;
       background: #ffffff;
       border-radius: 8px;
       overflow: hidden;
@@ -776,13 +1000,16 @@
       flex-direction: column;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    .loc-card.loc-card-wide {
+      grid-column: span 3;
+    }
     .loc-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 18px 35px rgba(0,0,0,0.12);
     }
     .loc-card-media {
       position: relative;
-      height: 220px;
+      height: 230px;
       overflow: hidden;
       background: #1a221b;
     }
@@ -810,7 +1037,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
     .loc-card-body {
-      padding: 1.75rem;
+      padding: 1.65rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -826,14 +1053,14 @@
     }
     .loc-sub {
       display: block;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent);
       font-weight: 600;
     }
     .loc-card-body p {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: #555;
       line-height: 1.6;
       margin-bottom: 1.25rem;
@@ -842,12 +1069,17 @@
     .loc-card-footer {
       border-top: 1px solid #f0f0f0;
       padding-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.4rem;
+      align-items: center;
+      justify-content: space-between;
     }
     .loc-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.88rem;
+      gap: 0.35rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--primary);
       text-decoration: none;
@@ -857,10 +1089,120 @@
       color: var(--accent);
       transform: translateX(4px);
     }
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
+      .location-showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .loc-card, .loc-card.loc-card-wide {
+        grid-column: span 1;
+      }
+    }
+    @media (max-width: 700px) {
       .location-showcase-grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    /* PROJECT MODAL BEFORE/AFTER & OVERLAY ARROWS */
+    .project-modal-wrapper {
+      position: relative;
+      width: min(86vw, 660px);
+      height: min(82vh, 780px);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.15);
+      background: #121816;
+    }
+    .modal-overlay-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(18, 24, 22, 0.72);
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 25;
+      transition: var(--transition);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      font-size: 1.35rem;
+      line-height: 1;
+      padding: 0;
+    }
+    .modal-overlay-arrow:hover {
+      background: var(--accent);
+      border-color: var(--white);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .modal-overlay-arrow.prev { left: 16px; }
+    .modal-overlay-arrow.next { right: 16px; }
+    .modal-slide-pill {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 25;
+      background: rgba(18, 24, 22, 0.82);
+      color: var(--white);
+      padding: 5px 16px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+
+    /* BACK TO TOP FLOATING BUTTON */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      border: 1.5px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--accent);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    /* FOOTER LEGAL DISCLAIMER */
+    .footer-disclaimer {
+      max-width: 960px;
+      margin: 1.2rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.72rem;
+      color: #6f7476;
+      line-height: 1.55;
     }
 
   </style>
@@ -904,7 +1246,7 @@
         <h1 data-i18n="hero_title">Uw Droomhuis in de Italiaanse Alpen</h1>
         <p data-i18n="hero_desc">
           Een karakteristiek 19e-eeuws herenhuis in het historische Montjovet met ruim 300 m² woonoppervlakte en 1.000 m² privétuin. 
-          Ideaal als één grote prestigieuze familievilla of te verdelen in 2 tot 3 zelfstandige luxe appartementen.
+          Ideaal als één grandioze familieresidentie met mogelijkheid tot een dépendance of conciërgewoning, of op te splitsen in twee of meer zelfstandige appartementen.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary" data-i18n="hero_cta1">Plan een Bezichtiging</a>
@@ -924,8 +1266,8 @@
         <div class="spec-label" data-i18n="spec_garden">Privétuinen & Binnenplaats</div>
       </div>
       <div class="spec-item">
-        <div class="spec-value" data-i18n="spec_flex_val">1 tot 3 Units</div>
-        <div class="spec-label" data-i18n="spec_flex">Villa of 2-3 Appartementen</div>
+        <div class="spec-value" data-i18n="spec_flex_val">1 of 2+ Units</div>
+        <div class="spec-label" data-i18n="spec_flex">Villa met Dépendance of 2+ Appartementen</div>
       </div>
       <div class="spec-item">
         <div class="spec-value" data-i18n="spec_vaults_val">Gewelven</div>
@@ -955,24 +1297,24 @@
         <div class="story-content">
           <h3 data-i18n="story1_title">Ruimte om Uw Droom te Realiseren</h3>
           <p data-i18n="story1_p1">
-            Het pand, gerenoveerd en bewaard door de jaren heen, biedt maximale flexibiliteit: behoud het als één indrukwekkende privé-residentie of splits het pand eenvoudig op in 2 tot 3 zelfstandige royale appartementen (ideaal voor verhuur, familie of B&B).
+            Dit pand biedt maximale architectonische vrijheid: het kan worden beleefd als één grandioze privéresidentie met de mogelijkheid van een dépendance of conciërgewoning, of worden opgesplitst in twee of meer zelfstandige appartementen (ideaal voor meerdere gezinnen of verhuur).
           </p>
           <p data-i18n="story1_p2">
-            De woning beschikt over ruime parkeergelegenheid, een eigen garage, binnenplaats, een weelderige privétuin van 1.000 m² en een panoramisch zonneterras waar u in alle rust kunt genieten van de verkoelende berglucht in de zomer.
+            De woning beschikt over een ruime afgesloten binnenplaats met parkeergelegenheid voor meerdere auto's, een eigen garage, een privétuin van 1.000 m² en een panoramisch zonneterras.
           </p>
+          <div class="opportunity-callout">
+            <strong data-i18n="opp_title">✦ Het Potentieel van een Unieke Renovatie</strong>
+            <span data-i18n="opp_desc">Hoewel het huis bewoonbaar is en tot 2025 bewoond is geweest met talrijke uitgevoerde werkzaamheden door de jaren heen, ligt de ware kans in het moderniseren en renoveren ervan: het pand terugbrengen naar zijn oude glorie en de talloze mogelijkheden ten volle benutten.</span>
+          </div>
           <ul class="feature-list">
             <li data-i18n="feat_1">Meer dan 300 m² overdekt oppervlak op meerdere niveaus</li>
-            <li data-i18n="feat_2">1.000 m² privétuin, binnenplaats en garage</li>
-            <li data-i18n="feat_3">Geschikt als één herenhuis of als 2 à 3 aparte appartementen</li>
-            <li data-i18n="feat_4">Panoramisch terras, historische gewelven en open haard</li>
+            <li data-i18n="feat_2">1.000 m² privétuin, grote binnenplaats voor meerdere auto's en overdekte garage</li>
+            <li data-i18n="feat_3">Grandioze residentie met dépendance/conciërgewoning of 2 of meer appartementen</li>
+            <li data-i18n="feat_4">Panoramisch terras, historische wijnkelder en gewelfde stenen stal</li>
           </ul>
         </div>
       </div>
     </section>
-
-    <!-- PROGETTI & SUDDIVISIONE SPASI (COMING SOON) -->
-    
-
 
     <!-- SEZIONE PARTICOLARI & DETTAGLI (SLIDER RESPONSIVE) -->
     <section id="details" class="details-slider-section">
@@ -980,7 +1322,7 @@
         <span class="section-tag" data-i18n="tag_details">Artigianalità & Carattere</span>
         <h2 data-i18n="details_title">I Particolari d'Epoca</h2>
         <p data-i18n="details_desc">
-          Materiali nobili, pietra viva levigata dal tempo, boiserie in legno intagliato a mano ed elementi in ferro battuto che raccontano la storia della dimora.
+          Materiali nobili, pietra viva levigata dal tempo e boiserie in legno massello intagliato a mano che raccontano la storia autentica della dimora.
         </p>
       </div>
 
@@ -991,14 +1333,14 @@
         <div class="slider-track-container">
           <div class="slider-track" id="detailsSliderTrack">
 
-            <!-- Card 1: Maniglia d'epoca intagliata -->
+            <!-- Card 1: Portone d'epoca intagliato -->
             <div class="slider-card" onclick="openLightbox('images/detail-door-handle.jpg')">
               <div class="slider-card-img-wrapper">
-                <img src="images/detail-door-handle.jpg" alt="Maniglia in ferro battuto forgiata a mano e rosetta lignea" loading="lazy">
+                <img src="images/detail-door-handle.jpg" alt="Portone padronale in legno massello con rosetta intagliata" loading="lazy">
               </div>
               <div class="slider-card-content">
-                <h3 data-i18n="detail1_title">Porta Padronale & Ferro Battuto</h3>
-                <p data-i18n="detail1_desc">Antica serratura e maniglia forgiata a foglia in ferro battuto, accostata a formelle geometriche intagliate nel massello d'epoca.</p>
+                <h3 data-i18n="detail1_title">Porta Padronale in Legno Intagliato</h3>
+                <p data-i18n="detail1_desc">Portone storico in legno massello caratterizzato da formelle geometriche, rosetta floreale scolpita a mano e maniglia originale d'epoca.</p>
               </div>
             </div>
 
@@ -1027,11 +1369,11 @@
             <!-- Card 4: Corridoio nobile con ritratti storici -->
             <div class="slider-card" onclick="openLightbox('images/detail-hallway-art.jpg')">
               <div class="slider-card-img-wrapper">
-                <img src="images/detail-hallway-art.jpg" alt="Galleria interna della residenza con ritratti e decori" loading="lazy">
+                <img src="images/detail-hallway-art.jpg" alt="Galleria interna della residenza con parquet e ritratti storici" loading="lazy">
               </div>
               <div class="slider-card-content">
-                <h3 data-i18n="detail4_title">Galleria Nobile & Arte</h3>
-                <p data-i18n="detail4_desc">Lungo corridoio di disimpegno con pavimentazione d'epoca, ritratti storici e applique in ottone che diffondono una calda luce dorata.</p>
+                <h3 data-i18n="detail4_title">Galleria Nobile & Ritratti</h3>
+                <p data-i18n="detail4_desc">Ampio corridoio di disimpegno con caldo pavimento in parquet a spina di pesce, prospettiva luminosa e ritratti storici di famiglia.</p>
               </div>
             </div>
 
@@ -1079,28 +1421,46 @@
       </div>
     </section>
 
-    <!-- HISTORIC VAULTS -->
+    <!-- HISTORIC VAULTS: CANTINA (DEGUSTAZIONE) & STALLA (SPA PRIVATA) -->
     <section id="vaults">
       <div class="section-header">
         <span class="section-tag" data-i18n="tag_unique">Bijzonder Erfgoed</span>
-        <h2 data-i18n="vaults_title">Monumentale Steenkelder & Gewelfde Stal</h2>
+        <h2 data-i18n="vaults_title">Historische Wijnkelder & Gewelfde Stal</h2>
         <p data-i18n="vaults_intro">
-          De absolute blikvanger van de residentie: historische gewelven met stenen zuilen en authentieke wijnvaten.
+          Twee afzonderlijke monumentale ruimtes met elk een eigen ziel: de stenen wijnkelder voor degustaties en de indrukwekkende gewelfde stal als ideale plek voor een privé-spa.
         </p>
       </div>
 
+      <!-- 1. La Cantina Storica: Solo Degustazione & Carnotzet -->
       <div class="grid-story">
         <div class="story-content">
-          <h3 data-i18n="vaults_sec_title">Een Exclusieve Wijnkelder of Privé Spa</h3>
+          <h3 data-i18n="vaults_sec_title">De Historische Wijnkelder: Ideaal voor Wijnproeverij</h3>
           <p data-i18n="vaults_p1">
-            Onder het woongedeelte bevinden zich spectaculaire gewelfde ruimtes van natuursteen. De centrale stenen zuil en de bewaarde vaten ademen de rijke wijntraditie van de Val d'Aosta.
+            Onder het woongedeelte bevindt zich de authentieke gewelfde wijnkelder in natuursteen, waar de originele houten vaten en het constante microklimaat de rijke wijntraditie van de Valle d'Aosta bewaren.
           </p>
           <p data-i18n="vaults_p2">
-            Deze ruimtes lenen zich perfect voor een prestigieuze wijnproeverij (cantina), een exclusieve wellnessruimte met spa/sauna, of een sfeervolle lounge voor onvergetelijke avonden met vrienden en familie.
+            Deze karakteristieke ruimte is bij uitstek geschikt voor het bewaren van grote wijnen en als sfeervolle proefruimte (carnotzet) voor gezellige proeverijen met vrienden en familie.
           </p>
         </div>
         <div class="story-img-container" onclick="openLightbox('images/cellars-vault.jpg')">
-          <img src="images/cellars-vault.jpg" alt="Monumentale gewelfde stenen wijnkelder met historische vaten" class="story-img" loading="lazy">
+          <img src="images/cellars-vault.jpg" alt="Monumentale gewelfde stenen wijnkelder met historische vaten voor degustatie" class="story-img" loading="lazy">
+        </div>
+      </div>
+
+      <!-- 2. L'Antica Stalla Voltata: Esclusivamente per la SPA Privata -->
+      <div class="grid-story reverse" style="margin-top: 3.5rem; margin-bottom: 0;">
+        <div class="story-content">
+          <h3 data-i18n="stables_sec_title">De Gewelfde Stal: Een Exclusieve Privé Spa</h3>
+          <p data-i18n="stables_p1">
+            De voormalige stal onderscheidt zich door haar hoge kruisgewelven en de imposante monolithische stenen zuil in het midden. Dankzij de royale afmetingen en de architectonische grandeur vormt uitsluitend deze ruimte het perfecte decor voor een exclusieve privé-spa.
+          </p>
+          <p data-i18n="stables_p2">
+            Hier kan een compleet wellness-heiligdom worden gerealiseerd met een op maat gemaakte Finse sauna onder de stenen bogen, een Turks stoombad (hammam), een verwarmd hydromassagebad of Kneipp-pad rond de stenen zuil en een sfeervolle relaxruimte na een dag op de skipistes.
+          </p>
+        </div>
+        <div class="story-img-container" onclick="openProjectGallery('spa')">
+          <img src="images/stables-vault.jpg" alt="Antica stalla voltata con colonna monolitica per progetto SPA privata" class="story-img" loading="lazy">
+          <div class="badge-accent" data-i18n="stables_badge_spa">Bekijk SPA Concept (Voor/Na) &rarr;</div>
         </div>
       </div>
     </section>
@@ -1131,16 +1491,16 @@
           <div class="gallery-caption" data-i18n="cap_4">Historische stenen zuil & gewelven</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('images/courtyard-arch.jpg')">
-          <img src="images/courtyard-arch.jpg" alt="Binnenplaats met stenen boog" loading="lazy">
-          <div class="gallery-caption" data-i18n="cap_5">Binnenplaats met stenen boog</div>
+          <img src="images/courtyard-arch.jpg" alt="Ingresso alla dépendance con arco in pietra" loading="lazy">
+          <div class="gallery-caption" data-i18n="cap_5">Ingresso alla dépendance</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('images/fountain-detail.jpg')">
           <img src="images/fountain-detail.jpg" alt="Historische waterfontein van het borgo" loading="lazy">
           <div class="gallery-caption" data-i18n="cap_6">Karakteristieke dorpsfontein</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('images/living-room.jpg')">
-          <img src="images/living-room.jpg" alt="Woonkamer met open haard en boiserie" loading="lazy">
-          <div class="gallery-caption" data-i18n="cap_7">Woonkamer met open haard & boiserie</div>
+          <img src="images/living-room.jpg" alt="Woonkamer met houten boiserie" loading="lazy">
+          <div class="gallery-caption" data-i18n="cap_7">Woonkamer met houten boiserie & haard</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('images/wheel-heritage.jpg')">
           <img src="images/wheel-heritage.jpg" alt="Ambachtelijk houten wagenwiel op steen" loading="lazy">
@@ -1159,15 +1519,15 @@
         <span class="section-tag" data-i18n="tag_loc">Posizione Strategica</span>
         <h2 data-i18n="loc_title">Al Centro della Valle d'Aosta</h2>
         <p data-i18n="loc_desc">
-          Montjovet si trova nel cuore della vallata alpina: una cornice riservata e autentica, perfettamente collegata alle mete sciistiche mondiali, alle stazioni termali storiche e ai grandi aeroporti del Nord Italia.
+          Montjovet si trova nel cuore della vallata alpina: una cornice riservata e autentica, perfettamente collegata alle mete sciistiche mondiali, ai sentieri di trekking e MTB, alle stazioni termali storiche e ai grandi aeroporti del Nord Italia.
         </p>
       </div>
 
       <div class="location-showcase-grid">
-        <!-- 1. Breuil-Cervinia & Zermatt -->
+        <!-- 1. Breuil-Cervinia & Zermatt (Foto col Cervino) -->
         <div class="loc-card">
           <div class="loc-card-media">
-            <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" alt="Breuil-Cervinia Matterhorn Ski Paradise" loading="lazy">
+            <img src="images/loc-cervinia.jpg" alt="Breuil-Cervinia e Monte Cervino Matterhorn" loading="lazy">
             <span class="loc-badge" data-i18n="loc_badge_cervinia">~40 min</span>
           </div>
           <div class="loc-card-body">
@@ -1175,17 +1535,17 @@
               <h3 data-i18n="loc_cervinia_title">Breuil-Cervinia / Zermatt</h3>
               <span class="loc-sub" data-i18n="loc_cervinia_sub">Matterhorn Ski Paradise</span>
             </div>
-            <p data-i18n="loc_cervinia_desc">Oltre 350 km di piste transfrontaliere tra Italia e Svizzera ai piedi del Cervino, con possibilità di sciare 365 giorni all'anno sul ghiacciaio del Plateau Rosà.</p>
+            <p data-i18n="loc_cervinia_desc">Oltre 350 km di piste transfrontaliere tra Italia e Svizzera ai piedi dell'iconico Monte Cervino, con possibilità di sciare 365 giorni all'anno sul ghiacciaio del Plateau Rosà.</p>
             <div class="loc-card-footer">
               <a href="https://www.cervinia.it" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_cervinia">Scopri il comprensorio</span> &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- 2. Skyway Monte Bianco & Courmayeur -->
+        <!-- 2. Skyway Monte Bianco & Courmayeur (Foto col Monte Bianco) -->
         <div class="loc-card">
           <div class="loc-card-media">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Skyway Monte Bianco Courmayeur" loading="lazy">
+            <img src="images/loc-skyway.jpg" alt="Skyway Monte Bianco Courmayeur e massiccio del Monte Bianco" loading="lazy">
             <span class="loc-badge" data-i18n="loc_badge_skyway">~45 min</span>
           </div>
           <div class="loc-card-body">
@@ -1193,104 +1553,188 @@
               <h3 data-i18n="loc_skyway_title">Skyway Monte Bianco & Courmayeur</h3>
               <span class="loc-sub" data-i18n="loc_skyway_sub">Il Tetto d'Europa (Punta Helbronner 3.466 m)</span>
             </div>
-            <p data-i18n="loc_skyway_desc">La spettacolare funivia rotante a 360° definita l'ottava meraviglia del mondo, l'elegante centro di Courmayeur e percorsi alpinistici leggendari.</p>
+            <p data-i18n="loc_skyway_desc">La spettacolare funivia rotante a 360° al cospetto del Monte Bianco, l'elegante centro alpino di Courmayeur e panorami d'alta quota unici in Europa.</p>
             <div class="loc-card-footer">
               <a href="https://www.montebianco.com" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_skyway">Esplora Skyway</span> &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- 3. Saint-Vincent Terme & Casinò -->
+        <!-- 3. Trekking, Alte Vie & Mountain Bike -->
         <div class="loc-card">
           <div class="loc-card-media">
-            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Saint-Vincent Terme e Casinò" loading="lazy">
+            <img src="images/loc-trekking-mtb.jpg" alt="Trekking e Mountain Bike in Valle d'Aosta" loading="lazy">
+            <span class="loc-badge" data-i18n="loc_badge_trek">0 - 30 min</span>
+          </div>
+          <div class="loc-card-body">
+            <div class="loc-card-header">
+              <h3 data-i18n="loc_trek_title">Trekking & Mountain Bike</h3>
+              <span class="loc-sub" data-i18n="loc_trek_sub">Alte Vie, E-Bike, Via Francigena & Natura</span>
+            </div>
+            <p data-i18n="loc_trek_desc">Non solo sci: centinaia di chilometri di sentieri panoramici direttamente dal borgo, tracciati per Mountain Bike ed E-Bike, le celebri Alte Vie valdostane, parchi naturali e castelli.</p>
+            <div class="loc-card-footer">
+              <a href="https://www.lovevda.it/it/sport/escursionismo" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_trek">Itinerari Trekking & MTB</span> &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Saint-Vincent Terme & Casinò (Esterno soleggiato + link corretti) -->
+        <div class="loc-card loc-card-wide">
+          <div class="loc-card-media">
+            <img src="images/loc-saint-vincent.jpg" alt="Esterno soleggiato delle Terme di Saint-Vincent e Casinò Resort" loading="lazy">
             <span class="loc-badge" data-i18n="loc_badge_spa">~10 min</span>
           </div>
           <div class="loc-card-body">
             <div class="loc-card-header">
               <h3 data-i18n="loc_spa_title">Saint-Vincent: Terme & Casinò</h3>
-              <span class="loc-sub" data-i18n="loc_spa_sub">Benessere Storico & Casinò de la Vallée</span>
+              <span class="loc-sub" data-i18n="loc_spa_sub">Benessere Panoramico & Casinò de la Vallée</span>
             </div>
-            <p data-i18n="loc_spa_desc">La storica 'Riviera delle Alpi' a soli 10 minuti di strada: rinomate acque termali Fons Salutis, percorsi spa panoramici e uno dei casinò più celebri d'Europa.</p>
+            <p data-i18n="loc_spa_desc">La storica 'Riviera delle Alpi' a soli 10 minuti di strada: piscine termali esterne affacciate sulle montagne, sorgente curativa Fons Salutis e lo storico Casinò de la Vallée.</p>
             <div class="loc-card-footer">
-              <a href="https://www.termedisaintvincent.it" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_spa">Terme di Saint-Vincent</span> &rarr;</a>
+              <a href="https://laviadelleterme.it/terme-di-saint-vincent/" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_spa">Terme di Saint-Vincent</span> &rarr;</a>
+              <a href="https://www.casinodelavallee.com/" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_casino">Casinò de la Vallée</span> &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- 4. Torino, Milano & Aeroporti -->
-        <div class="loc-card">
+        <!-- 5. Torino, Milano & Aeroporti (Foto aeroporto con Alpi) -->
+        <div class="loc-card loc-card-wide">
           <div class="loc-card-media">
-            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=80" alt="Torino e Milano Aeroporti" loading="lazy">
-            <span class="loc-badge" data-i18n="loc_badge_cities">50 - 85 min</span>
+            <img src="images/loc-airports.jpg" alt="Aeroporti internazionali di Torino Caselle e Milano Malpensa" loading="lazy">
+            <span class="loc-badge" data-i18n="loc_badge_cities">50 - 80 min</span>
           </div>
           <div class="loc-card-body">
             <div class="loc-card-header">
               <h3 data-i18n="loc_cities_title">Torino, Milano & Aeroporti</h3>
               <span class="loc-sub" data-i18n="loc_cities_sub">Autostrada A5 & Hub Internazionali</span>
             </div>
-            <p data-i18n="loc_cities_desc">Accesso rapido all'autostrada A5: Torino e aeroporto Caselle a circa 50 min, Milano Malpensa a 1h 20m, Svizzera e Francia agevolmente raggiungibili tramite i trafori alpini.</p>
+            <p data-i18n="loc_cities_desc">Accesso rapido all'autostrada A5: Torino e l'aeroporto di Caselle (TRN) a circa 50 min, Milano Malpensa (MXP) a 1h 20m, Svizzera e Francia agevolmente raggiungibili tramite i trafori alpini.</p>
             <div class="loc-card-footer">
-              <a href="https://www.aeroportoditorino.it" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_cities">Info Collegamenti A5</span> &rarr;</a>
+              <a href="https://www.aeroportoditorino.it" target="_blank" rel="noopener noreferrer" class="loc-link"><span data-i18n="loc_btn_cities">Aeroporto di Torino (TRN)</span> &rarr;</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- REDESIGNED PROJECTS & INTERACTIVE BEFORE/AFTER SECTION -->
     <section id="projects" class="projects-section">
       <div class="section-header">
         <span class="section-tag" data-i18n="tag_projects">Visione & Sviluppo</span>
         <h2 data-i18n="projects_title">Progetti & Idee di Sviluppo</h2>
         <p data-i18n="projects_desc">
-          Esplora le proposte di valorizzazione degli esterni, i concept di centro benessere (SPA) nelle cantine storiche e le opzioni di suddivisione degli spazi abitativi.
+          Scorri il cursore verticale sulle immagini per confrontare lo stato attuale con i rendering di progetto: restyling degli esterni, SPA privata nella stalla voltata e soluzioni flessibili di suddivisione.
         </p>
       </div>
 
       <div class="projects-grid">
-        <!-- 1. Proposta Esterno -->
-        <div class="project-card" onclick="openProjectGallery('ext')" style="cursor: pointer;">
-          <div>
-            <div class="project-badge" data-i18n="proj_ext_badge">Valorizzazione Esterni</div>
-            <h3 data-i18n="proj_ext_title">Proposta Esterno</h3>
-            <p data-i18n="proj_ext_desc">
-              Riqualificazione architettonica della facciata principale, cortile in pietra e cura degli spazi verdi esterni per un'estetica alpina contemporanea e raffinata.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span data-i18n="proj_click_gallery">Visualizza immagini &rarr;</span>
-            <span>📸 2 foto</span>
-          </div>
-        </div>
-
-        <!-- 2. Proposta Suddivisione Spazi Abitativi (Coming Soon) -->
+        <!-- 1. Proposta Esterno (Interactive Before/After inline + Modal) -->
         <div class="project-card">
-          <div>
-            <span class="coming-soon-ribbon" data-i18n="cs_ribbon">Coming Soon</span>
-            <div class="project-badge" data-i18n="proj_layout_badge">Frazionamento & Layout</div>
-            <h3 data-i18n="proj_layout_title">Suddivisione Spazi Abitativi</h3>
-            <p data-i18n="proj_layout_desc">
-              Soluzioni progettuali flessibili per la realizzazione di una grande villa unifamiliare o di 2-3 appartamenti indipendenti con garage e giardino.
-            </p>
+          <div class="project-media">
+            <div class="ba-slider">
+              <img src="images/project-ext-1.jpg" alt="Dopo: Rendering facciata esterna" class="ba-img-after" loading="lazy">
+              <img src="images/facade-main.jpg" alt="Prima: Facciata esterna attuale" class="ba-img-before" loading="lazy">
+              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
+              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
+              <div class="ba-divider"><div class="ba-handle">&#8596;</div></div>
+              <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
+            </div>
           </div>
-          <div class="project-footer">
-            <span data-i18n="proj_plans">Planimetrie in elaborazione</span>
-            <span>✦</span>
+          <div class="project-body">
+            <div class="project-header-row">
+              <span class="project-badge">🏛️ <span data-i18n="proj_ext_badge">Valorizzazione Esterni</span></span>
+            </div>
+            <h3 data-i18n="proj_ext_title">Restyling Facciata & Giardino</h3>
+            <p data-i18n="proj_ext_desc">
+              Valorizzazione cromatica della facciata, tetto in lose, persiane in legno naturale e cura paesaggistica della corte.
+            </p>
+            <div class="project-chips">
+              <span class="proj-chip">✨ <span data-i18n="proj_ext_chip1">Facciata & Lose</span></span>
+              <span class="proj-chip">🌿 <span data-i18n="proj_ext_chip2">1.000 m² Verde</span></span>
+              <span class="proj-chip">⇄ <span data-i18n="proj_ext_chip3">Before / After</span></span>
+            </div>
+          </div>
+          <div class="project-footer" onclick="openProjectGallery('ext')">
+            <span data-i18n="proj_click_gallery">Apri confronto a tutto schermo &rarr;</span>
+            <span data-i18n="proj_photos_count">📸 2 viste</span>
           </div>
         </div>
 
-        <!-- 3. Proposta SPA -->
-        <div class="project-card" onclick="openProjectGallery('spa')" style="cursor: pointer;">
-          <div>
-            <div class="project-badge" data-i18n="proj_spa_badge">Benessere & Relax</div>
-            <h3 data-i18n="proj_spa_title">Proposta SPA & Wellness</h3>
-            <p data-i18n="proj_spa_desc">
-              Concept design per un'esclusiva area benessere ricavata nelle cantine voltate in pietra, completa di sauna finlandese, vasca idromassaggio e zona relax.
-            </p>
+        <!-- 2. Proposta SPA nella Stalla Voltata (Interactive Before/After inline + Modal) -->
+        <div class="project-card">
+          <div class="project-media">
+            <div class="ba-slider">
+              <img src="images/project-spa-1.jpg" alt="Dopo: Rendering SPA nella stalla voltata" class="ba-img-after" loading="lazy">
+              <img src="images/stables-vault.jpg" alt="Prima: Stalla voltata attuale" class="ba-img-before" loading="lazy">
+              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
+              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
+              <div class="ba-divider"><div class="ba-handle">&#8596;</div></div>
+              <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
+            </div>
           </div>
-          <div class="project-footer">
-            <span data-i18n="proj_click_gallery">Visualizza immagini &rarr;</span>
-            <span>📸 2 foto</span>
+          <div class="project-body">
+            <div class="project-header-row">
+              <span class="project-badge">♨️ <span data-i18n="proj_spa_badge">Antica Stalla Voltata</span></span>
+            </div>
+            <h3 data-i18n="proj_spa_title">SPA Privata nella Stalla</h3>
+            <p data-i18n="proj_spa_desc">
+              Esclusivo centro benessere ricavato nelle volte in pietra della stalla attorno alla colonna monolitica.
+            </p>
+            <div class="project-chips">
+              <span class="proj-chip">🧖 <span data-i18n="proj_spa_chip1">Sauna & Hammam</span></span>
+              <span class="proj-chip">💧 <span data-i18n="proj_spa_chip2">Idromassaggio & Kneipp</span></span>
+              <span class="proj-chip">🕯️ <span data-i18n="proj_spa_chip3">Area Relax</span></span>
+            </div>
+          </div>
+          <div class="project-footer" onclick="openProjectGallery('spa')">
+            <span data-i18n="proj_click_gallery">Apri confronto a tutto schermo &rarr;</span>
+            <span data-i18n="proj_photos_count">📸 2 viste</span>
+          </div>
+        </div>
+
+        <!-- 3. Suddivisione Spazi Abitativi (Visual Infographic Card) -->
+        <div class="project-card">
+          <div class="project-media layout-visual">
+            <div class="layout-option-box">
+              <div class="layout-opt-icon">🏰</div>
+              <div class="layout-opt-text">
+                <h4 data-i18n="layout_opt1_title">Dimora Padronale + Dépendance</h4>
+                <span data-i18n="layout_opt1_sub">Unica grande residenza >300 m² con dépendance o casa del custode</span>
+              </div>
+            </div>
+            <div class="layout-option-box">
+              <div class="layout-opt-icon">🔑</div>
+              <div class="layout-opt-text">
+                <h4 data-i18n="layout_opt2_title">Due o Più Appartamenti</h4>
+                <span data-i18n="layout_opt2_sub">Frazionamento flessibile in 2+ unità autonome per famiglie o reddito</span>
+              </div>
+            </div>
+            <div class="layout-option-box">
+              <div class="layout-opt-icon">🍷</div>
+              <div class="layout-opt-text">
+                <h4 data-i18n="layout_opt3_title">Cantina Storica da Degustazione</h4>
+                <span data-i18n="layout_opt3_sub">Volte con botti d'epoca dedicate a vini e carnotzet conviviale</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-header-row">
+              <span class="project-badge">📐 <span data-i18n="proj_layout_badge">Flessibilità Spazi</span></span>
+              <span class="coming-soon-ribbon" data-i18n="cs_ribbon">Coming Soon</span>
+            </div>
+            <h3 data-i18n="proj_layout_title">Sviluppo & Divisione Spazi</h3>
+            <p data-i18n="proj_layout_desc">
+              Massima libertà progettuale grazie a doppi accessi, oltre 300 m² su più livelli e 1.000 m² di corte e giardini.
+            </p>
+            <div class="project-chips">
+              <span class="proj-chip">🏠 <span data-i18n="proj_layout_chip1">1 Villa + Dépendance</span></span>
+              <span class="proj-chip">🏢 <span data-i18n="proj_layout_chip2">2 o Più Unità</span></span>
+              <span class="proj-chip">🚗 <span data-i18n="proj_layout_chip3">Cortile & Box</span></span>
+            </div>
+          </div>
+          <div class="project-footer static-footer">
+            <span data-i18n="proj_plans">Planimetrie architettoniche in elaborazione</span>
+            <span>✦</span>
           </div>
         </div>
       </div>
@@ -1354,9 +1798,19 @@
     <img id="lightboxImg" src="" alt="Enlarged view">
   </div>
 
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTopBtn" class="back-to-top" onclick="scrollToTop()" aria-label="Torna in alto" title="Torna in alto">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Maison Montjovet • Valle d'Aosta Real Estate Opportunity. All rights reserved.</p>
+    <p class="footer-disclaimer" data-i18n="footer_disclaimer">
+      Disclaimer: De informatie, oppervlakten, beschrijvingen, plattegronden en 3D-renderings op deze website zijn uitsluitend bedoeld ter illustratie en oriëntatie en vormen geen contractueel aanbod of juridische verbintenis. Er kunnen geen rechten worden ontleend aan eventuele onjuistheden of onvolledigheden.
+    </p>
   </footer>
 
   <!-- MULTILANGUAGE JAVASCRIPT & LOGICA -->
@@ -1370,108 +1824,147 @@
         nav_contact: "Contact",
         tag_loc: "Strategische Locatie",
         loc_title: "Centraal in de Aostavallei",
-        loc_desc: "Montjovet ligt in het hart van de alpiene vallei: een oase van rust en authenticiteit met uitmuntende verbindingen naar topskigebieden, historische kuuroorden en Noord-Italiaanse luchthavens.",
+        loc_desc: "Montjovet ligt in het hart van de alpiene vallei: een oase van rust met uitstekende verbindingen naar topskigebieden, wandel- en mountainbikeroutes, historische kuuroorden en Noord-Italiaanse luchthavens.",
         loc_badge_cervinia: "~40 min",
         loc_cervinia_title: "Breuil-Cervinia / Zermatt",
         loc_cervinia_sub: "Matterhorn Ski Paradise",
-        loc_cervinia_desc: "Ruim 350 km aaneengesloten grensoverschrijdende pistes tussen Italië en Zwitserland aan de voet van de Matterhorn, met 365 dagen per jaar skiën op de gletsjer Plateau Rosà.",
+        loc_cervinia_desc: "Ruim 350 km aaneengesloten grensoverschrijdende pistes tussen Italië en Zwitserland aan de voet van de iconische Matterhorn (Cervino), met 365 dagen per jaar skiën op de gletsjer Plateau Rosà.",
         loc_btn_cervinia: "Ontdek het skigebied",
         loc_badge_skyway: "~45 min",
         loc_skyway_title: "Skyway Monte Bianco & Courmayeur",
         loc_skyway_sub: "Het Dak van Europa (Punta Helbronner 3.466 m)",
-        loc_skyway_desc: "De adembenemende 360° roterende kabelbaan gekroond tot het 8e wereldwonder, het mondaine Courmayeur en legendarische bergroutes.",
+        loc_skyway_desc: "De adembenemende 360° roterende kabelbaan met spectaculair zicht op het Mont Blanc-massief, het mondaine Courmayeur en legendarische alpiene routes.",
         loc_btn_skyway: "Verken Skyway",
+        loc_badge_trek: "0 - 30 min",
+        loc_trek_title: "Trekking & Mountainbike",
+        loc_trek_sub: "Alte Vie, E-Bike, Via Francigena & Natuur",
+        loc_trek_desc: "Niet alleen wintersport: honderden kilometers panoramische wandelpaden direct vanuit het dorp, uitdagende mountainbike- en e-bikeroutes, natuurparken en middeleeuwse kastelen.",
+        loc_btn_trek: "Wandel- & MTB-routes",
         loc_badge_spa: "~10 min",
         loc_spa_title: "Saint-Vincent: Thermen & Casino",
-        loc_spa_sub: "Historische Wellness & Casino de la Vallée",
-        loc_spa_desc: "De befaamde 'Rivièra van de Alpen' op slechts 10 minuten: geneeskrachtig bronwater Fons Salutis, panoramische thermale baden en een van de bekendste casino's van Europa.",
+        loc_spa_sub: "Panoramische Wellness & Casino de la Vallée",
+        loc_spa_desc: "De befaamde 'Rivièra van de Alpen' op slechts 10 minuten: geneeskrachtig bronwater Fons Salutis, panoramische buitenbaden met bergzicht en het beroemde Casino de la Vallée.",
         loc_btn_spa: "Thermen Saint-Vincent",
-        loc_badge_cities: "50 - 85 min",
+        loc_btn_casino: "Casino de la Vallée",
+        loc_badge_cities: "50 - 80 min",
         loc_cities_title: "Turijn, Milaan & Luchthavens",
         loc_cities_sub: "Snelweg A5 & Internationale Hubs",
-        loc_cities_desc: "Directe aansluiting op de snelweg A5: Turijn en luchthaven Caselle op ~50 min, Milaan Malpensa op 1u 20m, Frankrijk en Zwitserland snel bereikbaar via de tunnels.",
-        loc_btn_cities: "Reisinformatie A5",
+        loc_cities_desc: "Directe aansluiting op de snelweg A5: Turijn en luchthaven Caselle (TRN) op ~50 min, Milaan Malpensa (MXP) op 1u 20m, Frankrijk en Zwitserland vlot bereikbaar via de Alpentunnels.",
+        loc_btn_cities: "Luchthaven Turijn (TRN)",
 
         tag_details: "Vakmanschap & Karakter",
         details_title: "Historische Details & Afwerkingen",
-        details_desc: "Natuursteen, handgesneden houtsnijwerk en smeedijzeren elementen die het authentieke alpiene erfgoed van het pand weerspiegelen.",
-        detail1_title: "Hoofddeur & Smeedijzer",
-        detail1_desc: "Antiek smeedijzeren deurbeslag met bladmotief en handgesneden houten rozetten in massief hout.",
+        details_desc: "Nobele materialen, door de tijd gepolijste natuursteen en handgesneden massief houtwerk die het authentieke alpiene erfgoed van het pand weerspiegelen.",
+        detail1_title: "Hoofddeur in Gesneden Hout",
+        detail1_desc: "Historische voordeur in massief hout met verfijnde geometrische panelen, handgesneden bloemrozet en origineel antiek deurbeslag.",
         detail2_title: "Stenen Zuil & Gewelven",
-        detail2_desc: "Monumentale stenen zuil met gebeeldhouwd kapiteel die het gewelfde plafond van de voormalige stal ondersteunt.",
+        detail2_desc: "Monumentale stenen zuil met gebeeldhouwd kapiteel die het hoge gewelfde plafond van de voormalige stal ondersteunt.",
         detail3_title: "Dorpsfontein & Bronzen Kraan",
         detail3_desc: "Historisch stenen waterbassin met een artistiek bronzen uitlooppunt en kristalhelder alpenwater.",
-        detail4_title: "Elegante Galerij & Historie",
-        detail4_desc: "Brede gang met klassieke vloer, historische portretten en messing wandlampen met warme sfeerverlichting.",
+        detail4_title: "Elegante Galerij & Portretten",
+        detail4_desc: "Ruime gang met warme visgraat parketvloer, lichte doorkijk en historische familieportretten.",
         detail5_title: "Wijnproeverij & Carnotzet",
         detail5_desc: "Sfeervolle gewelfde taverne met zware houten draagbalk, stenen spoelbak en historische flessenvitrine.",
+
         hero_sub: "Aosta-vallei • Exclusief Te Koop",
         hero_title: "Uw Droomhuis in de Italiaanse Alpen",
-        hero_desc: "Een karakteristiek 19e-eeuws herenhuis in het historische Montjovet met ruim 300 m² woonoppervlakte en 1.000 m² privétuin. Ideaal als één grote prestigieuze familievilla of te verdelen in 2 tot 3 zelfstandige luxe appartementen.",
+        hero_desc: "Een karakteristiek 19e-eeuws herenhuis in het historische Montjovet met ruim 300 m² woonoppervlakte en 1.000 m² privétuin. Ideaal als één grandioze familieresidentie met mogelijkheid tot een dépendance of conciërgewoning, of op te splitsen in twee of meer zelfstandige appartementen.",
         hero_cta1: "Plan een Bezichtiging",
-        hero_cta2: "Bekijk de Indelingsopties",
+        hero_cta2: "Bekijk de Projecten",
         spec_covered: "Overdekte Oppervlakte",
         spec_garden: "1.000 m² Tuinen, Binnenplaats & Garage",
-        spec_flex_val: "1 tot 3 Units",
-        spec_flex: "Villa of 2-3 Appartementen",
+        spec_flex_val: "1 of 2+ Units",
+        spec_flex: "Villa met Dépendance of 2+ Appartementen",
         spec_vaults_val: "Gewelven",
-        spec_vaults: "Historische Steenkelder & Stal",
+        spec_vaults: "Historische Wijnkelder & Stal",
         spec_ski: "Cervinia & Monte Bianco",
+
         tag_history: "Authentiek & Karakteristiek",
         about_title: "Een Zeldzaam Juweel met Eindeloze Mogelijkheden",
         about_intro: "In het hart van het vredige bergdorpje Montjovet combineert deze historische residentie alpencharme met meer dan 300 m² aan overdekte ruimtes en een royale privétuin van 1.000 m².",
         badge_story: "> 300 m² • 1.000 m² Tuin",
         story1_title: "Ruimte om Uw Droom te Realiseren",
-        story1_p1: "Het pand, gerenoveerd en bewaard door de jaren heen, biedt maximale flexibiliteit: behoud het als één indrukwekkende privé-residentie of splits het pand eenvoudig op in 2 tot 3 zelfstandige royale appartementen (ideaal voor verhuur, familie of B&B).",
+        story1_p1: "Dit pand biedt maximale architectonische vrijheid: het kan worden beleefd als één grandioze privéresidentie met de mogelijkheid van een dépendance of conciërgewoning, of worden opgesplitst in twee of meer zelfstandige appartementen (ideaal voor meerdere gezinnen of verhuur).",
         story1_p2: "De woning beschikt over een grote afgesloten binnenplaats met parkeergelegenheid voor meerdere auto's, een eigen overdekte garage, 1.000 m² privétuin en een panoramisch zonneterras.",
+        opp_title: "✦ Het Potentieel van een Unieke Renovatie",
+        opp_desc: "Hoewel het huis bewoonbaar is en tot 2025 bewoond is geweest met talrijke uitgevoerde werkzaamheden door de jaren heen, ligt de ware kans in het moderniseren en renoveren ervan: het pand terugbrengen naar zijn oude glorie en de talloze mogelijkheden ten volle benutten.",
         feat_1: "Meer dan 300 m² overdekt oppervlak op meerdere niveaus",
-        feat_2: "1.000 m² privétuin, grote geplaveide binnenplaats voor meerdere auto's en overdekte garage",
-        feat_3: "Geschikt als één herenhuis of als 2 à 3 aparte appartementen",
-        feat_4: "Panoramisch terras, historische gewelven en open haard",
-        tag_projects: "Architectonisch Potentieel",
-        projects_title: "Indelingsopties & Projecten",
-        projects_desc: "Dankzij de royale volumes en dubbele toegangen kan het pand eenvoudig worden ingericht volgens uw specifieke wensen of investeringsplannen.",
-        cs_ribbon: "Binnenkort Beschikbaar",
-        proj1_badge: "Optie A • Prestigieuze Residentie",
-        proj1_title: "Eén Exclusieve Alpenvilla",
-        proj1_desc: "Het behoud van de volledige woning als één statige privévilla van meer dan 300 m² met 4-6 slaapkamers, royale living met open haard, privétuin van 1.000 m² en wellnessruimte in de gewelven.",
-        proj2_badge: "Optie B • Twee Woningen",
-        proj2_title: "2 Royale Zelfstandige Appartementen",
-        proj2_desc: "Een perfecte opsplitsing in twee ruime appartementen (elk 130-160 m²): een begane grond met directe toegang tot de tuin en gewelven, en een bovenwoning met het grote panoramaterras.",
-        proj3_badge: "Optie C • Investering & Rendement",
-        proj3_title: "3 Zelfstandige Appartementen",
-        proj3_desc: "Ideaal voor verhuur aan wintersport- en bergliefhebbers: drie comfortabele tweekamer- of driekamerappartementen met eigen voorzieningen, gedeelde tuin en parkeergelegenheid.",
-        proj_plans: "Plattegronden & 3D Schetsen",
+        feat_2: "1.000 m² privétuin, grote binnenplaats voor meerdere auto's en overdekte garage",
+        feat_3: "Grandioze residentie met dépendance/conciërgewoning of 2 of meer appartementen",
+        feat_4: "Panoramisch terras, historische wijnkelder en gewelfde stenen stal",
+
+        tag_projects: "Visie & Ontwikkeling",
+        projects_title: "Ontwikkelingsprojecten & Voor/Na",
+        projects_desc: "Beweeg de verticale schuifregelaar over de foto's om de huidige staat te vergelijken met de projectrenderings: restyling van het exterieur, privé-spa in de gewelfde stal en flexibele indelingsopties.",
+        ba_before: "Huidig",
+        ba_after: "Project",
+        proj_ext_badge: "Exterieur Restyling",
+        proj_ext_title: "Gevel, Dak & Binnenplaats",
+        proj_ext_desc: "Architectonische opwaardering van de hoofdgevel, stenen dak (lose), houten luiken en tuinaanleg.",
+        proj_ext_chip1: "Gevel & Natuursteen",
+        proj_ext_chip2: "1.000 m² Tuin",
+        proj_ext_chip3: "Voor / Na Slider",
+        proj_spa_badge: "Gewelfde Stal",
+        proj_spa_title: "Privé Spa in de Stal",
+        proj_spa_desc: "Exclusieve wellnessruimte gerealiseerd onder de historische stenen gewelven van de voormalige stal rond de monolithische zuil.",
+        proj_spa_chip1: "Sauna & Hammam",
+        proj_spa_chip2: "Jacuzzi & Kneipp",
+        proj_spa_chip3: "Relaxruimte",
+        proj_layout_badge: "Ruimtelijke Indeling",
+        cs_ribbon: "Coming Soon",
+        proj_layout_title: "Indeling & Splitsingsopties",
+        proj_layout_desc: "Maximale vrijheid dankzij dubbele toegangen, meer dan 300 m² op meerdere woonlagen en 1.000 m² buitenruimte.",
+        proj_layout_chip1: "1 Villa + Dépendance",
+        proj_layout_chip2: "2 of Meer Units",
+        proj_layout_chip3: "Binnenplaats & Box",
+        layout_opt1_title: "Herenhuis + Dépendance",
+        layout_opt1_sub: "Eén grote residentie (>300 m²) met gastenverblijf of conciërgewoning",
+        layout_opt2_title: "Twee of Meer Appartementen",
+        layout_opt2_sub: "Flexibele splitsing in 2+ zelfstandige woningen voor familie of verhuur",
+        layout_opt3_title: "Wijnkelder voor Degustatie",
+        layout_opt3_sub: "Historische kelder met vaten bestemd voor wijnproeverijen (carnotzet)",
+        proj_click_gallery: "Open volledig scherm (Voor/Na) →",
+        proj_photos_count: "📸 2 weergaven",
+        proj_plans: "Architectonische plattegronden in voorbereiding",
+
         tag_terrace: "Exclusieve Buitenruimte",
         terrace_title: "Het Grote Panoramische Terras",
         terrace_intro: "Een uitzonderlijke openluchtruimte, omgeven door authentieke natuurstenen muren en uitzicht op de bergen.",
         terrace_sec_title: "Zomerbries & Ongestoord Ontspannen",
         terrace_p1: "Dit zeldzaam grote terras biedt de ideale setting voor lange lunches in de buitenlucht, een zomerlounge of een solarium met jacuzzi onder de sterrenhemel van de Alpen.",
         terrace_p2: "De dikke stenen muren waarborgen volledige privacy en bewaren het ongerepte karakter van de Aostaanse bouwtraditie.",
+
         tag_unique: "Bijzonder Erfgoed",
-        vaults_title: "Monumentale Steenkelder & Gewelfde Stal",
-        vaults_intro: "De absolute blikvanger van de residentie: historische gewelven met stenen zuilen en authentieke wijnvaten.",
-        vaults_sec_title: "Een Exclusieve Wijnkelder of Privé Spa",
-        vaults_p1: "Onder het woongedeelte bevinden zich spectaculaire gewelfde ruimtes van natuursteen. De centrale stenen zuil en de bewaarde vaten ademen de rijke wijntraditie van de Val d'Aosta.",
-        vaults_p2: "Deze ruimtes lenen zich perfect voor een prestigieuze wijnproeverij (cantina), een exclusieve wellnessruimte met spa/sauna, of een sfeervolle lounge voor onvergetelijke avonden met vrienden en familie.",
+        vaults_title: "Historische Wijnkelder & Gewelfde Stal",
+        vaults_intro: "Twee afzonderlijke monumentale ruimtes met elk een eigen ziel: de stenen wijnkelder voor degustaties en de indrukwekkende gewelfde stal als ideale plek voor een privé-spa.",
+        vaults_sec_title: "De Historische Wijnkelder: Ideaal voor Wijnproeverij",
+        vaults_p1: "Onder het woongedeelte bevindt zich de authentieke gewelfde wijnkelder in natuursteen, waar de originele houten vaten en het constante microklimaat de rijke wijntraditie van de Valle d'Aosta bewaren.",
+        vaults_p2: "Deze karakteristieke ruimte is bij uitstek geschikt voor het bewaren van grote wijnen en als sfeervolle proefruimte (carnotzet) voor gezellige proeverijen met vrienden en familie.",
+        stables_sec_title: "De Gewelfde Stal: Een Exclusieve Privé Spa",
+        stables_p1: "De voormalige stal onderscheidt zich door haar hoge kruisgewelven en de imposante monolithische stenen zuil in het midden. Dankzij de royale afmetingen en de architectonische grandeur vormt uitsluitend deze ruimte het perfecte decor voor een exclusieve privé-spa.",
+        stables_p2: "Hier kan een compleet wellness-heiligdom worden gerealiseerd met een op maat gemaakte Finse sauna onder de stenen bogen, een Turks stoombad (hammam), een verwarmd hydromassagebad of Kneipp-pad rond de stenen zuil en een sfeervolle relaxruimte na een dag op de skipistes.",
+        stables_badge_spa: "Bekijk SPA Concept (Voor/Na) →",
+
         tag_gallery: "Fotogalerij",
         gallery_title: "Ontdek Alle Details & Sferen",
         gallery_desc: "Tik op een foto om deze op volledig scherm te bekijken.",
         cap_1: "Hoofdfaçade & dorpspad",
         cap_2: "Privétuin & groene entree",
         cap_3: "Groot panoramisch terras",
-        cap_4: "Historische stenen zuil & gewelven",
-        cap_5: "Binnenplaats met stenen boog",
+        cap_4: "Gewelfde stal met monolithische stenen zuil",
+        cap_5: "Ingang naar de dépendance (stenen boog)",
         cap_6: "Karakteristieke dorpsfontein",
-        cap_7: "Woonkamer met open haard & boiserie",
+        cap_7: "Woonkamer met houten boiserie & haard",
         cap_8: "Historische alpiene details",
         cap_9: "Binnenplaats voor meerdere auto's & overdekte garage",
+
         tag_contact: "Informatie & Bezichtiging",
         contact_title: "Geïnteresseerd in deze Zeldzame Kans?",
         contact_desc: "Neem direct contact op voor het complete dossier, plattegronden of om een privébezichtiging te plannen.",
         captcha_prompt: "Veiligheidscontrole / Security:",
         btn_submit: "Aanvraag Verzenden",
-        alert_sent: "Bedankt voor uw aanvraag. We nemen spoedig contact met u op!"
+        alert_sent: "Bedankt voor uw aanvraag. We nemen spoedig contact met u op!",
+        footer_disclaimer: "Disclaimer: De informatie, oppervlakten, beschrijvingen, plattegronden en 3D-renderings op deze website zijn uitsluitend bedoeld ter illustratie en oriëntatie en vormen geen contractueel aanbod of juridische verbintenis. Er kunnen geen rechten worden ontleend aan eventuele onjuistheden of onvolledigheden."
       },
       en: {
         nav_about: "The Property",
@@ -1481,108 +1974,147 @@
         nav_contact: "Contact",
         tag_loc: "Strategic Location",
         loc_title: "In the Heart of Aosta Valley",
-        loc_desc: "Montjovet is ideally situated in the Alpine valley: an authentic and peaceful retreat seamlessly connected to premier ski resorts, historic thermal spas, and international airports in Northern Italy.",
+        loc_desc: "Montjovet is ideally situated in the Alpine valley: an authentic and peaceful retreat seamlessly connected to world-class ski resorts, hiking and MTB trails, historic thermal spas, and Northern Italian international airports.",
         loc_badge_cervinia: "~40 mins",
         loc_cervinia_title: "Breuil-Cervinia / Zermatt",
         loc_cervinia_sub: "Matterhorn Ski Paradise",
-        loc_cervinia_desc: "Over 350 km of cross-border slopes between Italy and Switzerland at the foot of the Matterhorn, with year-round skiing on the Plateau Rosà glacier.",
+        loc_cervinia_desc: "Over 350 km of cross-border slopes between Italy and Switzerland at the foot of the iconic Matterhorn (Monte Cervino), with year-round glacier skiing on Plateau Rosà.",
         loc_btn_cervinia: "Explore the ski domain",
         loc_badge_skyway: "~45 mins",
         loc_skyway_title: "Skyway Monte Bianco & Courmayeur",
         loc_skyway_sub: "The Roof of Europe (Punta Helbronner 3,466 m)",
-        loc_skyway_desc: "The breathtaking 360° rotating cableway hailed as the 8th wonder of the world, chic Courmayeur village, and legendary mountaineering routes.",
+        loc_skyway_desc: "The breathtaking 360° rotating cableway overlooking the Mont Blanc massif, fashionable Courmayeur village, and legendary high-altitude alpine routes.",
         loc_btn_skyway: "Discover Skyway",
+        loc_badge_trek: "0 - 30 mins",
+        loc_trek_title: "Trekking & Mountain Biking",
+        loc_trek_sub: "Alte Vie Trails, E-Bike, Via Francigena & Nature",
+        loc_trek_desc: "Beyond winter skiing: hundreds of kilometers of scenic hiking trails starting right from the village, thrilling Mountain Bike and E-Bike singletracks, nature parks, and medieval castles.",
+        loc_btn_trek: "Trekking & MTB Trails",
         loc_badge_spa: "~10 mins",
         loc_spa_title: "Saint-Vincent: Thermal Spa & Casino",
-        loc_spa_sub: "Historic Wellness & Casino de la Vallée",
-        loc_spa_desc: "The renowned 'Riviera of the Alps' just 10 minutes away: curative Fons Salutis thermal waters, panoramic wellness circuits, and one of Europe's premier casinos.",
+        loc_spa_sub: "Panoramic Wellness & Casino de la Vallée",
+        loc_spa_desc: "The renowned 'Riviera of the Alps' just 10 minutes away: curative Fons Salutis thermal waters, sunny panoramic outdoor spa pools facing the mountains, and the famous Casino de la Vallée.",
         loc_btn_spa: "Saint-Vincent Spa",
-        loc_badge_cities: "50 - 85 mins",
+        loc_btn_casino: "Casino de la Vallée",
+        loc_badge_cities: "50 - 80 mins",
         loc_cities_title: "Turin, Milan & International Airports",
         loc_cities_sub: "A5 Motorway & Major Transit Hubs",
         loc_cities_desc: "Swift motorway access: Turin and Caselle Airport (TRN) in ~50 mins, Milan Malpensa (MXP) in 1h 20m, with easy connections to France and Switzerland via Alpine tunnels.",
-        loc_btn_cities: "A5 Travel Connections",
+        loc_btn_cities: "Turin Airport (TRN)",
 
         tag_details: "Craftsmanship & Heritage",
         details_title: "Authentic Heritage Details",
-        details_desc: "Hand-carved woodwork, master stone masonry, and wrought-iron fittings reflecting authentic 19th-century alpine artistry.",
-        detail1_title: "Manor Door & Wrought Iron",
-        detail1_desc: "Hand-forged leaf-shaped wrought-iron handle and lock plate paired with antique carved solid wood rosettes.",
+        details_desc: "Noble materials, time-weathered natural stone, and hand-carved solid wood paneling reflecting the authentic alpine heritage of the residence.",
+        detail1_title: "Carved Solid Wood Manor Door",
+        detail1_desc: "Historic solid timber entrance door featuring refined geometric panels, a hand-carved floral rosette, and original period hardware.",
         detail2_title: "Monolithic Pillar & Vaults",
         detail2_desc: "Hewn granite column with carved capital upholding the high arched vaults of the historic manor stables.",
         detail3_title: "Stone Fountain & Bronze Spout",
         detail3_desc: "Historic borgo stone trough fed by a dragon-head bronze spout dispensing fresh natural mountain spring water.",
-        detail4_title: "Noble Gallery & Artwork",
-        detail4_desc: "Wide parquet hallway adorned with antique portraits and brass sconces casting an intimate golden glow.",
+        detail4_title: "Noble Gallery & Portraits",
+        detail4_desc: "Spacious hallway featuring warm herringbone parquet flooring, bright natural perspective, and historic family portraits.",
         detail5_title: "Tasting Cellar & Carnotzet",
         detail5_desc: "Atmospheric vaulted tasting room featuring heavy exposed timber beams, hand-carved stone basin, and bottle niches.",
+
         hero_sub: "Aosta Valley • Exclusive Opportunity",
         hero_title: "Your Alpine Sanctuary in Italy",
-        hero_desc: "A late 19th-century historic stone residence in Montjovet boasting over 300 sqm of covered space and a 1,000 sqm private garden. Perfect as one grand family estate or divided into 2 to 3 spacious luxury apartments.",
+        hero_desc: "A late 19th-century historic stone residence in Montjovet boasting over 300 sqm of covered space and a 1,000 sqm private garden. Ideal as one grand manor residence with a guesthouse (dépendance) or caretaker's lodge, or divided into two or more independent apartments.",
         hero_cta1: "Schedule a Viewing",
-        hero_cta2: "View Layout Projects",
+        hero_cta2: "Explore Development Projects",
         spec_covered: "Covered Floor Space",
         spec_garden: "1,000 sqm Gardens, Courtyard & Garage",
-        spec_flex_val: "1 to 3 Units",
-        spec_flex: "Single Villa or 2-3 Apartments",
+        spec_flex_val: "1 or 2+ Units",
+        spec_flex: "Manor + Dépendance or 2+ Apartments",
         spec_vaults_val: "Stone Vaults",
-        spec_vaults: "Historic Cellars & Stable",
+        spec_vaults: "Historic Wine Cellar & Stable",
         spec_ski: "Cervinia & Mont Blanc",
+
         tag_history: "Heritage & Prestige",
         about_title: "A Rare Alpine Gem Ready for Your Vision",
         about_intro: "Located in the quiet borgo of Montjovet, this historic estate combines timeless stone architecture with over 300 sqm of indoor volumes and an expansive 1,000 sqm garden.",
         badge_story: "> 300 sqm • 1,000 sqm Garden",
         story1_title: "Ample Spaces to Create Your Haven",
-        story1_p1: "Preserved with timeless integrity, the estate offers exceptional versatility: keep it as one prestigious private sanctuary or divide it into 2 or 3 generous independent apartments (ideal for multi-generational families or luxury alpine rentals).",
-        story1_p2: "The estate boasts a large paved private courtyard with parking for multiple vehicles, a secure covered garage box, 1,000 sqm private gardens, and an expansive panoramic terrace.",
+        story1_p1: "Offering exceptional architectural versatility, the property can be enjoyed as a grand single-family manor with the option of an independent guesthouse (dépendance) or caretaker's house, or divided into two or more independent apartments.",
+        story1_p2: "The estate boasts a large paved private courtyard with parking for multiple vehicles, a covered garage box, 1,000 sqm private gardens, and an expansive panoramic terrace.",
+        opp_title: "✦ The Opportunity of a Bespoke Renovation",
+        opp_desc: "Although the house is habitable and was lived in until 2025 thanks to numerous maintenance works carried out over time, the true opportunity lies in modernizing and renovating it to restore its ancient splendor while unlocking its countless architectural possibilities.",
         feat_1: "Over 300 sqm of covered living space across multiple levels",
-        feat_2: "1,000 sqm private gardens, private courtyard with space for multiple cars and covered garage",
-        feat_3: "Flexible design: single grand villa or 2-3 apartments",
-        feat_4: "Panoramic mountain terrace, stone vaults, and fireplace",
-        tag_projects: "Architectural Vision",
-        projects_title: "Space Layouts & Subdivision",
-        projects_desc: "Thanks to independent access points and expansive square meters, the residence easily adapts to bespoke architectural configurations.",
+        feat_2: "1,000 sqm private gardens, paved courtyard for multiple cars, and covered garage",
+        feat_3: "Grand manor with dépendance/caretaker's lodge or 2 or more independent apartments",
+        feat_4: "Panoramic mountain terrace, historic wine cellar, and vaulted stone stable",
+
+        tag_projects: "Vision & Development",
+        projects_title: "Development Concepts & Before/After",
+        projects_desc: "Slide the vertical bar across the images to compare the current state with architectural renderings: exterior restyling, private SPA in the vaulted stable, and flexible layout divisions.",
+        ba_before: "Current",
+        ba_after: "Project",
+        proj_ext_badge: "Exterior Restyling",
+        proj_ext_title: "Facade, Roof & Courtyard",
+        proj_ext_desc: "Architectural enhancement of the main facade, traditional stone roof, natural wood shutters, and landscaped courtyard.",
+        proj_ext_chip1: "Facade & Stone Roof",
+        proj_ext_chip2: "1,000 sqm Garden",
+        proj_ext_chip3: "Before / After",
+        proj_spa_badge: "Vaulted Stable",
+        proj_spa_title: "Private SPA in the Stable",
+        proj_spa_desc: "Exclusive wellness sanctuary designed inside the vaulted stone stable around the monolithic granite pillar.",
+        proj_spa_chip1: "Sauna & Hammam",
+        proj_spa_chip2: "Hot Tub & Kneipp",
+        proj_spa_chip3: "Relaxation Lounge",
+        proj_layout_badge: "Space Flexibility",
         cs_ribbon: "Coming Soon",
-        proj1_badge: "Option A • Grand Manor",
-        proj1_title: "One Prestigious Master Villa",
-        proj1_desc: "A private 300+ sqm alpine estate featuring 4-6 bedrooms, double reception rooms with fireplace, private 1,000 sqm gardens, and a dedicated basement spa/wellness cantina.",
-        proj2_badge: "Option B • Two Residences",
-        proj2_title: "2 Spacious Luxury Apartments",
-        proj2_desc: "Subdivision into two generous residences (130-160 sqm each): a ground-floor garden residence opening to the historic cellars, and an upper duplex enjoying the grand panoramic terrace.",
-        proj3_badge: "Option C • Boutique Investment",
-        proj3_title: "3 Independent Apartments",
-        proj3_desc: "Optimized for premium seasonal ski and summer holiday rentals: three independent 2-to-3-room chalets with shared garden, garage, and panoramic terraces.",
-        proj_plans: "Architectural Plans & 3D Renders",
+        proj_layout_title: "Space Layout & Subdivision",
+        proj_layout_desc: "Complete design freedom thanks to dual entrances, over 300 sqm across multiple levels, and 1,000 sqm of grounds.",
+        proj_layout_chip1: "1 Manor + Dépendance",
+        proj_layout_chip2: "2 or More Units",
+        proj_layout_chip3: "Courtyard & Garage",
+        layout_opt1_title: "Grand Manor + Dépendance",
+        layout_opt1_sub: "One prestigious 300+ sqm residence with guesthouse or caretaker's lodge",
+        layout_opt2_title: "Two or More Apartments",
+        layout_opt2_sub: "Flexible subdivision into 2+ independent units for families or hospitality",
+        layout_opt3_title: "Historic Wine Tasting Cellar",
+        layout_opt3_sub: "Vaulted cellar with vintage barrels dedicated to wine tasting & carnotzet",
+        proj_click_gallery: "Open fullscreen comparison →",
+        proj_photos_count: "📸 2 views",
+        proj_plans: "Architectural floor plans in preparation",
+
         tag_terrace: "Outdoor Living",
         terrace_title: "The Expansive Panoramic Terrace",
         terrace_intro: "An exceptional outdoor haven framed by solid alpine stone walls and surrounded by mountain scenery.",
         terrace_sec_title: "Mountain Breeze & Private Relaxation",
         terrace_p1: "This rare large-scale terrace is designed for al fresco dining, summer entertaining, or a private stargazing solarium with hot tub.",
         terrace_p2: "Authentic masonry ensures secluded peace and absolute privacy in the heart of the village.",
+
         tag_unique: "Architectural Highlights",
-        vaults_title: "Monumental Vaulted Cellars & Stables",
-        vaults_intro: "The crown jewel: authentic stone vaulting supported by granite pillars, featuring heritage wine barrels.",
-        vaults_sec_title: "Private Wine Cellar or Alpine Spa",
-        vaults_p1: "Beneath the living quarters lie impressive vaulted stone rooms. The monumental central pillar and intact vintage barrels reflect centuries of winemaking tradition.",
-        vaults_p2: "An extraordinary canvas for creating a private tasting cellar (cantina), an exclusive wellness & spa retreat, or an atmospheric entertainment hall.",
+        vaults_title: "Historic Wine Cellar & Vaulted Stable",
+        vaults_intro: "Two distinct monumental spaces, each with its own vocation: the stone cellar for wine tasting and the vaulted stable for an exclusive private spa.",
+        vaults_sec_title: "The Historic Wine Cellar: Built for Wine Tasting",
+        vaults_p1: "Beneath the living quarters lies the authentic vaulted stone cellar, where vintage wooden barrels and a natural microclimate preserve Aosta Valley's winemaking heritage.",
+        vaults_p2: "This atmospheric space is ideal for aging fine wines and hosting intimate wine tastings (carnotzet) with family and friends.",
+        stables_sec_title: "The Vaulted Stable: An Exclusive Private Spa",
+        stables_p1: "The historic stable stands out for its soaring cross-vaults supported by a monumental monolithic stone pillar. Its generous proportions make it the sole and ideal setting for a private luxury wellness retreat.",
+        stables_p2: "Here you can create a bespoke alpine spa featuring a custom Finnish sauna beneath the stone arches, a steam hammam, a heated hydro-massage pool or Kneipp path around the central column, and a candlelit relaxation lounge.",
+        stables_badge_spa: "View SPA Concept (Before/After) →",
+
         tag_gallery: "Photo Gallery",
         gallery_title: "Experience Every Perspective",
         gallery_desc: "Tap any image to view in full screen resolution.",
         cap_1: "Historic village facade",
         cap_2: "Private garden & green entrance",
         cap_3: "Expansive sun terrace",
-        cap_4: "Vaulted stables & stone pillar",
-        cap_5: "Inner courtyard stone arch",
+        cap_4: "Vaulted stable & monolithic stone pillar",
+        cap_5: "Entrance to the dépendance (stone arch)",
         cap_6: "Village fresh water fountain",
-        cap_7: "Cozy living room with fireplace",
+        cap_7: "Living room with wood boiserie & fireplace",
         cap_8: "Artisanal wagon wheel detail",
         cap_9: "Courtyard for multiple cars & covered garage",
+
         tag_contact: "Get in Touch",
         contact_title: "Ready to Explore this Opportunity?",
         contact_desc: "Contact us today for floor plans, technical details, or to arrange a private visit.",
         captcha_prompt: "Security check:",
         btn_submit: "Send Inquiry",
-        alert_sent: "Thank you for your inquiry. We will get back to you shortly!"
+        alert_sent: "Thank you for your inquiry. We will get back to you shortly!",
+        footer_disclaimer: "Legal Disclaimer: All information, measurements, descriptions, floor plans, and 3D renderings (including 'Before/After' concepts) shown on this website are purely indicative and illustrative and do not constitute a contractual element or binding offer. No warranty is given as to the accuracy or completeness of the contents."
       },
       it: {
         nav_about: "La Proprietà",
@@ -1592,108 +2124,147 @@
         nav_contact: "Contatto",
         tag_loc: "Posizione Strategica",
         loc_title: "Al Centro della Valle d'Aosta",
-        loc_desc: "Montjovet si trova nel cuore della vallata alpina: una cornice riservata e autentica, perfettamente collegata alle mete sciistiche mondiali, alle stazioni termali storiche e ai grandi aeroporti del Nord Italia.",
+        loc_desc: "Montjovet si trova nel cuore della vallata alpina: una cornice riservata e autentica, perfettamente collegata alle mete sciistiche mondiali, ai sentieri di trekking e MTB, alle stazioni termali storiche e ai grandi aeroporti del Nord Italia.",
         loc_badge_cervinia: "~40 min",
         loc_cervinia_title: "Breuil-Cervinia / Zermatt",
         loc_cervinia_sub: "Matterhorn Ski Paradise",
-        loc_cervinia_desc: "Oltre 350 km di piste transfrontaliere tra Italia e Svizzera ai piedi del Cervino, con possibilità di sciare 365 giorni all'anno sul ghiacciaio del Plateau Rosà.",
+        loc_cervinia_desc: "Oltre 350 km di piste transfrontaliere tra Italia e Svizzera ai piedi dell'iconico Monte Cervino, con possibilità di sciare 365 giorni all'anno sul ghiacciaio del Plateau Rosà.",
         loc_btn_cervinia: "Scopri il comprensorio",
         loc_badge_skyway: "~45 min",
         loc_skyway_title: "Skyway Monte Bianco & Courmayeur",
         loc_skyway_sub: "Il Tetto d'Europa (Punta Helbronner 3.466 m)",
-        loc_skyway_desc: "La spettacolare funivia rotante a 360° definita l'ottava meraviglia del mondo, l'elegante centro di Courmayeur e percorsi alpinistici leggendari.",
+        loc_skyway_desc: "La spettacolare funivia rotante a 360° al cospetto del Monte Bianco, l'elegante centro alpino di Courmayeur e panorami d'alta quota unici in Europa.",
         loc_btn_skyway: "Esplora Skyway",
+        loc_badge_trek: "0 - 30 min",
+        loc_trek_title: "Trekking & Mountain Bike",
+        loc_trek_sub: "Alte Vie, E-Bike, Via Francigena & Natura",
+        loc_trek_desc: "Non solo sci: centinaia di chilometri di sentieri panoramici direttamente dal borgo, tracciati per Mountain Bike ed E-Bike, le celebri Alte Vie valdostane, parchi naturali e castelli.",
+        loc_btn_trek: "Itinerari Trekking & MTB",
         loc_badge_spa: "~10 min",
         loc_spa_title: "Saint-Vincent: Terme & Casinò",
-        loc_spa_sub: "Benessere Storico & Casinò de la Vallée",
-        loc_spa_desc: "La storica 'Riviera delle Alpi' a soli 10 minuti di strada: rinomate acque termali Fons Salutis, percorsi spa panoramici e uno dei casinò più celebri d'Europa.",
+        loc_spa_sub: "Benessere Panoramico & Casinò de la Vallée",
+        loc_spa_desc: "La storica 'Riviera delle Alpi' a soli 10 minuti di strada: piscine termali esterne affacciate sulle montagne, sorgente curativa Fons Salutis e lo storico Casinò de la Vallée.",
         loc_btn_spa: "Terme di Saint-Vincent",
-        loc_badge_cities: "50 - 85 min",
+        loc_btn_casino: "Casinò de la Vallée",
+        loc_badge_cities: "50 - 80 min",
         loc_cities_title: "Torino, Milano & Aeroporti",
         loc_cities_sub: "Autostrada A5 & Hub Internazionali",
-        loc_cities_desc: "Accesso rapido all'autostrada A5: Torino e aeroporto Caselle a circa 50 min, Milano Malpensa a 1h 20m, Svizzera e Francia agevolmente raggiungibili tramite i trafori alpini.",
-        loc_btn_cities: "Info Collegamenti A5",
+        loc_cities_desc: "Accesso rapido all'autostrada A5: Torino e l'aeroporto di Caselle (TRN) a circa 50 min, Milano Malpensa (MXP) a 1h 20m, Svizzera e Francia agevolmente raggiungibili tramite i trafori alpini.",
+        loc_btn_cities: "Aeroporto di Torino (TRN)",
 
         tag_details: "Artigianalità & Carattere",
         details_title: "I Particolari d'Epoca",
-        details_desc: "Materiali nobili, pietra viva levigata dal tempo, boiserie in legno intagliato a mano ed elementi in ferro battuto.",
-        detail1_title: "Porta Padronale & Ferro Battuto",
-        detail1_desc: "Antica serratura e maniglia forgiata a foglia in ferro battuto, accostata a formelle geometriche intagliate nel massello d'epoca.",
+        details_desc: "Materiali nobili, pietra viva levigata dal tempo e boiserie in legno massello intagliato a mano che raccontano la storia autentica della dimora.",
+        detail1_title: "Porta Padronale in Legno Intagliato",
+        detail1_desc: "Portone storico in legno massello caratterizzato da formelle geometriche, rosetta floreale scolpita a mano e maniglia originale d'epoca.",
         detail2_title: "Pilastro in Pietra & Volte",
         detail2_desc: "Colonna monolitica con capitello in pietra scolpita che sorregge l'alta campata a volta dell'antica stalla padronale.",
         detail3_title: "Vasca & Fontana in Pietra",
         detail3_desc: "Monolite in pietra del borgo con rubinetto in bronzo a testa di drago e vasca monumentale con acqua purissima di sorgente alpina.",
-        detail4_title: "Galleria Nobile & Arte",
-        detail4_desc: "Lungo corridoio di disimpegno con pavimentazione d'epoca, ritratti storici e applique in ottone con calda luce dorata.",
+        detail4_title: "Galleria Nobile & Ritratti",
+        detail4_desc: "Ampio corridoio di disimpegno con caldo pavimento in parquet a spina di pesce, prospettiva luminosa e ritratti storici di famiglia.",
         detail5_title: "Cantina di Degustazione",
-        detail5_desc: "Spazio conviviale ricavato nelle volte con massiccia trave in legno, tavolo rustico, lavabo in pietra e bottigliera a vista.",
+        detail5_desc: "Spazio conviviale ricavato nelle volte con massiccia trave in legno, tavolo rustico, lavabo in pietra e bottigliera storica a vista.",
+
         hero_sub: "Valle d'Aosta • Opportunità Esclusiva",
         hero_title: "Il Tuo Scrigno nel Cuore delle Alpi",
-        hero_desc: "Una dimora di fine Ottocento nel borgo di Montjovet con oltre 300 mq coperti e 1.000 mq di giardini privati. Ideale come unica grande residenza di prestigio o facilmente divisibile in 2 o 3 ampi appartamenti indipendenti.",
+        hero_desc: "Una dimora storica di fine Ottocento nel borgo di Montjovet con oltre 300 mq coperti e 1.000 mq di giardini privati. Può essere una grandiosa dimora padronale con la possibilità di una dépendance o casa del custode, oppure essere suddivisa in due o più appartamenti indipendenti.",
         hero_cta1: "Prenota una Visita",
-        hero_cta2: "Progetti di Suddivisione",
+        hero_cta2: "Scopri i Progetti",
         spec_covered: "Oltre 300 mq Coperti",
         spec_garden: "1.000 mq Giardini, Cortile & Box",
-        spec_flex_val: "Da 1 a 3 Unità",
-        spec_flex: "Villa Unica o 2-3 Appartamenti",
+        spec_flex_val: "1 o 2+ Unità",
+        spec_flex: "Dimora con Dépendance o 2+ Appartamenti",
         spec_vaults_val: "A Volta",
-        spec_vaults: "Cantine in Pietra & Stalla",
-        spec_ski: "Cervinia & Skyway",
+        spec_vaults: "Cantina Storica & Stalla",
+        spec_ski: "Cervinia & Monte Bianco",
+
         tag_history: "Storia & Potenziale",
         about_title: "Un'Opportunità Unica da Personalizzare",
         about_intro: "Nel cuore della Valle d'Aosta, nel tranquillo borgo di Montjovet, una proprietà speciale con oltre 300 mq coperti, 1.000 mq di verde privato e straordinaria versatilità architettonica.",
         badge_story: "> 300 mq • 1.000 mq Giardino",
         story1_title: "Lo Spazio Perfetto per il Tuo Progetto",
-        story1_p1: "Ristrutturata con cura nel corso degli anni, questa proprietà offre la massima flessibilità: può essere vissuta come una grandiosa dimora unifamiliare oppure essere suddivisa in 2 o 3 ampi appartamenti autonomi (perfetti per più nuclei familiari o attività ricettiva di charme).",
+        story1_p1: "Questa proprietà offre la massima libertà progettuale: può diventare una grandiosa dimora padronale con la possibilità di una dépendance o di una casa del custode, oppure essere suddivisa in due o più appartamenti autonomi (perfetti per più nuclei familiari o ospitalità di charme).",
         story1_p2: "La proprietà dispone di un comodo cortile privato pavimentato con spazio per più auto, un box auto coperto, 1.000 mq di giardini alberati e uno splendido terrazzo panoramico.",
+        opp_title: "✦ L'Opportunità di Riportarla all'Antico Splendore",
+        opp_desc: "Sebbene la casa sia abitabile e sia stata abitata fino al 2025 con tanti lavori eseguiti nel tempo, la vera opportunità è proprio quella di metterci mano per modernizzarla e riportarla all'antico splendore, ristrutturandola al meglio e sfruttando le innumerevoli potenzialità che offre.",
         feat_1: "Oltre 300 mq coperti sviluppati su più livelli",
         feat_2: "1.000 mq di giardini privati, comodo cortile pavimentato per più auto e box coperto",
-        feat_3: "Opportunità di dimora unica o divisione in 2 o 3 appartamenti",
-        feat_4: "Grande terrazzo panoramico, camini d'epoca e cantine a volta",
-        tag_projects: "Spazio & Flessibilità",
-        projects_title: "Progetti di Suddivisione degli Spazi",
-        projects_desc: "I generosi volumi e i doppi ingressi consentono configurazioni personalizzate sia ad uso residenziale che come investimento a reddito.",
-        cs_ribbon: "In Arrivo / Coming Soon",
-        proj1_badge: "Opzione A • Dimora Singola",
-        proj1_title: "Un'Unica Grande Dimora di Pregio",
-        proj1_desc: "Valorizzazione dell'intera proprietà come villa padronale di oltre 300 mq con 4-6 camere da letto, maestoso salone con camino, 1.000 mq di giardino e spa privata nelle volte.",
-        proj2_badge: "Opzione B • Due Dimore",
-        proj2_title: "2 Ampi Appartamenti Indipendenti",
-        proj2_desc: "Suddivisione in due appartamenti di grande metratura (130-160 mq ciascuno): piano terra con affaccio diretto su corte, cantine e giardino; piano superiore con il grande terrazzo panoramico.",
-        proj3_badge: "Opzione C • Reddito & Ospitalità",
-        proj3_title: "3 Appartamenti Autonomi",
-        proj3_desc: "Configurazione perfetta per ospitalità turistica o investimento: tre appartamenti indipendenti (bilocali/trilocali ampi) con giardino condiviso, posti auto e comodità per gli sciatori.",
-        proj_plans: "Planimetrie & Rendering di Progetto",
+        feat_3: "Grandiosa dimora con dépendance/casa del custode oppure divisione in due o più appartamenti",
+        feat_4: "Grande terrazzo panoramico, cantina storica con botti e antica stalla a volta",
+
+        tag_projects: "Visione & Sviluppo",
+        projects_title: "Progetti & Idee di Sviluppo",
+        projects_desc: "Scorri il cursore verticale sulle immagini per confrontare lo stato attuale con i rendering di progetto: restyling degli esterni, SPA privata nella stalla voltata e soluzioni flessibili di suddivisione.",
+        ba_before: "Attuale",
+        ba_after: "Progetto",
+        proj_ext_badge: "Valorizzazione Esterni",
+        proj_ext_title: "Restyling Facciata & Giardino",
+        proj_ext_desc: "Valorizzazione cromatica della facciata, tetto in lose, persiane in legno naturale e cura paesaggistica della corte.",
+        proj_ext_chip1: "Facciata & Lose",
+        proj_ext_chip2: "1.000 m² Verde",
+        proj_ext_chip3: "Before / After",
+        proj_spa_badge: "Antica Stalla Voltata",
+        proj_spa_title: "SPA Privata nella Stalla",
+        proj_spa_desc: "Esclusivo centro benessere ricavato nelle volte in pietra della stalla attorno alla colonna monolitica.",
+        proj_spa_chip1: "Sauna & Hammam",
+        proj_spa_chip2: "Idromassaggio & Kneipp",
+        proj_spa_chip3: "Area Relax",
+        proj_layout_badge: "Flessibilità Spazi",
+        cs_ribbon: "Coming Soon",
+        proj_layout_title: "Sviluppo & Divisione Spazi",
+        proj_layout_desc: "Massima libertà progettuale grazie a doppi accessi, oltre 300 m² su più livelli e 1.000 m² di corte e giardini.",
+        proj_layout_chip1: "1 Villa + Dépendance",
+        proj_layout_chip2: "2 o Più Unità",
+        proj_layout_chip3: "Cortile & Box",
+        layout_opt1_title: "Dimora Padronale + Dépendance",
+        layout_opt1_sub: "Unica grande residenza >300 m² con dépendance o casa del custode",
+        layout_opt2_title: "Due o Più Appartamenti",
+        layout_opt2_sub: "Frazionamento flessibile in 2+ unità autonome per famiglie o reddito",
+        layout_opt3_title: "Cantina Storica da Degustazione",
+        layout_opt3_sub: "Volte con botti d'epoca dedicate a vini e carnotzet conviviale",
+        proj_click_gallery: "Apri confronto a tutto schermo →",
+        proj_photos_count: "📸 2 viste",
+        proj_plans: "Planimetrie architettoniche in elaborazione",
+
         tag_terrace: "Spazi Aperti",
         terrace_title: "Il Grande Terrazzo Panoramico",
         terrace_intro: "Una superficie all'aperto generosa, racchiusa da antichi muri in pietra viva e affacciata sulle cime circostanti.",
         terrace_sec_title: "Frescura Estiva & Privacy Totale",
         terrace_p1: "Questo terrazzo eccezionalmente ampio rappresenta il luogo perfetto per pranzi e cene estive, solarium privato o zona lounge con idromassaggio a cielo aperto.",
         terrace_p2: "Le imponenti murature in pietra proteggono la privacy garantendo pace e silenzio tipici del borgo valdostano.",
+
         tag_unique: "Peculiarità Uniche",
-        vaults_title: "Spettacolari Cantine e Stalla Voltata",
-        vaults_intro: "Il tratto distintivo dell'immobile: maestose volte in pietra viva con colonne monolitiche e botti storiche.",
-        vaults_sec_title: "Cantina da Degustazione o Spa Privata",
-        vaults_p1: "Sotto l'abitazione si aprono antichi ambienti voltati in pietra. La colonna centrale e le grandi botti originali testimoniano la tradizione vitivinicola valdostana.",
-        vaults_p2: "Spazi perfetti per ricavare una sala degustazione esclusiva, una taverna con camino o una suggestiva zona benessere con spa e idromassaggio.",
+        vaults_title: "Cantina Storica e Antica Stalla Voltata",
+        vaults_intro: "Due ambienti monumentali distinti, ciascuno con la propria vocazione naturale: la cantina con botti storiche per la degustazione e l'antica stalla voltata per una SPA privata.",
+        vaults_sec_title: "La Cantina Storica: Vocata alla Degustazione",
+        vaults_p1: "Sotto l'abitazione si apre l'autentica cantina voltata in pietra viva, dove le grandi botti originali e il microclima naturale custodiscono la tradizione vitivinicola valdostana.",
+        vaults_p2: "Questo ambiente raccolto e suggestivo è ideale per la conservazione di vini pregiati e per creare un'esclusiva sala degustazione (carnotzet) per serate conviviali.",
+        stables_sec_title: "L'Antica Stalla Voltata: Una SPA Privata Esclusiva",
+        stables_p1: "L'antica stalla padronale si distingue per l'ampiezza delle sue volte a crociera sorrette dalla monumentale colonna monolitica in pietra. Per volumi e altezze, è questo lo spazio dedicato a ospitare una spettacolare SPA privata.",
+        stables_p2: "Un vero santuario del benessere domestico progettato esclusivamente nella stalla: sauna finlandese vetrata su misura sotto gli archi in pietra, bagno turco (hammam) avvolto nel vapore, vasca idromassaggio e percorso Kneipp attorno al pilastro in granito, oltre a una zona relax illuminata da luci soffuse.",
+        stables_badge_spa: "Guarda Rendering SPA (Prima/Dopo) →",
+
         tag_gallery: "Galleria Fotografica",
         gallery_title: "Gli Ambienti e i Dettagli",
         gallery_desc: "Tocca un'immagine per aprirla a tutto schermo.",
         cap_1: "Facciata principale e via del borgo",
         cap_2: "Giardino privato e ingresso fiorito",
         cap_3: "Grande terrazzo solarium panoramico",
-        cap_4: "Stalla voltata con colonna in pietra",
-        cap_5: "Arco d'ingresso nel cortile in pietra",
+        cap_4: "Stalla voltata con colonna monolitica in pietra",
+        cap_5: "Ingresso alla dépendance nel cortile in pietra",
         cap_6: "Antica fontana in pietra del borgo",
-        cap_7: "Salotto caldo con camino in pietra",
+        cap_7: "Salotto accogliente con boiserie in legno e camino",
         cap_8: "Dettagli storici e ruota del carro",
         cap_9: "Ampio cortile per più auto e box coperto",
+
         tag_contact: "Richiesta Informazioni",
         contact_title: "Vuoi Maggiori Informazioni o una Visita?",
         contact_desc: "Contattaci per ricevere la documentazione completa e concordare un sopralluogo.",
         captcha_prompt: "Verifica di sicurezza:",
         btn_submit: "Invia Richiesta",
-        alert_sent: "Grazie! Abbiamo ricevuto la tua richiesta."
+        alert_sent: "Grazie! Abbiamo ricevuto la tua richiesta.",
+        footer_disclaimer: "Disclaimer legale: Le informazioni, le metrature, le descrizioni, le ipotesi progettuali e i rendering (inclusi i confronti 'Prima/Dopo') presenti in questo sito hanno carattere puramente indicativo e illustrativo e non costituiscono in alcun modo elemento contrattuale né vincolo precontrattuale. L'autore non assume alcuna responsabilità per eventuali inesattezze, omissioni o incompletezze dei dati riportati."
       },
       fr: {
         nav_about: "La Propriété",
@@ -1703,108 +2274,147 @@
         nav_contact: "Contact",
         tag_loc: "Emplacement Stratégique",
         loc_title: "Au Cœur de la Vallée d'Aoste",
-        loc_desc: "Montjovet bénéficie d'une situation centrale idéale : un havre de paix montagnard connecté aux plus prestigieux domaines skiables, aux stations thermales et aux métropoles du nord de l'Italie.",
+        loc_desc: "Montjovet bénéficie d'une situation centrale idéale : un havre de paix montagnard connecté aux grands domaines skiables, aux sentiers de randonnée et VTT, aux thermes historiques et aux aéroports internationaux.",
         loc_badge_cervinia: "~40 min",
         loc_cervinia_title: "Breuil-Cervinia / Zermatt",
         loc_cervinia_sub: "Matterhorn Ski Paradise",
-        loc_cervinia_desc: "Plus de 350 km de pistes transfrontalières entre l'Italie et la Suisse au pied du Cervin, avec ski 365 jours par an sur le glacier du Plateau Rosà.",
+        loc_cervinia_desc: "Plus de 350 km de pistes transfrontalières entre l'Italie et la Suisse au pied de l'emblématique Cervin, avec ski 365 jours par an sur le glacier du Plateau Rosà.",
         loc_btn_cervinia: "Découvrir le domaine",
         loc_badge_skyway: "~45 min",
         loc_skyway_title: "Skyway Mont-Blanc & Courmayeur",
         loc_skyway_sub: "Le Toit de l'Europe (Pointe Helbronner 3 466 m)",
-        loc_skyway_desc: "Le spectaculaire téléphérique rotatif à 360° considéré comme la 8e merveille du monde, la station de Courmayeur et des panoramas alpins d'exception.",
+        loc_skyway_desc: "Le spectaculaire téléphérique rotatif à 360° face au massif du Mont-Blanc, l'élégante station de Courmayeur et des panoramas de haute montagne uniques.",
         loc_btn_skyway: "Explorer Skyway",
+        loc_badge_trek: "0 - 30 min",
+        loc_trek_title: "Trekking & VTT / Mountain Bike",
+        loc_trek_sub: "Alte Vie, E-Bike, Via Francigena & Nature",
+        loc_trek_desc: "Bien plus que le ski : des centaines de kilomètres de sentiers panoramiques dès le village, parcours VTT et E-Bike, les célèbres Alte Vie, parcs naturels et châteaux médiévaux.",
+        loc_btn_trek: "Itinéraires Randonnée & VTT",
         loc_badge_spa: "~10 min",
         loc_spa_title: "Saint-Vincent : Thermes & Casino",
-        loc_spa_sub: "Bien-être Historique & Casino de la Vallée",
-        loc_spa_desc: "La célèbre 'Riviera des Alpes' à seulement 10 minutes : eaux thermales Fons Salutis, parcours spa panoramiques et l'un des casinos les plus réputés d'Europe.",
+        loc_spa_sub: "Bien-être Panoramique & Casino de la Vallée",
+        loc_spa_desc: "La célèbre 'Riviera des Alpes' à seulement 10 minutes : bassins thermaux extérieurs face aux sommets, source Fons Salutis et le prestigieux Casino de la Vallée.",
         loc_btn_spa: "Thermes de Saint-Vincent",
-        loc_badge_cities: "50 - 85 min",
+        loc_btn_casino: "Casino de la Vallée",
+        loc_badge_cities: "50 - 80 min",
         loc_cities_title: "Turin, Milan & Aéroports",
         loc_cities_sub: "Autoroute A5 & Connexions Internationales",
-        loc_cities_desc: "Accès autoroutier immédiat : Turin et aéroport de Caselle à ~50 min, Milan Malpensa à 1h20, la France et la Suisse par les tunnels du Mont-Blanc et du Grand-Saint-Bernard.",
-        loc_btn_cities: "Accès & Autoroute A5",
+        loc_cities_desc: "Accès autoroutier immédiat : Turin et l'aéroport de Caselle (TRN) à ~50 min, Milan Malpensa (MXP) à 1h20, la France et la Suisse via les tunnels du Mont-Blanc et du Grand-Saint-Bernard.",
+        loc_btn_cities: "Aéroport de Turin (TRN)",
 
         tag_details: "Artisanat & Caractère",
         details_title: "Les Détails d'Époque",
-        details_desc: "Matériaux nobles, pierre de taille patinée par les siècles, boiseries sculptées et fer forgé traditionnel.",
-        detail1_title: "Porte de Maître & Fer Forgé",
-        detail1_desc: "Poignée forgée à la main en forme de feuille et serrure ancienne montées sur des panneaux en bois massif sculpté.",
+        details_desc: "Matériaux nobles, pierre de taille patinée par le temps et boiseries en bois massif sculpté à la main qui témoignent de l'âme authentique de la demeure.",
+        detail1_title: "Porte de Maître en Bois Sculpté",
+        detail1_desc: "Porte ancienne en bois massif ornée de panneaux géométriques, d'une rosace florale sculptée à la main et de sa poignée d'époque.",
         detail2_title: "Pilier Monolithique & Voûtes",
         detail2_desc: "Colonne en pierre taillée avec chapiteau soutenant les voûtes majestueuses de l'ancienne écurie de maître.",
         detail3_title: "Fontaine en Pierre & Robinet Bronze",
-        detail3_desc: "Bassin monolythe en pierre du village avec robinet sculpté en bronze alimenté par de l'eau de source alpine.",
-        detail4_title: "Galerie Noble & Tableaux",
-        detail4_desc: "Large couloir de distribution avec sol d'époque, toiles historiques et appliques murales en laiton à lumière feutrée.",
+        detail3_desc: "Bassin monolithe en pierre du village avec robinet sculpté en bronze alimenté par de l'eau de source alpine.",
+        detail4_title: "Galerie Noble & Portraits",
+        detail4_desc: "Large couloir de distribution avec parquet chaleureux à bâtons rompus, belle luminosité et portraits historiques de famille.",
         detail5_title: "Caveau de Dégustation",
         detail5_desc: "Espace convivial sous voûtes avec poutre maîtresse apparente, évier en pierre et étagères à bouteilles historiques.",
+
         hero_sub: "Vallée d'Aoste • Propriété Exclusive",
         hero_title: "Votre Refuge de Cœur dans les Alpes",
-        hero_desc: "Demeure de caractère de la fin du XIXe siècle à Montjovet : plus de 300 m² couverts et 1 000 m² de jardins privés. Idéale en grande propriété unique ou divisible en 2 ou 3 appartements spacieux.",
+        hero_desc: "Demeure historique de la fin du XIXe siècle à Montjovet : plus de 300 m² couverts et 1 000 m² de jardins privés. Elle peut constituer une grandiose demeure de maître avec dépendance ou maison de gardien, ou être divisée en deux ou plusieurs appartements indépendants.",
         hero_cta1: "Planifier une Visite",
         hero_cta2: "Découvrir les Projets",
         spec_covered: "Plus de 300 m² Couverts",
         spec_garden: "1 000 m² Jardins, Cour & Garage",
-        spec_flex_val: "1 à 3 Logements",
-        spec_flex: "Grande Demeure ou 2-3 Appartements",
+        spec_flex_val: "1 ou 2+ Unités",
+        spec_flex: "Demeure avec Dépendance ou 2+ Appartements",
         spec_vaults_val: "Voûtes",
-        spec_vaults: "Caves & Écurie en Pierre",
-        spec_ski: "Cervinia & Mont Blanc",
+        spec_vaults: "Cave Historique & Écurie",
+        spec_ski: "Cervinia & Mont-Blanc",
+
         tag_history: "Charme & Caractère",
         about_title: "Un Joyau Alpin aux Multiples Possibilités",
         about_intro: "Au cœur du bourg paisible de Montjovet, cette résidence allie noblesse architecturale alpine, plus de 300 m² couverts et 1 000 m² de jardin privé.",
         badge_story: "> 300 m² • 1 000 m² Jardin",
         story1_title: "Un Cadre Idéal pour Vos Projets",
-        story1_p1: "Restaurée avec soin, cette maison offre des volumes modulables : elle peut former une somptueuse résidence familiale ou être agencée en 2 ou 3 appartements indépendants (parfait pour projet d'accueil ou plusieurs foyers).",
-        story1_p2: "La propriété offre une cour privative pavée facilitant le stationnement de plusieurs voitures, un garage couvert fermé, 1 000 m² de jardins et une vaste terrasse panoramique.",
+        story1_p1: "Cette propriété offre une liberté architecturale totale : elle peut former une grandiose demeure familiale avec la possibilité d'une dépendance ou d'une maison de gardien, ou être divisée en deux ou plusieurs appartements indépendants.",
+        story1_p2: "La propriété offre une cour privative pavée permettant le stationnement de plusieurs voitures, un garage couvert fermé, 1 000 m² de jardins et une vaste terrasse panoramique.",
+        opp_title: "✦ L'Opportunité d'une Rénovation d'Exception",
+        opp_desc: "Bien que la maison soit habitable et ait été habitée jusqu'en 2025 avec de nombreux travaux réalisés au fil des ans, la véritable opportunité consiste à la moderniser et à la rénover pour lui redonner son ancienne splendeur tout en exploitant ses innombrables potentialités.",
         feat_1: "Plus de 300 m² de surface couverte sur plusieurs niveaux",
         feat_2: "1 000 m² de jardins privés, cour pavée pour plusieurs véhicules et box garage fermé",
-        feat_3: "Configuration flexible : maison de maître ou 2 à 3 appartements",
-        feat_4: "Terrasse panoramique, cheminée et voûtes en pierre de taille",
-        tag_projects: "Potentiel Architectural",
-        projects_title: "Projets de Division & Aménagement",
-        projects_desc: "Grâce aux accès indépendants et aux surfaces généreuses, plusieurs agencements sur mesure sont envisageables.",
-        cs_ribbon: "Bientôt Disponible / Coming Soon",
-        proj1_badge: "Option A • Grande Demeure",
-        proj1_title: "Une Prestigieuse Villa Alpine Unique",
-        proj1_desc: "Une somptueuse propriété de maître de plus de 300 m² avec 4-6 chambres, vaste séjour avec cheminée, jardin de 1 000 m² et espace spa/dégustation en sous-sol.",
-        proj2_badge: "Option B • Deux Logements",
-        proj2_title: "2 Grands Appartements Indépendants",
-        proj2_desc: "Division en deux appartements spacieux (130-160 m² chacun) : rez-de-jardin avec accès direct aux caves et verdure, et niveau supérieur avec la grande terrasse panoramique.",
-        proj3_badge: "Option C • Rendement & Accueil",
-        proj3_title: "3 Appartements Autonomes",
-        proj3_desc: "Agencement idéal pour location saisonnière haut de gamme : 3 appartements indépendants avec jardin partagé, parking et proximité des stations de ski.",
-        proj_plans: "Plans d'Architecte & Rendus 3D",
+        feat_3: "Grandiose demeure avec dépendance/maison de gardien ou division en 2 appartements ou plus",
+        feat_4: "Grande terrasse panoramique, cave historique avec foudres et ancienne écurie voûtée",
+
+        tag_projects: "Vision & Développement",
+        projects_title: "Projets d'Aménagement & Avant/Après",
+        projects_desc: "Faites glisser le curseur vertical sur les photos pour comparer l'état actuel avec les rendus : restyling extérieur, SPA privé dans l'écurie voûtée et options de division.",
+        ba_before: "Actuel",
+        ba_after: "Projet",
+        proj_ext_badge: "Valorisation Extérieure",
+        proj_ext_title: "Restyling Façade & Jardin",
+        proj_ext_desc: "Mise en valeur de la façade principale, toit en lauzes, volets en bois naturel et aménagement paysager de la cour.",
+        proj_ext_chip1: "Façade & Lauzes",
+        proj_ext_chip2: "1 000 m² Jardin",
+        proj_ext_chip3: "Avant / Après",
+        proj_spa_badge: "Ancienne Écurie Voûtée",
+        proj_spa_title: "SPA Privé dans l'Écurie",
+        proj_spa_desc: "Espace bien-être exclusif aménagé sous les voûtes en pierre de l'écurie autour de la colonne monolithique.",
+        proj_spa_chip1: "Sauna & Hammam",
+        proj_spa_chip2: "Jacuzzi & Kneipp",
+        proj_spa_chip3: "Espace Détente",
+        proj_layout_badge: "Flexibilité des Espaces",
+        cs_ribbon: "Coming Soon",
+        proj_layout_title: "Aménagement & Division",
+        proj_layout_desc: "Liberté de conception maximale grâce aux doubles accès, plus de 300 m² sur plusieurs niveaux et 1 000 m² d'extérieurs.",
+        proj_layout_chip1: "1 Villa + Dépendance",
+        proj_layout_chip2: "2 Unités ou Plus",
+        proj_layout_chip3: "Cour & Garage",
+        layout_opt1_title: "Demeure de Maître + Dépendance",
+        layout_opt1_sub: "Grande résidence >300 m² avec dépendance ou maison de gardien",
+        layout_opt2_title: "Deux Appartements ou Plus",
+        layout_opt2_sub: "Division flexible en 2+ logements autonomes pour familles ou location",
+        layout_opt3_title: "Cave Historique de Dégustation",
+        layout_opt3_sub: "Voûtes avec foudres d'époque dédiées au vin et carnotzet convivial",
+        proj_click_gallery: "Ouvrir le comparatif plein écran →",
+        proj_photos_count: "📸 2 vues",
+        proj_plans: "Plans architecturaux en cours d'élaboration",
+
         tag_terrace: "Espaces Extérieurs",
         terrace_title: "La Vaste Terrasse Panoramique",
         terrace_intro: "Un espace à ciel ouvert remarquable, entouré de murs en pierre du pays et surplombant le paysage montagnard.",
         terrace_sec_title: "Fraîcheur Estivale & Intimité",
         terrace_p1: "Cette terrasse exceptionnelle permet d'aménager un somptueux salon d'été, un solarium ou un jacuzzi face aux sommets.",
         terrace_p2: "Les murs en pierre préservent la tranquillité et l'âme historique du village.",
+
         tag_unique: "Patrimoine Unique",
-        vaults_title: "Caves & Écurie Voûtées en Pierre",
-        vaults_intro: "L'atout majeur : d'imposantes voûtes en pierre d'origine avec colonnes monolithiques et foudres viticoles.",
-        vaults_sec_title: "Cave de Dégustation ou Spa Privé",
-        vaults_p1: "Sous la partie habitable, les espaces voûtés en pierre naturelle rappellent les nobles traditions de la région.",
-        vaults_p2: "Idéal pour créer un carnotzet de dégustation, un espace bien-être intime ou un salon de réception atypique.",
+        vaults_title: "Cave Historique & Écurie Voûtée en Pierre",
+        vaults_intro: "Deux espaces monumentaux distincts : la cave historique dédiée à la dégustation des vins et l'ancienne écurie voûtée idéale pour un spa privé.",
+        vaults_sec_title: "La Cave Historique : Dédiée à la Dégustation",
+        vaults_p1: "Sous la partie habitable s'ouvre la cave voûtée en pierre naturelle, où les foudres d'origine témoignent de la tradition viticole valdôtaine.",
+        vaults_p2: "Cet espace authentique se prête idéalement à la conservation des grands crus et à un carnotzet de dégustation convivial.",
+        stables_sec_title: "L'Ancienne Écurie Voûtée : Un Spa Privé Exclusif",
+        stables_p1: "L'ancienne écurie se distingue par l'ampleur de ses voûtes d'arêtes soutenues par une colonne monolithique en pierre. Ses volumes majestueux en font l'unique lieu idéal pour accueillir un véritable spa privé.",
+        stables_p2: "Un sanctuaire de bien-être sur mesure sous les voûtes de l'écurie : sauna finlandais vitré, hammam en pierre, bassin d'hydromassage et parcours Kneipp autour du pilier central, complétés par un salon de relaxation.",
+        stables_badge_spa: "Voir Concept SPA (Avant/Après) →",
+
         tag_gallery: "Galerie Photos",
         gallery_title: "Atmosphère & Détails",
         gallery_desc: "Appuyez sur une photo pour l'afficher en plein écran.",
         cap_1: "Façade principale du bourg",
         cap_2: "Jardin privé et entrée",
         cap_3: "Grande terrasse solarium",
-        cap_4: "Écurie voûtée et colonne en pierre",
-        cap_5: "Arche d'entrée en pierre",
+        cap_4: "Écurie voûtée et colonne monolithique en pierre",
+        cap_5: "Entrée de la dépendance dans la cour en pierre",
         cap_6: "Fontaine en pierre du village",
-        cap_7: "Salon avec cheminée et boiseries",
+        cap_7: "Salon chaleureux avec boiseries et cheminée",
         cap_8: "Détails alpins et roue d'époque",
         cap_9: "Grande cour pour plusieurs voitures et garage couvert",
+
         tag_contact: "Contact & Visites",
         contact_title: "Intéressé par cette Opportunité ?",
         contact_desc: "Contactez-nous pour recevoir le dossier complet ou convenir d'une visite privée.",
         captcha_prompt: "Contrôle de sécurité :",
         btn_submit: "Envoyer la Demande",
-        alert_sent: "Merci ! Votre demande a bien été envoyée."
+        alert_sent: "Merci ! Votre demande a bien été envoyée.",
+        footer_disclaimer: "Mentions légales : Les informations, surfaces, descriptions, plans et rendus 3D (y compris les visuels 'Avant/Après') figurant sur ce site sont fournis à titre purement indicatif et illustratif et ne constituent en aucun cas un document contractuel. Aucune garantie n'est donnée quant à l'exactitude ou l'exhaustivité des données présentées."
       },
       de: {
         nav_about: "Die Immobilie",
@@ -1814,108 +2424,147 @@
         nav_contact: "Kontakt",
         tag_loc: "Strategische Lage",
         loc_title: "Im Herzen des Aostatals",
-        loc_desc: "Montjovet liegt ideal im Tal: eine alpine Ruheoase mit bester Anbindung an weltberühmte Skigebiete, Thermen und die norditalienischen Metropolen.",
+        loc_desc: "Montjovet liegt ideal im Tal: eine alpine Ruheoase mit bester Anbindung an weltberühmte Skigebiete, Wander- und Mountainbike-Strecken, historische Thermen und norditalienische Flughäfen.",
         loc_badge_cervinia: "~40 Min",
         loc_cervinia_title: "Breuil-Cervinia / Zermatt",
         loc_cervinia_sub: "Matterhorn Ski Paradise",
-        loc_cervinia_desc: "Über 350 km grenzüberschreitende Skipisten zwischen Italien und der Schweiz am Fuße des Matterhorns – Skifahren an 365 Tagen im Jahr auf dem Plateau Rosà.",
+        loc_cervinia_desc: "Über 350 km grenzüberschreitende Skipisten zwischen Italien und der Schweiz am Fuße des weltbekannten Matterhorns (Cervino) – Skifahren an 365 Tagen im Jahr auf dem Plateau Rosà.",
         loc_btn_cervinia: "Skigebiet entdecken",
         loc_badge_skyway: "~45 Min",
         loc_skyway_title: "Skyway Monte Bianco & Courmayeur",
         loc_skyway_sub: "Das Dach Europas (Punta Helbronner 3.466 m)",
-        loc_skyway_desc: "Die spektakuläre 360°-Drehkabinenbahn als 8. Weltwunder, das traditionsreiche Courmayeur und legendäre Hochgebirgstouren.",
+        loc_skyway_desc: "Die spektakuläre 360°-Drehkabinenbahn vor der Kulisse des Mont-Blanc-Massivs, das elegante Courmayeur und legendäre Hochgebirgstouren.",
         loc_btn_skyway: "Skyway erleben",
+        loc_badge_trek: "0 - 30 Min",
+        loc_trek_title: "Trekking & Mountainbike",
+        loc_trek_sub: "Alte Vie, E-Bike, Via Francigena & Natur",
+        loc_trek_desc: "Nicht nur Skifahren: Hunderte Kilometer Panoramawanderwege direkt ab dem Dorf, abwechslungsreiche Mountainbike- und E-Bike-Trails, Naturparks und mittelalterliche Burgen.",
+        loc_btn_trek: "Wander- & MTB-Touren",
         loc_badge_spa: "~10 Min",
         loc_spa_title: "Saint-Vincent: Thermen & Kasino",
-        loc_spa_sub: "Historische Wellness & Casino de la Vallée",
-        loc_spa_desc: "Die berühmte 'Riviera der Alpen' in nur 10 Minuten Entfernung: heilendes Thermalwasser Fons Salutis, Panoramabäder und eines der traditionsreichsten Kasinos Europas.",
+        loc_spa_sub: "Panorama-Wellness & Casino de la Vallée",
+        loc_spa_desc: "Die berühmte 'Riviera der Alpen' in nur 10 Minuten Entfernung: Außen-Thermalbecken mit Bergblick, Heilquelle Fons Salutis und das traditionsreiche Casino de la Vallée.",
         loc_btn_spa: "Thermen Saint-Vincent",
-        loc_badge_cities: "50 - 85 Min",
+        loc_btn_casino: "Casino de la Vallée",
+        loc_badge_cities: "50 - 80 Min",
         loc_cities_title: "Turin, Mailand & Flughäfen",
         loc_cities_sub: "Autobahn A5 & Internationale Drehkreuze",
-        loc_cities_desc: "Direkte Autobahnanbindung A5: Turin und Flughafen Caselle in ~50 Min., Mailand Malpensa in 1h 20 Min., Frankreich und Schweiz durch die Alpentunnel schnell erreichbar.",
-        loc_btn_cities: "Anbindung & Autobahn A5",
+        loc_cities_desc: "Direkte Autobahnanbindung A5: Turin und Flughafen Caselle (TRN) in ~50 Min., Mailand Malpensa (MXP) in 1h 20 Min., Frankreich und Schweiz durch die Alpentunnel schnell erreichbar.",
+        loc_btn_cities: "Flughafen Turin (TRN)",
 
         tag_details: "Handwerkskunst & Geschichte",
         details_title: "Historische Ausstattungsdetails",
-        details_desc: "Naturstein, handgeschnitzte Holzkassetten und kunstvolles Schmiedeeisen, die das alpine Flair prägen.",
-        detail1_title: "Herrentür & Schmiedeeisen",
-        detail1_desc: "Handgeschmiedete Türklinke in Blattform mit historischem Schlossbeschlag und reliefierten Holzkassetten.",
+        details_desc: "Edle Materialien, über Jahrhunderte gereifter Naturstein und handgeschnitzte Massivholztäfelungen, die das authentische alpine Erbe widerspiegeln.",
+        detail1_title: "Herrentür aus Geschnitztem Massivholz",
+        detail1_desc: "Historische Massivholztür mit feinen geometrischen Kassetten, handgeschnitzter Blumenrosette und originalem Türgriff.",
         detail2_title: "Monolithische Steinsäule",
         detail2_desc: "Massive Säule aus Granit mit gemeißeltem Kapitell, die das hohe Kreuzgewölbe des herrschaftlichen Stalls trägt.",
         detail3_title: "Dorfbrunnen & Bronzehahn",
         detail3_desc: "Historisches Natursteinbecken mit kunstvoll verziertem Bronzehahn und kristallklarem alpinem Quellwasser.",
-        detail4_title: "Eleganter Flur & Gemälde",
-        detail4_desc: "Weiter Herrschaftsflur mit Parkettboden, antiken Porträts und warm leuchtenden Messing-Wandlampen.",
+        detail4_title: "Eleganter Flur & Familienporträts",
+        detail4_desc: "Weitläufiger Flur mit warmem Fischgrätparkett, heller Blickachse und historischen Gemälden.",
         detail5_title: "Gewölbter Degustationskeller",
         detail5_desc: "Gemütlicher Weinkeller unter Natursteingewölben mit rustikalem Holzbalken, Steinwaschbecken und Flaschenregalen.",
+
         hero_sub: "Aostatal • Exklusives Angebot",
         hero_title: "Ihr Traumrefugium in den italienischen Alpen",
-        hero_desc: "Herrschaftliches 19.-Jh.-Anwesen in Montjovet mit über 300 m² überdachter Fläche und 1.000 m² Privatgärten. Perfekt als große Residenz oder aufteilbar in 2 bis 3 geräumige Wohnungen.",
+        hero_desc: "Herrschaftliches 19.-Jh.-Anwesen in Montjovet mit über 300 m² überdachter Fläche und 1.000 m² Privatgärten. Nutzbar als großzügiger Herrensitz mit Möglichkeit einer Dépendance oder eines Verwalterhauses, oder aufteilbar in zwei oder mehr unabhängige Wohnungen.",
         hero_cta1: "Besichtigung vereinbaren",
-        hero_cta2: "Aufteilungsprojekte ansehen",
+        hero_cta2: "Projekte ansehen",
         spec_covered: "Über 300 m² Wohnfläche",
         spec_garden: "1.000 m² Gärten, Hof & Garage",
-        spec_flex_val: "1 bis 3 Einheiten",
-        spec_flex: "Große Villa oder 2-3 Wohnungen",
+        spec_flex_val: "1 oder 2+ Einheiten",
+        spec_flex: "Villa mit Dépendance oder 2+ Wohnungen",
         spec_vaults_val: "Gewölbe",
         spec_vaults: "Historischer Weinkeller & Stall",
         spec_ski: "Cervinia & Mont Blanc",
+
         tag_history: "Tradition & Potenzial",
         about_title: "Ein alpines Juwel mit viel Gestaltungsspielraum",
         about_intro: "Im ruhigen Borgo von Montjovet vereint diese Liegenschaft alpinen Charme mit über 300 m² überdachter Fläche und einem 1.000 m² großen Garten.",
         badge_story: "> 300 m² • 1.000 m² Garten",
         story1_title: "Platz für Ihre individuellen Wohnträume",
-        story1_p1: "Über die Jahre gepflegt, bietet die Immobilie maximale Vielseitigkeit: als herrschaftlicher Einzelsitz oder aufgeteilt in 2 bis 3 großzügige autarke Wohnungen.",
+        story1_p1: "Die Immobilie bietet höchste gestalterische Freiheit: Sie kann als repräsentatives Herrenhaus mit einer Dépendance oder einem Hausmeister-/Gästehaus genutzt oder in zwei oder mehr unabhängige Wohnungen aufgeteilt werden.",
         story1_p2: "Das Anwesen bietet einen geräumigen gepflasterten Innenhof mit Stellplätzen für mehrere Pkw, eine überdachte Einzelgarage, 1.000 m² Garten und eine großzügige Panoramaterrasse.",
-        feat_1: "Über 300 m² überdachte Wohn- und Nutzfläche",
+        opp_title: "✦ Die Chance zur Rückführung zu Altem Glanz",
+        opp_desc: "Obwohl das Haus bewohnbar ist und dank zahlreicher Arbeiten bis 2025 bewohnt wurde, liegt die wahre Chance darin, es zu modernisieren und hochwertig zu renovieren, um es in seinem alten Glanz erstrahlen zu lassen und sein enormes Potenzial voll auszuschöpfen.",
+        feat_1: "Über 300 m² überdachte Wohn- und Nutzfläche auf mehreren Ebenen",
         feat_2: "1.000 m² Privatgärten, befestigter Innenhof für mehrere Pkw und überdachte Garage",
-        feat_3: "Nutzbar als großes Anwesen oder 2-3 separate Wohnungen",
-        feat_4: "Panoramaterrasse, Kamin und historische Steingewölbe",
-        tag_projects: "Architektonisches Konzept",
-        projects_title: "Aufteilungsprojekte & Grundrisse",
-        projects_desc: "Dank separater Zugänge und großzügiger Volumina lässt sich das Gebäude maßgeschneidert anpassen.",
-        cs_ribbon: "Demnächst Verfügbar / Coming Soon",
-        proj1_badge: "Option A • Einzelresidenz",
-        proj1_title: "Eine Große Exklusive Alpenvilla",
-        proj1_desc: "Nutzung als herrschaftliche Villa von über 300 m² mit 4-6 Schlafzimmern, Kaminlounge, 1.000 m² Garten und privater Spa-Grotte in den Gewölben.",
-        proj2_badge: "Option B • Zwei Wohnsitze",
-        proj2_title: "2 Großzügige Unabhängige Wohnungen",
-        proj2_desc: "Aufteilung in zwei geräumige Apartments (je 130-160 m²): Gartengeschoss mit direktem Zugang zu Hof und Gewölben, Obergeschoss mit der großen Panoramaterrasse.",
-        proj3_badge: "Option C • Rendite & Vermietung",
-        proj3_title: "3 Unabhängige Ferienwohnungen",
-        proj3_desc: "Ideale Aufteilung für exklusive Ferienvermietung an Berg- und Skibegeisterte: 3 separate Wohnungen mit Gemeinschaftsgarten und Stellplätzen.",
-        proj_plans: "Architektenpläne & 3D-Visualisierungen",
+        feat_3: "Großes Anwesen mit Dépendance/Verwalterhaus oder Aufteilung in 2 oder mehr Wohnungen",
+        feat_4: "Panoramaterrasse, historischer Weinkeller und gewölbter Steinstall",
+
+        tag_projects: "Vision & Entwicklung",
+        projects_title: "Entwicklungsprojekte & Vorher/Nachher",
+        projects_desc: "Bewegen Sie den vertikalen Regler über die Bilder, um den aktuellen Zustand mit den Projekt-Renderings zu vergleichen: Außen-Restyling, privates SPA im gewölbten Stall und flexible Raumaufteilung.",
+        ba_before: "Aktuell",
+        ba_after: "Projekt",
+        proj_ext_badge: "Außen-Restyling",
+        proj_ext_title: "Fassade, Dach & Innenhof",
+        proj_ext_desc: "Architektonische Aufwertung der Hauptfassade, traditionelles Steindach, Holzfensterläden und Gartengestaltung.",
+        proj_ext_chip1: "Fassade & Steindach",
+        proj_ext_chip2: "1.000 m² Garten",
+        proj_ext_chip3: "Vorher / Nachher",
+        proj_spa_badge: "Gewölbter Stall",
+        proj_spa_title: "Privates SPA im Stall",
+        proj_spa_desc: "Exklusiver Wellnessbereich unter den historischen Steingewölben des ehemaligen Stalls rund um die monolithische Säule.",
+        proj_spa_chip1: "Sauna & Hammam",
+        proj_spa_chip2: "Whirlpool & Kneipp",
+        proj_spa_chip3: "Ruhezone",
+        proj_layout_badge: "Raumflexibilität",
+        cs_ribbon: "Coming Soon",
+        proj_layout_title: "Raumkonzept & Aufteilung",
+        proj_layout_desc: "Maximale Planungsfreiheit dank separater Zugänge, über 300 m² auf mehreren Ebenen und 1.000 m² Außenfläche.",
+        proj_layout_chip1: "1 Villa + Dépendance",
+        proj_layout_chip2: "2 oder Mehr Einheiten",
+        proj_layout_chip3: "Innenhof & Garage",
+        layout_opt1_title: "Herrensitz + Dépendance",
+        layout_opt1_sub: "Große Einzelresidenz (>300 m²) mit Gästehaus oder Verwalterwohnung",
+        layout_opt2_title: "Zwei oder Mehr Wohnungen",
+        layout_opt2_sub: "Flexible Aufteilung in 2+ autarke Einheiten für Familien oder Vermietung",
+        layout_opt3_title: "Historischer Degustationskeller",
+        layout_opt3_sub: "Gewölbekeller mit Originalfässern für Weinverkostung & Carnotzet",
+        proj_click_gallery: "Vollbild-Vergleich öffnen →",
+        proj_photos_count: "📸 2 Ansichten",
+        proj_plans: "Architektonische Grundrisse in Vorbereitung",
+
         tag_terrace: "Freiraum & Sonne",
         terrace_title: "Die Großzügige Panoramaterrasse",
         terrace_intro: "Ein beeindruckender Freisitz, eingefasst von Natursteinmauern mit ungestörtem Blick auf das alpine Bergpanorama.",
         terrace_sec_title: "Bergluft & Private Erholung",
         terrace_p1: "Perfekt geeignet für weitläufige Sommer-Lounges, Grillabende oder ein privates Sonnendeck mit Whirlpool unter dem Sternenhimmel.",
         terrace_p2: "Die historischen Steinmauern schützen vor Blicken und schaffen eine intime Oase der Ruhe.",
+
         tag_unique: "Besondere Baukunst",
-        vaults_title: "Spektakuläre Natursteingewölbe",
-        vaults_intro: "Der Höhepunkt: Monumentale Kreuzgewölbe auf Steinsäulen mit originalen historischen Holzfässern.",
-        vaults_sec_title: "Exklusiver Weinkeller oder Spa-Bereich",
-        vaults_p1: "Unter dem Wohntrakt eröffnen sich beeindruckende Natursteinräume von seltener architektonischer Qualität.",
-        vaults_p2: "Ideal geeignet als privater Degustationskeller (Cantina), urige Taverne oder persönlicher Wellnessbereich mit Sauna.",
+        vaults_title: "Historischer Weinkeller & Gewölbter Stall",
+        vaults_intro: "Zwei eigenständige historische Gewölberäume: der Weinkeller mit Originalfässern für die Verkostung und der ehemalige Stall als idealer Ort für ein privates Spa.",
+        vaults_sec_title: "Der Historische Weinkeller: Perfekt für die Verkostung",
+        vaults_p1: "Unter dem Wohntrakt liegt der authentische Naturstein-Weinkeller, dessen originale Holzfässer die Weinbautradition des Aostatals bewahren.",
+        vaults_p2: "Dieser stimmungsvolle Raum eignet sich hervorragend zur Weinlagerung und als geselliger Degustationskeller (Carnotzet).",
+        stables_sec_title: "Der Gewölbtestall: Ein Exklusives Privates Spa",
+        stables_p1: "Der ehemalige herrschaftliche Stall besticht durch seine hohen Kreuzgewölbe, die von einer monolithischen Steinsäule getragen werden. Aufgrund seiner Großzügigkeit ist ausschließlich dieser Raum für den Einbau eines privaten Luxus-Spas prädestiniert.",
+        stables_p2: "Hier lässt sich eine maßgeschneiderte Wellness-Oase realisieren: mit verglaster Finnischer Sauna unter den Steinbögen, Dampfbad (Hammam), beheiztem Whirlpool oder Kneipp-Becken rund um die Granitsäule sowie einer stimmungsvollen Ruhezone.",
+        stables_badge_spa: "SPA-Konzept ansehen (Vorher/Nachher) →",
+
         tag_gallery: "Fotogalerie",
         gallery_title: "Eindrücke & Details",
         gallery_desc: "Tippen Sie auf ein Bild, um es vergrößert anzuzeigen.",
         cap_1: "Hauptfassade im Dorf",
         cap_2: "Privatgarten & Eingang",
         cap_3: "Große Panoramaterrasse",
-        cap_4: "Gewölbter Stall mit Steinsäule",
-        cap_5: "Innenhof mit Steinbogen",
+        cap_4: "Gewölbter Stall mit monolithischer Steinsäule",
+        cap_5: "Eingang zur Dépendance im steinernen Innenhof",
         cap_6: "Historischer Dorfbrunnen",
-        cap_7: "Wohnzimmer mit Kamin & Täfelung",
+        cap_7: "Wohnzimmer mit Holztäfelung & Kamin",
         cap_8: "Historisches Wagenrad auf Naturstein",
         cap_9: "Großer Innenhof für mehrere Autos & überdachte Garage",
+
         tag_contact: "Kontakt & Besichtigung",
         contact_title: "Interessiert an diesem besonderen Objekt?",
         contact_desc: "Fordern Sie weitere Unterlagen an oder vereinbaren Sie Ihren persönlichen Besichtigungstermin.",
         captcha_prompt: "Sicherheitsabfrage:",
         btn_submit: "Anfrage senden",
-        alert_sent: "Vielen Dank! Ihre Anfrage wurde übermittelt."
+        alert_sent: "Vielen Dank! Ihre Anfrage wurde übermittelt.",
+        footer_disclaimer: "Haftungsausschluss (Disclaimer): Alle auf dieser Website enthaltenen Informationen, Flächenangaben, Beschreibungen, Grundrisse und 3D-Visualisierungen (einschließlich der 'Vorher/Nachher'-Darstellungen) dienen ausschließlich zur unverbindlichen Veranschaulichung und stellen kein vertragliches Angebot dar. Für die Richtigkeit und Vollständigkeit der Angaben wird keine Haftung übernommen."
       }
     };
 
@@ -1953,6 +2602,29 @@
       toggle.classList.remove('open');
     }
 
+    // Back to Top button visibility & action
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (!backToTopBtn) return;
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Interactive Before/After Slider handler
+    function updateBaSlider(rangeInput) {
+      const slider = rangeInput.closest('.ba-slider');
+      if (slider) {
+        slider.style.setProperty('--ba-pos', rangeInput.value + '%');
+      }
+    }
+
     // Lightbox
     function openLightbox(src) {
       const modal = document.getElementById('lightboxModal');
@@ -1967,7 +2639,15 @@
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeProjectGallery();
+      }
+      const projModal = document.getElementById('projectModal');
+      if (projModal && projModal.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') changeProjSlide(-1);
+        if (e.key === 'ArrowRight') changeProjSlide(1);
+      }
     });
 
     
@@ -2162,56 +2842,75 @@
     });
   </script>
 
-    <!-- Overlay Galleria Progetti -->
-    <div class="lightbox" id="projectModal" onclick="closeProjectGallery(event)">
-      <span class="lightbox-close" onclick="closeProjectGallery()">&times;</span>
-      <div class="project-modal-content" style="text-align: center; max-width: 900px;" onclick="event.stopPropagation()">
-        <img id="projModalImg" src="" alt="Progetto" style="max-height: 75vh; max-width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <div class="proj-nav-btns" style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem;">
-          <button onclick="changeProjSlide(-1)" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">&#10094; Precedente</button>
-          <span id="projCounter" style="color: #fff; align-self: center; font-weight: 500;">1 / 2</span>
-          <button onclick="changeProjSlide(1)" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Successiva &#10095;</button>
-        </div>
+  <!-- Overlay Galleria Progetti (Before/After interattivo + frecce in overlay) -->
+  <div class="lightbox" id="projectModal" onclick="closeProjectGallery()">
+    <span class="lightbox-close" onclick="closeProjectGallery()">&times;</span>
+    <div class="project-modal-wrapper" onclick="event.stopPropagation()">
+      <div class="ba-slider" id="projModalBaSlider">
+        <img id="projModalAfterImg" src="" alt="Dopo: Progetto" class="ba-img-after">
+        <img id="projModalBeforeImg" src="" alt="Prima: Stato Attuale" class="ba-img-before">
+        <span class="ba-label before" data-i18n="ba_before">Attuale</span>
+        <span class="ba-label after" data-i18n="ba_after">Progetto</span>
+        <div class="ba-divider"><div class="ba-handle">&#8596;</div></div>
+        <input type="range" id="projModalRange" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
       </div>
+      <button class="modal-overlay-arrow prev" onclick="changeProjSlide(-1)" aria-label="Precedente">&#10094;</button>
+      <button class="modal-overlay-arrow next" onclick="changeProjSlide(1)" aria-label="Successiva">&#10095;</button>
+      <div class="modal-slide-pill" id="projCounter">1 / 2</div>
     </div>
+  </div>
 
-    <script>
-      let currentProjImages = [];
-      let currentProjIdx = 0;
+  <script>
+    let currentProjSlides = [];
+    let currentProjIdx = 0;
 
-      const projGalleries = {
-        ext: ['images/project-ext-1.jpg', 'images/project-ext-2.jpg'],
-        spa: ['images/project-spa-1.jpg', 'images/project-spa-2.jpg']
-      };
+    const projGalleries = {
+      ext: [
+        { before: 'images/facade-main.jpg', after: 'images/project-ext-1.jpg' },
+        { before: 'images/garden-front.jpg', after: 'images/project-ext-2.jpg' }
+      ],
+      spa: [
+        { before: 'images/stables-vault.jpg', after: 'images/project-spa-1.jpg' },
+        { before: 'images/stables-vault.jpg', after: 'images/project-spa-2.jpg' }
+      ]
+    };
 
-      function openProjectGallery(type) {
-        if (!projGalleries[type]) return;
-        currentProjImages = projGalleries[type];
-        currentProjIdx = 0;
-        updateProjModal();
-        document.getElementById('projectModal').classList.add('active');
+    function openProjectGallery(type) {
+      if (!projGalleries[type]) return;
+      currentProjSlides = projGalleries[type];
+      currentProjIdx = 0;
+      updateProjModal();
+      document.getElementById('projectModal').classList.add('active');
+    }
+
+    function closeProjectGallery() {
+      const modal = document.getElementById('projectModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function changeProjSlide(dir) {
+      currentProjIdx += dir;
+      if (currentProjIdx >= currentProjSlides.length) currentProjIdx = 0;
+      if (currentProjIdx < 0) currentProjIdx = currentProjSlides.length - 1;
+      updateProjModal();
+    }
+
+    function updateProjModal() {
+      const beforeImg = document.getElementById('projModalBeforeImg');
+      const afterImg = document.getElementById('projModalAfterImg');
+      const slider = document.getElementById('projModalBaSlider');
+      const range = document.getElementById('projModalRange');
+      const counter = document.getElementById('projCounter');
+      if (beforeImg && afterImg && currentProjSlides.length > 0) {
+        const slide = currentProjSlides[currentProjIdx];
+        beforeImg.src = slide.before;
+        afterImg.src = slide.after;
+        if (slider) slider.style.setProperty('--ba-pos', '50%');
+        if (range) range.value = 50;
+        if (counter) counter.textContent = `${currentProjIdx + 1} / ${currentProjSlides.length}`;
       }
-
-      function closeProjectGallery() {
-        document.getElementById('projectModal').classList.remove('active');
-      }
-
-      function changeProjSlide(dir) {
-        currentProjIdx += dir;
-        if (currentProjIdx >= currentProjImages.length) currentProjIdx = 0;
-        if (currentProjIdx < 0) currentProjIdx = currentProjImages.length - 1;
-        updateProjModal();
-      }
-
-      function updateProjModal() {
-        const img = document.getElementById('projModalImg');
-        const counter = document.getElementById('projCounter');
-        if (img && currentProjImages.length > 0) {
-          img.src = currentProjImages[currentProjIdx];
-          counter.textContent = `${currentProjIdx + 1} / ${currentProjImages.length}`;
-        }
-      }
-    </script>
+    }
+  </script>
 
 </body>
 </html>
