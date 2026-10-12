@@ -5330,52 +5330,6 @@
           grp.style.display = (sfx === suffix) ? 'block' : 'none';
         }
       });
-
-      // Render room list in sidebar when in House Interior mode
-      if (housePills) {
-        const roomsByFloor = {
-          '-1': [
-            { color: '#D8BA98', key: 'fp_rm_barrel_cellar' },
-            { color: '#E8CFB0', key: 'fp_rm_taverna' },
-            { color: '#CED8DC', key: 'fp_rm_boiler' },
-            { color: '#EFECE4', key: 'fp_rm_corridor' },
-            { color: '#DFC3B4', key: 'fp_rm_stairs_down' }
-          ],
-          '0': [
-            { color: '#E3C29E', key: 'fp_rm_fireplace_room' },
-            { color: '#E6CCB0', key: 'fp_rm_living' },
-            { color: '#D5E2D4', key: 'fp_rm_kitchen' },
-            { color: '#EAD7CD', key: 'fp_rm_double_bed' },
-            { color: '#D2E2E4', key: 'fp_rm_bath' },
-            { color: '#EFECE4', key: 'fp_rm_corridor' },
-            { color: '#DFC3B4', key: 'fp_rm_stairs_up1' }
-          ],
-          '1': [
-            { color: '#CEDFC4', key: 'fp_rm_grand_salon' },
-            { color: '#D5E2D4', key: 'fp_rm_kitchen' },
-            { color: '#EFE0BE', key: 'fp_rm_dining' },
-            { color: '#E8CFB8', key: 'fp_rm_bedroom' },
-            { color: '#D2E2E4', key: 'fp_rm_bath' },
-            { color: '#EBD7B2', key: 'fp_rm_balcony' },
-            { color: '#DFC3B4', key: 'fp_rm_stairs_up2' }
-          ],
-          '2': [
-            { color: '#D3E2C9', key: 'fp_rm_master_bedroom' },
-            { color: '#E8CFB8', key: 'fp_rm_bedroom' },
-            { color: '#EAD7CD', key: 'fp_rm_double_bed' },
-            { color: '#D2E2E4', key: 'fp_rm_bath' },
-            { color: '#C6D0D8', key: 'fp_rm_storage' },
-            { color: '#EFECE4', key: 'fp_rm_corridor' }
-          ]
-        };
-        const list = roomsByFloor[currentFpLevel] || [];
-        housePills.innerHTML = list.map(r => `
-          <div class="fp-legend-item" style="cursor:default;">
-            <span class="fp-swatch" style="background:${r.color};"></span>
-            <span>${dict[r.key] || ''}</span>
-          </div>
-        `).join('');
-      }
     }
 
     function selectFloorPlanLevel(lvl) {
