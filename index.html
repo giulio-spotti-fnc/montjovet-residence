@@ -1458,13 +1458,66 @@
       pointer-events: none;
     }
 
-    /* BACK TO TOP FLOATING BUTTON */
+    /* FLOATING "CHIEDI INFO" CTA & BACK TO TOP BUTTONS */
+    .floating-inquiry-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      height: 50px;
+      padding: 0 1.25rem 0 1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1E2826 0%, #141B19 100%);
+      color: var(--white);
+      border: 1.5px solid var(--accent-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      z-index: 1501;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32), 0 0 0 4px rgba(176, 141, 87, 0.16);
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .floating-inquiry-btn .inq-icon-wrap {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #C6A368 0%, #9E7B46 100%);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(158, 123, 70, 0.45);
+      transition: transform 0.3s ease;
+    }
+    .floating-inquiry-btn:hover {
+      background: linear-gradient(135deg, #9E7B46 0%, #836334 100%);
+      border-color: #FAF6EE;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.38), 0 0 0 5px rgba(176, 141, 87, 0.26);
+    }
+    .floating-inquiry-btn:hover .inq-icon-wrap {
+      background: var(--primary);
+      color: var(--accent-gold);
+      transform: rotate(-8deg) scale(1.06);
+    }
+    .floating-inquiry-btn.at-contact {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(14px) scale(0.95);
+      pointer-events: none;
+    }
+
     .back-to-top {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 48px;
-      height: 48px;
+      bottom: 84px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--primary);
       color: var(--white);
@@ -1489,6 +1542,21 @@
       background: var(--accent);
       color: var(--white);
       transform: translateY(-3px);
+    }
+    @media (max-width: 600px) {
+      .floating-inquiry-btn {
+        bottom: 18px;
+        right: 16px;
+        height: 46px;
+        padding: 0 1.05rem 0 0.85rem;
+        font-size: 0.78rem;
+      }
+      .back-to-top {
+        bottom: 72px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+      }
     }
 
     /* FOOTER LEGAL DISCLAIMER */
@@ -3856,6 +3924,17 @@
     </div>
   </div>
 
+  <!-- FLOATING "CHIEDI INFO" BUTTON -->
+  <button id="floatingInquiryBtn" type="button" class="floating-inquiry-btn" onclick="scrollToContactForm()" aria-label="Chiedi info">
+    <span class="inq-icon-wrap" aria-hidden="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </span>
+    <span data-i18n="float_ask_info">Chiedi info</span>
+  </button>
+
   <!-- BACK TO TOP BUTTON -->
   <button id="backToTopBtn" class="back-to-top" onclick="scrollToTop()" aria-label="Torna in alto" title="Torna in alto">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -3885,6 +3964,7 @@
         nav_location: "Locatie",
         nav_projects: "Projecten",
         nav_contact: "Contact",
+        float_ask_info: "Vraag info",
         tag_loc: "Strategische Locatie",
         loc_title: "Centraal in de Aostavallei",
         loc_desc: "Montjovet ligt in het hart van de alpiene vallei: een oase van rust met uitstekende verbindingen naar topskigebieden, wandel- en mountainbikeroutes, historische kuuroorden en Noord-Italiaanse luchthavens.",
@@ -4144,6 +4224,7 @@
         nav_location: "Location",
         nav_projects: "Projects",
         nav_contact: "Contact",
+        float_ask_info: "Ask for info",
         tag_loc: "Strategic Location",
         loc_title: "In the Heart of Aosta Valley",
         loc_desc: "Montjovet is ideally situated in the Alpine valley: an authentic and peaceful retreat seamlessly connected to world-class ski resorts, hiking and MTB trails, historic thermal spas, and Northern Italian international airports.",
@@ -4403,6 +4484,7 @@
         nav_location: "Posizione",
         nav_projects: "Progetti",
         nav_contact: "Contatto",
+        float_ask_info: "Chiedi info",
         tag_loc: "Posizione Strategica",
         loc_title: "Al Centro della Valle d'Aosta",
         loc_desc: "Montjovet si trova nel cuore della vallata alpina: una cornice riservata e autentica, perfettamente collegata alle mete sciistiche mondiali, ai sentieri di trekking e MTB, alle stazioni termali storiche e ai grandi aeroporti del Nord Italia.",
@@ -4662,6 +4744,7 @@
         nav_location: "Emplacement",
         nav_projects: "Projets",
         nav_contact: "Contact",
+        float_ask_info: "Demander infos",
         tag_loc: "Emplacement Stratégique",
         loc_title: "Au Cœur de la Vallée d'Aoste",
         loc_desc: "Montjovet bénéficie d'une situation centrale idéale : un havre de paix montagnard connecté aux grands domaines skiables, aux sentiers de randonnée et VTT, aux thermes historiques et aux aéroports internationaux.",
@@ -4921,6 +5004,7 @@
         nav_location: "Lage",
         nav_projects: "Projekte",
         nav_contact: "Kontakt",
+        float_ask_info: "Info anfragen",
         tag_loc: "Strategische Lage",
         loc_title: "Im Herzen des Aostatals",
         loc_desc: "Montjovet liegt ideal im Tal: eine alpine Ruheoase mit bester Anbindung an weltberühmte Skigebiete, Wander- und Mountainbike-Strecken, historische Thermen und norditalienische Flughäfen.",
@@ -5426,19 +5510,39 @@
       toggle.classList.remove('open');
     }
 
-    // Back to Top button visibility & action
+    // Back to Top & Floating "Chiedi info" button visibility & action
     const backToTopBtn = document.getElementById('backToTopBtn');
+    const floatingInquiryBtn = document.getElementById('floatingInquiryBtn');
+    const contactSectionEl = document.getElementById('contact');
+
     window.addEventListener('scroll', () => {
-      if (!backToTopBtn) return;
-      if (window.scrollY > 350) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
+      if (backToTopBtn) {
+        if (window.scrollY > 350) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      }
+      if (floatingInquiryBtn && contactSectionEl) {
+        const rect = contactSectionEl.getBoundingClientRect();
+        const isAtContact = rect.top < window.innerHeight * 0.72 && rect.bottom > 120;
+        floatingInquiryBtn.classList.toggle('at-contact', isAtContact);
       }
     }, { passive: true });
 
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToContactForm() {
+      const formEl = document.getElementById('contact');
+      if (formEl) {
+        formEl.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          const nameInput = document.getElementById('name');
+          if (nameInput) nameInput.focus({ preventScroll: true });
+        }, 650);
+      }
     }
 
     // Interactive Before/After Slider handler
