@@ -766,59 +766,50 @@
       line-height: 1.2;
     }
     .project-card p {
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 1.1rem;
-      line-height: 1.5;
-    }
-    .project-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: auto;
-    }
-    .proj-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      background: var(--bg-cream);
-      border: 1px solid rgba(0,0,0,0.07);
-      padding: 0.35rem 0.7rem;
-      border-radius: 6px;
-      font-size: 0.76rem;
-      font-weight: 500;
-      color: var(--primary);
-    }
-    .proj-chip svg {
-      width: 14px;
-      height: 14px;
-      color: var(--accent);
-      flex-shrink: 0;
+      margin-bottom: 0.4rem;
+      line-height: 1.58;
     }
     .project-footer {
-      border-top: 1px solid rgba(0,0,0,0.06);
-      padding: 1rem 1.6rem;
-      background: var(--bg-cream);
+      margin: 0 1.4rem 1.35rem;
+      padding: 0.82rem 1.15rem;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #222D2A 0%, #171F1D 100%);
+      border: 1px solid rgba(198, 163, 104, 0.45);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--primary);
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #F4E9D5;
       cursor: pointer;
-      transition: var(--transition);
+      transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 6px 16px rgba(24, 32, 30, 0.14);
+    }
+    .project-footer span:last-child {
+      background: rgba(198, 163, 104, 0.22);
+      border: 1px solid rgba(226, 211, 184, 0.35);
+      color: #FFFFFF;
+      padding: 0.22rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.71rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.28s ease;
     }
     .project-footer:hover {
-      background: var(--primary);
+      background: linear-gradient(135deg, #9E7B46 0%, #836334 100%);
+      border-color: #FAF6EE;
       color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(158, 123, 70, 0.28);
     }
-    .project-footer.static-footer {
-      cursor: default;
-      color: var(--accent-hover);
-    }
-    .project-footer.static-footer:hover {
-      background: var(--bg-cream);
-      color: var(--accent-hover);
+    .project-footer:hover span:last-child {
+      background: rgba(24, 32, 30, 0.85);
+      border-color: transparent;
+      color: var(--accent-gold);
     }
     @media (max-width: 992px) {
       .projects-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
@@ -2963,15 +2954,10 @@
             <p data-i18n="proj_ext_desc">
               Valorizzazione cromatica della facciata, tetto in lose, persiane in legno naturale e cura paesaggistica della corte.
             </p>
-            <div class="project-chips">
-              <span class="proj-chip">✨ <span data-i18n="proj_ext_chip1">Facciata & Lose</span></span>
-              <span class="proj-chip">🌿 <span data-i18n="proj_ext_chip2">1.000 m² Verde</span></span>
-              <span class="proj-chip">⇄ <span data-i18n="proj_ext_chip3">Before / After</span></span>
-            </div>
           </div>
           <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('ext')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('ext');}">
-            <span data-i18n="proj_click_gallery">Apri confronto a tutto schermo &rarr;</span>
-            <span data-i18n="proj_photos_count">📸 2 viste</span>
+            <span data-i18n="proj_click_gallery">✨ Scopri tutti i rendering Prima / Dopo &rarr;</span>
+            <span data-i18n="proj_photos_count">📸 2 viste HD</span>
           </div>
         </div>
 
@@ -2995,15 +2981,10 @@
             <p data-i18n="proj_spa_desc">
               Esclusivo centro benessere ricavato nelle volte in pietra della stalla attorno alla colonna monolitica.
             </p>
-            <div class="project-chips">
-              <span class="proj-chip">🧖 <span data-i18n="proj_spa_chip1">Sauna & Hammam</span></span>
-              <span class="proj-chip">💧 <span data-i18n="proj_spa_chip2">Idromassaggio & Kneipp</span></span>
-              <span class="proj-chip">🕯️ <span data-i18n="proj_spa_chip3">Area Relax</span></span>
-            </div>
           </div>
           <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spa')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spa');}">
-            <span data-i18n="proj_click_gallery">Apri confronto a tutto schermo &rarr;</span>
-            <span data-i18n="proj_photos_count">📸 2 viste</span>
+            <span data-i18n="proj_click_gallery">✨ Scopri tutti i rendering Prima / Dopo &rarr;</span>
+            <span data-i18n="proj_photos_count">📸 2 viste HD</span>
           </div>
         </div>
 
@@ -3041,15 +3022,10 @@
             <p data-i18n="proj_layout_desc">
               Massima libertà progettuale grazie a doppi accessi, oltre 300 m² su più livelli e 1.000 m² di corte e giardini.
             </p>
-            <div class="project-chips">
-              <span class="proj-chip">🏠 <span data-i18n="proj_layout_chip1">1 Villa + Dépendance</span></span>
-              <span class="proj-chip">🏢 <span data-i18n="proj_layout_chip2">2 o Più Unità</span></span>
-              <span class="proj-chip">🚗 <span data-i18n="proj_layout_chip3">Cortile & Box</span></span>
-            </div>
           </div>
           <div class="project-footer" role="button" tabindex="0" onclick="document.getElementById('floorplanExplorer').scrollIntoView({behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('floorplanExplorer').scrollIntoView({behavior:'smooth'});}">
-            <span data-i18n="proj_plans">Esplora la planimetria interattiva per livello &darr;</span>
-            <span aria-hidden="true">✦</span>
+            <span data-i18n="proj_plans">🗺️ Esplora la planimetria interattiva &darr;</span>
+            <span aria-hidden="true">3D / 2.5D</span>
           </div>
         </div>
       </div>
@@ -4093,9 +4069,9 @@
         layout_opt2_sub: "Flexibele splitsing in 2+ zelfstandige woningen voor familie of verhuur",
         layout_opt3_title: "Wijnkelder voor Degustatie",
         layout_opt3_sub: "Historische kelder met vaten bestemd voor wijnproeverijen (carnotzet)",
-        proj_click_gallery: "Open volledig scherm (Voor/Na) →",
-        proj_photos_count: "📸 2 weergaven",
-        proj_plans: "Bekijk interactieve plattegrond per verdieping ↓",
+        proj_click_gallery: "✨ Bekijk alle Voor / Na-renderings →",
+        proj_photos_count: "📸 2 HD-beelden",
+        proj_plans: "🗺️ Verken de interactieve plattegrond ↓",
 
         fp_eyebrow: "✦ Interactieve Plattegrond & Volumes",
         fp_title: "Ontdek het Landgoed per Verdieping",
@@ -4353,9 +4329,9 @@
         layout_opt2_sub: "Flexible subdivision into 2+ independent units for families or hospitality",
         layout_opt3_title: "Historic Wine Tasting Cellar",
         layout_opt3_sub: "Vaulted cellar with vintage barrels dedicated to wine tasting & carnotzet",
-        proj_click_gallery: "Open fullscreen comparison →",
-        proj_photos_count: "📸 2 views",
-        proj_plans: "Explore interactive floor plan by level ↓",
+        proj_click_gallery: "✨ Explore all Before / After renderings →",
+        proj_photos_count: "📸 2 HD views",
+        proj_plans: "🗺️ Explore the interactive floor plan ↓",
 
         fp_eyebrow: "✦ Interactive Floor Plan & Volumes",
         fp_title: "Explore the Estate Level by Level",
@@ -4613,9 +4589,9 @@
         layout_opt2_sub: "Frazionamento flessibile in 2+ unità autonome per famiglie o reddito",
         layout_opt3_title: "Cantina Storica da Degustazione",
         layout_opt3_sub: "Volte con botti d'epoca dedicate a vini e carnotzet conviviale",
-        proj_click_gallery: "Apri confronto a tutto schermo →",
-        proj_photos_count: "📸 2 viste",
-        proj_plans: "Esplora la planimetria interattiva per livello ↓",
+        proj_click_gallery: "✨ Scopri tutti i rendering Prima / Dopo →",
+        proj_photos_count: "📸 2 viste HD",
+        proj_plans: "🗺️ Esplora la planimetria interattiva ↓",
 
         fp_eyebrow: "✦ Planimetria Interattiva & Volumi",
         fp_title: "Esplora la Proprietà Livello per Livello",
@@ -4873,9 +4849,9 @@
         layout_opt2_sub: "Division flexible en 2+ logements autonomes pour familles ou location",
         layout_opt3_title: "Cave Historique de Dégustation",
         layout_opt3_sub: "Voûtes avec foudres d'époque dédiées au vin et carnotzet convivial",
-        proj_click_gallery: "Ouvrir le comparatif plein écran →",
-        proj_photos_count: "📸 2 vues",
-        proj_plans: "Explorer le plan interactif par niveau ↓",
+        proj_click_gallery: "✨ Découvrir tous les rendus Avant / Après →",
+        proj_photos_count: "📸 2 vues HD",
+        proj_plans: "🗺️ Explorer le plan interactif ↓",
 
         fp_eyebrow: "✦ Plan Interactif & Volumes",
         fp_title: "Explorez la Propriété Niveau par Niveau",
@@ -5133,9 +5109,9 @@
         layout_opt2_sub: "Flexible Aufteilung in 2+ autarke Einheiten für Familien oder Vermietung",
         layout_opt3_title: "Historischer Degustationskeller",
         layout_opt3_sub: "Gewölbekeller mit Originalfässern für Weinverkostung & Carnotzet",
-        proj_click_gallery: "Vollbild-Vergleich öffnen →",
-        proj_photos_count: "📸 2 Ansichten",
-        proj_plans: "Interaktiven Grundriss nach Etagen erkunden ↓",
+        proj_click_gallery: "✨ Alle Vorher / Nachher-Renderings entdecken →",
+        proj_photos_count: "📸 2 HD-Ansichten",
+        proj_plans: "🗺️ Interaktiven Grundriss erkunden ↓",
 
         fp_eyebrow: "✦ Interaktiver Grundriss & Baukörper",
         fp_title: "Entdecken Sie das Anwesen Ebene für Ebene",
