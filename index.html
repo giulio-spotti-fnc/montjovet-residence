@@ -6593,145 +6593,192 @@
         }
       } else if (slideKey === 'terrazzo') {
         if (!isAfter) {
-          // 3. TERRAZZO PRINCIPALE AS-IS: Full-width garden seating area (salotto da giardino a tutta larghezza) along the bottom, rest of terrace open
+          // 3. TERRAZZO PRINCIPALE AS-IS: Garden seating area spanning the entire left short side (lato corto sinistro), rest of terrace open on the right
           body = `
             <rect x="136" y="88" width="540" height="364" rx="6" fill="#D5C7B4"/>
             <rect x="126" y="78" width="540" height="364" rx="6" fill="#EFE4D2" stroke="#6B5335" stroke-width="7"/>
             <rect x="136" y="88" width="520" height="344" rx="4" fill="none" stroke="#9E8970" stroke-width="1.5" stroke-dasharray="6 4"/>
 
-            <!-- Upper Terrace Open / Unfurnished Area -->
-            <rect x="226" y="132" width="340" height="68" rx="8" fill="rgba(246,239,226,0.92)" stroke="#8C7A65" stroke-width="1.5"/>
-            <text x="396" y="171" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13" font-weight="700" fill="#5C4938">${escXml(pack.asIsEmpty)}</text>
+            <!-- AS-IS Garden Seating Area spanning full height of the LEFT SHORT SIDE (Lato Corto Sinistro, x=144..324, y=96..424) -->
+            <rect x="144" y="96" width="180" height="328" rx="8" fill="#E4D3B8" stroke="#7A6042" stroke-width="2" stroke-dasharray="5 3"/>
+            <!-- Woven outdoor rug -->
+            <rect x="190" y="116" width="118" height="236" rx="4" fill="#D9C3A3" stroke="#8C7252" stroke-width="1.2"/>
+            <!-- 3-seater Sofa against the left short stone wall (facing right) -->
+            <rect x="156" y="156" width="38" height="156" rx="5" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
+            <line x1="166" y1="160" x2="166" y2="308" stroke="#8C7252" stroke-width="1.5"/>
+            <!-- Top armchair/loveseat (facing down) -->
+            <rect x="204" y="108" width="84" height="36" rx="5" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
+            <!-- Bottom armchairs (facing up) -->
+            <rect x="204" y="324" width="40" height="36" rx="5" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
+            <rect x="250" y="324" width="40" height="36" rx="5" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
+            <!-- Central Coffee Table -->
+            <rect x="218" y="192" width="58" height="84" rx="4" fill="#C8A97E" stroke="#5C4028" stroke-width="1.8"/>
+            <!-- Salotto Label at bottom of left short side -->
+            <rect x="152" y="374" width="164" height="38" rx="6" fill="rgba(250,246,238,0.96)" stroke="#6B5335" stroke-width="1.4"/>
+            <text x="234" y="398" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.2" font-weight="700" fill="#3E2C1C">🪑 ${escXml(pack.asIsLounge)}</text>
 
-            <!-- AS-IS Full-Width Garden Seating Area (Salotto da Giardino a Tutta Larghezza) -->
-            <rect x="148" y="256" width="496" height="162" rx="8" fill="#E4D3B8" stroke="#7A6042" stroke-width="2" stroke-dasharray="5 3"/>
-            <!-- Full-width L/U-shaped outdoor sofa bench + low tables + armchairs across the entire terrace width -->
-            <path d="M 168,274 H 624 V 306 H 208 V 360 H 168 Z" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
-            <rect x="584" y="306" width="40" height="54" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
-            <rect x="256" y="320" width="112" height="34" rx="4" fill="#D5B895" stroke="#5C4028" stroke-width="1.6"/>
-            <rect x="424" y="320" width="112" height="34" rx="4" fill="#D5B895" stroke="#5C4028" stroke-width="1.6"/>
-            <rect x="266" y="368" width="260" height="36" rx="6" fill="rgba(250,246,238,0.96)" stroke="#6B5335" stroke-width="1.4"/>
-            <text x="396" y="391" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#3E2C1C">🪑 ${escXml(pack.asIsLounge)}</text>
+            <!-- Right Side Open / Unfurnished Terrace Area -->
+            <rect x="352" y="226" width="284" height="68" rx="8" fill="rgba(246,239,226,0.92)" stroke="#8C7A65" stroke-width="1.5"/>
+            <text x="494" y="265" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#5C4938">${escXml(pack.asIsEmpty)}</text>
           `;
         } else {
-          // 3. TERRAZZO PRINCIPALE TO-BE: Full-width Salotto da Esterno a tutta larghezza (bottom) + Gazebo/Pergola Bioclimatica (top-left) + Jacuzzi Esterna Riscaldata (top-right)
+          // 3. TERRAZZO PRINCIPALE TO-BE: Salotto Lounge on Left Short Side (x=142..324, y=92..428) + Gazebo/Pergola Bioclimatica (Top-Right) + Jacuzzi Esterna Riscaldata (Bottom-Right)
           body = `
             <!-- Terrace Perimeter & Modern Teak Decking Planks -->
             <rect x="126" y="78" width="540" height="364" rx="6" fill="#1C2426" stroke="#E8DEC8" stroke-width="7"/>
 
-            <!-- 1. Bioclimatic Gazebo / Pergola (Top-Left) with 10-seater Dining Table -->
-            <rect x="142" y="92" width="304" height="162" rx="6" fill="#26211B" stroke="#C5A059" stroke-width="2.5" stroke-dasharray="8 4"/>
+            <!-- 1. Designer Outdoor Lounge on the LEFT SHORT SIDE (Lato Corto Sinistro, x=142..324, y=92..428) -->
+            <rect x="142" y="92" width="182" height="336" rx="6" fill="#212B30" stroke="#A3B1B8" stroke-width="1.8"/>
+            <!-- Woven rug / Lounge zone -->
+            <rect x="188" y="112" width="122" height="244" rx="4" fill="#28343A" stroke="rgba(197,160,89,0.35)" stroke-width="1.2"/>
+            <!-- Sofa along the left short stone wall -->
+            <rect x="154" y="152" width="38" height="164" rx="5" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
+            <!-- Top loveseat & bottom armchairs -->
+            <rect x="204" y="104" width="86" height="36" rx="5" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
+            <rect x="204" y="328" width="40" height="36" rx="5" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
+            <rect x="250" y="328" width="40" height="36" rx="5" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
+            <!-- Central Low Table & Designer Brazier -->
+            <rect x="218" y="186" width="58" height="92" rx="4" fill="#2A353B" stroke="#C5A059" stroke-width="1.6"/>
+            <circle cx="247" cy="232" r="14" fill="#3A241B" stroke="#FF784F" stroke-width="1.8"/>
+            <circle cx="247" cy="232" r="6" fill="#FF784F"/>
+            <!-- Lounge Label -->
+            <rect x="150" y="376" width="166" height="40" rx="6" fill="rgba(16,23,26,0.92)" stroke="#A3B1B8" stroke-width="1.2"/>
+            <text x="233" y="400" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#F5EFE6">🛋️ ${escXml(pack.asIsLounge)}</text>
+
+            <!-- 2. Bioclimatic Gazebo / Pergola (Top-Right, x=336..650, y=92..254) with 10-seater Dining Table -->
+            <rect x="336" y="92" width="314" height="162" rx="6" fill="#26211B" stroke="#C5A059" stroke-width="2.5" stroke-dasharray="8 4"/>
             <!-- Pergola Louvered Blades -->
             <g stroke="rgba(197,160,89,0.22)" stroke-width="2">
-              <line x1="152" y1="108" x2="436" y2="108"/><line x1="152" y1="126" x2="436" y2="126"/>
-              <line x1="152" y1="144" x2="436" y2="144"/><line x1="152" y1="162" x2="436" y2="162"/>
-              <line x1="152" y1="180" x2="436" y2="180"/>
+              <line x1="346" y1="108" x2="640" y2="108"/><line x1="346" y1="126" x2="640" y2="126"/>
+              <line x1="346" y1="144" x2="640" y2="144"/><line x1="346" y1="162" x2="640" y2="162"/>
+              <line x1="346" y1="180" x2="640" y2="180"/>
             </g>
             <!-- 10-Seater Architectural Dining Table -->
-            <rect x="196" y="114" width="196" height="56" rx="6" fill="#382B1E" stroke="#E0C389" stroke-width="2"/>
+            <rect x="395" y="114" width="196" height="56" rx="6" fill="#382B1E" stroke="#E0C389" stroke-width="2"/>
             <!-- Chairs around table -->
             <g fill="#C5A059">
-              <rect x="212" y="102" width="24" height="8" rx="2"/><rect x="254" y="102" width="24" height="8" rx="2"/><rect x="296" y="102" width="24" height="8" rx="2"/><rect x="338" y="102" width="24" height="8" rx="2"/>
-              <rect x="212" y="174" width="24" height="8" rx="2"/><rect x="254" y="174" width="24" height="8" rx="2"/><rect x="296" y="174" width="24" height="8" rx="2"/><rect x="338" y="174" width="24" height="8" rx="2"/>
+              <rect x="411" y="102" width="24" height="8" rx="2"/><rect x="453" y="102" width="24" height="8" rx="2"/><rect x="495" y="102" width="24" height="8" rx="2"/><rect x="537" y="102" width="24" height="8" rx="2"/>
+              <rect x="411" y="174" width="24" height="8" rx="2"/><rect x="453" y="174" width="24" height="8" rx="2"/><rect x="495" y="174" width="24" height="8" rx="2"/><rect x="537" y="174" width="24" height="8" rx="2"/>
             </g>
-            <rect x="164" y="194" width="260" height="48" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.3"/>
-            <text x="294" y="214" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.8" font-weight="700" fill="#F5EFE6">⛺ ${escXml(pack.toBeGazebo)}</text>
-            <text x="294" y="232" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.8" font-weight="500" fill="#C5A059">${escXml(pack.toBeGazeboSub)}</text>
+            <rect x="363" y="194" width="260" height="48" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.3"/>
+            <text x="493" y="214" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#F5EFE6">⛺ ${escXml(pack.toBeGazebo)}</text>
+            <text x="493" y="232" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="500" fill="#C5A059">${escXml(pack.toBeGazeboSub)}</text>
 
-            <!-- 2. Heated Outdoor Jacuzzi & Teak Solarium (Top-Right) -->
-            <rect x="456" y="92" width="194" height="162" rx="6" fill="#152E36" stroke="#48CAE4" stroke-width="2.2"/>
-            <!-- Glowing Panoramic Outdoor Jacuzzi -->
-            <rect x="478" y="102" width="150" height="92" rx="18" fill="#194B5A" stroke="#90E0EF" stroke-width="2.2"/>
-            <circle cx="553" cy="148" r="34" fill="#22677A" stroke="#CAF0F8" stroke-width="1.8"/>
-            <circle cx="536" cy="136" r="4" fill="#E0FBFC"/><circle cx="570" cy="136" r="4" fill="#E0FBFC"/>
-            <circle cx="536" cy="160" r="4" fill="#E0FBFC"/><circle cx="570" cy="160" r="4" fill="#E0FBFC"/>
-            <rect x="466" y="198" width="174" height="48" rx="6" fill="rgba(14,26,32,0.94)" stroke="#48CAE4" stroke-width="1.3"/>
-            <text x="553" y="218" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#E0FBFC">♨️ ${escXml(pack.toBeJacuzzi)}</text>
-            <text x="553" y="235" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.2" font-weight="500" fill="#90E0EF">${escXml(pack.toBeJacuzziSub)}</text>
-
-            <!-- 3. Full-Width Designer Outdoor Lounge & Fire Pit (Salotto da Esterno a Tutta Larghezza, Bottom) -->
-            <rect x="142" y="264" width="508" height="162" rx="6" fill="#212B30" stroke="#A3B1B8" stroke-width="1.8"/>
-            <!-- Full-width architectural sofa system spanning the terrace -->
-            <path d="M 164,280 H 628 V 312 H 204 V 368 H 164 Z" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
-            <rect x="588" y="312" width="40" height="56" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
-            <!-- Designer Brazier / Fire Pit & Low Lounge Tables in center -->
-            <rect x="256" y="326" width="96" height="30" rx="4" fill="#2A353B" stroke="#C5A059" stroke-width="1.5"/>
-            <circle cx="400" cy="341" r="20" fill="#3A241B" stroke="#FF784F" stroke-width="2"/>
-            <circle cx="400" cy="341" r="9" fill="#FF784F"/>
-            <rect x="448" y="326" width="96" height="30" rx="4" fill="#2A353B" stroke="#C5A059" stroke-width="1.5"/>
-            <rect x="256" y="378" width="280" height="36" rx="6" fill="rgba(16,23,26,0.92)" stroke="#A3B1B8" stroke-width="1.2"/>
-            <text x="396" y="401" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.8" font-weight="700" fill="#F5EFE6">🛋️ ${escXml(pack.toBeLounge)}</text>
+            <!-- 3. Heated Outdoor Jacuzzi & Teak Solarium (Bottom-Right, x=336..650, y=266..428) -->
+            <rect x="336" y="266" width="314" height="162" rx="6" fill="#152E36" stroke="#48CAE4" stroke-width="2.2"/>
+            <!-- Glowing Panoramic Outdoor Jacuzzi + Sun Loungers -->
+            <rect x="354" y="278" width="154" height="90" rx="18" fill="#194B5A" stroke="#90E0EF" stroke-width="2.2"/>
+            <circle cx="431" cy="323" r="34" fill="#22677A" stroke="#CAF0F8" stroke-width="1.8"/>
+            <circle cx="414" cy="311" r="4" fill="#E0FBFC"/><circle cx="448" cy="311" r="4" fill="#E0FBFC"/>
+            <circle cx="414" cy="335" r="4" fill="#E0FBFC"/><circle cx="448" cy="335" r="4" fill="#E0FBFC"/>
+            <!-- 2 Teak Sun Loungers next to Jacuzzi -->
+            <rect x="526" y="284" width="104" height="34" rx="5" fill="#2A353B" stroke="#C5A059" stroke-width="1.5"/>
+            <rect x="526" y="330" width="104" height="34" rx="5" fill="#2A353B" stroke="#C5A059" stroke-width="1.5"/>
+            <rect x="363" y="374" width="260" height="46" rx="6" fill="rgba(14,26,32,0.94)" stroke="#48CAE4" stroke-width="1.3"/>
+            <text x="493" y="393" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#E0FBFC">♨️ ${escXml(pack.toBeJacuzzi)}</text>
+            <text x="493" y="410" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.2" font-weight="500" fill="#90E0EF">${escXml(pack.toBeJacuzziSub)}</text>
           `;
         }
       } else if (slideKey === 'casa_pt') {
+        const corrLbl = (i18n[lang] && i18n[lang].fp_rm_corridor) || 'Corridoio';
+        const stairsLbl = (i18n[lang] && i18n[lang].fp_rm_stairs_up1) || 'Scala';
         if (!isAfter) {
-          // 4. CASA PIANO 0 AS-IS: Camera matrimoniale, Bagno, Cucina, Soggiorno, Corridoio/Scala, Sala camino
+          // 4. CASA PIANO 0 AS-IS: Exact layout from original PDF (Camera matrimoniale, Bagno, Corridoio ovest tra bagno/camera/soggiorno, Cucina, Soggiorno, Corridoio a C + Scala, Sala camino)
           body = `
             <rect x="68" y="92" width="676" height="352" rx="6" fill="#D5C7B4"/>
             <rect x="58" y="82" width="676" height="352" rx="6" fill="${wallFill}" stroke="${wallStroke}" stroke-width="7"/>
 
-            <!-- West Wing: Camera Matrimoniale (top-left) + Bagno (bottom-left) -->
-            <rect x="66" y="90" width="146" height="214" fill="#EAD7CD" stroke="${wallStroke}" stroke-width="2.5"/>
-            <text x="139" y="198" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#422E25">${escXml(pack.asIsWestBed)}</text>
+            <!-- West Wing Top: Camera Matrimoniale (spanning above Bagno + Corridoio ovest) -->
+            <rect x="66" y="90" width="166" height="170" fill="#EAD7CD" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="149" y="179" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.2" font-weight="700" fill="#422E25">${escXml(pack.asIsWestBed)}</text>
 
-            <rect x="66" y="308" width="146" height="118" fill="#D2E2E4" stroke="${wallStroke}" stroke-width="2.5"/>
-            <text x="139" y="372" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#233D42">${escXml(pack.asIsWestBath)}</text>
+            <!-- West Wing Bottom-Left: Bagno -->
+            <rect x="66" y="264" width="104" height="162" fill="#D2E2E4" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="118" y="349" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.2" font-weight="700" fill="#233D42">${escXml(pack.asIsWestBath)}</text>
 
-            <!-- Central Wing: Cucina (top) + Soggiorno (bottom) -->
-            <rect x="216" y="90" width="214" height="150" fill="#E4D4BA" stroke="${wallStroke}" stroke-width="2.5"/>
-            <text x="323" y="170" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#3E2E1E">${escXml(pack.asIsKitchen)}</text>
+            <!-- West Wing Bottom-Right: Corridoio tra Bagno, Camera e Soggiorno (as in original PDF) -->
+            <rect x="174" y="264" width="58" height="162" fill="#DCE5D5" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="203" y="345" text-anchor="middle" transform="rotate(-90 203 345)" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#2F4229">${escXml(corrLbl)}</text>
 
-            <rect x="216" y="244" width="214" height="182" fill="#E6D6BC" stroke="${wallStroke}" stroke-width="2.5"/>
-            <text x="323" y="340" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#3E2E1E">${escXml(pack.asIsLiving)}</text>
+            <!-- Central Wing Top: Cucina -->
+            <rect x="236" y="90" width="194" height="106" fill="#D5E2D4" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="333" y="148" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#273B27">${escXml(pack.asIsKitchen)}</text>
 
-            <!-- Corridor & Stairs -->
-            <rect x="434" y="90" width="114" height="336" fill="#EFE5D4" stroke="${wallStroke}" stroke-width="2.5"/>
-            <text x="491" y="264" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#4A3B2C">${escXml(pack.asIsCorridor)}</text>
+            <!-- Central Wing Bottom: Soggiorno -->
+            <rect x="236" y="200" width="194" height="226" fill="#E6D6BC" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="333" y="318" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#3E2E1E">${escXml(pack.asIsLiving)}</text>
+
+            <!-- C-Shaped Central Corridor & Staircase to Floor 1 (as in original PDF) -->
+            <path d="M 434,90 H 548 V 150 H 484 V 324 H 548 V 426 H 434 Z" fill="#EFE5D4" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="491" y="382" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.8" font-weight="700" fill="#4A3B2C">${escXml(corrLbl)}</text>
+
+            <rect x="488" y="154" width="60" height="166" fill="#DFC3B4" stroke="${wallStroke}" stroke-width="2.5"/>
+            <g stroke="rgba(92,55,40,0.3)" stroke-width="1.2">
+              <line x1="492" y1="170" x2="544" y2="170"/><line x1="492" y1="184" x2="544" y2="184"/>
+              <line x1="492" y1="286" x2="544" y2="286"/><line x1="492" y1="300" x2="544" y2="300"/>
+            </g>
+            <text x="518" y="242" text-anchor="middle" transform="rotate(-90 518 242)" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="700" fill="#5A2618">${escXml(stairsLbl)}</text>
 
             <!-- East Wing: Sala camino -->
             <rect x="552" y="90" width="174" height="336" fill="#E3C8B2" stroke="${wallStroke}" stroke-width="2.5"/>
+            <rect x="710" y="156" width="14" height="54" fill="#B57052" stroke="#5C3220" stroke-width="1.4"/>
             <text x="639" y="264" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#44271D">${escXml(pack.asIsEast)}</text>
           `;
         } else {
-          // 4. CASA PIANO 0 TO-BE (PROPOSTA C): Boutique Alpine Relais (Suite Monte Bianco West + Breakfast Lounge & Coffee Bar Center + Suite Cervino col Camino & En-Suite Bath East)
+          // 4. CASA PIANO 0 TO-BE (PROPOSTA C): Reconfigured internal walls (West Corridor absorbed into Suite & Bath, Kitchen/Lounge wall shifted & opened) + All Doors & Swing Arcs shown!
           body = `
             <rect x="58" y="82" width="676" height="352" rx="6" fill="#151F24" stroke="#E8DEC8" stroke-width="7"/>
 
-            <!-- WEST WING: Suite "Monte Bianco" (Top-Left) + Private Suite Bath (Bottom-Left) -->
-            <rect x="66" y="90" width="146" height="214" fill="#212B30" stroke="#C5A059" stroke-width="2.2"/>
+            <!-- WEST WING (RECONFIGURED WALLS: Old West Corridor absorbed; wall shifted to x=254 & y=292) -->
+            <!-- Suite "Monte Bianco" (Top-Left, expanded to x=66..252, y=90..288) -->
+            <rect x="66" y="90" width="186" height="198" fill="#212B30" stroke="#C5A059" stroke-width="2.4"/>
+            <!-- Subtle dashed trace of old demolished walls (old x=174 corridor wall & old y=264 wall) -->
+            <line x1="174" y1="264" x2="174" y2="426" stroke="rgba(255,140,90,0.35)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <line x1="66" y1="264" x2="232" y2="264" stroke="rgba(255,140,90,0.35)" stroke-width="1.5" stroke-dasharray="4 4"/>
             <!-- King Bed in Suite Monte Bianco -->
-            <rect x="94" y="102" width="90" height="68" rx="5" fill="#2D3B42" stroke="#E8DEC8" stroke-width="1.6"/>
-            <rect x="102" y="108" width="32" height="14" rx="3" fill="#C5A059"/><rect x="144" y="108" width="32" height="14" rx="3" fill="#C5A059"/>
-            <rect x="74" y="218" width="130" height="44" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.2"/>
-            <text x="139" y="244" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#F5EFE6">${escXml(pack.toBeWestBed)}</text>
+            <rect x="86" y="102" width="92" height="68" rx="5" fill="#2D3B42" stroke="#E8DEC8" stroke-width="1.6"/>
+            <rect x="94" y="108" width="34" height="14" rx="3" fill="#C5A059"/><rect x="136" y="108" width="34" height="14" rx="3" fill="#C5A059"/>
+            <!-- Walk-in Wardrobe / Armadiatura on right wall of Suite -->
+            <rect x="226" y="104" width="18" height="96" rx="2" fill="#2A363D" stroke="#C5A059" stroke-width="1.2"/>
+            <rect x="76" y="198" width="144" height="42" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.2"/>
+            <text x="148" y="223" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#F5EFE6">${escXml(pack.toBeWestBed)}</text>
 
-            <rect x="66" y="308" width="146" height="118" fill="#172D34" stroke="#64C2D1" stroke-width="2"/>
-            <rect x="76" y="348" width="126" height="36" rx="6" fill="rgba(15,28,34,0.92)" stroke="#64C2D1" stroke-width="1.1"/>
-            <text x="139" y="370" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#CAF0F8">${escXml(pack.toBeWestBath)}</text>
+            <!-- Expanded Private En-Suite Bath (Bottom-Left, x=66..252, y=292..426, absorbing old west corridor) -->
+            <rect x="66" y="292" width="186" height="134" fill="#172D34" stroke="#64C2D1" stroke-width="2.2"/>
+            <!-- Walk-in Glass Shower (left) & Double Vanity (bottom) -->
+            <rect x="74" y="302" width="54" height="114" rx="4" fill="#1D434F" stroke="#90E0EF" stroke-width="1.4"/>
+            <line x1="74" y1="302" x2="128" y2="416" stroke="rgba(144,224,239,0.3)" stroke-width="1.1"/>
+            <rect x="142" y="398" width="76" height="20" rx="3" fill="#223C44" stroke="#90E0EF" stroke-width="1.2"/>
+            <rect x="134" y="336" width="110" height="36" rx="6" fill="rgba(15,28,34,0.92)" stroke="#64C2D1" stroke-width="1.1"/>
+            <text x="189" y="358" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.8" font-weight="700" fill="#CAF0F8">${escXml(pack.toBeWestBath)}</text>
 
-            <!-- CENTER WING: Coffee & Breakfast Bar (Top) + Breakfast Lounge & Co-Working (Bottom) -->
-            <rect x="216" y="90" width="214" height="150" fill="#1E282E" stroke="#C5A059" stroke-width="2"/>
-            <!-- Island Breakfast Counter -->
-            <rect x="248" y="106" width="150" height="30" rx="4" fill="#2E3D44" stroke="#E0C389" stroke-width="1.5"/>
-            <rect x="230" y="168" width="186" height="40" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.1"/>
-            <text x="323" y="192" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#F3E5AB">☕ ${escXml(pack.toBeKitchen)}</text>
+            <!-- CENTER WING (RECONFIGURED WALLS: Shifted partition wall to x=256 & y=232 with wide open-space portal) -->
+            <!-- Coffee & Breakfast Bar (Top-Center, expanded downward from y=196 to y=228) -->
+            <rect x="256" y="90" width="174" height="138" fill="#1E282E" stroke="#C5A059" stroke-width="2.2"/>
+            <!-- Subtle dashed trace of old Cucina/Soggiorno wall at y=200 -->
+            <line x1="236" y1="200" x2="430" y2="200" stroke="rgba(255,140,90,0.35)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <!-- L-Kitchen & Island Breakfast Counter -->
+            <rect x="266" y="98" width="154" height="24" rx="3" fill="#2E3D44" stroke="#E0C389" stroke-width="1.4"/>
+            <rect x="284" y="164" width="118" height="36" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.1"/>
+            <text x="343" y="186" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#F3E5AB">☕ ${escXml(pack.toBeKitchen)}</text>
 
-            <rect x="216" y="244" width="214" height="182" fill="#1B252B" stroke="#A3B1B8" stroke-width="2"/>
+            <!-- Breakfast Lounge & Co-Working (Bottom-Center, x=256..430, y=232..426) -->
+            <rect x="256" y="232" width="174" height="194" fill="#1B252B" stroke="#A3B1B8" stroke-width="2.2"/>
             <!-- Co-working & Breakfast Tables -->
-            <circle cx="272" cy="296" r="20" fill="#29363C" stroke="#C5A059" stroke-width="1.5"/>
-            <circle cx="368" cy="296" r="20" fill="#29363C" stroke="#C5A059" stroke-width="1.5"/>
-            <rect x="228" y="354" width="190" height="44" rx="6" fill="rgba(16,23,26,0.92)" stroke="#A3B1B8" stroke-width="1.1"/>
-            <text x="323" y="380" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#E8EEF2">${escXml(pack.toBeLiving)}</text>
+            <circle cx="304" cy="296" r="19" fill="#29363C" stroke="#C5A059" stroke-width="1.5"/>
+            <circle cx="382" cy="296" r="19" fill="#29363C" stroke="#C5A059" stroke-width="1.5"/>
+            <rect x="266" y="356" width="154" height="42" rx="6" fill="rgba(16,23,26,0.92)" stroke="#A3B1B8" stroke-width="1.1"/>
+            <text x="343" y="381" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.8" font-weight="700" fill="#E8EEF2">${escXml(pack.toBeLiving)}</text>
 
-            <!-- CORRIDOR & STAIRS -->
-            <rect x="434" y="90" width="114" height="336" fill="#172025" stroke="#6C7D86" stroke-width="1.8"/>
-            <text x="491" y="264" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#A3B1B8">${escXml(pack.asIsCorridor)}</text>
+            <!-- C-SHAPED CENTRAL CORRIDOR & STAIRS -->
+            <path d="M 434,90 H 548 V 150 H 484 V 324 H 548 V 426 H 434 Z" fill="#172025" stroke="#6C7D86" stroke-width="1.8"/>
+            <text x="491" y="382" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="700" fill="#A3B1B8">${escXml(corrLbl)}</text>
+            <rect x="488" y="154" width="60" height="166" fill="#1F2930" stroke="#C5A059" stroke-width="1.8"/>
+            <text x="518" y="242" text-anchor="middle" transform="rotate(-90 518 242)" font-family="Montserrat,sans-serif" font-size="9.2" font-weight="700" fill="#E0C389">${escXml(stairsLbl)}</text>
 
             <!-- EAST WING: Suite "Cervino" with Historic Fireplace + New En-Suite Bathroom -->
             <rect x="552" y="90" width="174" height="232" fill="#242220" stroke="#C5A059" stroke-width="2.4"/>
-            <!-- Historic Fireplace Icon on East Wall -->
             <rect x="706" y="156" width="18" height="56" rx="2" fill="#4A251B" stroke="#FF784F" stroke-width="1.6"/>
-            <!-- King Bed in Suite Cervino -->
             <rect x="594" y="104" width="90" height="68" rx="5" fill="#2D3B42" stroke="#E8DEC8" stroke-width="1.6"/>
             <rect x="602" y="110" width="32" height="14" rx="3" fill="#C5A059"/><rect x="644" y="110" width="32" height="14" rx="3" fill="#C5A059"/>
             <rect x="560" y="232" width="158" height="46" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.2"/>
@@ -6740,7 +6787,54 @@
             <!-- New En-Suite Bathroom in Suite Cervino (Bottom-Right) -->
             <rect x="552" y="326" width="174" height="100" fill="#15313A" stroke="#48CAE4" stroke-width="2.2"/>
             <rect x="564" y="356" width="150" height="40" rx="6" fill="rgba(14,26,32,0.92)" stroke="#48CAE4" stroke-width="1.2"/>
-            <text x="639" y="380" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.8" font-weight="700" fill="#90E0EF">🚿 ${escXml(pack.toBeEastBath)}</text>
+            <text x="639" y="380" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#90E0EF">🚿 ${escXml(pack.toBeEastBath)}</text>
+
+            <!-- ALL ARCHITECTURAL DOORS & SWING ARCS (PORTE DI PROGETTO TO-BE) -->
+            <g>
+              <!-- 1. Wide Open-Space Portal between Coffee Bar & Breakfast Lounge (y=230, x=306..380) -->
+              <line x1="306" y1="230" x2="380" y2="230" stroke="#1E282E" stroke-width="6"/>
+              <line x1="306" y1="226" x2="306" y2="234" stroke="#C5A059" stroke-width="2.5"/>
+              <line x1="380" y1="226" x2="380" y2="234" stroke="#C5A059" stroke-width="2.5"/>
+
+              <!-- 2. Door from Breakfast Lounge into West Suite "Monte Bianco" (x=254, y=242..278) -->
+              <line x1="254" y1="242" x2="254" y2="278" stroke="#212B30" stroke-width="6"/>
+              <line x1="254" y1="242" x2="218" y2="242" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 218,242 A 36,36 0 0,0 254,278" fill="rgba(92,225,230,0.2)" stroke="#5CE1E6" stroke-width="1.6" stroke-dasharray="4 3"/>
+
+              <!-- 3. Internal Door from Suite "Monte Bianco" into West En-Suite Bath (y=290, x=182..218) -->
+              <line x1="182" y1="290" x2="218" y2="290" stroke="#172D34" stroke-width="6"/>
+              <line x1="218" y1="290" x2="218" y2="326" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 182,290 A 36,36 0 0,0 218,326" fill="rgba(92,225,230,0.2)" stroke="#5CE1E6" stroke-width="1.6" stroke-dasharray="4 3"/>
+
+              <!-- 4. Door from Central Corridor into Coffee & Breakfast Bar (x=432, y=130..166) -->
+              <line x1="432" y1="130" x2="432" y2="166" stroke="#1E282E" stroke-width="6"/>
+              <line x1="432" y1="130" x2="396" y2="130" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 396,130 A 36,36 0 0,0 432,166" fill="rgba(92,225,230,0.2)" stroke="#5CE1E6" stroke-width="1.6" stroke-dasharray="4 3"/>
+
+              <!-- 5. Door from Central Corridor into Breakfast Lounge (x=432, y=308..346) -->
+              <line x1="432" y1="308" x2="432" y2="346" stroke="#1B252B" stroke-width="6"/>
+              <line x1="432" y1="346" x2="394" y2="346" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 432,308 A 38,38 0 0,0 394,346" fill="rgba(92,225,230,0.2)" stroke="#5CE1E6" stroke-width="1.6" stroke-dasharray="4 3"/>
+
+              <!-- 6. Door from Central Corridor into East Suite "Cervino" (x=550, y=102..138) -->
+              <line x1="550" y1="102" x2="550" y2="138" stroke="#242220" stroke-width="6"/>
+              <line x1="550" y1="102" x2="586" y2="102" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 550,138 A 36,36 0 0,0 586,102" fill="rgba(92,225,230,0.2)" stroke="#5CE1E6" stroke-width="1.6" stroke-dasharray="4 3"/>
+
+              <!-- 7. Internal Door from Suite "Cervino" into East En-Suite Bath (y=324, x=578..614) -->
+              <line x1="578" y1="324" x2="614" y2="324" stroke="#15313A" stroke-width="6"/>
+              <line x1="578" y1="324" x2="578" y2="360" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 614,324 A 36,36 0 0,1 578,360" fill="rgba(92,225,230,0.2)" stroke="#5CE1E6" stroke-width="1.6" stroke-dasharray="4 3"/>
+
+              <!-- 8. North & South Main Entrance Doors into Central Corridor -->
+              <line x1="454" y1="86" x2="490" y2="86" stroke="#172025" stroke-width="8"/>
+              <line x1="454" y1="86" x2="454" y2="122" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 490,86 A 36,36 0 0,1 454,122" fill="rgba(197,160,89,0.18)" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="3 2"/>
+
+              <line x1="454" y1="430" x2="490" y2="430" stroke="#172025" stroke-width="8"/>
+              <line x1="454" y1="430" x2="454" y2="394" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 454,394 A 36,36 0 0,1 490,430" fill="rgba(197,160,89,0.18)" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="3 2"/>
+            </g>
           `;
         }
       }
