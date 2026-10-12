@@ -2089,14 +2089,12 @@
       background: var(--accent);
       color: var(--white);
     }
-    /* Compact Single Stage + Sidebar */
+    /* Compact Single Stage (Full Width Centered) */
     .fp-stage-layout {
-      display: grid;
-      grid-template-columns: 1fr 270px;
-      align-items: stretch;
+      display: block;
     }
     .fp-canvas-stage {
-      padding: 1.15rem 1.4rem;
+      padding: 1.25rem 1.5rem;
       background:
         radial-gradient(circle at 50% 45%, #FBF8F1 0%, #F1EAE0 100%);
       display: flex;
@@ -2107,45 +2105,46 @@
     }
     .fp-sketch-frame {
       width: 100%;
-      max-width: 640px;
+      max-width: 760px;
       background: #FAF6ED;
       border: 1px solid #DFD5C3;
       border-radius: 10px;
-      padding: 0.5rem;
+      padding: 0.65rem;
       box-shadow: inset 0 0 28px rgba(166, 142, 105, 0.12), 0 6px 20px rgba(44, 38, 35, 0.06);
       position: relative;
     }
     .fp-svg {
       width: 100%;
       height: auto;
-      max-height: 360px;
+      max-height: 430px;
       display: block;
       user-select: none;
     }
-    .fp-sidebar {
-      background: #F7F3E9;
-      border-left: 1px solid rgba(176, 141, 87, 0.22);
-      padding: 1.15rem 1.15rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 0.85rem;
-    }
-    .fp-sidebar-title {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.15rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .fp-sidebar-sub {
+    .fp-floating-back {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      z-index: 5;
+      appearance: none;
+      background: var(--primary);
+      color: var(--accent-gold);
+      border: 1px solid rgba(226, 211, 184, 0.45);
+      border-radius: 20px;
+      padding: 0.42rem 0.9rem;
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.74rem;
-      color: var(--text-muted);
-      margin-bottom: 0.65rem;
-      line-height: 1.4;
+      font-weight: 700;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 12px rgba(24, 32, 30, 0.22);
+      transition: all 0.2s ease;
+    }
+    .fp-floating-back:hover {
+      background: var(--accent);
+      color: var(--white);
+      transform: translateY(-1px);
     }
     .fp-master-block {
       transition: opacity 0.32s ease, transform 0.28s ease, filter 0.28s ease;
@@ -3757,60 +3756,12 @@
                   </g>
                 </g>
               </svg>
+
+              <button type="button" class="fp-floating-back" id="fpSwitchModeCta" onclick="setFloorPlanViewMode('master')">
+                <span aria-hidden="true">&larr;</span>
+                <span id="fpSwitchModeCtaText" data-i18n="fp_left_title">1. Complesso &amp; Spazi Esterni</span>
+              </button>
             </div>
-          </div>
-
-          <!-- Compact Interactive Sidebar (Adapts to active view mode) -->
-          <div class="fp-sidebar">
-            <div>
-              <div class="fp-sidebar-title">
-                <span id="fpSidebarHeading" data-i18n="fp_left_title">1. Complesso &amp; Spazi Esterni</span>
-              </div>
-              <p class="fp-sidebar-sub" id="fpSidebarSub" data-i18n="fp_left_sub">Tocca un elemento per esplorare il relativo livello o apri lo zoom sulla Casa Principale.</p>
-
-              <!-- Legend for Masterplan Mode -->
-              <div class="fp-legend-list" id="fpMasterLegendList">
-                <div class="fp-legend-item" data-legend-floors="-1,0,1,2" onclick="setFloorPlanViewMode('house')">
-                  <span class="fp-swatch" style="background:#C87656;"></span>
-                  <span data-i18n="fp_leg_house">Casa principale / Cantine</span>
-                </div>
-                <div class="fp-legend-item" data-legend-floors="0,1" onclick="selectFloorPlanLevel(currentFpLevel === '1' ? '1' : '0')">
-                  <span class="fp-swatch" style="background:#BE9F74;"></span>
-                  <span data-i18n="fp_leg_stable">Stalla (P.0) / Terrazzo (P.1)</span>
-                </div>
-                <div class="fp-legend-item" data-legend-floors="0,1" onclick="selectFloorPlanLevel(currentFpLevel === '1' ? '1' : '0')">
-                  <span class="fp-swatch" style="background:#D7B884;"></span>
-                  <span data-i18n="fp_leg_dep">Dépendance / 2° Terrazzo</span>
-                </div>
-                <div class="fp-legend-item" data-legend-floors="0" onclick="selectFloorPlanLevel('0')">
-                  <span class="fp-swatch" style="background:#D2C7B5;"></span>
-                  <span data-i18n="fp_lbl_courtyard">Cortile auto</span>
-                </div>
-                <div class="fp-legend-item" data-legend-floors="0" onclick="selectFloorPlanLevel('0')">
-                  <span class="fp-swatch" style="background:#6B7379;"></span>
-                  <span data-i18n="fp_lbl_garage">Box auto</span>
-                </div>
-                <div class="fp-legend-item" data-legend-floors="0" onclick="selectFloorPlanLevel('0')">
-                  <span class="fp-swatch" style="background:#8CAD77;"></span>
-                  <span data-i18n="fp_lbl_front_garden">Giardino / ingresso</span>
-                </div>
-                <div class="fp-legend-item" data-legend-floors="1" onclick="selectFloorPlanLevel('1')">
-                  <span class="fp-swatch" style="background:#98B882;"></span>
-                  <span data-i18n="fp_leg_up_garden">Giardino (Piano 1)</span>
-                </div>
-                <div class="fp-legend-item" data-legend-floors="-1" onclick="selectFloorPlanLevel('-1')">
-                  <span class="fp-swatch" style="background:#AF9BB3;"></span>
-                  <span data-i18n="fp_lbl_other_cellar">Altro Scantinato</span>
-                </div>
-              </div>
-
-              <!-- Room list for House Interior Mode -->
-              <div class="fp-legend-list" id="fpHouseRoomPills" style="display:none;"></div>
-            </div>
-
-            <button type="button" class="fp-switch-cta" id="fpSwitchModeCta" onclick="setFloorPlanViewMode(currentFpViewMode === 'master' ? 'house' : 'master')">
-              <span id="fpSwitchModeCtaText" data-i18n="fp_see_right">🏠 Apri Zoom Casa Principale &rarr;</span>
-            </button>
           </div>
         </div>
       </div>
@@ -5250,66 +5201,22 @@
         }
       });
 
-      // Update view mode buttons & SVGs (Masterplan vs House Zoom)
+      // Update view mode SVGs & floating back button (Masterplan vs House Zoom)
       const isHouseMode = (currentFpViewMode === 'house');
-      const btnMaster = document.getElementById('fpViewBtn_master');
-      const btnHouse = document.getElementById('fpViewBtn_house');
       const svgMaster = document.getElementById('fpMasterSvg');
       const svgHouse = document.getElementById('fpHouseSvg');
-      const allBtn = document.getElementById('fpAllMasterBtn');
-      const masterLegend = document.getElementById('fpMasterLegendList');
-      const housePills = document.getElementById('fpHouseRoomPills');
-      const sbHeading = document.getElementById('fpSidebarHeading');
-      const sbSub = document.getElementById('fpSidebarSub');
+      const switchCta = document.getElementById('fpSwitchModeCta');
       const switchCtaText = document.getElementById('fpSwitchModeCtaText');
 
-      if (btnMaster) {
-        btnMaster.classList.toggle('active', !isHouseMode);
-        btnMaster.setAttribute('aria-selected', !isHouseMode ? 'true' : 'false');
-      }
-      if (btnHouse) {
-        btnHouse.classList.toggle('active', isHouseMode);
-        btnHouse.setAttribute('aria-selected', isHouseMode ? 'true' : 'false');
-      }
       if (svgMaster) svgMaster.style.display = isHouseMode ? 'none' : 'block';
       if (svgHouse) svgHouse.style.display = isHouseMode ? 'block' : 'none';
-      if (allBtn) allBtn.style.display = isHouseMode ? 'none' : 'inline-flex';
-      if (masterLegend) masterLegend.style.display = isHouseMode ? 'none' : 'flex';
-      if (housePills) housePills.style.display = isHouseMode ? 'flex' : 'none';
+      if (switchCta) switchCta.style.display = isHouseMode ? 'inline-flex' : 'none';
 
       const lvlTitle = dict['fp_tab_' + suffix] || ('Piano ' + currentFpLevel);
 
-      if (sbHeading) {
-        const headKey = isHouseMode ? 'fp_right_title' : 'fp_left_title';
-        sbHeading.setAttribute('data-i18n', headKey);
-        sbHeading.textContent = (dict[headKey] || '') + (isHouseMode ? ` (${lvlTitle})` : '');
-      }
-      if (sbSub) {
-        const subKey = isHouseMode ? 'fp_right_sub' : 'fp_left_sub';
-        sbSub.setAttribute('data-i18n', subKey);
-        sbSub.textContent = dict[subKey] || '';
-      }
       if (switchCtaText) {
-        if (isHouseMode) {
-          switchCtaText.removeAttribute('data-i18n');
-          switchCtaText.textContent = '🗺️ ' + (dict.fp_left_title || 'Complesso & Spazi Esterni');
-        } else {
-          switchCtaText.setAttribute('data-i18n', 'fp_see_right');
-          switchCtaText.textContent = '🏠 ' + (dict.fp_see_right || 'Apri Zoom Casa Principale →');
-        }
-      }
-
-      // Update summary badge & description
-      const badgeEl = document.getElementById('fpActiveBadge');
-      const descEl = document.getElementById('fpActiveDesc');
-
-      if (badgeEl) {
-        badgeEl.setAttribute('data-i18n', 'fp_tab_' + suffix);
-        badgeEl.textContent = lvlTitle;
-      }
-      if (descEl) {
-        descEl.setAttribute('data-i18n', 'fp_desc_' + suffix);
-        descEl.textContent = dict['fp_desc_' + suffix] || '';
+        switchCtaText.setAttribute('data-i18n', 'fp_left_title');
+        switchCtaText.textContent = (dict.fp_left_title || 'Complesso & Spazi Esterni').replace(/^1\.\s*/, '');
       }
 
       // Update dynamic labels on Masterplan blocks (Stalla vs Terrazzo principale, Dépendance vs Secondo terrazzo, Casa principale vs Cantine a volta)
