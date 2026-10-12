@@ -3022,30 +3022,6 @@
           </div>
         </div>
 
-        <!-- View Switcher Toolbar (Separates Global Map vs House Interior Zoom) -->
-        <div class="fp-toolbar">
-          <div class="fp-view-tabs" role="tablist" aria-label="Modalità di visualizzazione">
-            <button type="button" class="fp-view-tab active" id="fpViewBtn_master" role="tab" aria-selected="true" onclick="setFloorPlanViewMode('master')">
-              <span aria-hidden="true">🗺️</span>
-              <span data-i18n="fp_left_title">1. Complesso &amp; Spazi Esterni</span>
-            </button>
-            <button type="button" class="fp-view-tab" id="fpViewBtn_house" role="tab" aria-selected="false" onclick="setFloorPlanViewMode('house')">
-              <span aria-hidden="true">🏠</span>
-              <span data-i18n="fp_right_title">2. Zoom Casa Principale</span>
-            </button>
-          </div>
-
-          <div class="fp-summary-info">
-            <span class="fp-summary-badge" id="fpActiveBadge" data-i18n="fp_tab_0">Piano 0</span>
-            <span id="fpActiveDesc" data-i18n="fp_desc_0">Piano Terra: Casa principale con doppio ingresso, grande cortile auto, box coperto, antica stalla voltata, dépendance e giardino d'ingresso.</span>
-          </div>
-
-          <button type="button" class="fp-all-toggle" id="fpAllMasterBtn" onclick="toggleAllMasterplan()" aria-pressed="false">
-            <span aria-hidden="true">✦</span>
-            <span data-i18n="fp_btn_all_master">Tutti i Livelli</span>
-          </button>
-        </div>
-
         <!-- Compact Single Stage + Interactive Sidebar -->
         <div class="fp-stage-layout">
           <div class="fp-canvas-stage">
