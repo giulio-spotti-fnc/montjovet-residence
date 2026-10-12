@@ -591,6 +591,12 @@
       overflow: hidden;
       --ba-pos: 50%;
       background: #121816;
+      touch-action: pan-y;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    #projModalBaSlider {
+      touch-action: none;
     }
     .ba-slider img {
       position: absolute;
@@ -600,6 +606,7 @@
       object-fit: cover;
       display: block;
       pointer-events: none;
+      -webkit-user-drag: none;
     }
     .ba-img-before {
       z-index: 2;
@@ -618,15 +625,25 @@
       z-index: 4;
       transform: translateX(-50%);
       box-shadow: 0 0 12px rgba(0,0,0,0.6);
-      pointer-events: none;
+      pointer-events: auto;
+      touch-action: none;
+      cursor: ew-resize;
+    }
+    .ba-divider::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -28px;
+      right: -28px;
     }
     .ba-handle {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       background: var(--accent);
       color: var(--white);
@@ -638,6 +655,8 @@
       font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: -1px;
+      touch-action: none;
+      cursor: ew-resize;
     }
     .ba-label {
       position: absolute;
@@ -672,6 +691,7 @@
       cursor: ew-resize;
       z-index: 5;
       margin: 0;
+      pointer-events: none;
     }
     /* Layout Visual Graphic Card Header */
     .layout-visual {
@@ -808,19 +828,44 @@
     .lightbox.active { display: flex; }
     .lightbox img {
       max-width: 92vw;
-      max-height: 88vh;
+      max-height: 82vh;
       object-fit: contain;
-      border-radius: 3px;
+      border-radius: 4px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      user-select: none;
     }
     .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 25px;
+      position: fixed;
+      top: max(14px, env(safe-area-inset-top, 14px));
+      right: 16px;
+      z-index: 2100;
+      background: rgba(18, 24, 22, 0.92);
       color: var(--white);
-      font-size: 2.5rem;
+      border: 1.5px solid var(--accent-gold);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
       cursor: pointer;
-      font-family: sans-serif;
+      font-family: 'Montserrat', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.65);
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+      line-height: 1;
+    }
+    .lightbox-close:hover,
+    .lightbox-close:active {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--white);
+      transform: scale(1.04);
+    }
+    .lightbox-close .close-x {
+      font-size: 1.15rem;
+      line-height: 1;
     }
 
     /* LOCATION */
@@ -1382,8 +1427,9 @@
     }
     .project-modal-wrapper {
       position: relative;
-      width: min(86vw, 660px);
-      height: min(82vh, 780px);
+      width: min(88vw, 680px);
+      height: min(76vh, 740px);
+      margin-top: 26px;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.7);
@@ -1392,54 +1438,75 @@
     }
     .project-modal-wrapper.is-arch-modal {
       width: min(94vw, 940px);
-      height: min(85vh, 660px);
+      height: min(78vh, 660px);
       background: #141C1F;
     }
     .modal-overlay-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: rgba(18, 24, 22, 0.72);
+      background: rgba(18, 24, 22, 0.84);
       color: var(--white);
-      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border: 1.5px solid rgba(198, 163, 104, 0.65);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 25;
+      z-index: 30;
       transition: var(--transition);
       backdrop-filter: blur(8px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.55);
       font-size: 1.35rem;
       line-height: 1;
       padding: 0;
     }
-    .modal-overlay-arrow:hover {
+    .modal-overlay-arrow:hover,
+    .modal-overlay-arrow:active {
       background: var(--accent);
       border-color: var(--white);
       transform: translateY(-50%) scale(1.08);
     }
-    .modal-overlay-arrow.prev { left: 16px; }
-    .modal-overlay-arrow.next { right: 16px; }
+    .modal-overlay-arrow.prev { left: 14px; }
+    .modal-overlay-arrow.next { right: 14px; }
     .modal-slide-pill {
       position: absolute;
-      bottom: 16px;
+      bottom: 18px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 25;
-      background: rgba(18, 24, 22, 0.82);
+      z-index: 30;
+      background: rgba(18, 24, 22, 0.88);
       color: var(--white);
-      padding: 5px 16px;
+      padding: 6px 18px;
       border-radius: 30px;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 1px;
-      border: 1px solid rgba(255,255,255,0.2);
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(198, 163, 104, 0.45);
       backdrop-filter: blur(8px);
       pointer-events: none;
+      max-width: 88vw;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+    }
+    @media (max-width: 680px) {
+      .project-modal-wrapper,
+      .project-modal-wrapper.is-arch-modal {
+        width: 94vw;
+        height: 74vh;
+        margin-top: 36px;
+      }
+      .modal-overlay-arrow {
+        width: 42px;
+        height: 42px;
+        font-size: 1.15rem;
+      }
+      .modal-overlay-arrow.prev { left: 8px; }
+      .modal-overlay-arrow.next { right: 8px; }
     }
 
     /* FLOATING "CHIEDI INFO" CTA & BACK TO TOP BUTTONS */
@@ -2328,6 +2395,18 @@
         justify-content: center;
         padding: 0.45rem 0.5rem;
         font-size: 0.73rem;
+      }
+      .fp-canvas-stage {
+        padding: 0.65rem 0.5rem;
+      }
+      .fp-sketch-frame {
+        padding: 0.35rem;
+      }
+      .fp-floating-back {
+        position: static;
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -3235,25 +3314,29 @@
               </svg>
 
               <!-- ==================== VIEW 2: 2.5D HAND-SKETCHED HOUSE INTERIOR FLOOR PLAN ==================== -->
-              <svg id="fpHouseSvg" class="fp-svg" viewBox="0 0 680 440" role="img" aria-label="Pianta artistica della Casa Principale" style="display:none;">
+              <svg id="fpHouseSvg" class="fp-svg" viewBox="24 0 634 440" role="img" aria-label="Pianta artistica della Casa Principale" style="display:none;">
                 <defs>
+                  <pattern id="patHouseSketchGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+                    <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(90,76,60,0.07)" stroke-width="0.8"/>
+                  </pattern>
                   <!-- Warm Wood Parquet & Stone Tile Patterns -->
                   <pattern id="patWoodParquet" width="24" height="12" patternUnits="userSpaceOnUse">
-                    <line x1="0" y1="6" x2="24" y2="6" stroke="rgba(110,72,38,0.12)" stroke-width="1"/>
-                    <line x1="12" y1="0" x2="12" y2="6" stroke="rgba(110,72,38,0.1)" stroke-width="1"/>
-                    <line x1="6" y1="6" x2="6" y2="12" stroke="rgba(110,72,38,0.1)" stroke-width="1"/>
+                    <line x1="0" y1="6" x2="24" y2="6" stroke="rgba(110,72,38,0.14)" stroke-width="1"/>
+                    <line x1="12" y1="0" x2="12" y2="6" stroke="rgba(110,72,38,0.12)" stroke-width="1"/>
+                    <line x1="6" y1="6" x2="6" y2="12" stroke="rgba(110,72,38,0.12)" stroke-width="1"/>
                   </pattern>
                   <pattern id="patCeramicTile" width="18" height="18" patternUnits="userSpaceOnUse">
-                    <path d="M 18 0 L 0 0 0 18" fill="none" stroke="rgba(70,85,75,0.12)" stroke-width="0.9"/>
+                    <path d="M 18 0 L 0 0 0 18" fill="none" stroke="rgba(70,85,75,0.14)" stroke-width="0.9"/>
                   </pattern>
                 </defs>
 
-                <rect x="0" y="0" width="680" height="440" fill="url(#patSketchGrid)"/>
+                <rect x="24" y="0" width="634" height="440" fill="#FAF6ED"/>
+                <rect x="24" y="0" width="634" height="440" fill="url(#patHouseSketchGrid)"/>
 
                 <!-- Hand-drawn Compass Rose (top-left of House Zoom, aligned with Google Maps North ~58° NE) -->
-                <g transform="translate(44, 38) scale(0.88)" filter="url(#fpSketchInk)">
-                  <circle cx="0" cy="0" r="28" fill="rgba(255,252,245,0.88)" stroke="#6B5B4B" stroke-width="1.4"/>
-                  <circle cx="0" cy="0" r="24" fill="none" stroke="rgba(107,91,75,0.28)" stroke-width="0.8" stroke-dasharray="2 2"/>
+                <g transform="translate(56, 38) scale(0.86)">
+                  <circle cx="0" cy="0" r="28" fill="rgba(255,252,245,0.94)" stroke="#6B5B4B" stroke-width="1.5"/>
+                  <circle cx="0" cy="0" r="24" fill="none" stroke="rgba(107,91,75,0.32)" stroke-width="0.8" stroke-dasharray="2 2"/>
                   <g transform="rotate(58)">
                     <line x1="-18" y1="0" x2="18" y2="0" stroke="#7A6A58" stroke-width="1" stroke-dasharray="2 2"/>
                     <polygon points="0,19 4.5,0 -4.5,0" fill="#FAF6EE" stroke="#5C4938" stroke-width="1"/>
@@ -3269,17 +3352,17 @@
                 <!-- ================= PIANO -1 (INTERNO CASA PRINCIPALE - 2.5D SKETCH) ================= -->
                 <g id="fpHouseFloor_m1" style="display:none;">
                   <!-- 2.5D Stone Slab Extrusion (South & East 3D Edge - Full Width) -->
-                  <polygon points="88,362 638,362 648,374 98,374" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.6" filter="url(#fpSketchInk)"/>
-                  <polygon points="638,66 648,78 648,374 638,362" fill="#857766" stroke="#4A3F35" stroke-width="1.6" filter="url(#fpSketchInk)"/>
+                  <polygon points="88,362 638,362 648,374 98,374" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.6"/>
+                  <polygon points="638,66 648,78 648,374 638,362" fill="#857766" stroke="#4A3F35" stroke-width="1.6"/>
                   <!-- Thick Historic Stone Perimeter Wall (Full Width like the other floors) -->
-                  <rect x="88" y="66" width="550" height="296" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5" filter="url(#fpSketchInk)"/>
+                  <rect x="88" y="66" width="550" height="296" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5"/>
 
                   <!-- Taverna con tavolo (Enlarged to full west wing + Sketched Round Table beside Sala caldaia) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="70" width="290" height="288" rx="3" fill="#E8CFB0" stroke="#5C4938" stroke-width="2.2" filter="url(#fpSketchInk)"/>
+                    <rect x="92" y="70" width="290" height="288" rx="3" fill="#E8CFB0" stroke="#5C4938" stroke-width="2.2"/>
                     <rect x="92" y="70" width="290" height="288" fill="url(#patWoodParquet)" pointer-events="none"/>
                     <!-- Sketched Round Dining Table & Chairs right next to Sala caldaia -->
-                    <g transform="translate(300, 118)" opacity="0.55" stroke="#5C4028" stroke-width="1.5" fill="#D5B088" filter="url(#fpSketchInk)">
+                    <g transform="translate(300, 118)" opacity="0.65" stroke="#5C4028" stroke-width="1.5" fill="#D5B088">
                       <!-- 6 radial chairs around the round table -->
                       <rect x="-8" y="-38" width="16" height="6" rx="2.5"/>
                       <rect x="-8" y="32" width="16" height="6" rx="2.5"/>
@@ -3297,25 +3380,25 @@
                     </g>
                     <foreignObject x="112" y="230" width="250" height="86">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_m1_taverna" style="background:rgba(252,249,242,0.9);border:1px solid rgba(92,73,56,0.3);padding:4px 12px;border-radius:10px;font-size:12.5px;font-weight:700;color:#3E2C1C;" data-i18n="fp_rm_taverna">Taverna con tavolo</span>
+                        <span id="fpLbl_m1_taverna" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,73,56,0.4);padding:4px 12px;border-radius:10px;font-size:12.5px;font-weight:700;color:#3E2C1C;" data-i18n="fp_rm_taverna">Taverna con tavolo</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Sala caldaia (Technical Slate Corner at top-left) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="70" width="124" height="92" rx="3" fill="#CED8DC" stroke="#5C4938" stroke-width="2.2" filter="url(#fpSketchInk)"/>
-                    <circle cx="116" cy="94" r="10" fill="none" stroke="rgba(60,75,85,0.35)" stroke-width="1.4" filter="url(#fpSketchInk)"/>
+                    <rect x="92" y="70" width="124" height="92" rx="3" fill="#CED8DC" stroke="#5C4938" stroke-width="2.2"/>
+                    <circle cx="116" cy="94" r="10" fill="none" stroke="rgba(60,75,85,0.4)" stroke-width="1.4"/>
                     <foreignObject x="96" y="94" width="116" height="60">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:3px;">
-                        <span id="fpLbl_m1_boiler" style="background:rgba(252,249,242,0.9);border:1px solid rgba(60,75,85,0.28);padding:3px 8px;border-radius:8px;font-size:11px;font-weight:700;color:#2B3A42;" data-i18n="fp_rm_boiler">Sala caldaia</span>
+                        <span id="fpLbl_m1_boiler" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(60,75,85,0.35);padding:3px 8px;border-radius:8px;font-size:11px;font-weight:700;color:#2B3A42;" data-i18n="fp_rm_boiler">Sala caldaia</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Corridoio centrale a C -->
                   <g class="fp-room-group">
-                    <path d="M 384,70 L 528,70 L 528,124 L 452,124 L 452,284 L 528,284 L 528,358 L 384,358 Z" fill="#EFECE4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <path d="M 384,70 L 528,70 L 528,124 L 452,124 L 452,284 L 528,284 L 528,358 L 384,358 Z" fill="#EFECE4" stroke="#5C4938" stroke-width="2"/>
                     <foreignObject x="388" y="294" width="136" height="56">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
                         <span style="font-size:12px;font-weight:700;color:#4A3F35;" data-i18n="fp_rm_corridor">Corridoio</span>
@@ -3325,25 +3408,25 @@
 
                   <!-- Scala che scende in cantina (Stone Treads + Sketch Arrow) -->
                   <g class="fp-room-group">
-                    <rect x="454" y="126" width="74" height="156" rx="3" fill="#DFC3B4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <g stroke="rgba(92,55,40,0.3)" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <rect x="454" y="126" width="74" height="156" rx="3" fill="#DFC3B4" stroke="#5C4938" stroke-width="2"/>
+                    <g stroke="rgba(92,55,40,0.35)" stroke-width="1.3">
                       <line x1="458" y1="142" x2="524" y2="142"/><line x1="458" y1="156" x2="524" y2="156"/>
                       <line x1="458" y1="170" x2="524" y2="170"/><line x1="458" y1="246" x2="524" y2="246"/>
                       <line x1="458" y1="260" x2="524" y2="260"/>
                     </g>
                     <foreignObject x="456" y="132" width="70" height="106">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:3px;">
-                        <span style="background:rgba(252,249,242,0.92);padding:3px 5px;border-radius:6px;font-size:9.8px;font-weight:700;color:#5A2618;line-height:1.15;" data-i18n="fp_rm_stairs_down">Scala che scende in cantina</span>
+                        <span style="background:rgba(252,249,242,0.94);padding:3px 5px;border-radius:6px;font-size:9.8px;font-weight:700;color:#5A2618;line-height:1.15;" data-i18n="fp_rm_stairs_down">Scala che scende in cantina</span>
                       </div>
                     </foreignObject>
-                    <path d="M 491,274 L 491,244 M 491,244 L 484,253 M 491,244 L 498,253" stroke="#8C3B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#fpSketchInk)"/>
+                    <path d="M 491,274 L 491,244 M 491,244 L 484,253 M 491,244 L 498,253" stroke="#8C3B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                   </g>
 
                   <!-- Cantina botti (Aged Oak & Sketched Wine Barrels) -->
                   <g class="fp-room-group">
-                    <rect x="530" y="70" width="104" height="288" rx="3" fill="#D8BA98" stroke="#5C4938" stroke-width="2.2" filter="url(#fpSketchInk)"/>
+                    <rect x="530" y="70" width="104" height="288" rx="3" fill="#D8BA98" stroke="#5C4938" stroke-width="2.2"/>
                     <!-- Sketched Wooden Wine Barrels along walls -->
-                    <g fill="#B3885E" stroke="#5C3D22" stroke-width="1.3" opacity="0.55" filter="url(#fpSketchInk)">
+                    <g fill="#B3885E" stroke="#5C3D22" stroke-width="1.3" opacity="0.65">
                       <rect x="538" y="84" width="24" height="34" rx="7"/>
                       <rect x="538" y="126" width="24" height="34" rx="7"/>
                       <rect x="602" y="84" width="24" height="34" rx="7"/>
@@ -3352,7 +3435,7 @@
                     </g>
                     <foreignObject x="535" y="168" width="94" height="110">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_m1_cellar" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,61,34,0.35);padding:4px 9px;border-radius:10px;font-size:12px;font-weight:700;color:#3E2714;line-height:1.2;" data-i18n="fp_rm_barrel_cellar">Cantina botti</span>
+                        <span id="fpLbl_m1_cellar" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,61,34,0.4);padding:4px 9px;border-radius:10px;font-size:12px;font-weight:700;color:#3E2714;line-height:1.2;" data-i18n="fp_rm_barrel_cellar">Cantina botti</span>
                       </div>
                     </foreignObject>
                   </g>
@@ -3363,22 +3446,22 @@
                   <!-- Secondary Entrance (North / Courtyard) -->
                   <foreignObject x="305" y="4" width="290" height="28">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#3A2F25;font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:700;">
-                      <span style="background:rgba(252,249,242,0.9);padding:2px 10px;border-radius:10px;border:1px solid rgba(92,73,56,0.25);" data-i18n="fp_rm_sec_door">Porta ingresso secondaria</span>
+                      <span style="background:rgba(252,249,242,0.94);padding:2px 10px;border-radius:10px;border:1px solid rgba(92,73,56,0.32);" data-i18n="fp_rm_sec_door">Porta ingresso secondaria</span>
                     </div>
                   </foreignObject>
-                  <path d="M 450,35 L 450,62 M 450,62 L 443,53 M 450,62 L 457,53" stroke="#8C4A32" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#fpSketchInk)"/>
+                  <path d="M 450,35 L 450,62 M 450,62 L 443,53 M 450,62 L 457,53" stroke="#8C4A32" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
 
                   <!-- 2.5D Stone Slab Extrusion -->
-                  <polygon points="88,362 638,362 648,374 98,374" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.6" filter="url(#fpSketchInk)"/>
-                  <polygon points="638,66 648,78 648,374 638,362" fill="#857766" stroke="#4A3F35" stroke-width="1.6" filter="url(#fpSketchInk)"/>
+                  <polygon points="88,362 638,362 648,374 98,374" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.6"/>
+                  <polygon points="638,66 648,78 648,374 638,362" fill="#857766" stroke="#4A3F35" stroke-width="1.6"/>
                   <!-- Outer Stone Wall Perimeter -->
-                  <rect x="88" y="66" width="550" height="296" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5" filter="url(#fpSketchInk)"/>
+                  <rect x="88" y="66" width="550" height="296" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5"/>
 
                   <!-- Camera matrimoniale (Warm Linen + Sketched Double Bed) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="70" width="134" height="146" rx="3" fill="#EAD7CD" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <rect x="92" y="70" width="134" height="146" rx="3" fill="#EAD7CD" stroke="#5C4938" stroke-width="2.2"/>
                     <!-- Sketched Double Bed -->
-                    <g transform="translate(126, 78)" opacity="0.45" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <g transform="translate(126, 78)" opacity="0.55" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3">
                       <rect x="0" y="0" width="64" height="52" rx="4"/>
                       <rect x="6" y="5" width="22" height="11" rx="2"/>
                       <rect x="36" y="5" width="22" height="11" rx="2"/>
@@ -3386,25 +3469,25 @@
                     </g>
                     <foreignObject x="96" y="132" width="126" height="76">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_0_westbed" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.28);padding:3px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_double_bed">Camera matrimoniale</span>
+                        <span id="fpLbl_0_westbed" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,73,56,0.35);padding:3px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_double_bed">Camera matrimoniale</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Bagno (Soft Travertine Aqua + Sketched Tub) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="218" width="82" height="140" rx="3" fill="#D2E2E4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <rect x="100" y="226" width="44" height="22" rx="8" fill="rgba(255,255,255,0.55)" stroke="rgba(45,75,80,0.4)" stroke-width="1.2" filter="url(#fpSketchInk)"/>
+                    <rect x="92" y="218" width="82" height="140" rx="3" fill="#D2E2E4" stroke="#5C4938" stroke-width="2.2"/>
+                    <rect x="100" y="226" width="44" height="22" rx="8" fill="rgba(255,255,255,0.65)" stroke="rgba(45,75,80,0.45)" stroke-width="1.2"/>
                     <foreignObject x="94" y="262" width="78" height="68">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:2px;">
-                        <span id="fpLbl_0_westbath" style="background:rgba(252,249,242,0.92);border:1px solid rgba(45,75,80,0.25);padding:3px 7px;border-radius:8px;font-size:11px;font-weight:700;color:#233D42;" data-i18n="fp_rm_bath">Bagno</span>
+                        <span id="fpLbl_0_westbath" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(45,75,80,0.32);padding:3px 7px;border-radius:8px;font-size:11px;font-weight:700;color:#233D42;" data-i18n="fp_rm_bath">Bagno</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Corridoio ovest -->
                   <g class="fp-room-group">
-                    <rect x="176" y="218" width="50" height="140" rx="3" fill="#DCE5D5" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <rect x="176" y="218" width="50" height="140" rx="3" fill="#DCE5D5" stroke="#5C4938" stroke-width="2.2"/>
                     <foreignObject x="177" y="226" width="48" height="124">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:2px;">
                         <span style="font-size:10px;font-weight:700;color:#2F4229;writing-mode:vertical-rl;transform:rotate(180deg);" data-i18n="fp_rm_corridor">Corridoio</span>
@@ -3414,33 +3497,33 @@
 
                   <!-- Cucina (Warm Sage Ceramic + Sketched Counter) -->
                   <g class="fp-room-group">
-                    <rect x="228" y="70" width="154" height="86" rx="3" fill="#D5E2D4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <rect x="228" y="70" width="154" height="86" rx="3" fill="#D5E2D4" stroke="#5C4938" stroke-width="2.2"/>
                     <rect x="228" y="70" width="154" height="86" fill="url(#patCeramicTile)" pointer-events="none"/>
                     <foreignObject x="234" y="86" width="142" height="56">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_0_kitchen" style="background:rgba(252,249,242,0.92);border:1px solid rgba(55,80,55,0.28);padding:3px 10px;border-radius:8px;font-size:11.5px;font-weight:700;color:#273B27;line-height:1.15;" data-i18n="fp_rm_kitchen">Cucina</span>
+                        <span id="fpLbl_0_kitchen" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(55,80,55,0.35);padding:3px 10px;border-radius:8px;font-size:11.5px;font-weight:700;color:#273B27;line-height:1.15;" data-i18n="fp_rm_kitchen">Cucina</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Soggiorno (Warm Honey Oak Parquet + Sketched Sofa) -->
                   <g class="fp-room-group">
-                    <rect x="228" y="158" width="154" height="200" rx="3" fill="#E6CCB0" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <rect x="228" y="158" width="154" height="200" rx="3" fill="#E6CCB0" stroke="#5C4938" stroke-width="2.2"/>
                     <rect x="228" y="158" width="154" height="200" fill="url(#patWoodParquet)" pointer-events="none"/>
-                    <g transform="translate(262, 175)" opacity="0.42" fill="#FAF6EE" stroke="#5C4028" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <g transform="translate(262, 175)" opacity="0.52" fill="#FAF6EE" stroke="#5C4028" stroke-width="1.3">
                       <path d="M0,0 H76 V22 H22 V48 H0 Z"/>
                       <rect x="30" y="28" width="34" height="20" rx="3"/>
                     </g>
                     <foreignObject x="234" y="242" width="142" height="88">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_0_living" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.3);padding:4px 10px;border-radius:10px;font-size:11.8px;font-weight:700;color:#3E2C1C;line-height:1.18;" data-i18n="fp_rm_living">Soggiorno</span>
+                        <span id="fpLbl_0_living" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,73,56,0.38);padding:4px 10px;border-radius:10px;font-size:11.8px;font-weight:700;color:#3E2C1C;line-height:1.18;" data-i18n="fp_rm_living">Soggiorno</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Corridoio centrale a C -->
                   <g class="fp-room-group">
-                    <path d="M 384,70 L 528,70 L 528,124 L 452,124 L 452,284 L 528,284 L 528,358 L 384,358 Z" fill="#EFECE4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <path d="M 384,70 L 528,70 L 528,124 L 452,124 L 452,284 L 528,284 L 528,358 L 384,358 Z" fill="#EFECE4" stroke="#5C4938" stroke-width="2"/>
                     <foreignObject x="388" y="294" width="136" height="56">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
                         <span style="font-size:12px;font-weight:700;color:#4A3F35;" data-i18n="fp_rm_corridor">Corridoio</span>
@@ -3450,37 +3533,37 @@
 
                   <!-- Scala che sale al 1 -->
                   <g class="fp-room-group">
-                    <rect x="454" y="126" width="74" height="156" rx="3" fill="#DFC3B4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <g stroke="rgba(92,55,40,0.3)" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <rect x="454" y="126" width="74" height="156" rx="3" fill="#DFC3B4" stroke="#5C4938" stroke-width="2"/>
+                    <g stroke="rgba(92,55,40,0.35)" stroke-width="1.3">
                       <line x1="458" y1="142" x2="524" y2="142"/><line x1="458" y1="156" x2="524" y2="156"/>
                       <line x1="458" y1="246" x2="524" y2="246"/><line x1="458" y1="260" x2="524" y2="260"/>
                     </g>
-                    <path d="M 491,134 L 491,164 M 491,164 L 484,155 M 491,164 L 498,155" stroke="#8C3B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#fpSketchInk)"/>
+                    <path d="M 491,134 L 491,164 M 491,164 L 484,155 M 491,164 L 498,155" stroke="#8C3B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                     <foreignObject x="456" y="170" width="70" height="106">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:3px;">
-                        <span style="background:rgba(252,249,242,0.92);padding:3px 5px;border-radius:6px;font-size:9.8px;font-weight:700;color:#5A2618;line-height:1.15;" data-i18n="fp_rm_stairs_up1">Scala che sale al 1</span>
+                        <span style="background:rgba(252,249,242,0.94);padding:3px 5px;border-radius:6px;font-size:9.8px;font-weight:700;color:#5A2618;line-height:1.15;" data-i18n="fp_rm_stairs_up1">Scala che sale al 1</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Sala camino (Warm Boiserie & Hearth Sketch) -->
                   <g class="fp-room-group">
-                    <rect x="530" y="70" width="104" height="288" rx="3" fill="#E3C29E" stroke="#5C4938" stroke-width="2.2" filter="url(#fpSketchInk)"/>
+                    <rect x="530" y="70" width="104" height="288" rx="3" fill="#E3C29E" stroke="#5C4938" stroke-width="2.2"/>
                     <rect x="530" y="70" width="104" height="288" fill="url(#patWoodParquet)" pointer-events="none"/>
                     <!-- Sketched Stone Fireplace Hearth on east wall -->
-                    <path d="M 614,120 H 632 V 168 H 614 Z" fill="#B57052" stroke="#5C3220" stroke-width="1.4" opacity="0.65" filter="url(#fpSketchInk)"/>
+                    <path d="M 614,120 H 632 V 168 H 614 Z" fill="#B57052" stroke="#5C3220" stroke-width="1.4" opacity="0.75"/>
                     <foreignObject x="534" y="168" width="96" height="114">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:3px;">
-                        <span id="fpLbl_0_east" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.3);padding:4px 8px;border-radius:10px;font-size:11.2px;font-weight:700;color:#3E2C1C;line-height:1.18;" data-i18n="fp_rm_fireplace_room">Sala camino</span>
+                        <span id="fpLbl_0_east" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,73,56,0.38);padding:4px 8px;border-radius:10px;font-size:11.2px;font-weight:700;color:#3E2C1C;line-height:1.18;" data-i18n="fp_rm_fireplace_room">Sala camino</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Main Entrance (South / Front Garden) -->
-                  <path d="M 450,405 L 450,376 M 450,376 L 443,385 M 450,376 L 457,385" stroke="#8C4A32" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#fpSketchInk)"/>
+                  <path d="M 450,405 L 450,376 M 450,376 L 443,385 M 450,376 L 457,385" stroke="#8C4A32" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
                   <foreignObject x="305" y="408" width="290" height="28">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#3A2F25;font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:700;">
-                      <span style="background:rgba(252,249,242,0.9);padding:2px 10px;border-radius:10px;border:1px solid rgba(92,73,56,0.25);" data-i18n="fp_rm_main_door">Porta ingresso principale</span>
+                      <span style="background:rgba(252,249,242,0.94);padding:2px 10px;border-radius:10px;border:1px solid rgba(92,73,56,0.32);" data-i18n="fp_rm_main_door">Porta ingresso principale</span>
                     </div>
                   </foreignObject>
                 </g>
@@ -3488,14 +3571,14 @@
                 <!-- ================= PIANO 1 (INTERNO CASA PRINCIPALE - 2.5D SKETCH) ================= -->
                 <g id="fpHouseFloor_1" style="display:none;">
                   <!-- 2.5D Stone Slab Extrusion -->
-                  <polygon points="88,362 638,362 648,374 98,374" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.6" filter="url(#fpSketchInk)"/>
-                  <polygon points="638,66 648,78 648,374 638,362" fill="#857766" stroke="#4A3F35" stroke-width="1.6" filter="url(#fpSketchInk)"/>
-                  <rect x="88" y="66" width="550" height="296" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5" filter="url(#fpSketchInk)"/>
+                  <polygon points="88,362 638,362 648,374 98,374" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.6"/>
+                  <polygon points="638,66 648,78 648,374 638,362" fill="#857766" stroke="#4A3F35" stroke-width="1.6"/>
+                  <rect x="88" y="66" width="550" height="296" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5"/>
 
                   <!-- Balcone Ovest (Protruding Stone Balcony with Wrought-Iron Railing) -->
                   <g class="fp-room-group">
-                    <rect x="34" y="242" width="52" height="92" rx="3" fill="#EBD7B2" stroke="#6B5335" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <rect x="38" y="246" width="44" height="84" fill="none" stroke="#6B5335" stroke-width="1" stroke-dasharray="3 2" filter="url(#fpSketchInk)"/>
+                    <rect x="34" y="242" width="52" height="92" rx="3" fill="#EBD7B2" stroke="#6B5335" stroke-width="2"/>
+                    <rect x="38" y="246" width="44" height="84" fill="none" stroke="#6B5335" stroke-width="1" stroke-dasharray="3 2"/>
                     <foreignObject x="35" y="248" width="50" height="80">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:2px;">
                         <span style="font-size:10px;font-weight:700;color:#4A351B;writing-mode:vertical-rl;transform:rotate(180deg);" data-i18n="fp_rm_balcony">Balcone</span>
@@ -3505,8 +3588,8 @@
 
                   <!-- Balcone Lungo Nord (Spanning Cucina & Grand Salon) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="24" width="290" height="40" rx="3" fill="#EBD7B2" stroke="#6B5335" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <rect x="96" y="28" width="282" height="32" fill="none" stroke="#6B5335" stroke-width="1" stroke-dasharray="3 2" filter="url(#fpSketchInk)"/>
+                    <rect x="92" y="24" width="290" height="40" rx="3" fill="#EBD7B2" stroke="#6B5335" stroke-width="2"/>
+                    <rect x="96" y="28" width="282" height="32" fill="none" stroke="#6B5335" stroke-width="1" stroke-dasharray="3 2"/>
                     <foreignObject x="96" y="26" width="282" height="36">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:2px;">
                         <span style="font-size:10.5px;font-weight:700;color:#4A351B;letter-spacing:0.06em;" data-i18n="fp_rm_balcony">Balcone</span>
@@ -3516,41 +3599,41 @@
 
                   <!-- Cucina (top-left) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="70" width="134" height="146" rx="3" fill="#D5E2D4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <rect x="92" y="70" width="134" height="146" rx="3" fill="#D5E2D4" stroke="#5C4938" stroke-width="2.2"/>
                     <rect x="92" y="70" width="134" height="146" fill="url(#patCeramicTile)" pointer-events="none"/>
                     <foreignObject x="96" y="108" width="126" height="72">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_1_kitchen" style="background:rgba(252,249,242,0.92);border:1px solid rgba(55,80,55,0.28);padding:3px 9px;border-radius:8px;font-size:11.5px;font-weight:700;color:#273B27;line-height:1.16;" data-i18n="fp_rm_kitchen">Cucina</span>
+                        <span id="fpLbl_1_kitchen" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(55,80,55,0.35);padding:3px 9px;border-radius:8px;font-size:11.5px;font-weight:700;color:#273B27;line-height:1.16;" data-i18n="fp_rm_kitchen">Cucina</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Tinello (bottom-left + Sketched Round Dining Table) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="218" width="134" height="140" rx="3" fill="#EFE0BE" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <circle cx="159" cy="254" r="16" fill="rgba(255,252,245,0.55)" stroke="rgba(92,73,56,0.38)" stroke-width="1.3" filter="url(#fpSketchInk)"/>
+                    <rect x="92" y="218" width="134" height="140" rx="3" fill="#EFE0BE" stroke="#5C4938" stroke-width="2.2"/>
+                    <circle cx="159" cy="254" r="16" fill="rgba(255,252,245,0.65)" stroke="rgba(92,73,56,0.42)" stroke-width="1.3"/>
                     <foreignObject x="96" y="272" width="126" height="72">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_1_dining" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.28);padding:3px 9px;border-radius:8px;font-size:11.5px;font-weight:700;color:#4A351B;line-height:1.16;" data-i18n="fp_rm_dining">Tinello</span>
+                        <span id="fpLbl_1_dining" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,73,56,0.35);padding:3px 9px;border-radius:8px;font-size:11.5px;font-weight:700;color:#4A351B;line-height:1.16;" data-i18n="fp_rm_dining">Tinello</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Salone (Grand Noble Salon with Parquet & Lounge Sketch) -->
                   <g class="fp-room-group">
-                    <rect x="228" y="70" width="154" height="288" rx="3" fill="#CEDFC4" stroke="#5C4938" stroke-width="2.2" filter="url(#fpSketchInk)"/>
+                    <rect x="228" y="70" width="154" height="288" rx="3" fill="#CEDFC4" stroke="#5C4938" stroke-width="2.2"/>
                     <rect x="228" y="70" width="154" height="288" fill="url(#patWoodParquet)" pointer-events="none"/>
-                    <rect x="256" y="102" width="98" height="58" rx="4" fill="rgba(252,249,242,0.4)" stroke="rgba(45,75,45,0.3)" stroke-width="1.3" filter="url(#fpSketchInk)"/>
+                    <rect x="256" y="102" width="98" height="58" rx="4" fill="rgba(252,249,242,0.5)" stroke="rgba(45,75,45,0.35)" stroke-width="1.3"/>
                     <foreignObject x="234" y="176" width="142" height="104">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_1_salon" style="background:rgba(252,249,242,0.92);border:1px solid rgba(45,75,45,0.35);padding:5px 12px;border-radius:10px;font-size:12.5px;font-weight:700;color:#223822;line-height:1.18;" data-i18n="fp_rm_grand_salon">Salone</span>
+                        <span id="fpLbl_1_salon" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(45,75,45,0.4);padding:5px 12px;border-radius:10px;font-size:12.5px;font-weight:700;color:#223822;line-height:1.18;" data-i18n="fp_rm_grand_salon">Salone</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Corridoio centrale a C -->
                   <g class="fp-room-group">
-                    <path d="M 384,70 L 528,70 L 528,124 L 452,124 L 452,284 L 528,284 L 528,358 L 384,358 Z" fill="#EFECE4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <path d="M 384,70 L 528,70 L 528,124 L 452,124 L 452,284 L 528,284 L 528,358 L 384,358 Z" fill="#EFECE4" stroke="#5C4938" stroke-width="2"/>
                     <foreignObject x="388" y="294" width="136" height="56">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
                         <span style="font-size:12px;font-weight:700;color:#4A3F35;" data-i18n="fp_rm_corridor">Corridoio</span>
@@ -3560,48 +3643,48 @@
 
                   <!-- Scala che sale al 2 -->
                   <g class="fp-room-group">
-                    <rect x="454" y="126" width="74" height="156" rx="3" fill="#DFC3B4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <g stroke="rgba(92,55,40,0.3)" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <rect x="454" y="126" width="74" height="156" rx="3" fill="#DFC3B4" stroke="#5C4938" stroke-width="2"/>
+                    <g stroke="rgba(92,55,40,0.35)" stroke-width="1.3">
                       <line x1="458" y1="142" x2="524" y2="142"/><line x1="458" y1="156" x2="524" y2="156"/>
                       <line x1="458" y1="246" x2="524" y2="246"/><line x1="458" y1="260" x2="524" y2="260"/>
                     </g>
-                    <path d="M 491,134 L 491,164 M 491,164 L 484,155 M 491,164 L 498,155" stroke="#8C3B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#fpSketchInk)"/>
+                    <path d="M 491,134 L 491,164 M 491,164 L 484,155 M 491,164 L 498,155" stroke="#8C3B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                     <foreignObject x="456" y="170" width="70" height="106">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:3px;">
-                        <span style="background:rgba(252,249,242,0.92);padding:3px 5px;border-radius:6px;font-size:9.8px;font-weight:700;color:#5A2618;line-height:1.15;" data-i18n="fp_rm_stairs_up2">Scala che sale al 2</span>
+                        <span style="background:rgba(252,249,242,0.94);padding:3px 5px;border-radius:6px;font-size:9.8px;font-weight:700;color:#5A2618;line-height:1.15;" data-i18n="fp_rm_stairs_up2">Scala che sale al 2</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Bagno (top-right) -->
                   <g class="fp-room-group">
-                    <rect x="530" y="70" width="104" height="92" rx="3" fill="#D2E2E4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <rect x="530" y="70" width="104" height="92" rx="3" fill="#D2E2E4" stroke="#5C4938" stroke-width="2.2"/>
                     <foreignObject x="535" y="86" width="94" height="60">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:3px;">
-                        <span id="fpLbl_1_bath" style="background:rgba(252,249,242,0.92);border:1px solid rgba(45,75,80,0.25);padding:3px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#233D42;" data-i18n="fp_rm_bath">Bagno</span>
+                        <span id="fpLbl_1_bath" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(45,75,80,0.32);padding:3px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#233D42;" data-i18n="fp_rm_bath">Bagno</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Camera da letto (middle/bottom-right + Sketched Bed) -->
                   <g class="fp-room-group">
-                    <rect x="530" y="164" width="104" height="194" rx="3" fill="#E8CFB8" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <g transform="translate(554, 178)" opacity="0.45" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <rect x="530" y="164" width="104" height="194" rx="3" fill="#E8CFB8" stroke="#5C4938" stroke-width="2.2"/>
+                    <g transform="translate(554, 178)" opacity="0.55" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3">
                       <rect x="0" y="0" width="56" height="48" rx="4"/>
                       <rect x="6" y="5" width="18" height="10" rx="2"/>
                       <rect x="32" y="5" width="18" height="10" rx="2"/>
                     </g>
                     <foreignObject x="534" y="234" width="96" height="98">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_1_east" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.28);padding:4px 8px;border-radius:8px;font-size:11.2px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_bedroom">Camera da letto</span>
+                        <span id="fpLbl_1_east" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,73,56,0.35);padding:4px 8px;border-radius:8px;font-size:11.2px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_bedroom">Camera da letto</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Balcone Sud (Protruding below Camera da letto) -->
                   <g class="fp-room-group">
-                    <rect x="530" y="366" width="104" height="48" rx="3" fill="#EBD7B2" stroke="#6B5335" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <rect x="534" y="370" width="96" height="40" fill="none" stroke="#6B5335" stroke-width="1" stroke-dasharray="3 2" filter="url(#fpSketchInk)"/>
+                    <rect x="530" y="366" width="104" height="48" rx="3" fill="#EBD7B2" stroke="#6B5335" stroke-width="2"/>
+                    <rect x="534" y="370" width="96" height="40" fill="none" stroke="#6B5335" stroke-width="1" stroke-dasharray="3 2"/>
                     <foreignObject x="534" y="370" width="96" height="40">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:2px;">
                         <span style="font-size:11px;font-weight:700;color:#4A351B;" data-i18n="fp_rm_balcony">Balcone</span>
@@ -3613,40 +3696,40 @@
                 <!-- ================= PIANO 2 (INTERNO CASA PRINCIPALE - 2.5D SKETCH) ================= -->
                 <g id="fpHouseFloor_2" style="display:none;">
                   <!-- 2.5D Stone Slab Extrusion -->
-                  <polygon points="88,362 638,362 648,374 98,374" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.6" filter="url(#fpSketchInk)"/>
-                  <polygon points="638,66 648,78 648,374 638,362" fill="#857766" stroke="#4A3F35" stroke-width="1.6" filter="url(#fpSketchInk)"/>
-                  <rect x="88" y="66" width="550" height="296" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5" filter="url(#fpSketchInk)"/>
+                  <polygon points="88,362 638,362 648,374 98,374" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.6"/>
+                  <polygon points="638,66 648,78 648,374 638,362" fill="#857766" stroke="#4A3F35" stroke-width="1.6"/>
+                  <rect x="88" y="66" width="550" height="296" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5"/>
 
                   <!-- Camera matrimoniale (top-left + Sketched Bed) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="70" width="134" height="146" rx="3" fill="#EAD7CD" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <g transform="translate(126, 78)" opacity="0.45" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <rect x="92" y="70" width="134" height="146" rx="3" fill="#EAD7CD" stroke="#5C4938" stroke-width="2.2"/>
+                    <g transform="translate(126, 78)" opacity="0.55" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3">
                       <rect x="0" y="0" width="64" height="52" rx="4"/>
                       <rect x="6" y="5" width="22" height="11" rx="2"/>
                       <rect x="36" y="5" width="22" height="11" rx="2"/>
                     </g>
                     <foreignObject x="96" y="132" width="126" height="76">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_2_westbed" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.28);padding:3px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_double_bed">Camera matrimoniale</span>
+                        <span id="fpLbl_2_westbed" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,73,56,0.35);padding:3px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_double_bed">Camera matrimoniale</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Bagno (bottom-left) -->
                   <g class="fp-room-group">
-                    <rect x="92" y="218" width="86" height="140" rx="3" fill="#D2E2E4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <rect x="100" y="226" width="44" height="22" rx="8" fill="rgba(255,255,255,0.55)" stroke="rgba(45,75,80,0.4)" stroke-width="1.2" filter="url(#fpSketchInk)"/>
+                    <rect x="92" y="218" width="86" height="140" rx="3" fill="#D2E2E4" stroke="#5C4938" stroke-width="2.2"/>
+                    <rect x="100" y="226" width="44" height="22" rx="8" fill="rgba(255,255,255,0.65)" stroke="rgba(45,75,80,0.45)" stroke-width="1.2"/>
                     <foreignObject x="95" y="262" width="80" height="68">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:2px;">
-                        <span id="fpLbl_2_bath" style="background:rgba(252,249,242,0.92);border:1px solid rgba(45,75,80,0.25);padding:3px 7px;border-radius:8px;font-size:11px;font-weight:700;color:#233D42;" data-i18n="fp_rm_bath">Bagno</span>
+                        <span id="fpLbl_2_bath" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(45,75,80,0.32);padding:3px 7px;border-radius:8px;font-size:11px;font-weight:700;color:#233D42;" data-i18n="fp_rm_bath">Bagno</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Camera da letto principale (center-left + Sketched Bed) -->
                   <g class="fp-room-group">
-                    <rect x="228" y="70" width="154" height="218" rx="3" fill="#D3E2C9" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <g transform="translate(272, 82)" opacity="0.45" fill="#FAF6EE" stroke="#3B5233" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <rect x="228" y="70" width="154" height="218" rx="3" fill="#D3E2C9" stroke="#5C4938" stroke-width="2.2"/>
+                    <g transform="translate(272, 82)" opacity="0.55" fill="#FAF6EE" stroke="#3B5233" stroke-width="1.3">
                       <rect x="0" y="0" width="66" height="56" rx="4"/>
                       <rect x="6" y="5" width="22" height="11" rx="2"/>
                       <rect x="38" y="5" width="22" height="11" rx="2"/>
@@ -3654,14 +3737,14 @@
                     </g>
                     <foreignObject x="234" y="152" width="142" height="112">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:5px;">
-                        <span id="fpLbl_2_master" style="background:rgba(252,249,242,0.92);border:1px solid rgba(45,75,45,0.32);padding:4px 10px;border-radius:10px;font-size:11.8px;font-weight:700;color:#223822;line-height:1.18;" data-i18n="fp_rm_master_bedroom">Camera da letto principale</span>
+                        <span id="fpLbl_2_master" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(45,75,45,0.38);padding:4px 10px;border-radius:10px;font-size:11.8px;font-weight:700;color:#223822;line-height:1.18;" data-i18n="fp_rm_master_bedroom">Camera da letto principale</span>
                       </div>
                     </foreignObject>
                   </g>
 
                   <!-- Ripostiglio (inverted L-shape in warm slate) -->
                   <g class="fp-room-group">
-                    <path d="M 384,70 L 528,70 L 528,124 L 448,124 L 448,288 L 384,288 Z" fill="#C6D0D8" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <path d="M 384,70 L 528,70 L 528,124 L 448,124 L 448,288 L 384,288 Z" fill="#C6D0D8" stroke="#5C4938" stroke-width="2.2"/>
                     <foreignObject x="386" y="132" width="60" height="148">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:2px;">
                         <span id="fpLbl_2_storage" style="font-size:10.5px;font-weight:700;color:#283642;writing-mode:vertical-rl;transform:rotate(180deg);" data-i18n="fp_rm_storage">Ripostiglio</span>
@@ -3671,8 +3754,8 @@
 
                   <!-- Vano arrivo scala dal Piano 1 -->
                   <g class="fp-room-group">
-                    <rect x="450" y="126" width="78" height="162" rx="3" fill="#EFECE4" stroke="#8C7E6E" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                    <g stroke="rgba(92,73,56,0.22)" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <rect x="450" y="126" width="78" height="162" rx="3" fill="#EFECE4" stroke="#8C7E6E" stroke-width="1.8"/>
+                    <g stroke="rgba(92,73,56,0.28)" stroke-width="1.3">
                       <line x1="456" y1="146" x2="522" y2="146"/><line x1="456" y1="164" x2="522" y2="164"/>
                       <line x1="456" y1="182" x2="522" y2="182"/>
                     </g>
@@ -3685,7 +3768,7 @@
 
                   <!-- Corridoio a L (bottom) -->
                   <g class="fp-room-group">
-                    <path d="M 180,232 L 226,232 L 226,290 L 528,290 L 528,358 L 180,358 Z" fill="#EFECE4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
+                    <path d="M 180,232 L 226,232 L 226,290 L 528,290 L 528,358 L 180,358 Z" fill="#EFECE4" stroke="#5C4938" stroke-width="2"/>
                     <foreignObject x="230" y="296" width="280" height="54">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
                         <span style="font-size:12px;font-weight:700;color:#4A3F35;" data-i18n="fp_rm_corridor">Corridoio</span>
@@ -3695,15 +3778,15 @@
 
                   <!-- Camera da letto (full-height right + Sketched Bed) -->
                   <g class="fp-room-group">
-                    <rect x="530" y="70" width="104" height="288" rx="3" fill="#E8CFB8" stroke="#5C4938" stroke-width="2.2" filter="url(#fpSketchInk)"/>
-                    <g transform="translate(554, 92)" opacity="0.45" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3" filter="url(#fpSketchInk)">
+                    <rect x="530" y="70" width="104" height="288" rx="3" fill="#E8CFB8" stroke="#5C4938" stroke-width="2.2"/>
+                    <g transform="translate(554, 92)" opacity="0.55" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3">
                       <rect x="0" y="0" width="56" height="48" rx="4"/>
                       <rect x="6" y="5" width="18" height="10" rx="2"/>
                       <rect x="32" y="5" width="18" height="10" rx="2"/>
                     </g>
                     <foreignObject x="534" y="175" width="96" height="104">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                        <span id="fpLbl_2_east" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.28);padding:4px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_bedroom">Camera da letto</span>
+                        <span id="fpLbl_2_east" style="background:rgba(252,249,242,0.94);border:1.5px solid rgba(92,73,56,0.35);padding:4px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_bedroom">Camera da letto</span>
                       </div>
                     </foreignObject>
                   </g>
@@ -3882,8 +3965,11 @@
 
   <!-- LIGHTBOX CONTAINER -->
   <div class="lightbox" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Image preview" onclick="closeLightbox()">
-    <button type="button" class="lightbox-close" aria-label="Close preview" style="background:none;border:none;" onclick="closeLightbox()">&times;</button>
-    <img id="lightboxImg" src="" alt="Enlarged view">
+    <button type="button" class="lightbox-close" aria-label="Close preview" onclick="closeLightbox()"><span class="close-x">&times;</span> <span data-i18n="modal_close_back">Torna al sito</span></button>
+    <button type="button" class="modal-overlay-arrow prev" onclick="changeLightboxSlide(-1, event)" aria-label="Precedente">&#10094;</button>
+    <img id="lightboxImg" src="" alt="Enlarged view" onclick="event.stopPropagation()">
+    <button type="button" class="modal-overlay-arrow next" onclick="changeLightboxSlide(1, event)" aria-label="Successiva">&#10095;</button>
+    <div class="modal-slide-pill" id="lightboxCounter"></div>
   </div>
 
   <!-- PRIVACY & COOKIE-FREE MODAL (GDPR ART. 13) -->
@@ -5631,7 +5717,17 @@
       }
     };
 
+    const modalCloseLabels = {
+      nl: "Terug naar site",
+      en: "Back to site",
+      it: "Torna al sito",
+      fr: "Retour au site",
+      de: "Zurück zur Seite"
+    };
     Object.keys(spacesBaI18n).forEach(lang => {
+      if (spacesBaI18n[lang] && spacesBaI18n[lang].ui) {
+        spacesBaI18n[lang].ui.modal_close_back = modalCloseLabels[lang] || "Torna al sito";
+      }
       if (i18n[lang] && spacesBaI18n[lang].ui) {
         Object.assign(i18n[lang], spacesBaI18n[lang].ui);
       }
@@ -5888,18 +5984,95 @@
       }
     }
 
-    // Lightbox & Privacy Modal
+    // Lightbox (with Prev/Next navigation, counter & touch swipe) & Privacy Modal
+    let currentLightboxList = [];
+    let currentLightboxIdx = 0;
+
+    function buildLightboxItemsForSrc(src) {
+      const galleryItems = Array.from(document.querySelectorAll('.gallery-grid .gallery-item')).map(el => {
+        const im = el.querySelector('img');
+        const cap = el.querySelector('.gallery-caption');
+        return {
+          src: im ? im.getAttribute('src') : '',
+          caption: cap ? cap.textContent.trim() : (im ? im.alt : '')
+        };
+      }).filter(it => it.src);
+
+      const detailItems = Array.from(document.querySelectorAll('#detailsSliderTrack .slider-card')).map(el => {
+        const im = el.querySelector('img');
+        const h3 = el.querySelector('h3');
+        return {
+          src: im ? im.getAttribute('src') : '',
+          caption: h3 ? h3.textContent.trim() : (im ? im.alt : '')
+        };
+      }).filter(it => it.src);
+
+      if (galleryItems.some(it => it.src === src)) {
+        return galleryItems;
+      }
+      if (detailItems.some(it => it.src === src)) {
+        return detailItems;
+      }
+      return [{ src, caption: '' }, ...galleryItems];
+    }
+
+    function renderLightboxSlide() {
+      const img = document.getElementById('lightboxImg');
+      const counter = document.getElementById('lightboxCounter');
+      if (!img || !currentLightboxList.length) return;
+      const item = currentLightboxList[currentLightboxIdx] || currentLightboxList[0];
+      img.src = item.src;
+      img.alt = item.caption || 'Enlarged view';
+      if (counter) {
+        const num = `${currentLightboxIdx + 1} / ${currentLightboxList.length}`;
+        counter.textContent = item.caption ? `${num} — ${item.caption}` : num;
+      }
+    }
+
     function openLightbox(src) {
       const modal = document.getElementById('lightboxModal');
-      const img = document.getElementById('lightboxImg');
-      img.src = src;
+      currentLightboxList = buildLightboxItemsForSrc(src);
+      const foundIdx = currentLightboxList.findIndex(it => it.src === src);
+      currentLightboxIdx = foundIdx >= 0 ? foundIdx : 0;
+      renderLightboxSlide();
       modal.classList.add('active');
+    }
+
+    function changeLightboxSlide(dir, ev) {
+      if (ev) ev.stopPropagation();
+      if (!currentLightboxList.length) return;
+      currentLightboxIdx += dir;
+      if (currentLightboxIdx >= currentLightboxList.length) currentLightboxIdx = 0;
+      if (currentLightboxIdx < 0) currentLightboxIdx = currentLightboxList.length - 1;
+      renderLightboxSlide();
     }
 
     function closeLightbox() {
       const modal = document.getElementById('lightboxModal');
       modal.classList.remove('active');
     }
+
+    // Touch swipe left/right inside #lightboxModal
+    (function initLightboxTouchSwipe() {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal) return;
+      let startX = 0;
+      let startY = 0;
+      modal.addEventListener('touchstart', (e) => {
+        if (!e.touches || !e.touches.length) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+      modal.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        const dy = e.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) changeLightboxSlide(1);
+          else changeLightboxSlide(-1);
+        }
+      }, { passive: true });
+    })();
 
     function openPrivacyModal() {
       const modal = document.getElementById('privacyModal');
@@ -5920,6 +6093,11 @@
         if (welcomeOverlay && !welcomeOverlay.classList.contains('hidden')) {
           selectWelcomeLanguage(currentLang);
         }
+      }
+      const lbModal = document.getElementById('lightboxModal');
+      if (lbModal && lbModal.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') changeLightboxSlide(-1);
+        if (e.key === 'ArrowRight') changeLightboxSlide(1);
       }
       const projModal = document.getElementById('projectModal');
       if (projModal && projModal.classList.contains('active')) {
@@ -6310,7 +6488,7 @@
 
   <!-- Overlay Galleria Progetti (Before/After interattivo + selettore tab e frecce in overlay) -->
   <div class="lightbox" id="projectModal" onclick="closeProjectGallery()">
-    <span class="lightbox-close" onclick="closeProjectGallery()">&times;</span>
+    <button type="button" class="lightbox-close" aria-label="Close project preview" onclick="closeProjectGallery()"><span class="close-x">&times;</span> <span data-i18n="modal_close_back">Torna al sito</span></button>
     <div class="project-modal-wrapper" onclick="event.stopPropagation()">
       <div class="ba-slider" id="projModalBaSlider">
         <img id="projModalAfterImg" src="" alt="Dopo: Progetto" class="ba-img-after">
@@ -6320,8 +6498,8 @@
         <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
         <input type="range" id="projModalRange" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
       </div>
-      <button class="modal-overlay-arrow prev" onclick="changeProjSlide(-1)" aria-label="Precedente">&#10094;</button>
-      <button class="modal-overlay-arrow next" onclick="changeProjSlide(1)" aria-label="Successiva">&#10095;</button>
+      <button type="button" class="modal-overlay-arrow prev" onclick="changeProjSlide(-1)" aria-label="Precedente">&#10094;</button>
+      <button type="button" class="modal-overlay-arrow next" onclick="changeProjSlide(1)" aria-label="Successiva">&#10095;</button>
       <div class="spaces-ba-tabs" id="projModalTabs" role="tablist" style="bottom: 14px; z-index: 26;"></div>
     </div>
   </div>
@@ -6919,60 +7097,132 @@
       selectProjCardSlide('spaces', idx, ev);
     }
 
-    // Pointer handler on .project-card .ba-slider:
-    // - Dragging the <-> handle or dragging horizontally slides the Before/After divider
-    // - Clicking/tapping on the image (without dragging and not on tabs) opens the large overlay
+    // Unified iOS Touch + Pointer handler on BOTH .project-card .ba-slider and #projModalBaSlider:
+    // - Dragging the <-> handle or dragging horizontally slides the Before/After divider smoothly on iPhone & desktop
+    // - Clicking/tapping on a card image (without dragging and not on tabs) opens the large overlay
     (function initProjectCardImageClickAndDrag() {
       let dragState = null;
 
-      document.addEventListener('pointerdown', (e) => {
-        if (e.target.closest('.spaces-ba-tabs')) return;
-        const slider = e.target.closest('.project-card .ba-slider');
-        if (!slider) return;
+      function setSliderPosFromClientX(slider, clientX) {
+        const rect = slider.getBoundingClientRect();
+        if (!rect.width) return;
+        const pct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+        slider.style.setProperty('--ba-pos', pct + '%');
+        const r = slider.querySelector('.ba-range');
+        if (r) r.value = pct;
+      }
+
+      function startGesture(target, clientX, clientY) {
+        if (!target || !target.closest || target.closest('.spaces-ba-tabs')) return null;
+        const slider = target.closest('.ba-slider');
+        if (!slider) return null;
+        const isModalSlider = (slider.id === 'projModalBaSlider');
         const rect = slider.getBoundingClientRect();
         const curPct = parseFloat(slider.style.getPropertyValue('--ba-pos')) || 50;
         const dividerX = rect.left + (curPct / 100) * rect.width;
-        const startedOnHandle = Math.abs(e.clientX - dividerX) <= 28 || !!e.target.closest('.ba-handle');
-        dragState = {
+        const startedOnHandle =
+          isModalSlider ||
+          Math.abs(clientX - dividerX) <= 42 ||
+          !!target.closest('.ba-handle') ||
+          !!target.closest('.ba-divider');
+
+        const state = {
           slider,
-          startX: e.clientX,
-          startY: e.clientY,
-          isDragging: startedOnHandle
+          isModalSlider,
+          startX: clientX,
+          startY: clientY,
+          isDragging: startedOnHandle,
+          moved: false
         };
-        if (startedOnHandle) {
+        if (isModalSlider) {
+          setSliderPosFromClientX(slider, clientX);
+        }
+        return state;
+      }
+
+      // 1. iOS / Mobile Touch Events (with passive: false so horizontal drag on .ba-slider never scrolls .projects-grid)
+      document.addEventListener('touchstart', (e) => {
+        if (!e.touches || e.touches.length !== 1) return;
+        const t = e.touches[0];
+        dragState = startGesture(e.target, t.clientX, t.clientY);
+      }, { passive: true });
+
+      document.addEventListener('touchmove', (e) => {
+        if (!dragState || !e.touches || !e.touches.length) return;
+        const t = e.touches[0];
+        const dx = t.clientX - dragState.startX;
+        const dy = t.clientY - dragState.startY;
+        if (!dragState.isDragging) {
+          if (Math.abs(dx) > 5 && Math.abs(dx) > Math.abs(dy)) {
+            dragState.isDragging = true;
+          } else if (Math.abs(dy) > 10) {
+            // Vertical page scroll
+            dragState = null;
+            return;
+          }
+        }
+        if (dragState && dragState.isDragging) {
+          if (Math.abs(dx) > 3) dragState.moved = true;
+          if (e.cancelable) e.preventDefault();
+          e.stopPropagation();
+          setSliderPosFromClientX(dragState.slider, t.clientX);
+        }
+      }, { passive: false });
+
+      let lastTouchTapTs = 0;
+
+      document.addEventListener('touchend', (e) => {
+        if (!dragState) return;
+        const { slider, isModalSlider, moved, isDragging } = dragState;
+        dragState = null;
+        const target = e.target;
+        if (!isModalSlider && !moved && !isDragging && target && !target.closest('.spaces-ba-tabs') && !target.closest('.ba-handle') && !target.closest('.ba-divider')) {
+          lastTouchTapTs = Date.now();
+          const type = slider.getAttribute('data-proj-type') || 'ext';
+          openProjectGallery(type, currentCardSlideIdx[type] || 0);
+        }
+      }, { passive: true });
+
+      document.addEventListener('touchcancel', () => {
+        dragState = null;
+      }, { passive: true });
+
+      // 2. Desktop Mouse / Non-Touch Pointer Events
+      document.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'touch') return;
+        dragState = startGesture(e.target, e.clientX, e.clientY);
+        if (dragState && dragState.isDragging) {
           e.preventDefault();
         }
       });
 
       document.addEventListener('pointermove', (e) => {
-        if (!dragState) return;
+        if (e.pointerType === 'touch' || !dragState) return;
         const dx = e.clientX - dragState.startX;
         const dy = e.clientY - dragState.startY;
-        if (!dragState.isDragging) {
-          if (Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy)) {
-            dragState.isDragging = true;
-          }
+        if (!dragState.isDragging && Math.abs(dx) > 5 && Math.abs(dx) > Math.abs(dy)) {
+          dragState.isDragging = true;
         }
         if (dragState.isDragging) {
-          const rect = dragState.slider.getBoundingClientRect();
-          const pct = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
-          dragState.slider.style.setProperty('--ba-pos', pct + '%');
-          const r = dragState.slider.querySelector('.ba-range');
-          if (r) r.value = pct;
+          if (Math.abs(dx) > 3) dragState.moved = true;
+          setSliderPosFromClientX(dragState.slider, e.clientX);
         }
       });
 
       document.addEventListener('pointerup', (e) => {
+        if (e.pointerType === 'touch' || Date.now() - lastTouchTapTs < 450) return;
         if (!dragState) return;
-        const { slider, isDragging } = dragState;
+        const { slider, isModalSlider, moved, startX, startY } = dragState;
         dragState = null;
-        if (!isDragging && !e.target.closest('.spaces-ba-tabs')) {
+        const dist = Math.hypot((e.clientX || startX) - startX, (e.clientY || startY) - startY);
+        if (!isModalSlider && !moved && dist < 8 && !e.target.closest('.spaces-ba-tabs') && !e.target.closest('.ba-handle') && !e.target.closest('.ba-divider')) {
           const type = slider.getAttribute('data-proj-type') || 'ext';
           openProjectGallery(type, currentCardSlideIdx[type] || 0);
         }
       });
 
-      document.addEventListener('pointercancel', () => {
+      document.addEventListener('pointercancel', (e) => {
+        if (e.pointerType === 'touch') return;
         dragState = null;
       });
     })();
