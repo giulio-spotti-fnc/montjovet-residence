@@ -722,94 +722,38 @@
       color: rgba(255,255,255,0.78);
       line-height: 1.35;
     }
+    .project-card .ba-slider {
+      cursor: pointer;
+      touch-action: pan-y;
+    }
+    .project-card .ba-range {
+      pointer-events: none;
+    }
+    .project-card .ba-handle {
+      pointer-events: auto;
+      cursor: ew-resize;
+    }
     .project-body {
-      padding: 1.6rem 1.6rem 1.2rem;
+      padding: 1.5rem 1.6rem 1.55rem;
       flex: 1;
       display: flex;
       flex-direction: column;
-    }
-    .project-header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-    .project-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      background: var(--bg-light);
-      color: var(--primary);
-      border: 1px solid rgba(176, 141, 87, 0.35);
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      padding: 4px 11px;
-      border-radius: 20px;
-      font-weight: 600;
-    }
-    .coming-soon-ribbon {
-      background: var(--accent);
-      color: var(--white);
-      font-size: 0.64rem;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      display: inline-block;
+      cursor: pointer;
     }
     .project-card h3 {
       font-size: 1.55rem;
       margin-bottom: 0.5rem;
       line-height: 1.2;
+      transition: color 0.22s ease;
+    }
+    .project-body:hover h3 {
+      color: var(--accent-hover);
     }
     .project-card p {
       font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0;
       line-height: 1.58;
-    }
-    .project-footer {
-      margin: 0 1.4rem 1.35rem;
-      padding: 0.82rem 1.15rem;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #222D2A 0%, #171F1D 100%);
-      border: 1px solid rgba(198, 163, 104, 0.45);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #F4E9D5;
-      cursor: pointer;
-      transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-      box-shadow: 0 6px 16px rgba(24, 32, 30, 0.14);
-    }
-    .project-footer span:last-child {
-      background: rgba(198, 163, 104, 0.22);
-      border: 1px solid rgba(226, 211, 184, 0.35);
-      color: #FFFFFF;
-      padding: 0.22rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.71rem;
-      font-weight: 700;
-      white-space: nowrap;
-      transition: all 0.28s ease;
-    }
-    .project-footer:hover {
-      background: linear-gradient(135deg, #9E7B46 0%, #836334 100%);
-      border-color: #FAF6EE;
-      color: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(158, 123, 70, 0.28);
-    }
-    .project-footer:hover span:last-child {
-      background: rgba(24, 32, 30, 0.85);
-      border-color: transparent;
-      color: var(--accent-gold);
     }
     @media (max-width: 992px) {
       .projects-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
@@ -3790,55 +3734,55 @@
         <!-- 1. Proposta Esterno (Interactive Before/After inline + Modal) -->
         <div class="project-card">
           <div class="project-media">
-            <div class="ba-slider">
+            <div class="ba-slider" data-proj-type="ext">
               <img src="images/project-ext-2.jpg" alt="Dopo: Rendering facciata e giardino" class="ba-img-after" loading="lazy">
               <img src="images/garden-front.jpg" alt="Prima: Facciata e giardino attuali" class="ba-img-before" loading="lazy">
               <span class="ba-label before" data-i18n="ba_before">Attuale</span>
               <span class="ba-label after" data-i18n="ba_after">Progetto</span>
               <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
               <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
+              <div class="spaces-ba-tabs" role="tablist" aria-label="Viste esterno">
+                <button type="button" class="spaces-ba-tab active" data-slide-idx="0" onclick="selectProjCardSlide('ext', 0, event)" data-i18n="ext_tab_1">1. Corte &amp; Giardino</button>
+                <button type="button" class="spaces-ba-tab" data-slide-idx="1" onclick="selectProjCardSlide('ext', 1, event)" data-i18n="ext_tab_2">2. Facciata &amp; Borgo</button>
+              </div>
             </div>
           </div>
-          <div class="project-body">
-            <h3 data-i18n="proj_ext_title">Restyling Facciata & Giardino</h3>
+          <div class="project-body" role="button" tabindex="0" onclick="openProjectGallery('ext', currentCardSlideIdx.ext)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('ext', currentCardSlideIdx.ext);}">
+            <h3 data-i18n="proj_ext_title">Restyling Facciata &amp; Giardino</h3>
             <p data-i18n="proj_ext_desc">
               Valorizzazione cromatica della facciata, tetto in lose, persiane in legno naturale e cura paesaggistica della corte.
             </p>
-          </div>
-          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('ext')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('ext');}">
-            <span data-i18n="proj_click_gallery">✨ Scopri tutti i rendering Prima / Dopo &rarr;</span>
-            <span data-i18n="proj_photos_count">📸 2 viste HD</span>
           </div>
         </div>
 
         <!-- 2. Proposta SPA nella Stalla Voltata (Interactive Before/After inline + Modal) -->
         <div class="project-card">
           <div class="project-media">
-            <div class="ba-slider">
+            <div class="ba-slider" data-proj-type="spa">
               <img src="images/project-spa-1.jpg" alt="Dopo: Rendering SPA nella stalla voltata" class="ba-img-after" loading="lazy">
               <img src="images/stables-vault.jpg" alt="Prima: Stalla voltata attuale" class="ba-img-before" loading="lazy">
               <span class="ba-label before" data-i18n="ba_before">Attuale</span>
               <span class="ba-label after" data-i18n="ba_after">Progetto</span>
               <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
               <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
+              <div class="spaces-ba-tabs" role="tablist" aria-label="Viste SPA">
+                <button type="button" class="spaces-ba-tab active" data-slide-idx="0" onclick="selectProjCardSlide('spa', 0, event)" data-i18n="spa_tab_1">1. Sauna &amp; Idromassaggio</button>
+                <button type="button" class="spaces-ba-tab" data-slide-idx="1" onclick="selectProjCardSlide('spa', 1, event)" data-i18n="spa_tab_2">2. Kneipp &amp; Relax</button>
+              </div>
             </div>
           </div>
-          <div class="project-body">
+          <div class="project-body" role="button" tabindex="0" onclick="openProjectGallery('spa', currentCardSlideIdx.spa)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spa', currentCardSlideIdx.spa);}">
             <h3 data-i18n="proj_spa_title">SPA Privata nella Stalla</h3>
             <p data-i18n="proj_spa_desc">
               Esclusivo centro benessere ricavato nelle volte in pietra della stalla attorno alla colonna monolitica.
             </p>
-          </div>
-          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spa')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spa');}">
-            <span data-i18n="proj_click_gallery">✨ Scopri tutti i rendering Prima / Dopo &rarr;</span>
-            <span data-i18n="proj_photos_count">📸 2 viste HD</span>
           </div>
         </div>
 
         <!-- 3. Suddivisione Spazi Abitativi (Interactive Architectural Before/After inline + 4-Slide Modal) -->
         <div class="project-card">
           <div class="project-media">
-            <div class="ba-slider is-arch-plan" id="spacesCardBaSlider">
+            <div class="ba-slider is-arch-plan" id="spacesCardBaSlider" data-proj-type="spaces">
               <img id="spacesCardAfterImg" src="" alt="Dopo: Progetto Architettonico To-Be" class="ba-img-after">
               <img id="spacesCardBeforeImg" src="" alt="Prima: Pianta Attuale As-Is" class="ba-img-before">
               <span class="ba-label before" data-i18n="ba_before">Attuale</span>
@@ -3846,22 +3790,18 @@
               <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
               <input type="range" id="spacesCardRange" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
               <div class="spaces-ba-tabs" role="tablist" aria-label="Esempi di sviluppo spazi">
-                <button type="button" class="spaces-ba-tab active" data-space-idx="0" onclick="selectSpacesCardSlide(0, event)" data-i18n="sp_tab_stalla">1. Stalla</button>
-                <button type="button" class="spaces-ba-tab" data-space-idx="1" onclick="selectSpacesCardSlide(1, event)" data-i18n="sp_tab_dep">2. Dépendance</button>
-                <button type="button" class="spaces-ba-tab" data-space-idx="2" onclick="selectSpacesCardSlide(2, event)" data-i18n="sp_tab_terr">3. Terrazzo</button>
-                <button type="button" class="spaces-ba-tab" data-space-idx="3" onclick="selectSpacesCardSlide(3, event)" data-i18n="sp_tab_casa">4. Casa PT</button>
+                <button type="button" class="spaces-ba-tab active" data-slide-idx="0" onclick="selectProjCardSlide('spaces', 0, event)" data-i18n="sp_tab_stalla">1. Stalla</button>
+                <button type="button" class="spaces-ba-tab" data-slide-idx="1" onclick="selectProjCardSlide('spaces', 1, event)" data-i18n="sp_tab_dep">2. Dépendance</button>
+                <button type="button" class="spaces-ba-tab" data-slide-idx="2" onclick="selectProjCardSlide('spaces', 2, event)" data-i18n="sp_tab_terr">3. Terrazzo</button>
+                <button type="button" class="spaces-ba-tab" data-slide-idx="3" onclick="selectProjCardSlide('spaces', 3, event)" data-i18n="sp_tab_casa">4. Casa PT</button>
               </div>
             </div>
           </div>
-          <div class="project-body">
-            <h3 data-i18n="proj_layout_title">Sviluppo & Divisione Spazi</h3>
+          <div class="project-body" role="button" tabindex="0" onclick="openProjectGallery('spaces', currentCardSlideIdx.spaces)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spaces', currentCardSlideIdx.spaces);}">
+            <h3 data-i18n="proj_layout_title">Sviluppo &amp; Divisione Spazi</h3>
             <p data-i18n="proj_layout_desc">
               Confronta lo stato attuale (As-Is) con i progetti To-Be da architetto: SPA nella stalla, bilocale in dépendance, terrazzo con gazebo &amp; jacuzzi e suites al Piano 0.
             </p>
-          </div>
-          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spaces', currentSpacesCardIdx)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spaces', currentSpacesCardIdx);}">
-            <span data-i18n="proj_click_spaces">✨ Scopri i 4 progetti As-Is / To-Be &rarr;</span>
-            <span data-i18n="proj_spaces_count">📐 4 tavole CAD</span>
           </div>
         </div>
       </div>
@@ -5301,13 +5241,14 @@
     const spacesBaI18n = {
       it: {
         ui: {
-          proj3_title: "Sviluppo & Divisione Spazi (Before / After)",
-          proj3_desc: "Confronta il rilievo attuale (AS-IS) con il nuovo progetto architettonico (TO-BE) in stile studio moderno: 1) Stalla in Private SPA, 2) Dépendance in Bilocale con 2 archi SW, 3) Terrazzo Principale con Gazebo e Jacuzzi, 4) Casa Piano 0 (Proposta C).",
-          proj3_tab_1: "1. Stalla → SPA",
-          proj3_tab_2: "2. Dépendance",
-          proj3_tab_3: "3. Terrazzo",
-          proj3_tab_4: "4. Casa PT (Prop. C)",
-          proj_cta_spaces: "Esplora i 4 progetti Before/After (1/4)"
+          ext_tab_1: "1. Corte & Giardino",
+          ext_tab_2: "2. Facciata & Borgo",
+          spa_tab_1: "1. Sauna & Idromassaggio",
+          spa_tab_2: "2. Kneipp & Relax",
+          sp_tab_stalla: "1. Stalla",
+          sp_tab_dep: "2. Dépendance",
+          sp_tab_terr: "3. Terrazzo",
+          sp_tab_casa: "4. Casa PT"
         },
         slides: {
           stalla: {
@@ -5378,13 +5319,14 @@
       },
       en: {
         ui: {
-          proj3_title: "Space Division & Layouts (Before / After)",
-          proj3_desc: "Compare the current layout (AS-IS) with the new modern architectural studio concepts (TO-BE): 1) Vaulted Stable to Private SPA, 2) Dépendance to 1-Bed Apt, 3) Main Terrace with Gazebo & Jacuzzi, 4) Main House Ground Floor (Proposal C).",
-          proj3_tab_1: "1. Stable → SPA",
-          proj3_tab_2: "2. Dépendance",
-          proj3_tab_3: "3. Main Terrace",
-          proj3_tab_4: "4. House GF (Prop. C)",
-          proj_cta_spaces: "Explore all 4 Before/After plans (1/4)"
+          ext_tab_1: "1. Courtyard & Garden",
+          ext_tab_2: "2. Facade & Village",
+          spa_tab_1: "1. Sauna & Hot Tub",
+          spa_tab_2: "2. Kneipp & Relax",
+          sp_tab_stalla: "1. Stable",
+          sp_tab_dep: "2. Dépendance",
+          sp_tab_terr: "3. Terrace",
+          sp_tab_casa: "4. House GF"
         },
         slides: {
           stalla: {
@@ -5455,13 +5397,14 @@
       },
       nl: {
         ui: {
-          proj3_title: "Ruimte-indeling & Projecten (Before / After)",
-          proj3_desc: "Vergelijk de huidige staat (AS-IS) met het nieuwe moderne architectenontwerp (TO-BE): 1) Stal naar Privé-SPA, 2) Dépendance naar 2-Kamerappartement, 3) Hoofdterras met Gazebo & Jacuzzi, 4) Hoofdhuis Begane Grond (Voorstel C).",
-          proj3_tab_1: "1. Stal → SPA",
-          proj3_tab_2: "2. Dépendance",
-          proj3_tab_3: "3. Hoofdterras",
-          proj3_tab_4: "4. Huis BG (Voorstel C)",
-          proj_cta_spaces: "Bekijk de 4 Before/After plannen (1/4)"
+          ext_tab_1: "1. Binnenplaats & Tuin",
+          ext_tab_2: "2. Gevel & Dorp",
+          spa_tab_1: "1. Sauna & Jacuzzi",
+          spa_tab_2: "2. Kneipp & Relax",
+          sp_tab_stalla: "1. Stal",
+          sp_tab_dep: "2. Dépendance",
+          sp_tab_terr: "3. Terras",
+          sp_tab_casa: "4. Huis BG"
         },
         slides: {
           stalla: {
@@ -5532,13 +5475,14 @@
       },
       fr: {
         ui: {
-          proj3_title: "Aménagement des Espaces (Before / After)",
-          proj3_desc: "Comparez l'état actuel (AS-IS) avec le nouveau projet d'architecte moderne (TO-BE) : 1) Écurie en SPA Privé, 2) Dépendance en T2 avec 2 arcs SO, 3) Terrasse Principale avec Gazebo & Jacuzzi, 4) Maison Rez-de-Chaussée (Proposition C).",
-          proj3_tab_1: "1. Écurie → SPA",
-          proj3_tab_2: "2. Dépendance",
-          proj3_tab_3: "3. Terrasse",
-          proj3_tab_4: "4. Maison RDC (Prop. C)",
-          proj_cta_spaces: "Explorer les 4 plans Before/After (1/4)"
+          ext_tab_1: "1. Cour & Jardin",
+          ext_tab_2: "2. Façade & Bourg",
+          spa_tab_1: "1. Sauna & Jacuzzi",
+          spa_tab_2: "2. Kneipp & Relax",
+          sp_tab_stalla: "1. Écurie",
+          sp_tab_dep: "2. Dépendance",
+          sp_tab_terr: "3. Terrasse",
+          sp_tab_casa: "4. Maison RDC"
         },
         slides: {
           stalla: {
@@ -5609,13 +5553,14 @@
       },
       de: {
         ui: {
-          proj3_title: "Raumaufteilung & Konzepte (Before / After)",
-          proj3_desc: "Vergleichen Sie den Bestand (AS-IS) mit der modernen Architektenplanung (TO-BE): 1) Gewölbestall wird Private SPA, 2) Dépendance wird 2-Zi-Apartment, 3) Hauptterrasse mit Gazebo & Außen-Jacuzzi, 4) Haupthaus Erdgeschoss (Konzept C).",
-          proj3_tab_1: "1. Stall → SPA",
-          proj3_tab_2: "2. Dépendance",
-          proj3_tab_3: "3. Hauptterrasse",
-          proj3_tab_4: "4. Haus EG (Konzept C)",
-          proj_cta_spaces: "Alle 4 Before/After-Pläne ansehen (1/4)"
+          ext_tab_1: "1. Hof & Garten",
+          ext_tab_2: "2. Fassade & Dorf",
+          spa_tab_1: "1. Sauna & Whirlpool",
+          spa_tab_2: "2. Kneipp & Ruhezone",
+          sp_tab_stalla: "1. Stall",
+          sp_tab_dep: "2. Dépendance",
+          sp_tab_terr: "3. Terrasse",
+          sp_tab_casa: "4. Haus EG"
         },
         slides: {
           stalla: {
@@ -6363,7 +6308,7 @@
     });
   </script>
 
-  <!-- Overlay Galleria Progetti (Before/After interattivo + frecce in overlay) -->
+  <!-- Overlay Galleria Progetti (Before/After interattivo + selettore tab e frecce in overlay) -->
   <div class="lightbox" id="projectModal" onclick="closeProjectGallery()">
     <span class="lightbox-close" onclick="closeProjectGallery()">&times;</span>
     <div class="project-modal-wrapper" onclick="event.stopPropagation()">
@@ -6377,7 +6322,7 @@
       </div>
       <button class="modal-overlay-arrow prev" onclick="changeProjSlide(-1)" aria-label="Precedente">&#10094;</button>
       <button class="modal-overlay-arrow next" onclick="changeProjSlide(1)" aria-label="Successiva">&#10095;</button>
-      <div class="modal-slide-pill" id="projCounter">1 / 2</div>
+      <div class="spaces-ba-tabs" id="projModalTabs" role="tablist" style="bottom: 14px; z-index: 26;"></div>
     </div>
   </div>
 
@@ -6385,8 +6330,13 @@
     let currentProjSlides = [];
     let currentProjIdx = 0;
     let currentProjType = 'ext';
-    let currentSpacesCardIdx = 0;
+    const currentCardSlideIdx = { ext: 0, spa: 0, spaces: 0 };
     const spacesSlideKeys = ['stalla', 'dependance', 'terrazzo', 'casa_pt'];
+    const projTabI18nKeys = {
+      ext: ['ext_tab_1', 'ext_tab_2'],
+      spa: ['spa_tab_1', 'spa_tab_2'],
+      spaces: ['sp_tab_stalla', 'sp_tab_dep', 'sp_tab_terr', 'sp_tab_casa']
+    };
 
     function escXml(str) {
       return String(str || '')
@@ -6847,41 +6797,115 @@
       }));
     }
 
-    function selectSpacesCardSlide(idx, ev) {
+    function selectProjCardSlide(type, idx, ev) {
       if (ev) ev.stopPropagation();
-      currentSpacesCardIdx = idx || 0;
-      const slides = projGalleries.spaces;
-      if (!slides || !slides[currentSpacesCardIdx]) return;
-      const pair = slides[currentSpacesCardIdx];
+      const targetType = type || 'spaces';
+      currentCardSlideIdx[targetType] = idx || 0;
+      if (targetType === 'spaces' && (!projGalleries.spaces || !projGalleries.spaces.length)) {
+        projGalleries.spaces = buildSpacesSlidesForLang(currentLang || 'nl');
+      }
+      const slides = projGalleries[targetType];
+      if (!slides || !slides[currentCardSlideIdx[targetType]]) return;
+      const pair = slides[currentCardSlideIdx[targetType]];
 
-      // Update all Card 3 instances (including mobile peek carousel clones)
-      document.querySelectorAll('.ba-slider.is-arch-plan').forEach(slider => {
-        if (slider.id === 'projModalBaSlider') return;
+      // Update all matching card sliders (including mobile peek carousel clones)
+      document.querySelectorAll(`.project-card .ba-slider[data-proj-type="${targetType}"]`).forEach(slider => {
         const bImg = slider.querySelector('.ba-img-before');
         const aImg = slider.querySelector('.ba-img-after');
         if (bImg) bImg.src = pair.before;
         if (aImg) aImg.src = pair.after;
-      });
-
-      document.querySelectorAll('.spaces-ba-tabs').forEach(tabBar => {
-        Array.from(tabBar.querySelectorAll('.spaces-ba-tab')).forEach((btn, bIdx) => {
-          btn.classList.toggle('active', bIdx === currentSpacesCardIdx);
+        slider.querySelectorAll('.spaces-ba-tab').forEach((btn, bIdx) => {
+          btn.classList.toggle('active', bIdx === currentCardSlideIdx[targetType]);
         });
-      });
-
-      // Update Card 3 CTA counter text (e.g. 1/4, 2/4...)
-      document.querySelectorAll('[data-i18n="proj_cta_spaces"]').forEach(el => {
-        const base = (i18n[currentLang] && i18n[currentLang].proj_cta_spaces) || 'Before/After (1/4)';
-        el.textContent = base.replace(/\(\d+\/4\)/, `(${currentSpacesCardIdx + 1}/4)`);
       });
     }
 
+    // Legacy alias
+    function selectSpacesCardSlide(idx, ev) {
+      selectProjCardSlide('spaces', idx, ev);
+    }
+
+    // Pointer handler on .project-card .ba-slider:
+    // - Dragging the <-> handle or dragging horizontally slides the Before/After divider
+    // - Clicking/tapping on the image (without dragging and not on tabs) opens the large overlay
+    (function initProjectCardImageClickAndDrag() {
+      let dragState = null;
+
+      document.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('.spaces-ba-tabs')) return;
+        const slider = e.target.closest('.project-card .ba-slider');
+        if (!slider) return;
+        const rect = slider.getBoundingClientRect();
+        const curPct = parseFloat(slider.style.getPropertyValue('--ba-pos')) || 50;
+        const dividerX = rect.left + (curPct / 100) * rect.width;
+        const startedOnHandle = Math.abs(e.clientX - dividerX) <= 28 || !!e.target.closest('.ba-handle');
+        dragState = {
+          slider,
+          startX: e.clientX,
+          startY: e.clientY,
+          isDragging: startedOnHandle
+        };
+        if (startedOnHandle) {
+          e.preventDefault();
+        }
+      });
+
+      document.addEventListener('pointermove', (e) => {
+        if (!dragState) return;
+        const dx = e.clientX - dragState.startX;
+        const dy = e.clientY - dragState.startY;
+        if (!dragState.isDragging) {
+          if (Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy)) {
+            dragState.isDragging = true;
+          }
+        }
+        if (dragState.isDragging) {
+          const rect = dragState.slider.getBoundingClientRect();
+          const pct = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+          dragState.slider.style.setProperty('--ba-pos', pct + '%');
+          const r = dragState.slider.querySelector('.ba-range');
+          if (r) r.value = pct;
+        }
+      });
+
+      document.addEventListener('pointerup', (e) => {
+        if (!dragState) return;
+        const { slider, isDragging } = dragState;
+        dragState = null;
+        if (!isDragging && !e.target.closest('.spaces-ba-tabs')) {
+          const type = slider.getAttribute('data-proj-type') || 'ext';
+          openProjectGallery(type, currentCardSlideIdx[type] || 0);
+        }
+      });
+
+      document.addEventListener('pointercancel', () => {
+        dragState = null;
+      });
+    })();
+
+    function getProjTabLabel(key) {
+      const lang = currentLang || 'nl';
+      const uiPack = (spacesBaI18n[lang] && spacesBaI18n[lang].ui) || spacesBaI18n.it.ui;
+      return uiPack[key] || (i18n[lang] && i18n[lang][key]) || key;
+    }
+
     function refreshSpacesBaGallery() {
-      projGalleries.spaces = buildSpacesSlidesForLang(currentLang || 'nl');
-      selectSpacesCardSlide(currentSpacesCardIdx);
+      const lang = currentLang || 'nl';
+      const uiPack = (spacesBaI18n[lang] && spacesBaI18n[lang].ui) || spacesBaI18n.it.ui;
+      Object.keys(uiPack).forEach(k => {
+        document.querySelectorAll(`[data-i18n="${k}"]`).forEach(el => {
+          el.textContent = uiPack[k];
+        });
+      });
+
+      projGalleries.spaces = buildSpacesSlidesForLang(lang);
+      selectProjCardSlide('ext', currentCardSlideIdx.ext || 0);
+      selectProjCardSlide('spa', currentCardSlideIdx.spa || 0);
+      selectProjCardSlide('spaces', currentCardSlideIdx.spaces || 0);
+
       const modal = document.getElementById('projectModal');
-      if (modal && modal.classList.contains('active') && currentProjType === 'spaces') {
-        currentProjSlides = projGalleries.spaces;
+      if (modal && modal.classList.contains('active')) {
+        currentProjSlides = projGalleries[currentProjType] || [];
         updateProjModal();
       }
     }
@@ -6893,7 +6917,7 @@
       if (!projGalleries[type]) return;
       currentProjType = type;
       currentProjSlides = projGalleries[type];
-      currentProjIdx = (typeof startIdx === 'number') ? startIdx : 0;
+      currentProjIdx = (typeof startIdx === 'number') ? startIdx : (currentCardSlideIdx[type] || 0);
 
       const wrapper = document.querySelector('#projectModal .project-modal-wrapper');
       const slider = document.getElementById('projModalBaSlider');
@@ -6910,13 +6934,18 @@
       if (modal) modal.classList.remove('active');
     }
 
+    function setProjModalSlide(idx, ev) {
+      if (ev) ev.stopPropagation();
+      currentProjIdx = idx;
+      selectProjCardSlide(currentProjType, currentProjIdx);
+      updateProjModal();
+    }
+
     function changeProjSlide(dir) {
       currentProjIdx += dir;
       if (currentProjIdx >= currentProjSlides.length) currentProjIdx = 0;
       if (currentProjIdx < 0) currentProjIdx = currentProjSlides.length - 1;
-      if (currentProjType === 'spaces') {
-        selectSpacesCardSlide(currentProjIdx);
-      }
+      selectProjCardSlide(currentProjType, currentProjIdx);
       updateProjModal();
     }
 
@@ -6925,18 +6954,23 @@
       const afterImg = document.getElementById('projModalAfterImg');
       const slider = document.getElementById('projModalBaSlider');
       const range = document.getElementById('projModalRange');
-      const counter = document.getElementById('projCounter');
+      const modalTabs = document.getElementById('projModalTabs');
       if (beforeImg && afterImg && currentProjSlides.length > 0) {
         const slide = currentProjSlides[currentProjIdx];
         beforeImg.src = slide.before;
         afterImg.src = slide.after;
         if (slider) slider.style.setProperty('--ba-pos', '50%');
         if (range) range.value = 50;
-        if (counter) counter.textContent = `${currentProjIdx + 1} / ${currentProjSlides.length}`;
+        if (modalTabs) {
+          const keys = projTabI18nKeys[currentProjType] || [];
+          modalTabs.innerHTML = keys.map((k, idx) =>
+            `<button type="button" class="spaces-ba-tab${idx === currentProjIdx ? ' active' : ''}" onclick="setProjModalSlide(${idx}, event)">${escXml(getProjTabLabel(k))}</button>`
+          ).join('');
+        }
       }
     }
 
-    // Initialize Spaces Before/After SVG slides immediately
+    // Initialize Before/After slides and selector labels immediately
     refreshSpacesBaGallery();
   </script>
 
