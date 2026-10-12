@@ -6656,75 +6656,74 @@
         }
       } else if (slideKey === 'terrazzo') {
         if (!isAfter) {
-          // 3. TERRAZZO PRINCIPALE AS-IS: Only a garden seating area (solo salotto da giardino), rest of terrace empty
+          // 3. TERRAZZO PRINCIPALE AS-IS: Full-width garden seating area (salotto da giardino a tutta larghezza) along the bottom, rest of terrace open
           body = `
             <rect x="136" y="88" width="540" height="364" rx="6" fill="#D5C7B4"/>
             <rect x="126" y="78" width="540" height="364" rx="6" fill="#EFE4D2" stroke="#6B5335" stroke-width="7"/>
             <rect x="136" y="88" width="520" height="344" rx="4" fill="none" stroke="#9E8970" stroke-width="1.5" stroke-dasharray="6 4"/>
 
-            <!-- AS-IS Simple Garden Seating Area (Bottom-Left) -->
-            <rect x="154" y="256" width="196" height="156" rx="8" fill="#E4D3B8" stroke="#7A6042" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M 176,278 H 284 V 306 H 204 V 354 H 176 Z" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
-            <rect x="226" y="320" width="48" height="30" rx="4" fill="#D5B895" stroke="#5C4028" stroke-width="1.5"/>
-            <rect x="166" y="366" width="172" height="34" rx="6" fill="rgba(250,246,238,0.95)" stroke="#6B5335" stroke-width="1.3"/>
-            <text x="252" y="388" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#3E2C1C">🪑 ${escXml(pack.asIsLounge)}</text>
+            <!-- Upper Terrace Open / Unfurnished Area -->
+            <rect x="226" y="132" width="340" height="68" rx="8" fill="rgba(246,239,226,0.92)" stroke="#8C7A65" stroke-width="1.5"/>
+            <text x="396" y="171" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13" font-weight="700" fill="#5C4938">${escXml(pack.asIsEmpty)}</text>
 
-            <!-- Rest of Terrace Empty Label -->
-            <rect x="368" y="182" width="268" height="68" rx="8" fill="rgba(246,239,226,0.9)" stroke="#8C7A65" stroke-width="1.5"/>
-            <text x="502" y="221" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#5C4938">${escXml(pack.asIsEmpty)}</text>
+            <!-- AS-IS Full-Width Garden Seating Area (Salotto da Giardino a Tutta Larghezza) -->
+            <rect x="148" y="256" width="496" height="162" rx="8" fill="#E4D3B8" stroke="#7A6042" stroke-width="2" stroke-dasharray="5 3"/>
+            <!-- Full-width L/U-shaped outdoor sofa bench + low tables + armchairs across the entire terrace width -->
+            <path d="M 168,274 H 624 V 306 H 208 V 360 H 168 Z" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
+            <rect x="584" y="306" width="40" height="54" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
+            <rect x="256" y="320" width="112" height="34" rx="4" fill="#D5B895" stroke="#5C4028" stroke-width="1.6"/>
+            <rect x="424" y="320" width="112" height="34" rx="4" fill="#D5B895" stroke="#5C4028" stroke-width="1.6"/>
+            <rect x="266" y="368" width="260" height="36" rx="6" fill="rgba(250,246,238,0.96)" stroke="#6B5335" stroke-width="1.4"/>
+            <text x="396" y="391" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#3E2C1C">🪑 ${escXml(pack.asIsLounge)}</text>
           `;
         } else {
-          // 3. TERRAZZO PRINCIPALE TO-BE: Salotto da esterno, Gazebo/Pergola Bioclimatica con tavolo, Jacuzzi Esterna Riscaldata
+          // 3. TERRAZZO PRINCIPALE TO-BE: Full-width Salotto da Esterno a tutta larghezza (bottom) + Gazebo/Pergola Bioclimatica (top-left) + Jacuzzi Esterna Riscaldata (top-right)
           body = `
             <!-- Terrace Perimeter & Modern Teak Decking Planks -->
             <rect x="126" y="78" width="540" height="364" rx="6" fill="#1C2426" stroke="#E8DEC8" stroke-width="7"/>
 
             <!-- 1. Bioclimatic Gazebo / Pergola (Top-Left) with 10-seater Dining Table -->
-            <rect x="142" y="94" width="304" height="164" rx="6" fill="#26211B" stroke="#C5A059" stroke-width="2.5" stroke-dasharray="8 4"/>
+            <rect x="142" y="92" width="304" height="162" rx="6" fill="#26211B" stroke="#C5A059" stroke-width="2.5" stroke-dasharray="8 4"/>
             <!-- Pergola Louvered Blades -->
             <g stroke="rgba(197,160,89,0.22)" stroke-width="2">
-              <line x1="152" y1="110" x2="436" y2="110"/><line x1="152" y1="128" x2="436" y2="128"/>
-              <line x1="152" y1="146" x2="436" y2="146"/><line x1="152" y1="164" x2="436" y2="164"/>
-              <line x1="152" y1="182" x2="436" y2="182"/>
+              <line x1="152" y1="108" x2="436" y2="108"/><line x1="152" y1="126" x2="436" y2="126"/>
+              <line x1="152" y1="144" x2="436" y2="144"/><line x1="152" y1="162" x2="436" y2="162"/>
+              <line x1="152" y1="180" x2="436" y2="180"/>
             </g>
             <!-- 10-Seater Architectural Dining Table -->
-            <rect x="196" y="116" width="196" height="58" rx="6" fill="#382B1E" stroke="#E0C389" stroke-width="2"/>
+            <rect x="196" y="114" width="196" height="56" rx="6" fill="#382B1E" stroke="#E0C389" stroke-width="2"/>
             <!-- Chairs around table -->
             <g fill="#C5A059">
-              <rect x="212" y="104" width="24" height="8" rx="2"/><rect x="254" y="104" width="24" height="8" rx="2"/><rect x="296" y="104" width="24" height="8" rx="2"/><rect x="338" y="104" width="24" height="8" rx="2"/>
-              <rect x="212" y="178" width="24" height="8" rx="2"/><rect x="254" y="178" width="24" height="8" rx="2"/><rect x="296" y="178" width="24" height="8" rx="2"/><rect x="338" y="178" width="24" height="8" rx="2"/>
+              <rect x="212" y="102" width="24" height="8" rx="2"/><rect x="254" y="102" width="24" height="8" rx="2"/><rect x="296" y="102" width="24" height="8" rx="2"/><rect x="338" y="102" width="24" height="8" rx="2"/>
+              <rect x="212" y="174" width="24" height="8" rx="2"/><rect x="254" y="174" width="24" height="8" rx="2"/><rect x="296" y="174" width="24" height="8" rx="2"/><rect x="338" y="174" width="24" height="8" rx="2"/>
             </g>
-            <rect x="164" y="196" width="260" height="50" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.3"/>
-            <text x="294" y="217" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#F5EFE6">⛺ ${escXml(pack.toBeGazebo)}</text>
-            <text x="294" y="235" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="500" fill="#C5A059">${escXml(pack.toBeGazeboSub)}</text>
+            <rect x="164" y="194" width="260" height="48" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.3"/>
+            <text x="294" y="214" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.8" font-weight="700" fill="#F5EFE6">⛺ ${escXml(pack.toBeGazebo)}</text>
+            <text x="294" y="232" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.8" font-weight="500" fill="#C5A059">${escXml(pack.toBeGazeboSub)}</text>
 
-            <!-- 2. Designer L-Shaped Outdoor Lounge & Fire Pit (Bottom-Left) -->
-            <rect x="142" y="268" width="304" height="158" rx="6" fill="#212B30" stroke="#A3B1B8" stroke-width="1.8"/>
-            <path d="M 164,284 H 316 V 318 H 204 V 378 H 164 Z" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
-            <!-- Designer Brazier / Fire Pit -->
-            <circle cx="268" cy="352" r="20" fill="#3A241B" stroke="#FF784F" stroke-width="2"/>
-            <circle cx="268" cy="352" r="9" fill="#FF784F"/>
-            <rect x="164" y="384" width="260" height="34" rx="6" fill="rgba(16,23,26,0.92)" stroke="#A3B1B8" stroke-width="1.2"/>
-            <text x="294" y="405" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#F5EFE6">🛋️ ${escXml(pack.toBeLounge)}</text>
-
-            <!-- 3. Heated Outdoor Jacuzzi & Teak Solarium (Right Wing) -->
-            <rect x="458" y="94" width="192" height="332" rx="6" fill="#152E36" stroke="#48CAE4" stroke-width="2.2"/>
-            <!-- Teak deck lines -->
-            <g stroke="rgba(197,160,89,0.2)" stroke-width="1.5">
-              <line x1="466" y1="112" x2="642" y2="112"/><line x1="466" y1="128" x2="642" y2="128"/><line x1="466" y1="144" x2="642" y2="144"/>
-            </g>
+            <!-- 2. Heated Outdoor Jacuzzi & Teak Solarium (Top-Right) -->
+            <rect x="456" y="92" width="194" height="162" rx="6" fill="#152E36" stroke="#48CAE4" stroke-width="2.2"/>
             <!-- Glowing Panoramic Outdoor Jacuzzi -->
-            <rect x="480" y="156" width="148" height="148" rx="24" fill="#194B5A" stroke="#90E0EF" stroke-width="2.5"/>
-            <circle cx="554" cy="230" r="52" fill="#22677A" stroke="#CAF0F8" stroke-width="2"/>
-            <circle cx="534" cy="212" r="5" fill="#E0FBFC"/><circle cx="574" cy="212" r="5" fill="#E0FBFC"/>
-            <circle cx="534" cy="248" r="5" fill="#E0FBFC"/><circle cx="574" cy="248" r="5" fill="#E0FBFC"/>
-            <!-- 2 Sun Loungers -->
-            <rect x="486" y="104" width="56" height="22" rx="4" fill="#2B373D" stroke="#C5A059" stroke-width="1.3"/>
-            <rect x="562" y="104" width="56" height="22" rx="4" fill="#2B373D" stroke="#C5A059" stroke-width="1.3"/>
+            <rect x="478" y="102" width="150" height="92" rx="18" fill="#194B5A" stroke="#90E0EF" stroke-width="2.2"/>
+            <circle cx="553" cy="148" r="34" fill="#22677A" stroke="#CAF0F8" stroke-width="1.8"/>
+            <circle cx="536" cy="136" r="4" fill="#E0FBFC"/><circle cx="570" cy="136" r="4" fill="#E0FBFC"/>
+            <circle cx="536" cy="160" r="4" fill="#E0FBFC"/><circle cx="570" cy="160" r="4" fill="#E0FBFC"/>
+            <rect x="466" y="198" width="174" height="48" rx="6" fill="rgba(14,26,32,0.94)" stroke="#48CAE4" stroke-width="1.3"/>
+            <text x="553" y="218" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#E0FBFC">♨️ ${escXml(pack.toBeJacuzzi)}</text>
+            <text x="553" y="235" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.2" font-weight="500" fill="#90E0EF">${escXml(pack.toBeJacuzziSub)}</text>
 
-            <rect x="468" y="330" width="172" height="54" rx="6" fill="rgba(14,26,32,0.94)" stroke="#48CAE4" stroke-width="1.4"/>
-            <text x="554" y="353" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#E0FBFC">♨️ ${escXml(pack.toBeJacuzzi)}</text>
-            <text x="554" y="372" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.8" font-weight="500" fill="#90E0EF">${escXml(pack.toBeJacuzziSub)}</text>
+            <!-- 3. Full-Width Designer Outdoor Lounge & Fire Pit (Salotto da Esterno a Tutta Larghezza, Bottom) -->
+            <rect x="142" y="264" width="508" height="162" rx="6" fill="#212B30" stroke="#A3B1B8" stroke-width="1.8"/>
+            <!-- Full-width architectural sofa system spanning the terrace -->
+            <path d="M 164,280 H 628 V 312 H 204 V 368 H 164 Z" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
+            <rect x="588" y="312" width="40" height="56" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
+            <!-- Designer Brazier / Fire Pit & Low Lounge Tables in center -->
+            <rect x="256" y="326" width="96" height="30" rx="4" fill="#2A353B" stroke="#C5A059" stroke-width="1.5"/>
+            <circle cx="400" cy="341" r="20" fill="#3A241B" stroke="#FF784F" stroke-width="2"/>
+            <circle cx="400" cy="341" r="9" fill="#FF784F"/>
+            <rect x="448" y="326" width="96" height="30" rx="4" fill="#2A353B" stroke="#C5A059" stroke-width="1.5"/>
+            <rect x="256" y="378" width="280" height="36" rx="6" fill="rgba(16,23,26,0.92)" stroke="#A3B1B8" stroke-width="1.2"/>
+            <text x="396" y="401" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.8" font-weight="700" fill="#F5EFE6">🛋️ ${escXml(pack.toBeLounge)}</text>
           `;
         }
       } else if (slideKey === 'casa_pt') {
