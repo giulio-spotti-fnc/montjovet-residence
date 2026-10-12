@@ -3095,7 +3095,7 @@
                 <rect x="0" y="0" width="740" height="500" fill="url(#patSketchGrid)"/>
 
                 <!-- Hand-drawn Compass Rose (top-left, aligned with Google Maps North ~58° NE) -->
-                <g transform="translate(82, 68)" filter="url(#fpSketchInk)">
+                <g transform="translate(88, 46) scale(0.84)" filter="url(#fpSketchInk)">
                   <circle cx="0" cy="0" r="28" fill="rgba(255,252,245,0.88)" stroke="#6B5B4B" stroke-width="1.4"/>
                   <circle cx="0" cy="0" r="24" fill="none" stroke="rgba(107,91,75,0.28)" stroke-width="0.8" stroke-dasharray="2 2"/>
                   <!-- Rotated needle group matching Google Maps (~58° clockwise: N = top-right, S = bottom-left, E = bottom-right, W = top-left) -->
@@ -3118,20 +3118,37 @@
                 <!-- 1. CORTILE AUTO (2.5D Stone Paved Courtyard - Active on Piano 0) -->
                 <g id="mpBlock_courtyard" class="fp-master-block is-active" data-floors="0" onclick="selectFloorPlanLevel('0')">
                   <!-- 3D stone curb thickness -->
-                  <path d="M 52,242 L 52,248 L 328,248 L 328,365 L 434,365 L 434,246 L 524,246 L 524,240" fill="#A99E8E" filter="url(#fpSketchInk)"/>
-                  <!-- Main stone courtyard polygon -->
-                  <path d="M 148,22 L 336,22 L 336,208 L 524,208 L 524,242 L 434,242 L 434,360 L 328,360 L 328,242 L 52,242 L 52,182 L 148,182 Z"
+                  <path d="M 52,226 L 52,232 L 328,232 L 328,365 L 434,365 L 434,246 L 524,246 L 524,240" fill="#A99E8E" filter="url(#fpSketchInk)"/>
+                  <!-- Main stone courtyard polygon (stepped top + wide lane below Box auto) -->
+                  <path d="M 244,22 L 338,22 L 338,208 L 524,208 L 524,242 L 434,242 L 434,360 L 328,360 L 328,226 L 52,226 L 52,150 L 148,150 L 148,96 L 244,96 Z"
                         fill="url(#wcCourtyard)" stroke="#5C5248" stroke-width="2" stroke-linejoin="round" filter="url(#fpSketchInk)"/>
-                  <path d="M 148,22 L 336,22 L 336,208 L 524,208 L 524,242 L 434,242 L 434,360 L 328,360 L 328,242 L 52,242 L 52,182 L 148,182 Z"
+                  <path d="M 244,22 L 338,22 L 338,208 L 524,208 L 524,242 L 434,242 L 434,360 L 328,360 L 328,226 L 52,226 L 52,150 L 148,150 L 148,96 L 244,96 Z"
                         fill="url(#patCobble)" pointer-events="none"/>
-                  <!-- Hand-sketched car silhouette in the courtyard -->
-                  <g transform="translate(215, 52)" opacity="0.55" filter="url(#fpSketchInk)">
-                    <rect x="0" y="0" width="32" height="58" rx="9" fill="#FAF6EE" stroke="#5C5248" stroke-width="1.4"/>
-                    <rect x="4" y="12" width="24" height="28" rx="4" fill="#D8E0E5" stroke="#5C5248" stroke-width="1.1"/>
+
+                  <!-- 2 Hand-sketched cars parked in herringbone layout (a lisca di pesce) -->
+                  <g opacity="0.68" filter="url(#fpSketchInk)">
+                    <!-- Subtle herringbone parking stall guide lines -->
+                    <line x1="258" y1="68" x2="314" y2="28" stroke="rgba(92,82,72,0.32)" stroke-width="1.1" stroke-dasharray="3 3"/>
+                    <line x1="258" y1="112" x2="314" y2="72" stroke="rgba(92,82,72,0.32)" stroke-width="1.1" stroke-dasharray="3 3"/>
+                    <!-- Car 1 (angled a lisca di pesce) -->
+                    <g transform="translate(292, 62) rotate(-52)">
+                      <rect x="-13" y="-25" width="26" height="50" rx="8" fill="#FAF6EE" stroke="#5C5248" stroke-width="1.4"/>
+                      <rect x="-10" y="-14" width="20" height="24" rx="3.5" fill="#D5DFE4" stroke="#5C5248" stroke-width="1.1"/>
+                      <line x1="-10" y1="-5" x2="10" y2="-5" stroke="#5C5248" stroke-width="0.9"/>
+                      <line x1="-10" y1="5" x2="10" y2="5" stroke="#5C5248" stroke-width="0.9"/>
+                    </g>
+                    <!-- Car 2 (angled a lisca di pesce, parallel below Car 1) -->
+                    <g transform="translate(292, 106) rotate(-52)">
+                      <rect x="-13" y="-25" width="26" height="50" rx="8" fill="#EFE9DC" stroke="#5C5248" stroke-width="1.4"/>
+                      <rect x="-10" y="-14" width="20" height="24" rx="3.5" fill="#CED8DE" stroke="#5C5248" stroke-width="1.1"/>
+                      <line x1="-10" y1="-5" x2="10" y2="-5" stroke="#5C5248" stroke-width="0.9"/>
+                      <line x1="-10" y1="5" x2="10" y2="5" stroke="#5C5248" stroke-width="0.9"/>
+                    </g>
                   </g>
-                  <foreignObject x="148" y="108" width="184" height="72">
+
+                  <foreignObject x="154" y="148" width="174" height="64">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:3px;">
-                      <span style="background:rgba(252,249,242,0.88);border:1px solid rgba(92,82,72,0.3);padding:3px 10px;border-radius:12px;font-size:11.5px;font-weight:700;color:#3A312A;box-shadow:0 2px 5px rgba(0,0,0,0.06);" data-i18n="fp_lbl_courtyard">Cortile auto</span>
+                      <span style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,82,72,0.32);padding:3px 11px;border-radius:12px;font-size:11.5px;font-weight:700;color:#3A312A;box-shadow:0 2px 5px rgba(0,0,0,0.06);" data-i18n="fp_lbl_courtyard">Cortile auto</span>
                     </div>
                   </foreignObject>
                 </g>
@@ -3139,13 +3156,13 @@
                 <!-- 2. BOX AUTO (2.5D Slate Garage Volume - Active on Piano 0) -->
                 <g id="mpBlock_garage" class="fp-master-block is-active" data-floors="0" onclick="selectFloorPlanLevel('0')" filter="url(#fpVolShadow)">
                   <!-- 3D South & East Walls -->
-                  <polygon points="52,182 148,182 155,190 59,190" fill="#4E555A" stroke="#363B3F" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <polygon points="148,128 155,136 155,190 148,182" fill="#3E4448" stroke="#363B3F" stroke-width="1.5" filter="url(#fpSketchInk)"/>
+                  <polygon points="52,150 148,150 155,158 59,158" fill="#4E555A" stroke="#363B3F" stroke-width="1.5" filter="url(#fpSketchInk)"/>
+                  <polygon points="148,96 155,104 155,158 148,150" fill="#3E4448" stroke="#363B3F" stroke-width="1.5" filter="url(#fpSketchInk)"/>
                   <!-- Roof top -->
-                  <rect x="52" y="128" width="96" height="54" rx="3" fill="url(#wcGarage)" stroke="#363B3F" stroke-width="2" filter="url(#fpSketchInk)"/>
+                  <rect x="52" y="96" width="96" height="54" rx="3" fill="url(#wcGarage)" stroke="#363B3F" stroke-width="2" filter="url(#fpSketchInk)"/>
                   <!-- Pitched roof ridge line -->
-                  <line x1="56" y1="155" x2="144" y2="155" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-dasharray="4 2" filter="url(#fpSketchInk)"/>
-                  <foreignObject x="54" y="132" width="92" height="46">
+                  <line x1="56" y1="123" x2="144" y2="123" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-dasharray="4 2" filter="url(#fpSketchInk)"/>
+                  <foreignObject x="54" y="100" width="92" height="46">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;font-family:'Montserrat',sans-serif;padding:2px;text-shadow:0 1px 2px rgba(0,0,0,0.5);">
                       <span style="font-size:11px;font-weight:700;line-height:1.15;" data-i18n="fp_lbl_garage">Box auto</span>
                     </div>
