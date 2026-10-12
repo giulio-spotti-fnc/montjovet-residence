@@ -2019,7 +2019,7 @@
     /* INTERACTIVE ARCHITECTURAL FLOOR PLAN & MASTERPLAN EXPLORER (2.5D SKETCH STYLE) */
     .floorplan-explorer {
       max-width: 980px;
-      margin: 2.8rem auto 0;
+      margin: 0 auto;
       background: #FCF9F2;
       border-radius: 14px;
       border: 1px solid rgba(176, 141, 87, 0.32);
@@ -2993,103 +2993,8 @@
       </div>
     </section>
 
-    <!-- REDESIGNED PROJECTS & INTERACTIVE BEFORE/AFTER SECTION -->
-    <section id="projects" class="projects-section">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="tag_projects">Visione & Sviluppo</span>
-        <h2 data-i18n="projects_title">Progetti & Idee di Sviluppo</h2>
-        <p data-i18n="projects_desc">
-          Scorri il cursore verticale sulle immagini per confrontare lo stato attuale con i rendering di progetto: restyling degli esterni, SPA privata nella stalla voltata e soluzioni flessibili di suddivisione.
-        </p>
-      </div>
-
-      <div class="projects-grid">
-        <!-- 1. Proposta Esterno (Interactive Before/After inline + Modal) -->
-        <div class="project-card">
-          <div class="project-media">
-            <div class="ba-slider">
-              <img src="images/project-ext-2.jpg" alt="Dopo: Rendering facciata e giardino" class="ba-img-after" loading="lazy">
-              <img src="images/garden-front.jpg" alt="Prima: Facciata e giardino attuali" class="ba-img-before" loading="lazy">
-              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
-              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
-              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
-              <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 data-i18n="proj_ext_title">Restyling Facciata & Giardino</h3>
-            <p data-i18n="proj_ext_desc">
-              Valorizzazione cromatica della facciata, tetto in lose, persiane in legno naturale e cura paesaggistica della corte.
-            </p>
-          </div>
-          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('ext')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('ext');}">
-            <span data-i18n="proj_click_gallery">✨ Scopri tutti i rendering Prima / Dopo &rarr;</span>
-            <span data-i18n="proj_photos_count">📸 2 viste HD</span>
-          </div>
-        </div>
-
-        <!-- 2. Proposta SPA nella Stalla Voltata (Interactive Before/After inline + Modal) -->
-        <div class="project-card">
-          <div class="project-media">
-            <div class="ba-slider">
-              <img src="images/project-spa-1.jpg" alt="Dopo: Rendering SPA nella stalla voltata" class="ba-img-after" loading="lazy">
-              <img src="images/stables-vault.jpg" alt="Prima: Stalla voltata attuale" class="ba-img-before" loading="lazy">
-              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
-              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
-              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
-              <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 data-i18n="proj_spa_title">SPA Privata nella Stalla</h3>
-            <p data-i18n="proj_spa_desc">
-              Esclusivo centro benessere ricavato nelle volte in pietra della stalla attorno alla colonna monolitica.
-            </p>
-          </div>
-          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spa')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spa');}">
-            <span data-i18n="proj_click_gallery">✨ Scopri tutti i rendering Prima / Dopo &rarr;</span>
-            <span data-i18n="proj_photos_count">📸 2 viste HD</span>
-          </div>
-        </div>
-
-        <!-- 3. Suddivisione Spazi Abitativi (Interactive Architectural Before/After inline + 4-Slide Modal) -->
-        <div class="project-card">
-          <div class="project-media">
-            <div class="ba-slider is-arch-plan" id="spacesCardBaSlider">
-              <img id="spacesCardAfterImg" src="" alt="Dopo: Progetto Architettonico To-Be" class="ba-img-after">
-              <img id="spacesCardBeforeImg" src="" alt="Prima: Pianta Attuale As-Is" class="ba-img-before">
-              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
-              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
-              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
-              <input type="range" id="spacesCardRange" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
-              <div class="spaces-ba-tabs" role="tablist" aria-label="Esempi di sviluppo spazi">
-                <button type="button" class="spaces-ba-tab active" data-space-idx="0" onclick="selectSpacesCardSlide(0, event)" data-i18n="sp_tab_stalla">1. Stalla</button>
-                <button type="button" class="spaces-ba-tab" data-space-idx="1" onclick="selectSpacesCardSlide(1, event)" data-i18n="sp_tab_dep">2. Dépendance</button>
-                <button type="button" class="spaces-ba-tab" data-space-idx="2" onclick="selectSpacesCardSlide(2, event)" data-i18n="sp_tab_terr">3. Terrazzo</button>
-                <button type="button" class="spaces-ba-tab" data-space-idx="3" onclick="selectSpacesCardSlide(3, event)" data-i18n="sp_tab_casa">4. Casa PT</button>
-              </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 data-i18n="proj_layout_title">Sviluppo & Divisione Spazi</h3>
-            <p data-i18n="proj_layout_desc">
-              Confronta lo stato attuale (As-Is) con i progetti To-Be da architetto: SPA nella stalla, bilocale in dépendance, terrazzo con gazebo &amp; jacuzzi e suites al Piano 0.
-            </p>
-          </div>
-          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spaces', currentSpacesCardIdx)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spaces', currentSpacesCardIdx);}">
-            <span data-i18n="proj_click_spaces">✨ Scopri i 4 progetti As-Is / To-Be &rarr;</span>
-            <span data-i18n="proj_spaces_count">📐 4 tavole CAD</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="mobile-carousel-controls" id="projectsCarouselControls">
-        <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('projects', -1)" aria-label="Precedente">&#10094;</button>
-        <div class="mob-carousel-dots" id="projectsCarouselDots"></div>
-        <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('projects', 1)" aria-label="Successiva">&#10095;</button>
-      </div>
-
-      <!-- INTERACTIVE ARCHITECTURAL FLOOR PLAN & MASTERPLAN EXPLORER (AS-IS 2.5D SKETCH STYLE) -->
+    <!-- INTERACTIVE ARCHITECTURAL FLOOR PLAN & MASTERPLAN EXPLORER (AS-IS 2.5D SKETCH STYLE) -->
+    <section id="floorplan" class="projects-section" style="padding-bottom: 1.5rem;">
       <div id="floorplanExplorer" class="floorplan-explorer" aria-label="Interactive Floor Plan">
         <!-- Dark Slate Header + Floor Selector (AS-IS) -->
         <div class="fp-header">
@@ -3868,6 +3773,103 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- REDESIGNED PROJECTS & INTERACTIVE BEFORE/AFTER SECTION -->
+    <section id="projects" class="projects-section" style="padding-top: 2.5rem;">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="tag_projects">Visione & Sviluppo</span>
+        <h2 data-i18n="projects_title">Progetti & Idee di Sviluppo</h2>
+        <p data-i18n="projects_desc">
+          Scorri il cursore verticale sulle immagini per confrontare lo stato attuale con i rendering di progetto: restyling degli esterni, SPA privata nella stalla voltata e soluzioni flessibili di suddivisione.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- 1. Proposta Esterno (Interactive Before/After inline + Modal) -->
+        <div class="project-card">
+          <div class="project-media">
+            <div class="ba-slider">
+              <img src="images/project-ext-2.jpg" alt="Dopo: Rendering facciata e giardino" class="ba-img-after" loading="lazy">
+              <img src="images/garden-front.jpg" alt="Prima: Facciata e giardino attuali" class="ba-img-before" loading="lazy">
+              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
+              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
+              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
+              <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 data-i18n="proj_ext_title">Restyling Facciata & Giardino</h3>
+            <p data-i18n="proj_ext_desc">
+              Valorizzazione cromatica della facciata, tetto in lose, persiane in legno naturale e cura paesaggistica della corte.
+            </p>
+          </div>
+          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('ext')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('ext');}">
+            <span data-i18n="proj_click_gallery">✨ Scopri tutti i rendering Prima / Dopo &rarr;</span>
+            <span data-i18n="proj_photos_count">📸 2 viste HD</span>
+          </div>
+        </div>
+
+        <!-- 2. Proposta SPA nella Stalla Voltata (Interactive Before/After inline + Modal) -->
+        <div class="project-card">
+          <div class="project-media">
+            <div class="ba-slider">
+              <img src="images/project-spa-1.jpg" alt="Dopo: Rendering SPA nella stalla voltata" class="ba-img-after" loading="lazy">
+              <img src="images/stables-vault.jpg" alt="Prima: Stalla voltata attuale" class="ba-img-before" loading="lazy">
+              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
+              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
+              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
+              <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 data-i18n="proj_spa_title">SPA Privata nella Stalla</h3>
+            <p data-i18n="proj_spa_desc">
+              Esclusivo centro benessere ricavato nelle volte in pietra della stalla attorno alla colonna monolitica.
+            </p>
+          </div>
+          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spa')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spa');}">
+            <span data-i18n="proj_click_gallery">✨ Scopri tutti i rendering Prima / Dopo &rarr;</span>
+            <span data-i18n="proj_photos_count">📸 2 viste HD</span>
+          </div>
+        </div>
+
+        <!-- 3. Suddivisione Spazi Abitativi (Interactive Architectural Before/After inline + 4-Slide Modal) -->
+        <div class="project-card">
+          <div class="project-media">
+            <div class="ba-slider is-arch-plan" id="spacesCardBaSlider">
+              <img id="spacesCardAfterImg" src="" alt="Dopo: Progetto Architettonico To-Be" class="ba-img-after">
+              <img id="spacesCardBeforeImg" src="" alt="Prima: Pianta Attuale As-Is" class="ba-img-before">
+              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
+              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
+              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
+              <input type="range" id="spacesCardRange" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
+              <div class="spaces-ba-tabs" role="tablist" aria-label="Esempi di sviluppo spazi">
+                <button type="button" class="spaces-ba-tab active" data-space-idx="0" onclick="selectSpacesCardSlide(0, event)" data-i18n="sp_tab_stalla">1. Stalla</button>
+                <button type="button" class="spaces-ba-tab" data-space-idx="1" onclick="selectSpacesCardSlide(1, event)" data-i18n="sp_tab_dep">2. Dépendance</button>
+                <button type="button" class="spaces-ba-tab" data-space-idx="2" onclick="selectSpacesCardSlide(2, event)" data-i18n="sp_tab_terr">3. Terrazzo</button>
+                <button type="button" class="spaces-ba-tab" data-space-idx="3" onclick="selectSpacesCardSlide(3, event)" data-i18n="sp_tab_casa">4. Casa PT</button>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 data-i18n="proj_layout_title">Sviluppo & Divisione Spazi</h3>
+            <p data-i18n="proj_layout_desc">
+              Confronta lo stato attuale (As-Is) con i progetti To-Be da architetto: SPA nella stalla, bilocale in dépendance, terrazzo con gazebo &amp; jacuzzi e suites al Piano 0.
+            </p>
+          </div>
+          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spaces', currentSpacesCardIdx)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spaces', currentSpacesCardIdx);}">
+            <span data-i18n="proj_click_spaces">✨ Scopri i 4 progetti As-Is / To-Be &rarr;</span>
+            <span data-i18n="proj_spaces_count">📐 4 tavole CAD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-carousel-controls" id="projectsCarouselControls">
+        <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('projects', -1)" aria-label="Precedente">&#10094;</button>
+        <div class="mob-carousel-dots" id="projectsCarouselDots"></div>
+        <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('projects', 1)" aria-label="Successiva">&#10095;</button>
       </div>
     </section>
 
