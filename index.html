@@ -1392,6 +1392,50 @@
     }
 
     /* PROJECT MODAL BEFORE/AFTER & OVERLAY ARROWS */
+    .ba-slider.is-arch-plan {
+      background: #141C1F;
+    }
+    .ba-slider.is-arch-plan img {
+      object-fit: contain;
+    }
+    .spaces-ba-tabs {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 6;
+      display: flex;
+      gap: 4px;
+      background: rgba(15, 22, 24, 0.86);
+      padding: 4px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(198, 163, 104, 0.45);
+      backdrop-filter: blur(8px);
+      max-width: 96%;
+      overflow-x: auto;
+    }
+    .spaces-ba-tab {
+      background: transparent;
+      border: none;
+      color: rgba(250, 246, 238, 0.78);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .spaces-ba-tab:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .spaces-ba-tab.active {
+      background: linear-gradient(135deg, #C6A368 0%, #9E7B46 100%);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
     .project-modal-wrapper {
       position: relative;
       width: min(86vw, 660px);
@@ -1401,6 +1445,11 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.7);
       border: 1px solid rgba(255,255,255,0.15);
       background: #121816;
+    }
+    .project-modal-wrapper.is-arch-modal {
+      width: min(94vw, 940px);
+      height: min(85vh, 660px);
+      background: #141C1F;
     }
     .modal-overlay-arrow {
       position: absolute;
@@ -3009,44 +3058,37 @@
           </div>
         </div>
 
-        <!-- 3. Suddivisione Spazi Abitativi (Visual Infographic Card) -->
+        <!-- 3. Suddivisione Spazi Abitativi (Interactive Architectural Before/After inline + 4-Slide Modal) -->
         <div class="project-card">
-          <div class="project-media layout-visual">
-            <div class="layout-option-box">
-              <div class="layout-opt-icon" aria-hidden="true">🏰</div>
-              <div class="layout-opt-text">
-                <h4 data-i18n="layout_opt1_title">Dimora Padronale + Dépendance</h4>
-                <span data-i18n="layout_opt1_sub">Unica grande residenza >300 m² con dépendance o casa del custode</span>
-              </div>
-            </div>
-            <div class="layout-option-box">
-              <div class="layout-opt-icon" aria-hidden="true">🔑</div>
-              <div class="layout-opt-text">
-                <h4 data-i18n="layout_opt2_title">Due o Più Appartamenti</h4>
-                <span data-i18n="layout_opt2_sub">Frazionamento flessibile in 2+ unità autonome per famiglie o reddito</span>
-              </div>
-            </div>
-            <div class="layout-option-box">
-              <div class="layout-opt-icon" aria-hidden="true">🍷</div>
-              <div class="layout-opt-text">
-                <h4 data-i18n="layout_opt3_title">Cantina Storica da Degustazione</h4>
-                <span data-i18n="layout_opt3_sub">Volte con botti d'epoca dedicate a vini e carnotzet conviviale</span>
+          <div class="project-media">
+            <div class="ba-slider is-arch-plan" id="spacesCardBaSlider">
+              <img id="spacesCardAfterImg" src="" alt="Dopo: Progetto Architettonico To-Be" class="ba-img-after">
+              <img id="spacesCardBeforeImg" src="" alt="Prima: Pianta Attuale As-Is" class="ba-img-before">
+              <span class="ba-label before" data-i18n="ba_before">Attuale</span>
+              <span class="ba-label after" data-i18n="ba_after">Progetto</span>
+              <div class="ba-divider"><div class="ba-handle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div></div>
+              <input type="range" id="spacesCardRange" min="0" max="100" value="50" class="ba-range" aria-label="Before After Slider" oninput="updateBaSlider(this)">
+              <div class="spaces-ba-tabs" role="tablist" aria-label="Esempi di sviluppo spazi">
+                <button type="button" class="spaces-ba-tab active" data-space-idx="0" onclick="selectSpacesCardSlide(0, event)" data-i18n="sp_tab_stalla">1. Stalla</button>
+                <button type="button" class="spaces-ba-tab" data-space-idx="1" onclick="selectSpacesCardSlide(1, event)" data-i18n="sp_tab_dep">2. Dépendance</button>
+                <button type="button" class="spaces-ba-tab" data-space-idx="2" onclick="selectSpacesCardSlide(2, event)" data-i18n="sp_tab_terr">3. Terrazzo</button>
+                <button type="button" class="spaces-ba-tab" data-space-idx="3" onclick="selectSpacesCardSlide(3, event)" data-i18n="sp_tab_casa">4. Casa PT</button>
               </div>
             </div>
           </div>
           <div class="project-body">
             <div class="project-header-row">
               <span class="project-badge">📐 <span data-i18n="proj_layout_badge">Flessibilità Spazi</span></span>
-              <span class="coming-soon-ribbon" style="background: rgba(176, 141, 87, 0.18); color: var(--accent-hover); border-color: rgba(176, 141, 87, 0.45);" data-i18n="cs_ribbon">✦ Interattivo</span>
+              <span class="coming-soon-ribbon" style="background: rgba(176, 141, 87, 0.18); color: var(--accent-hover); border-color: rgba(176, 141, 87, 0.45);" data-i18n="cs_ribbon">✦ Before / After</span>
             </div>
             <h3 data-i18n="proj_layout_title">Sviluppo & Divisione Spazi</h3>
             <p data-i18n="proj_layout_desc">
-              Massima libertà progettuale grazie a doppi accessi, oltre 300 m² su più livelli e > 1.000 m² di corte e giardini.
+              Confronta lo stato attuale (As-Is) con i progetti To-Be da architetto: SPA nella stalla, bilocale in dépendance, terrazzo con gazebo &amp; jacuzzi e suites al Piano 0.
             </p>
           </div>
-          <div class="project-footer" role="button" tabindex="0" onclick="document.getElementById('floorplanExplorer').scrollIntoView({behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('floorplanExplorer').scrollIntoView({behavior:'smooth'});}">
-            <span data-i18n="proj_plans">🗺️ Esplora la planimetria interattiva &darr;</span>
-            <span aria-hidden="true">3D / 2.5D</span>
+          <div class="project-footer" role="button" tabindex="0" onclick="openProjectGallery('spaces', currentSpacesCardIdx)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectGallery('spaces', currentSpacesCardIdx);}">
+            <span data-i18n="proj_click_spaces">✨ Scopri i 4 progetti As-Is / To-Be &rarr;</span>
+            <span data-i18n="proj_spaces_count">📐 4 tavole CAD</span>
           </div>
         </div>
       </div>
@@ -3057,9 +3099,9 @@
         <button type="button" class="mob-carousel-arrow" onclick="stepMobileCarousel('projects', 1)" aria-label="Successiva">&#10095;</button>
       </div>
 
-      <!-- INTERACTIVE ARCHITECTURAL FLOOR PLAN & MASTERPLAN EXPLORER (2.5D SKETCH STYLE) -->
+      <!-- INTERACTIVE ARCHITECTURAL FLOOR PLAN & MASTERPLAN EXPLORER (AS-IS 2.5D SKETCH STYLE) -->
       <div id="floorplanExplorer" class="floorplan-explorer" aria-label="Interactive Floor Plan">
-        <!-- Dark Slate Header + Floor Selector (kept as requested) -->
+        <!-- Dark Slate Header + Floor Selector (AS-IS) -->
         <div class="fp-header">
           <div class="fp-header-text">
             <h3 data-i18n="fp_title">Esplora la Proprietà Livello per Livello</h3>
@@ -3081,36 +3123,6 @@
               <span class="fp-lvl-num" data-i18n="fp_tab_2">Piano 2</span>
               <span class="fp-lvl-sub" data-i18n="fp_tab_2_sub">2° Piano Notte</span>
             </button>
-          </div>
-        </div>
-
-        <!-- Architectural Renovation Concepts & Zone Switcher Bar -->
-        <div class="fp-concept-bar">
-          <div class="fp-concept-row">
-            <div class="fp-concept-pills" role="tablist" aria-label="Ipotesi di progetto architettonico">
-              <span class="fp-concept-label" data-i18n="fp_concept_lbl">Tavola Progetto:</span>
-              <button type="button" class="fp-concept-btn active" id="fpConcept_current" onclick="setFloorPlanConcept('current')">
-                <span>🏛️</span> <span data-i18n="fp_concept_curr">Stato Attuale</span>
-              </button>
-              <button type="button" class="fp-concept-btn" id="fpConcept_opt_a" onclick="setFloorPlanConcept('opt_a')">
-                <span>🔑</span> <span data-i18n="fp_concept_a">4.a • 3 Appartamenti + Dépendance</span>
-              </button>
-              <button type="button" class="fp-concept-btn" id="fpConcept_opt_b" onclick="setFloorPlanConcept('opt_b')">
-                <span>🏰</span> <span data-i18n="fp_concept_b">4.b • Grande Villa Unifamiliare</span>
-              </button>
-              <button type="button" class="fp-concept-btn" id="fpConcept_opt_c" onclick="setFloorPlanConcept('opt_c')">
-                <span>✨</span> <span data-i18n="fp_concept_c">4.c • Relais Charme &amp; Duplex</span>
-              </button>
-            </div>
-            <div class="fp-zone-pills" role="group" aria-label="Vista planimetrica">
-              <button type="button" class="fp-zone-pill active" id="fpZone_master" onclick="setFloorPlanViewMode('master')" data-i18n="fp_zone_master">🗺️ Complesso</button>
-              <button type="button" class="fp-zone-pill" id="fpZone_house" onclick="setFloorPlanViewMode('house')" data-i18n="fp_zone_house">🏠 Casa Principale</button>
-              <button type="button" class="fp-zone-pill" id="fpZone_annex" onclick="setFloorPlanViewMode('annex')" data-i18n="fp_zone_annex">🏛️ Stalla SPA, Dépendance &amp; Terrazzi</button>
-            </div>
-          </div>
-          <div class="fp-arch-note" id="fpArchNote">
-            <strong id="fpArchNoteTag" data-i18n="fp_note_tag">Nota dell'Architetto:</strong>
-            <span id="fpArchNoteText">Seleziona un'ipotesi progettuale (4.a, 4.b, 4.c) o clicca su Casa Principale, Stalla e Dépendance per esplorare i disegni di ristrutturazione.</span>
           </div>
         </div>
 
@@ -3262,8 +3274,8 @@
                   </foreignObject>
                 </g>
 
-                <!-- 3. STALLA (Piano 0: 2 Colonne SE-NW & SPA) / TERRAZZO PRINCIPALE (Piano 1: Gazebo, BBQ, Lounge) -->
-                <g id="mpBlock_stable" class="fp-master-block is-active" data-floors="0,1" onclick="setFloorPlanViewMode('annex')" filter="url(#fpVolShadow)">
+                <!-- 3. STALLA (Piano 0) / TERRAZZO PRINCIPALE (Piano 1) — Clean AS-IS -->
+                <g id="mpBlock_stable" class="fp-master-block is-active" data-floors="0,1" onclick="selectFloorPlanLevel('0')" filter="url(#fpVolShadow)">
                   <!-- 3D South Wall with sketched stone arch -->
                   <polygon points="338,206 524,206 534,218 348,218" fill="#9B8263" stroke="#4E3F2E" stroke-width="1.6" filter="url(#fpSketchInk)"/>
                   <path d="M 415,218 Q 431,207 447,218" fill="#5E4B36" stroke="#3E3022" stroke-width="1.2" filter="url(#fpSketchInk)"/>
@@ -3272,70 +3284,23 @@
                   <!-- Top Surface (Vaulted Stable / Panoramic Terrace) -->
                   <rect x="338" y="22" width="186" height="184" rx="4" fill="url(#wcStable)" stroke="#4E3F2E" stroke-width="2.2" filter="url(#fpSketchInk)"/>
                   <rect x="346" y="30" width="170" height="168" rx="2" fill="none" stroke="rgba(78,63,46,0.35)" stroke-width="1.3" stroke-dasharray="5 3" filter="url(#fpSketchInk)"/>
-
-                  <!-- PIANO 0 OVERLAY: 2 Monolithic Columns parallel to vertical wall + Vertical Kneipp + Left Entrance -->
-                  <g id="mpStableSketch_0" filter="url(#fpSketchInk)">
-                    <!-- Cross-vault ribs converging on the 2 vertically aligned columns -->
-                    <line x1="346" y1="30" x2="438" y2="80" stroke="rgba(78,63,46,0.22)" stroke-width="1.1" stroke-dasharray="3 2"/>
-                    <line x1="516" y1="30" x2="438" y2="80" stroke="rgba(78,63,46,0.22)" stroke-width="1.1" stroke-dasharray="3 2"/>
-                    <line x1="438" y1="80" x2="438" y2="148" stroke="rgba(184,59,43,0.45)" stroke-width="1.4" stroke-dasharray="3 2"/>
-                    <line x1="346" y1="198" x2="438" y2="148" stroke="rgba(78,63,46,0.22)" stroke-width="1.1" stroke-dasharray="3 2"/>
-                    <line x1="516" y1="198" x2="438" y2="148" stroke="rgba(78,63,46,0.22)" stroke-width="1.1" stroke-dasharray="3 2"/>
-                    <!-- Sketched SPA zones (Sauna top-left, Jacuzzi top-right, Vertical Kneipp, Spogliatoio bottom-left, Entrance middle-left) -->
-                    <rect x="350" y="34" width="42" height="36" rx="2" fill="rgba(216,155,104,0.42)" stroke="rgba(92,58,33,0.45)" stroke-width="1"/>
-                    <rect x="466" y="34" width="46" height="44" rx="8" fill="rgba(162,206,214,0.52)" stroke="rgba(45,95,105,0.45)" stroke-width="1.1"/>
-                    <path d="M 412,86 C 408,104 416,124 412,144" fill="none" stroke="rgba(72,135,150,0.6)" stroke-width="5" stroke-linecap="round"/>
-                    <rect x="350" y="156" width="48" height="38" rx="2" fill="rgba(235,225,208,0.55)" stroke="rgba(92,73,56,0.4)" stroke-width="1"/>
-                    <!-- Entrance arrow on left wall -->
-                    <path d="M 332,114 L 352,114 M 352,114 L 347,110 M 352,114 L 347,118" stroke="#8C3B2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <!-- The 2 Monolithic Columns parallel to vertical walls -->
-                    <circle cx="438" cy="80" r="7.5" fill="#EDE5D8" stroke="#4A3B2C" stroke-width="1.8"/>
-                    <circle cx="438" cy="80" r="4" fill="#C4B5A2"/>
-                    <circle cx="438" cy="148" r="7.5" fill="#EDE5D8" stroke="#4A3B2C" stroke-width="1.8"/>
-                    <circle cx="438" cy="148" r="4" fill="#C4B5A2"/>
-                  </g>
-
-                  <!-- PIANO 1 OVERLAY: Main Terrace with Gazebo, Outdoor Kitchen/BBQ & Lounge (shown on Level 1) -->
-                  <g id="mpStableSketch_1" style="display:none;" filter="url(#fpSketchInk)">
-                    <!-- Gazebo / Pergola top-left with dining table -->
-                    <rect x="352" y="36" width="76" height="68" rx="3" fill="rgba(252,248,238,0.55)" stroke="#6B5335" stroke-width="1.4" stroke-dasharray="4 2"/>
-                    <line x1="352" y1="36" x2="428" y2="104" stroke="rgba(107,83,53,0.25)" stroke-width="1"/>
-                    <line x1="428" y1="36" x2="352" y2="104" stroke="rgba(107,83,53,0.25)" stroke-width="1"/>
-                    <circle cx="390" cy="70" r="16" fill="#E6CEA8" stroke="#5C4328" stroke-width="1.2"/>
-                    <!-- Outdoor Kitchen & BBQ top-right -->
-                    <rect x="448" y="34" width="64" height="24" rx="2" fill="#C4B6A6" stroke="#4E4236" stroke-width="1.3"/>
-                    <circle cx="464" cy="46" r="5" fill="#5A3828"/>
-                    <rect x="482" y="39" width="22" height="14" rx="1" fill="#DFEAEB" stroke="#4E4236" stroke-width="0.9"/>
-                    <!-- L-Shaped Outdoor Lounge bottom-right -->
-                    <path d="M 454,142 H 508 V 190 H 490 V 158 H 454 Z" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.2"/>
-                    <rect x="464" y="166" width="20" height="16" rx="2" fill="#D5B088" stroke="#5C4028" stroke-width="1"/>
-                  </g>
-
-                  <foreignObject x="344" y="62" width="174" height="106">
+                  <foreignObject x="348" y="68" width="166" height="92">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
-                      <span id="mpStableLabel" style="background:rgba(252,249,242,0.92);border:1px solid rgba(78,63,46,0.35);padding:3px 11px;border-radius:12px;font-size:12px;font-weight:700;color:#382C1E;box-shadow:0 2px 6px rgba(0,0,0,0.08);" data-i18n="fp_lbl_stable">Stalla</span>
-                      <span id="mpStableSub" style="font-size:9.5px;font-weight:700;color:#FFF9F2;margin-top:5px;background:rgba(78,56,34,0.84);padding:2px 8px;border-radius:8px;" data-i18n="fp_see_annex">🔍 Progetto SPA &amp; Terrazzi &rarr;</span>
+                      <span id="mpStableLabel" style="background:rgba(252,249,242,0.92);border:1px solid rgba(78,63,46,0.35);padding:4px 12px;border-radius:12px;font-size:12px;font-weight:700;color:#382C1E;box-shadow:0 2px 6px rgba(0,0,0,0.08);" data-i18n="fp_lbl_stable">Stalla</span>
                     </div>
                   </foreignObject>
                 </g>
 
-                <!-- 4. DÉPENDANCE (Piano 0: Bilocale con 2 Archi SW) / SECONDO TERRAZZO (Piano 1: Lounge & Solarium) -->
-                <g id="mpBlock_dependance" class="fp-master-block is-active" data-floors="0,1" onclick="setFloorPlanViewMode('annex')" filter="url(#fpVolShadow)">
+                <!-- 4. DÉPENDANCE (Piano 0) / SECONDO TERRAZZO (Piano 1) — Clean AS-IS -->
+                <g id="mpBlock_dependance" class="fp-master-block is-active" data-floors="0,1" onclick="selectFloorPlanLevel('0')" filter="url(#fpVolShadow)">
                   <!-- 3D South & East Walls -->
                   <polygon points="434,360 524,360 533,370 443,370" fill="#B59663" stroke="#5A4628" stroke-width="1.5" filter="url(#fpSketchInk)"/>
                   <polygon points="524,242 533,252 533,370 524,360" fill="#9E8050" stroke="#5A4628" stroke-width="1.5" filter="url(#fpSketchInk)"/>
                   <!-- Top surface -->
                   <rect x="434" y="242" width="90" height="118" rx="4" fill="url(#wcDep)" stroke="#5A4628" stroke-width="2" filter="url(#fpSketchInk)"/>
-                  <!-- 2 Wide Glazed Arches on the SW Wall (x=434) -->
-                  <path d="M 434,252 Q 442,272 434,294" fill="rgba(168,212,224,0.75)" stroke="#2F5A68" stroke-width="2.2" filter="url(#fpSketchInk)"/>
-                  <path d="M 434,306 Q 442,326 434,348" fill="rgba(168,212,224,0.75)" stroke="#2F5A68" stroke-width="2.2" filter="url(#fpSketchInk)"/>
-                  <!-- Internal Bilocale partitions preview -->
-                  <line x1="436" y1="300" x2="522" y2="300" stroke="rgba(90,70,40,0.45)" stroke-width="1.4" stroke-dasharray="3 2" filter="url(#fpSketchInk)"/>
-                  <line x1="488" y1="244" x2="488" y2="300" stroke="rgba(90,70,40,0.45)" stroke-width="1.4" stroke-dasharray="3 2" filter="url(#fpSketchInk)"/>
-                  <foreignObject x="436" y="260" width="86" height="84">
+                  <foreignObject x="436" y="264" width="86" height="74">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:2px;">
-                      <span id="mpDepLabel" style="background:rgba(252,249,242,0.92);border:1px solid rgba(90,70,40,0.3);padding:3px 6px;border-radius:8px;font-size:10px;font-weight:700;color:#382C1E;line-height:1.15;" data-i18n="fp_lbl_dependance">Dépendance</span>
-                      <span style="font-size:8.5px;font-weight:700;color:#2F5A68;background:rgba(252,249,242,0.88);padding:1px 5px;border-radius:6px;margin-top:3px;" data-i18n="fp_sub_dep_arches">2 Archi SW • Bilocale</span>
+                      <span id="mpDepLabel" style="background:rgba(252,249,242,0.92);border:1px solid rgba(90,70,40,0.3);padding:3px 7px;border-radius:8px;font-size:10.5px;font-weight:700;color:#382C1E;line-height:1.15;" data-i18n="fp_lbl_dependance">Dépendance</span>
                     </div>
                   </foreignObject>
                 </g>
@@ -3672,26 +3637,6 @@
                     </foreignObject>
                   </g>
 
-                  <!-- ARCHITECTURAL OVERLAYS PIANO 0: OPT_A (Monolocale al posto della Sala Camino + Bilocale Ovest) & OPT_C (2 Suites + Lounge) -->
-                  <g class="fp-concept-layer" data-concepts="opt_a,opt_c" style="display:none;" pointer-events="none">
-                    <!-- En-suite Bath + Kitchenette Partition inside East Wing (Monolocale / Suite Cervino) -->
-                    <rect x="532" y="284" width="100" height="72" rx="2" fill="#D2E2E4" stroke="#5C4938" stroke-width="1.8" stroke-dasharray="4 2" filter="url(#fpSketchInk)"/>
-                    <rect x="536" y="74" width="60" height="20" rx="2" fill="#D5E2D4" stroke="#486339" stroke-width="1.3" filter="url(#fpSketchInk)"/>
-                    <rect x="546" y="106" width="52" height="44" rx="4" fill="rgba(250,246,238,0.6)" stroke="#5C4938" stroke-width="1.2" filter="url(#fpSketchInk)"/>
-                    <text x="582" y="324" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="9.5" font-weight="700" fill="#233D42">Bagno Privato</text>
-                  </g>
-
-                  <!-- ARCHITECTURAL OVERLAY PIANO 0: OPT_B (Sala Biliardo & Cigar Lounge in East Wing) -->
-                  <g class="fp-concept-layer" data-concepts="opt_b" style="display:none;" pointer-events="none">
-                    <!-- Sketched Green-Baize Billiard Table & Cues -->
-                    <g transform="translate(552, 86)" filter="url(#fpSketchInk)">
-                      <rect x="0" y="0" width="54" height="84" rx="5" fill="#6E472B" stroke="#3E2412" stroke-width="1.6"/>
-                      <rect x="5" y="5" width="44" height="74" rx="2" fill="#2E6F4E" stroke="#1E4D35" stroke-width="1"/>
-                      <circle cx="22" cy="26" r="2.2" fill="#FAF6EE"/><circle cx="30" cy="48" r="2.2" fill="#D94B38"/><circle cx="26" cy="54" r="2.2" fill="#E8B838"/>
-                      <line x1="-6" y1="12" x2="42" y2="66" stroke="#D8B48A" stroke-width="1.4"/>
-                    </g>
-                  </g>
-
                   <!-- Main Entrance (South / Front Garden) -->
                   <path d="M 450,405 L 450,376 M 450,376 L 443,385 M 450,376 L 457,385" stroke="#8C4A32" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#fpSketchInk)"/>
                   <foreignObject x="305" y="408" width="290" height="28">
@@ -3814,15 +3759,6 @@
                     </foreignObject>
                   </g>
 
-                  <!-- ARCHITECTURAL OVERLAY PIANO 1: OPT_B & OPT_C (Kitchen Island + 2nd Service Bath) -->
-                  <g class="fp-concept-layer" data-concepts="opt_b,opt_c" style="display:none;" pointer-events="none">
-                    <!-- Sketched Kitchen Island in top-left Cucina + Open Archway to Dining/Salon -->
-                    <rect x="128" y="82" width="62" height="24" rx="3" fill="#FAF6EE" stroke="#3E5431" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                    <!-- 2nd Guest Bathroom / Lavanderia in top-center corridor -->
-                    <rect x="386" y="72" width="64" height="50" rx="2" fill="#D2E2E4" stroke="#5C4938" stroke-width="1.6" stroke-dasharray="3 2" filter="url(#fpSketchInk)"/>
-                    <text x="418" y="101" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="9" font-weight="700" fill="#233D42">2° Bagno</text>
-                  </g>
-
                   <!-- Balcone Sud (Protruding below Camera da letto) -->
                   <g class="fp-room-group">
                     <rect x="530" y="366" width="104" height="48" rx="3" fill="#EBD7B2" stroke="#6B5335" stroke-width="2" filter="url(#fpSketchInk)"/>
@@ -3929,334 +3865,6 @@
                     <foreignObject x="534" y="175" width="96" height="104">
                       <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;padding:4px;">
                         <span id="fpLbl_2_east" style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.28);padding:4px 8px;border-radius:8px;font-size:11.5px;font-weight:700;color:#422E25;line-height:1.18;" data-i18n="fp_rm_bedroom">Camera da letto</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- ARCHITECTURAL OVERLAY PIANO 2: OPT_A, OPT_B, OPT_C (En-Suite Bath in East Suite + Walk-in Closet) -->
-                  <g class="fp-concept-layer" data-concepts="opt_a,opt_b,opt_c" style="display:none;" pointer-events="none">
-                    <rect x="532" y="284" width="100" height="72" rx="2" fill="#D2E2E4" stroke="#5C4938" stroke-width="1.8" stroke-dasharray="4 2" filter="url(#fpSketchInk)"/>
-                    <text x="582" y="324" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="9.5" font-weight="700" fill="#233D42">2° Bagno En-Suite</text>
-                  </g>
-                </g>
-              </svg>
-
-              <!-- ==================== VIEW 3: 2.5D HAND-SKETCHED STALLA SPA, DÉPENDANCE BILOCALE & TERRAZZI ==================== -->
-              <svg id="fpAnnexSvg" class="fp-svg" viewBox="0 0 680 440" role="img" aria-label="Progetto Architettonico Stalla SPA, Dépendance Bilocale e Terrazzi" style="display:none;">
-                <rect x="0" y="0" width="680" height="440" fill="url(#patSketchGrid)"/>
-
-                <!-- Hand-drawn Compass Rose (top-left, aligned with Google Maps North ~58° NE) -->
-                <g transform="translate(38, 38) scale(0.84)" filter="url(#fpSketchInk)">
-                  <circle cx="0" cy="0" r="28" fill="rgba(255,252,245,0.88)" stroke="#6B5B4B" stroke-width="1.4"/>
-                  <circle cx="0" cy="0" r="24" fill="none" stroke="rgba(107,91,75,0.28)" stroke-width="0.8" stroke-dasharray="2 2"/>
-                  <g transform="rotate(58)">
-                    <line x1="-18" y1="0" x2="18" y2="0" stroke="#7A6A58" stroke-width="1" stroke-dasharray="2 2"/>
-                    <polygon points="0,19 4.5,0 -4.5,0" fill="#FAF6EE" stroke="#5C4938" stroke-width="1"/>
-                    <polygon points="0,-20 4.5,0 -4.5,0" fill="#C84B3A" stroke="#4A2518" stroke-width="1"/>
-                    <circle cx="0" cy="0" r="2.2" fill="#4A3D31"/>
-                  </g>
-                  <text x="27" y="-13" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="10.5" font-weight="800" fill="#B83B2B">N</text>
-                  <text x="-27" y="21" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="700" fill="#6B5B4B">S</text>
-                  <text x="18" y="29" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="700" fill="#6B5B4B">E</text>
-                  <text x="-18" y="-22" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="700" fill="#6B5B4B">W</text>
-                </g>
-
-                <!-- ================= PIANO 0: STALLA SPA (2 COLONNE SE-NW) + DÉPENDANCE BILOCALE (2 ARCHI SW) ================= -->
-                <g id="fpAnnexFloor_0">
-                  <!-- Section Headers -->
-                  <foreignObject x="72" y="10" width="336" height="36">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                      <span style="background:#382C1E;color:#FAF6EE;padding:4px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.04em;" data-i18n="fp_annex_title_spa">♨️ ANTICA STALLA VOLTATA — PROGETTO PRIVATE SPA</span>
-                    </div>
-                  </foreignObject>
-                  <foreignObject x="432" y="10" width="234" height="36">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                      <span style="background:#5A3828;color:#FAF6EE;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.04em;" data-i18n="fp_annex_title_dep">🏡 DÉPENDANCE — BILOCALE (2 ARCHI SW)</span>
-                    </div>
-                  </foreignObject>
-
-                  <!-- === LEFT VOLUME: ANTICA STALLA VOLTATA (PRIVATE SPA) === -->
-                  <polygon points="72,382 406,382 415,392 81,392" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <polygon points="406,52 415,62 415,392 406,382" fill="#857766" stroke="#4A3F35" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <rect x="72" y="52" width="334" height="330" rx="6" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5" filter="url(#fpSketchInk)"/>
-
-                  <!-- 1. Sauna Finlandese Vetrata (Top-Left) -->
-                  <g class="fp-room-group">
-                    <rect x="78" y="58" width="124" height="114" rx="3" fill="#E5BE92" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <!-- Cedar Benches & Sauna Stove Sketch -->
-                    <line x1="82" y1="68" x2="196" y2="68" stroke="#6E472B" stroke-width="4"/>
-                    <line x1="82" y1="78" x2="196" y2="78" stroke="#8C5D3B" stroke-width="3"/>
-                    <circle cx="184" cy="152" r="9" fill="#8C3B2B" stroke="#4A2518" stroke-width="1.5"/>
-                    <foreignObject x="82" y="88" width="116" height="62">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,64,40,0.35);padding:3px 8px;border-radius:8px;font-size:11px;font-weight:700;color:#4A2E16;line-height:1.15;" data-i18n="fp_spa_sauna">Sauna Finlandese Vetrata</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 2. Hammam / Bagno Turco & Docce Emozionali (Top-Center) -->
-                  <g class="fp-room-group">
-                    <rect x="204" y="58" width="96" height="84" rx="3" fill="#CFE2E6" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <foreignObject x="208" y="68" width="88" height="64">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.92);border:1px solid rgba(45,75,80,0.3);padding:3px 6px;border-radius:8px;font-size:10.2px;font-weight:700;color:#1F3B42;line-height:1.15;" data-i18n="fp_spa_hammam">Hammam &amp; Doccia Sensoriale</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 3. Grande Idromassaggio / Jacuzzi Riscaldata sotto le Volte (Top-Right) -->
-                  <g class="fp-room-group">
-                    <rect x="302" y="58" width="98" height="148" rx="4" fill="#B5DCE6" stroke="#356878" stroke-width="2.2" filter="url(#fpSketchInk)"/>
-                    <rect x="312" y="68" width="78" height="128" rx="14" fill="#88C6D8" stroke="#2B5B6C" stroke-width="1.6" filter="url(#fpSketchInk)"/>
-                    <circle cx="332" cy="92" r="5" fill="rgba(255,255,255,0.6)"/><circle cx="370" cy="92" r="5" fill="rgba(255,255,255,0.6)"/>
-                    <circle cx="351" cy="168" r="6" fill="rgba(255,255,255,0.5)"/>
-                    <foreignObject x="306" y="102" width="90" height="64">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid #2B5B6C;padding:3px 7px;border-radius:8px;font-size:10.5px;font-weight:700;color:#183C48;line-height:1.15;" data-i18n="fp_spa_jacuzzi">Idromassaggio Riscaldato</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 4. Spogliatoio, Armadietti & Bagno SPA (Bottom-Left, with door from Entrance) -->
-                  <g class="fp-room-group">
-                    <rect x="78" y="248" width="106" height="128" rx="3" fill="#EFE4D4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <!-- Internal door from SPA entrance vestibule into Spogliatoio -->
-                    <line x1="112" y1="248" x2="142" y2="248" stroke="#EFE4D4" stroke-width="3.5"/>
-                    <line x1="112" y1="248" x2="112" y2="276" stroke="#6E472B" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <path d="M 142,248 A 28,28 0 0,1 112,276" fill="none" stroke="#6E472B" stroke-width="1.2" stroke-dasharray="3 2" filter="url(#fpSketchInk)"/>
-                    <rect x="84" y="356" width="52" height="12" rx="2" fill="#D5B895" stroke="#5C4028" stroke-width="1.2"/>
-                    <foreignObject x="82" y="278" width="98" height="76">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.3);padding:3px 6px;border-radius:8px;font-size:10.2px;font-weight:700;color:#3E2C1C;line-height:1.15;" data-i18n="fp_spa_dressing">Spogliatoio, Docce &amp; Bagno SPA</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 5. Area Relax, Tisaneria & Chaise Longue (Bottom-Right) -->
-                  <g class="fp-room-group">
-                    <rect x="292" y="212" width="108" height="164" rx="3" fill="#E6D7C3" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <!-- 3 Sketched Wellness Loungers -->
-                    <g fill="#FAF6EE" stroke="#6B5335" stroke-width="1.2" opacity="0.7" filter="url(#fpSketchInk)">
-                      <rect x="348" y="224" width="42" height="18" rx="4"/>
-                      <rect x="348" y="250" width="42" height="18" rx="4"/>
-                      <rect x="348" y="276" width="42" height="18" rx="4"/>
-                    </g>
-                    <foreignObject x="296" y="302" width="100" height="68">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.92);border:1px solid rgba(92,73,56,0.3);padding:3px 7px;border-radius:8px;font-size:10.5px;font-weight:700;color:#3E2C1C;line-height:1.15;" data-i18n="fp_spa_relax">Zona Relax &amp; Tisaneria</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 6. INGRESSO STALLA / SPA (Where Kneipp previously started on the Left Wall x=72, y=184..236) -->
-                  <g class="fp-room-group" filter="url(#fpSketchInk)">
-                    <!-- Door opening in the left stone perimeter wall -->
-                    <line x1="72" y1="188" x2="72" y2="232" stroke="#FAF6EE" stroke-width="6"/>
-                    <!-- Sketched wooden entrance door leaf & swing arc -->
-                    <line x1="74" y1="188" x2="108" y2="188" stroke="#6E472B" stroke-width="2.4" stroke-linecap="round"/>
-                    <path d="M 108,188 A 34,34 0 0,1 74,222" fill="rgba(213,176,136,0.22)" stroke="#6E472B" stroke-width="1.3" stroke-dasharray="3 2"/>
-                    <!-- Entrance arrow from the courtyard -->
-                    <path d="M 38,210 L 86,210 M 86,210 L 77,203 M 86,210 L 77,217" stroke="#8C3B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    <foreignObject x="88" y="192" width="96" height="38">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:#8C3B2B;color:#FAF6EE;padding:3px 8px;border-radius:8px;font-size:9.8px;font-weight:700;line-height:1.15;box-shadow:0 2px 5px rgba(0,0,0,0.12);" data-i18n="fp_spa_entrance">🚪 Ingresso SPA</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 7. PERCORSO KNEIPP IN VERTICALE (Running vertically along the central wellness spine) -->
-                  <g class="fp-room-group" filter="url(#fpSketchInk)">
-                    <path d="M 212,156 C 202,196 222,242 212,284 C 204,316 218,342 212,364" fill="none" stroke="#5A9BB0" stroke-width="22" stroke-linecap="round" opacity="0.48"/>
-                    <path d="M 212,156 C 202,196 222,242 212,284 C 204,316 218,342 212,364" fill="none" stroke="#2B677A" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
-                    <foreignObject x="184" y="218" width="96" height="54">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.95);border:1.2px solid #2B677A;padding:3px 7px;border-radius:10px;font-size:9.5px;font-weight:700;color:#1B4A58;line-height:1.15;" data-i18n="fp_spa_kneipp">Percorso Kneipp (Caldo/Freddo)</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 8. THE TWO MONOLITHIC STONE COLUMNS PARALLEL TO THE VERTICAL WALL (x=264) + VAULT RIBS -->
-                  <g pointer-events="none" filter="url(#fpSketchInk)">
-                    <!-- Cross-vault structural ribs converging on the 2 vertically aligned columns -->
-                    <line x1="78" y1="58" x2="264" y2="162" stroke="rgba(90,65,42,0.32)" stroke-width="1.4" stroke-dasharray="4 3"/>
-                    <line x1="400" y1="58" x2="264" y2="162" stroke="rgba(90,65,42,0.32)" stroke-width="1.4" stroke-dasharray="4 3"/>
-                    <!-- Vertical axis line parallel to the wall connecting Column 1 and Column 2 -->
-                    <line x1="264" y1="162" x2="264" y2="286" stroke="rgba(184,59,43,0.6)" stroke-width="2.2" stroke-dasharray="5 3"/>
-                    <line x1="184" y1="376" x2="264" y2="286" stroke="rgba(90,65,42,0.32)" stroke-width="1.4" stroke-dasharray="4 3"/>
-                    <line x1="400" y1="376" x2="264" y2="286" stroke="rgba(90,65,42,0.32)" stroke-width="1.4" stroke-dasharray="4 3"/>
-
-                    <!-- Column 1 (Top - aligned vertically at x=264) -->
-                    <circle cx="264" cy="162" r="13.5" fill="#D8CFC2" stroke="#3E3227" stroke-width="2.5"/>
-                    <circle cx="264" cy="162" r="7.5" fill="#8C7D6B" stroke="#3E3227" stroke-width="1.5"/>
-                    <!-- Column 2 (Bottom - aligned vertically at x=264, parallel to wall) -->
-                    <circle cx="264" cy="286" r="13.5" fill="#D8CFC2" stroke="#3E3227" stroke-width="2.5"/>
-                    <circle cx="264" cy="286" r="7.5" fill="#8C7D6B" stroke="#3E3227" stroke-width="1.5"/>
-                  </g>
-                  <foreignObject x="172" y="122" width="184" height="28">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;text-align:center;">
-                      <span style="background:#382C1E;color:#FFF8EE;font-size:8.8px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;" data-i18n="fp_spa_cols">🏛️ 2 Colonne Storiche</span>
-                    </div>
-                  </foreignObject>
-
-                  <!-- === RIGHT VOLUME: DÉPENDANCE — PROGETTO BILOCALE CON 2 GRANDI ARCHI SW === -->
-                  <polygon points="448,382 644,382 652,392 456,392" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <polygon points="644,68 652,78 652,392 644,382" fill="#857766" stroke="#4A3F35" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <rect x="448" y="68" width="196" height="314" rx="5" fill="#FAF6EE" stroke="#4A3F35" stroke-width="4.5" filter="url(#fpSketchInk)"/>
-
-                  <!-- Room 1: Zona Giorno & Piccola Cucina (illuminata dal 1° Grande Arco SW) -->
-                  <g class="fp-room-group">
-                    <rect x="454" y="74" width="184" height="148" rx="3" fill="#E8D8C0" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <!-- Kitchenette along North Wall + Round Table -->
-                    <rect x="462" y="78" width="108" height="22" rx="2" fill="#C9DEC7" stroke="#486339" stroke-width="1.4" filter="url(#fpSketchInk)"/>
-                    <circle cx="596" cy="118" r="18" fill="#FAF6EE" stroke="#5C4028" stroke-width="1.4" filter="url(#fpSketchInk)"/>
-                    <foreignObject x="462" y="130" width="168" height="82">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid rgba(92,73,56,0.3);padding:4px 9px;border-radius:8px;font-size:11px;font-weight:700;color:#3E2C1C;line-height:1.18;" data-i18n="fp_dep_living">Soggiorno &amp; Piccola Cucina (1° Arco Vetrato SW)</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- Room 2: Camera Matrimoniale (illuminata dal 2° Grande Arco SW - Letto su parete opposta in basso) -->
-                  <g class="fp-room-group">
-                    <rect x="454" y="224" width="118" height="152" rx="3" fill="#EAD7CD" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <!-- Double Bed Sketch on the OPPOSITE (Bottom) Wall (headboard & pillows at bottom wall y=370 facing up) -->
-                    <g transform="translate(479, 314)" opacity="0.65" fill="#FAF6EE" stroke="#5C4938" stroke-width="1.3" filter="url(#fpSketchInk)">
-                      <rect x="0" y="0" width="68" height="54" rx="4"/>
-                      <line x1="0" y1="32" x2="68" y2="32"/>
-                      <rect x="6" y="38" width="24" height="11" rx="2"/>
-                      <rect x="38" y="38" width="24" height="11" rx="2"/>
-                    </g>
-                    <foreignObject x="458" y="256" width="110" height="56">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid rgba(92,73,56,0.3);padding:3px 7px;border-radius:8px;font-size:10.2px;font-weight:700;color:#422E25;line-height:1.15;" data-i18n="fp_dep_bed">Camera Letto (2° Arco SW)</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- Room 3: Bagno Bilocale con Doccia Walk-in -->
-                  <g class="fp-room-group">
-                    <rect x="574" y="224" width="64" height="152" rx="3" fill="#D2E2E4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <!-- Walk-in Shower at bottom of bathroom so top is clear for the bathroom door -->
-                    <rect x="580" y="340" width="52" height="30" rx="4" fill="rgba(255,255,255,0.65)" stroke="#233D42" stroke-width="1.2" filter="url(#fpSketchInk)"/>
-                    <foreignObject x="576" y="272" width="60" height="64">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid rgba(45,75,80,0.3);padding:3px 5px;border-radius:8px;font-size:10px;font-weight:700;color:#233D42;line-height:1.15;" data-i18n="fp_dep_bath">Bagno con Doccia</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- ARCHITECTURAL DOORS IN DÉPENDANCE: 1) Porta tra Zona Giorno e Camera (y=224) + 2) Porta del Bagno (x=574) -->
-                  <g filter="url(#fpSketchInk)" pointer-events="none">
-                    <!-- 1) Porta tra Zona Giorno e Camera (on horizontal wall y=224, x=480..512) -->
-                    <line x1="480" y1="223" x2="512" y2="223" stroke="#EAD7CD" stroke-width="4.5"/>
-                    <line x1="480" y1="223" x2="480" y2="253" stroke="#6E472B" stroke-width="2.2" stroke-linecap="round"/>
-                    <path d="M 512,223 A 30,30 0 0,1 480,253" fill="rgba(213,176,136,0.25)" stroke="#6E472B" stroke-width="1.3" stroke-dasharray="3 2"/>
-
-                    <!-- 2) Porta del Bagno (on vertical wall x=573, y=236..266) -->
-                    <line x1="573" y1="236" x2="573" y2="266" stroke="#D2E2E4" stroke-width="4.5"/>
-                    <line x1="573" y1="236" x2="601" y2="236" stroke="#6E472B" stroke-width="2.2" stroke-linecap="round"/>
-                    <path d="M 573,266 A 28,28 0 0,0 601,236" fill="rgba(213,176,136,0.25)" stroke="#6E472B" stroke-width="1.3" stroke-dasharray="3 2"/>
-                  </g>
-
-                  <!-- HIGHLIGHT: THE 2 WIDE SW ARCHES ON THE LEFT WALL OF DÉPENDANCE (x=448) -->
-                  <g filter="url(#fpSketchInk)">
-                    <!-- Arch 1 (SW Top - Full Glazed Arch for Kitchen/Living) -->
-                    <path d="M 448,86 C 430,104 430,192 448,210" fill="rgba(162,216,232,0.55)" stroke="#2B677A" stroke-width="3.2"/>
-                    <!-- Arch 2 (SW Bottom - Glazed/Brise-Soleil Arch for Bedroom) -->
-                    <path d="M 448,236 C 430,254 430,346 448,364" fill="rgba(162,216,232,0.55)" stroke="#2B677A" stroke-width="3.2"/>
-                    <foreignObject x="412" y="120" width="38" height="210">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:#2B677A;color:#FFF;font-size:9px;font-weight:700;padding:6px 2px;border-radius:6px;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:0.04em;" data-i18n="fp_dep_arches_badge">2 GRANDI ARCHI VETRATI LATO SW</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-                </g>
-
-                <!-- ================= PIANO 1: TERRAZZO PRINCIPALE (SOPRA STALLA) + SECONDO TERRAZZO (SOPRA DÉPENDANCE) ================= -->
-                <g id="fpAnnexFloor_1" style="display:none;">
-                  <foreignObject x="72" y="10" width="336" height="36">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                      <span style="background:#6B5335;color:#FAF6EE;padding:4px 14px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.04em;" data-i18n="fp_annex_title_terr1">☀️ TERRAZZO PRINCIPALE (SOPRA LA STALLA)</span>
-                    </div>
-                  </foreignObject>
-                  <foreignObject x="432" y="10" width="234" height="36">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                      <span style="background:#7A5C38;color:#FAF6EE;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.04em;" data-i18n="fp_annex_title_terr2">🌅 2° TERRAZZO (SOPRA DÉPENDANCE)</span>
-                    </div>
-                  </foreignObject>
-
-                  <!-- === LEFT VOLUME: TERRAZZO PRINCIPALE === -->
-                  <polygon points="72,382 406,382 415,392 81,392" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <polygon points="406,52 415,62 415,392 406,382" fill="#857766" stroke="#4A3F35" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <rect x="72" y="52" width="334" height="330" rx="6" fill="#F2E4CE" stroke="#6B5335" stroke-width="4" filter="url(#fpSketchInk)"/>
-
-                  <!-- 1. Grande Gazebo / Pergola Pranzo 10 posti (Top-Left) -->
-                  <g class="fp-room-group">
-                    <rect x="82" y="62" width="188" height="148" rx="4" fill="#E5CEAC" stroke="#6B4D2B" stroke-width="2.2" stroke-dasharray="6 3" filter="url(#fpSketchInk)"/>
-                    <!-- Pergola wooden beams + 10-seater dining table -->
-                    <rect x="116" y="84" width="120" height="44" rx="5" fill="#D5B088" stroke="#5C4028" stroke-width="1.6" filter="url(#fpSketchInk)"/>
-                    <foreignObject x="88" y="136" width="176" height="66">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid rgba(107,77,43,0.35);padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;color:#4A3219;line-height:1.18;" data-i18n="fp_terr_gazebo">Gazebo / Pergola Bioclimatica &amp; Pranzo 10 Posti</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 2. Cucina Esterna in Pietra, Barbecue & Forno (Top-Right) -->
-                  <g class="fp-room-group">
-                    <rect x="276" y="62" width="120" height="148" rx="4" fill="#DEC3A4" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <rect x="286" y="70" width="100" height="24" rx="3" fill="#8C4A32" stroke="#4A2518" stroke-width="1.4" filter="url(#fpSketchInk)"/>
-                    <foreignObject x="282" y="112" width="108" height="86">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid rgba(92,55,40,0.35);padding:4px 8px;border-radius:8px;font-size:10.5px;font-weight:700;color:#4A2518;line-height:1.18;" data-i18n="fp_terr_bbq">Cucina Esterna in Pietra &amp; Barbecue</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 3. Salotto da Esterno Panoramico a L & Braciere (Bottom-Left) -->
-                  <g class="fp-room-group">
-                    <rect x="82" y="216" width="188" height="156" rx="4" fill="#EAD7B8" stroke="#5C4938" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <path d="M 96,232 H 196 V 256 H 122 V 302 H 96 Z" fill="#FAF6EE" stroke="#5C4028" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                    <circle cx="164" cy="284" r="14" fill="#D97B48" stroke="#5C2E14" stroke-width="1.5"/>
-                    <foreignObject x="92" y="306" width="168" height="60">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid rgba(92,73,56,0.3);padding:4px 9px;border-radius:8px;font-size:11px;font-weight:700;color:#3E2C1C;line-height:1.15;" data-i18n="fp_terr_lounge">Salotto da Esterno a L &amp; Braciere</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- 4. Area Solarium & Accesso Giardino Superiore (Bottom-Right) -->
-                  <g class="fp-room-group">
-                    <rect x="276" y="216" width="120" height="156" rx="4" fill="#DFECCE" stroke="#486339" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <foreignObject x="282" y="246" width="108" height="96">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid rgba(62,84,49,0.35);padding:4px 8px;border-radius:8px;font-size:10.5px;font-weight:700;color:#25381C;line-height:1.18;" data-i18n="fp_terr_solarium">Solarium &amp; Passaggio al Giardino Superiore</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- === RIGHT VOLUME: SECONDO TERRAZZO SOPRA LA DÉPENDANCE === -->
-                  <polygon points="448,382 644,382 652,392 456,392" fill="#9C8D7C" stroke="#4A3F35" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <polygon points="644,68 652,78 652,392 644,382" fill="#857766" stroke="#4A3F35" stroke-width="1.5" filter="url(#fpSketchInk)"/>
-                  <rect x="448" y="68" width="196" height="314" rx="5" fill="#F2E4CE" stroke="#6B5335" stroke-width="4" filter="url(#fpSketchInk)"/>
-
-                  <!-- Pergola Sunset Lounge (Top) -->
-                  <g class="fp-room-group">
-                    <rect x="456" y="76" width="180" height="148" rx="4" fill="#E5CEAC" stroke="#6B4D2B" stroke-width="2" stroke-dasharray="5 3" filter="url(#fpSketchInk)"/>
-                    <foreignObject x="464" y="106" width="164" height="90">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid rgba(107,77,43,0.35);padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;color:#4A3219;line-height:1.18;" data-i18n="fp_terr2_pergola">Pergola Sunset Lounge &amp; Zona Aperitivo SW</span>
-                      </div>
-                    </foreignObject>
-                  </g>
-
-                  <!-- Vasca Jacuzzi Panoramica / Solarium Privato (Bottom) -->
-                  <g class="fp-room-group">
-                    <rect x="456" y="230" width="180" height="144" rx="4" fill="#CFE6EA" stroke="#356878" stroke-width="2" filter="url(#fpSketchInk)"/>
-                    <circle cx="546" cy="264" r="22" fill="#88C6D8" stroke="#2B5B6C" stroke-width="1.5"/>
-                    <foreignObject x="464" y="294" width="164" height="72">
-                      <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Montserrat',sans-serif;">
-                        <span style="background:rgba(252,249,242,0.94);border:1px solid #2B5B6C;padding:4px 10px;border-radius:8px;font-size:10.5px;font-weight:700;color:#183C48;line-height:1.18;" data-i18n="fp_terr2_jacuzzi">Solarium Privato &amp; Mini-Pool Panoramica</span>
                       </div>
                     </foreignObject>
                   </g>
@@ -5697,719 +5305,413 @@
       }
     };
 
-    // Multilingual strings & dynamic room labels for the Architectural Renovation Concepts
-    const fpConceptI18n = {
+    // Multilingual UI & SVG labels for the 4 Before/After Architectural Plans in Card 3 ("Sviluppo & Divisione Spazi")
+    const spacesBaI18n = {
       it: {
         ui: {
-          fp_concept_bar_title: "📐 Proposte Architettoniche di Ristrutturazione (Clicca per esplorare i Progetti)",
-          fp_concept_current: "Stato Attuale",
-          fp_concept_current_sub: "Rilievo storico",
-          fp_concept_4a: "Progetto 4.a • Multi-Unità",
-          fp_concept_4a_sub: "PT Mono + Bilo • P1 App. • P2 App.",
-          fp_concept_4b: "Progetto 4.b • Grande Dimora",
-          fp_concept_4b_sub: "Unica residenza • Biliardo • Bagni/piano",
-          fp_concept_4c: "Progetto 4.c • Idea Architetto",
-          fp_concept_4c_sub: "Relais & Duplex Smart-Living",
-          fp_zone_master: "🗺️ Vista Complesso",
-          fp_zone_house: "🏠 Zoom Casa Principale",
-          fp_zone_annex: "♨️ Zoom Stalla SPA • Dépendance • Terrazzi",
-          fp_sub_dep_arches: "2 Archi SW • Bilocale",
-          fp_sub_stable_spa: "2 Colonne SE-NW • SPA",
-          fp_annex_title_spa: "♨️ ANTICA STALLA VOLTATA — PROGETTO PRIVATE SPA",
-          fp_annex_title_dep: "🏡 DÉPENDANCE — BILOCALE (2 ARCHI SW)",
-          fp_spa_sauna: "Sauna Finlandese Vetrata",
-          fp_spa_hammam: "Hammam & Doccia Sensoriale",
-          fp_spa_jacuzzi: "Idromassaggio Riscaldato",
-          fp_spa_dressing: "Spogliatoio, Docce & Bagno SPA",
-          fp_spa_relax: "Zona Relax & Tisaneria",
-          fp_spa_kneipp: "Percorso Kneipp (Caldo/Freddo)",
-          fp_spa_cols: "🏛️ 2 Colonne Storiche",
-          fp_spa_entrance: "🚪 Ingresso SPA",
-          fp_dep_living: "Soggiorno & Piccola Cucina (1° Arco Vetrato SW)",
-          fp_dep_bed: "Camera Letto (2° Arco SW)",
-          fp_dep_bath: "Bagno con Doccia",
-          fp_dep_arches_badge: "2 GRANDI ARCHI VETRATI LATO SW",
-          fp_annex_title_terr1: "☀️ TERRAZZO PRINCIPALE (SOPRA LA STALLA)",
-          fp_annex_title_terr2: "🌅 2° TERRAZZO (SOPRA DÉPENDANCE)",
-          fp_terr_gazebo: "Gazebo / Pergola Bioclimatica & Pranzo 10 Posti",
-          fp_terr_bbq: "Cucina Esterna in Pietra & Barbecue",
-          fp_terr_lounge: "Salotto da Esterno a L & Braciere",
-          fp_terr_solarium: "Solarium & Passaggio al Giardino Superiore",
-          fp_terr2_pergola: "Pergola Sunset Lounge & Zona Aperitivo SW",
-          fp_terr2_jacuzzi: "Solarium Privato & Mini-Pool Panoramica"
+          proj3_title: "Sviluppo & Divisione Spazi (Before / After)",
+          proj3_desc: "Confronta il rilievo attuale (AS-IS) con il nuovo progetto architettonico (TO-BE) in stile studio moderno: 1) Stalla in Private SPA, 2) Dépendance in Bilocale con 2 archi SW, 3) Terrazzo Principale con Gazebo e Jacuzzi, 4) Casa Piano 0 (Proposta C).",
+          proj3_tab_1: "1. Stalla → SPA",
+          proj3_tab_2: "2. Dépendance",
+          proj3_tab_3: "3. Terrazzo",
+          proj3_tab_4: "4. Casa PT (Prop. C)",
+          proj_cta_spaces: "Esplora i 4 progetti Before/After (1/4)"
         },
-        concepts: {
-          current: {
-            note: "<strong>Stato Attuale:</strong> Rilievo storico della proprietà. Seleziona uno dei <strong>Progetti Architettonici (4.a, 4.b, 4.c)</strong> qui sopra per trasformare la pianta della <strong>Casa Principale</strong>, oppure clicca su <strong>♨️ Zoom Stalla SPA • Dépendance • Terrazzi</strong> per esplorare il Bilocale con 2 archi SW, la SPA intorno alle 2 colonne SE–NW e i Terrazzi attrezzati.",
-            rooms: {
-              fpLbl_m1_taverna: "Taverna con tavolo",
-              fpLbl_m1_boiler: "Sala caldaia",
-              fpLbl_m1_cellar: "Cantina botti",
-              fpLbl_0_westbed: "Camera matrimoniale",
-              fpLbl_0_westbath: "Bagno",
-              fpLbl_0_kitchen: "Cucina",
-              fpLbl_0_living: "Soggiorno",
-              fpLbl_0_east: "Sala camino",
-              fpLbl_1_kitchen: "Cucina",
-              fpLbl_1_dining: "Tinello",
-              fpLbl_1_salon: "Salone",
-              fpLbl_1_bath: "Bagno",
-              fpLbl_1_east: "Camera da letto",
-              fpLbl_2_westbed: "Camera matrimoniale",
-              fpLbl_2_bath: "Bagno",
-              fpLbl_2_master: "Camera da letto principale",
-              fpLbl_2_storage: "Ripostiglio",
-              fpLbl_2_east: "Camera da letto"
-            }
+        slides: {
+          stalla: {
+            asIsBadge: "STATO ATTUALE (AS-IS) • RILIEVO STORICO",
+            toBeBadge: "PROGETTO ARCHITETTONICO (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "1/4 • ANTICA STALLA VOLTATA (STATO ATTUALE VUOTO)",
+            toBeTitle: "1/4 • ANTICA STALLA — PROGETTO PRIVATE SPA",
+            emptyRoom: "Locale Stalla Storico Vuoto",
+            vaultSub: "Volte a crociera in pietra a vista",
+            cols: "2 Colonne Storiche (parallele alla parete)",
+            entranceAsIs: "Ingresso Stalla",
+            entranceSpa: "🚪 Ingresso SPA",
+            sauna: "Sauna Finlandese Vetrata",
+            hammam: "Hammam & Doccia Sensoriale",
+            jacuzzi: "Idromassaggio Riscaldato",
+            kneipp: "Percorso Kneipp Verticale",
+            dressing: "Spogliatoio, Docce & Bagno",
+            relax: "Zona Relax & Tisaneria"
           },
-          opt_a: {
-            note: "<strong>Progetto 4.a (4 Unità Indipendenti + Dépendance Bilocale):</strong> <strong>PT:</strong> Monolocale indipendente con angolo cottura e bagno privato al posto della Sala Camino + Mini-Appartamento Bilocale nell'ala Ovest. <strong>P1:</strong> Appartamento trilocale nobile con lungo balcone. <strong>P2:</strong> Appartamento panoramico con cucina-living, 2 camere e 2 bagni.",
-            rooms: {
-              fpLbl_m1_taverna: "Taverna Comune & Degustazione",
-              fpLbl_m1_boiler: "Centrale Termica & Lavanderia",
-              fpLbl_m1_cellar: "Cantina Botti Storica",
-              fpLbl_0_westbed: "[Bilocale PT] Camera Matrimoniale",
-              fpLbl_0_westbath: "[Bilocale PT] Bagno",
-              fpLbl_0_kitchen: "[Bilocale PT] Cucina",
-              fpLbl_0_living: "[Bilocale PT] Soggiorno",
-              fpLbl_0_east: "[Monolocale PT] Studio con Camino, K-ette & Bagno",
-              fpLbl_1_kitchen: "[App. P1] Cucina Abitabile",
-              fpLbl_1_dining: "[App. P1] Sala da Pranzo / 2ª Camera",
-              fpLbl_1_salon: "[App. P1] Grand Salon sul Balcone",
-              fpLbl_1_bath: "[App. P1] Bagno Principale",
-              fpLbl_1_east: "[App. P1] Camera Matrimoniale con Balcone Sud",
-              fpLbl_2_westbed: "[App. P2] Cucina & Pranzo Panoramico",
-              fpLbl_2_bath: "[App. P2] Bagno Giorno/Notte",
-              fpLbl_2_master: "[App. P2] Soggiorno & Living",
-              fpLbl_2_storage: "Cabina Armadio / Rip.",
-              fpLbl_2_east: "[App. P2] Suite Matrimoniale + Bagno En-Suite"
-            }
+          dependance: {
+            asIsBadge: "STATO ATTUALE (AS-IS) • RILIEVO STORICO",
+            toBeBadge: "PROGETTO ARCHITETTONICO (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "2/4 • DÉPENDANCE (STATO ATTUALE: 2 STANZE VUOTE)",
+            toBeTitle: "2/4 • DÉPENDANCE — MINI-APPARTAMENTO BILOCALE",
+            room1Empty: "1ª Stanza Vuota (Lato Nord)",
+            room2Empty: "2ª Stanza Vuota (Lato Sud)",
+            archesAsIs: "2 Grandi Archi Lato SW",
+            archesToBe: "2 GRANDI ARCHI VETRATI SW",
+            living: "Zona Giorno & Piccola Cucina",
+            livingSub: "1° Grande Arco Vetrato SW • Tavolo Pranzo",
+            bed: "Camera Matrimoniale",
+            bedSub: "2° Arco SW • Letto parete opposta",
+            bath: "Bagno con Doccia",
+            doorsNote: "Porta Giorno/Notte + Porta Bagno"
           },
-          opt_b: {
-            note: "<strong>Progetto 4.b (Unica Grande Dimora di Prestigio):</strong> Residenza padronale su 4 livelli con più bagni per piano. <strong>PT:</strong> Sala Biliardo & Cigar Lounge con camino storico, Biblioteca/Cinema, Suite Ospiti e 2 bagni. <strong>P1:</strong> Grande Cucina con Isola, Sala Pranzo formale, Salone Nobile, Studio e 2 bagni. <strong>P2:</strong> 3 Suite Matrimoniali con bagni dedicati e Cabina Armadio.",
-            rooms: {
-              fpLbl_m1_taverna: "Grande Taverna Conviviale & Wine Lounge",
-              fpLbl_m1_boiler: "Centrale Termica & Cantina Vini Pregiati",
-              fpLbl_m1_cellar: "Carnotzet & Cantina Botti",
-              fpLbl_0_westbed: "Suite Ospiti Piano Terra",
-              fpLbl_0_westbath: "Bagno Suite Ospiti",
-              fpLbl_0_kitchen: "2° Bagno Giorno & Wine Bar",
-              fpLbl_0_living: "Biblioteca & Sala Cinema / Musica",
-              fpLbl_0_east: "🎱 Sala Biliardo & Cigar Lounge col Camino",
-              fpLbl_1_kitchen: "Cucina Gourmet con Isola Centrale",
-              fpLbl_1_dining: "Sala da Pranzo Formale (12 posti)",
-              fpLbl_1_salon: "Grand Salon Nobile sul Lungo Balcone",
-              fpLbl_1_bath: "Bagno Nobile di Piano",
-              fpLbl_1_east: "Studio / Biblioteca Panoramica col Balcone",
-              fpLbl_2_westbed: "Suite Matrimoniale Ovest",
-              fpLbl_2_bath: "Grande Sala da Bagno con Vasca & Doccia",
-              fpLbl_2_master: "Master Suite Padronale",
-              fpLbl_2_storage: "Walk-in Closet",
-              fpLbl_2_east: "Suite Matrimoniale Est + 2° Bagno En-Suite"
-            }
+          terrazzo: {
+            asIsBadge: "STATO ATTUALE (AS-IS) • RILIEVO STORICO",
+            toBeBadge: "PROGETTO ARCHITETTONICO (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "3/4 • TERRAZZO PRINCIPALE (SOLO SALOTTO DA GIARDINO)",
+            toBeTitle: "3/4 • TERRAZZO PRINCIPALE — SALOTTO, GAZEBO & JACUZZI",
+            asIsLounge: "Salotto da Giardino",
+            asIsEmpty: "Terrazza Panoramica Libera (non attrezzata)",
+            toBeLounge: "Salotto Lounge Esterno a L & Braciere",
+            toBeGazebo: "Gazebo / Pergola Bioclimatica",
+            toBeGazeboSub: "Tavolo Pranzo Panoramico 10 Posti",
+            toBeJacuzzi: "Jacuzzi Esterna Riscaldata",
+            toBeJacuzziSub: "Solarium in Teak & Vista Vallata"
           },
-          opt_c: {
-            note: "<strong>Progetto 4.c (Proposta dell'Architetto — Boutique Alpine Relais & Duplex Padronale):</strong> Coniuga residenza privata di lusso e ospitalità d'élite. <strong>PT:</strong> 2 Charming Suites indipendenti (Suite Cervino col camino + Suite Monte Bianco) + Breakfast/Co-Working Lounge collegata alla SPA nella Stalla. <strong>P1+P2:</strong> Esclusivo Duplex Padronale con Open-Space sul lungo balcone, Atelier Smart-Working e Master Suite.",
-            rooms: {
-              fpLbl_m1_taverna: "Club Lounge Degustazione & Eventi Privati",
-              fpLbl_m1_boiler: "Locale Tecnico & Lavanderia Relais",
-              fpLbl_m1_cellar: "Cantina Botti & Caveau Vini",
-              fpLbl_0_westbed: "🌟 Suite 'Monte Bianco' (Ospiti/Relais)",
-              fpLbl_0_westbath: "Bagno Privato Suite Ovest",
-              fpLbl_0_kitchen: "Cucina Lounge & Area Colazioni",
-              fpLbl_0_living: "Breakfast Lounge & Co-Working Alpino",
-              fpLbl_0_east: "🌟 Suite 'Cervino' con Camino & Bagno Privato",
-              fpLbl_1_kitchen: "[Duplex P1] Cucina Design con Isola",
-              fpLbl_1_dining: "[Duplex P1] Dining Room Panoramica",
-              fpLbl_1_salon: "[Duplex P1] Grand Salon Doppio sul Balcone",
-              fpLbl_1_bath: "[Duplex P1] Bagno Giorno & Wellness",
-              fpLbl_1_east: "[Duplex P1] Atelier Vetrato / Smart-Working",
-              fpLbl_2_westbed: "[Duplex P2] Camera Matrimoniale Junior",
-              fpLbl_2_bath: "[Duplex P2] Private Spa-Bath Padronale",
-              fpLbl_2_master: "[Duplex P2] Master Suite Padronale",
-              fpLbl_2_storage: "Dressing Room",
-              fpLbl_2_east: "[Duplex P2] 3ª Suite Matrimoniale + Bagno En-Suite"
-            }
+          casa_pt: {
+            asIsBadge: "STATO ATTUALE (AS-IS) • PIANO 0",
+            toBeBadge: "PROGETTO ARCHITETTONICO (TO-BE) • PROPOSTA C",
+            asIsTitle: "4/4 • CASA PRINCIPALE PIANO 0 (STATO ATTUALE)",
+            toBeTitle: "4/4 • CASA PIANO 0 — PROPOSTA C (BOUTIQUE SUITES & LOUNGE)",
+            asIsWestBed: "Camera matrimoniale",
+            asIsWestBath: "Bagno",
+            asIsKitchen: "Cucina",
+            asIsLiving: "Soggiorno",
+            asIsCorridor: "Corridoio & Scala",
+            asIsEast: "Sala camino",
+            toBeWestBed: "🌟 Suite 'Monte Bianco'",
+            toBeWestBath: "Bagno Suite Ovest",
+            toBeKitchen: "Coffee & Breakfast Bar",
+            toBeLiving: "Breakfast Lounge & Co-Working",
+            toBeEast: "🌟 Suite 'Cervino' col Camino",
+            toBeEastBath: "Bagno En-Suite"
           }
         }
       },
       en: {
         ui: {
-          fp_concept_bar_title: "📐 Architectural Renovation Proposals (Click to explore Concepts)",
-          fp_concept_current: "Current Layout",
-          fp_concept_current_sub: "Historic survey",
-          fp_concept_4a: "Concept 4.a • Multi-Unit",
-          fp_concept_4a_sub: "GF Studio + 1-Bed • F1 Apt • F2 Apt",
-          fp_concept_4b: "Concept 4.b • Grand Manor",
-          fp_concept_4b_sub: "Single residence • Billiard • En-suites",
-          fp_concept_4c: "Concept 4.c • Architect's Choice",
-          fp_concept_4c_sub: "Boutique Relais & Owner's Duplex",
-          fp_zone_master: "🗺️ Estate Masterplan",
-          fp_zone_house: "🏠 Main House Zoom",
-          fp_zone_annex: "♨️ Stable SPA • Dépendance • Terraces Zoom",
-          fp_sub_dep_arches: "2 SW Arches • 1-Bed",
-          fp_sub_stable_spa: "2 SE-NW Columns • SPA",
-          fp_annex_title_spa: "♨️ VAULTED HISTORIC STABLE — PRIVATE SPA PROJECT",
-          fp_annex_title_dep: "🏡 DÉPENDANCE — 1-BED APT (2 SW ARCHES)",
-          fp_spa_sauna: "Glazed Finnish Sauna",
-          fp_spa_hammam: "Hammam & Sensory Shower",
-          fp_spa_jacuzzi: "Heated Jacuzzi / Hydromassage",
-          fp_spa_dressing: "Dressing Room, Showers & SPA Bath",
-          fp_spa_relax: "Relaxation & Herbal Tea Lounge",
-          fp_spa_kneipp: "Kneipp Path (Warm/Cold)",
-          fp_spa_cols: "🏛️ 2 Historic Stone Columns",
-          fp_spa_entrance: "🚪 SPA Entrance",
-          fp_dep_living: "Living & Compact Kitchen (1st Glazed SW Arch)",
-          fp_dep_bed: "Double Bedroom (2nd SW Arch)",
-          fp_dep_bath: "Walk-in Shower Bath",
-          fp_dep_arches_badge: "2 WIDE GLAZED ARCHES ON SW WALL",
-          fp_annex_title_terr1: "☀️ MAIN PANORAMIC TERRACE (ABOVE STABLE)",
-          fp_annex_title_terr2: "🌅 2ND TERRACE (ABOVE DÉPENDANCE)",
-          fp_terr_gazebo: "Bioclimatic Gazebo / Pergola & 10-Seat Dining",
-          fp_terr_bbq: "Stone Outdoor Kitchen & BBQ",
-          fp_terr_lounge: "L-Shaped Outdoor Lounge & Fire Pit",
-          fp_terr_solarium: "Sun Deck & Access to Upper Garden",
-          fp_terr2_pergola: "Sunset Lounge Pergola & SW Aperitif Deck",
-          fp_terr2_jacuzzi: "Private Sun Deck & Panoramic Mini-Pool"
+          proj3_title: "Space Division & Layouts (Before / After)",
+          proj3_desc: "Compare the current layout (AS-IS) with the new modern architectural studio concepts (TO-BE): 1) Vaulted Stable to Private SPA, 2) Dépendance to 1-Bed Apt, 3) Main Terrace with Gazebo & Jacuzzi, 4) Main House Ground Floor (Proposal C).",
+          proj3_tab_1: "1. Stable → SPA",
+          proj3_tab_2: "2. Dépendance",
+          proj3_tab_3: "3. Main Terrace",
+          proj3_tab_4: "4. House GF (Prop. C)",
+          proj_cta_spaces: "Explore all 4 Before/After plans (1/4)"
         },
-        concepts: {
-          current: {
-            note: "<strong>Current Layout:</strong> Historic survey of the estate. Select one of the <strong>Architectural Proposals (4.a, 4.b, 4.c)</strong> above to transform the <strong>Main House</strong> floor plan, or click <strong>♨️ Stable SPA • Dépendance • Terraces Zoom</strong> to inspect the 1-bedroom Dépendance with its 2 wide SW arches, the SPA around the 2 SE–NW columns, and the landscaped terraces.",
-            rooms: {
-              fpLbl_m1_taverna: "Tavern with round table",
-              fpLbl_m1_boiler: "Boiler room",
-              fpLbl_m1_cellar: "Barrel wine cellar",
-              fpLbl_0_westbed: "Double bedroom",
-              fpLbl_0_westbath: "Bathroom",
-              fpLbl_0_kitchen: "Kitchen",
-              fpLbl_0_living: "Living room",
-              fpLbl_0_east: "Fireplace room",
-              fpLbl_1_kitchen: "Kitchen",
-              fpLbl_1_dining: "Dining nook (Tinello)",
-              fpLbl_1_salon: "Grand Salon",
-              fpLbl_1_bath: "Bathroom",
-              fpLbl_1_east: "Bedroom",
-              fpLbl_2_westbed: "Double bedroom",
-              fpLbl_2_bath: "Bathroom",
-              fpLbl_2_master: "Master bedroom",
-              fpLbl_2_storage: "Storage",
-              fpLbl_2_east: "Bedroom"
-            }
+        slides: {
+          stalla: {
+            asIsBadge: "CURRENT STATE (AS-IS) • HISTORIC SURVEY",
+            toBeBadge: "ARCHITECTURAL PROJECT (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "1/4 • VAULTED STABLE (CURRENT EMPTY STATE)",
+            toBeTitle: "1/4 • VAULTED STABLE — PRIVATE SPA PROJECT",
+            emptyRoom: "Empty Historic Vaulted Stable",
+            vaultSub: "Exposed stone cross-vaults",
+            cols: "2 Historic Columns (parallel to wall)",
+            entranceAsIs: "Stable Entrance",
+            entranceSpa: "🚪 SPA Entrance",
+            sauna: "Glazed Finnish Sauna",
+            hammam: "Hammam & Sensory Shower",
+            jacuzzi: "Heated Indoor Jacuzzi",
+            kneipp: "Vertical Kneipp Path",
+            dressing: "Dressing, Showers & Bath",
+            relax: "Relax & Herbal Tea Lounge"
           },
-          opt_a: {
-            note: "<strong>Concept 4.a (4 Independent Units + Dépendance 1-Bed):</strong> <strong>GF:</strong> Independent Studio apartment (Monolocale) with kitchenette & private bath in place of the Fireplace Room + 1-Bedroom apartment in the west wing. <strong>F1:</strong> Noble 1st-floor apartment with long balcony. <strong>F2:</strong> Top-floor apartment with kitchen-living, 2 bedrooms & 2 bathrooms.",
-            rooms: {
-              fpLbl_m1_taverna: "Shared Wine Tavern & Tasting Room",
-              fpLbl_m1_boiler: "Utility & Laundry Room",
-              fpLbl_m1_cellar: "Historic Barrel Cellar",
-              fpLbl_0_westbed: "[GF 1-Bed] Double Bedroom",
-              fpLbl_0_westbath: "[GF 1-Bed] Bathroom",
-              fpLbl_0_kitchen: "[GF 1-Bed] Kitchen",
-              fpLbl_0_living: "[GF 1-Bed] Living Room",
-              fpLbl_0_east: "[GF Studio] Fireplace Studio + Kitchenette & Bath",
-              fpLbl_1_kitchen: "[F1 Apt] Eat-in Kitchen",
-              fpLbl_1_dining: "[F1 Apt] Dining Room / 2nd Bedroom",
-              fpLbl_1_salon: "[F1 Apt] Grand Salon on Long Balcony",
-              fpLbl_1_bath: "[F1 Apt] Main Bathroom",
-              fpLbl_1_east: "[F1 Apt] Double Bedroom with South Balcony",
-              fpLbl_2_westbed: "[F2 Apt] Panoramic Kitchen & Dining",
-              fpLbl_2_bath: "[F2 Apt] Main Bathroom",
-              fpLbl_2_master: "[F2 Apt] Living & Lounge Area",
-              fpLbl_2_storage: "Walk-in Closet",
-              fpLbl_2_east: "[F2 Apt] Master Suite + En-Suite Bath"
-            }
+          dependance: {
+            asIsBadge: "CURRENT STATE (AS-IS) • HISTORIC SURVEY",
+            toBeBadge: "ARCHITECTURAL PROJECT (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "2/4 • DÉPENDANCE (AS-IS: 2 EMPTY ROOMS)",
+            toBeTitle: "2/4 • DÉPENDANCE — 1-BEDROOM MINI-APARTMENT",
+            room1Empty: "1st Empty Room (North Side)",
+            room2Empty: "2nd Empty Room (South Side)",
+            archesAsIs: "2 Wide Arches on SW Wall",
+            archesToBe: "2 GLAZED SW ARCHES",
+            living: "Living Room & Compact Kitchen",
+            livingSub: "1st Glazed SW Arch • Dining Table",
+            bed: "Double Bedroom",
+            bedSub: "2nd SW Arch • Bed on opposite wall",
+            bath: "Walk-in Shower Bath",
+            doorsNote: "Living/Bedroom Door + Bath Door"
           },
-          opt_b: {
-            note: "<strong>Concept 4.b (Single Grand Luxury Residence):</strong> One prestigious manor across 4 levels with multiple bathrooms per floor. <strong>GF:</strong> Billiard & Cigar Lounge with fireplace, Library/Cinema room, Guest Suite & 2 baths. <strong>F1:</strong> Gourmet Island Kitchen, Formal Dining, Grand Salon, Study & 2 baths. <strong>F2:</strong> 3 En-Suite Bedrooms & Walk-in Closet.",
-            rooms: {
-              fpLbl_m1_taverna: "Grand Convivial Tavern & Wine Lounge",
-              fpLbl_m1_boiler: "Technical Room & Fine Wine Vault",
-              fpLbl_m1_cellar: "Carnotzet & Barrel Cellar",
-              fpLbl_0_westbed: "Ground-Floor Guest Suite",
-              fpLbl_0_westbath: "Guest Suite Bathroom",
-              fpLbl_0_kitchen: "2nd Day Bathroom & Wine Bar",
-              fpLbl_0_living: "Library & Home Cinema Lounge",
-              fpLbl_0_east: "🎱 Billiard Room & Fireplace Cigar Lounge",
-              fpLbl_1_kitchen: "Gourmet Kitchen with Center Island",
-              fpLbl_1_dining: "Formal Dining Room (12 seats)",
-              fpLbl_1_salon: "Noble Grand Salon on Long Balcony",
-              fpLbl_1_bath: "Main Floor Bathroom",
-              fpLbl_1_east: "Panoramic Study / Library with Balcony",
-              fpLbl_2_westbed: "West Double Suite",
-              fpLbl_2_bath: "Master Spa Bathroom (Tub & Walk-in Shower)",
-              fpLbl_2_master: "Primary Master Suite",
-              fpLbl_2_storage: "Walk-in Closet",
-              fpLbl_2_east: "East Double Suite + 2nd En-Suite Bath"
-            }
+          terrazzo: {
+            asIsBadge: "CURRENT STATE (AS-IS) • HISTORIC SURVEY",
+            toBeBadge: "ARCHITECTURAL PROJECT (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "3/4 • MAIN TERRACE (AS-IS: GARDEN LOUNGE ONLY)",
+            toBeTitle: "3/4 • MAIN TERRACE — LOUNGE, GAZEBO & OUTDOOR JACUZZI",
+            asIsLounge: "Garden Seating Area",
+            asIsEmpty: "Unfurnished Panoramic Terrace Deck",
+            toBeLounge: "L-Shaped Outdoor Lounge & Fire Pit",
+            toBeGazebo: "Bioclimatic Gazebo / Pergola",
+            toBeGazeboSub: "10-Seat Panoramic Dining Table",
+            toBeJacuzzi: "Heated Outdoor Jacuzzi",
+            toBeJacuzziSub: "Teak Sun Deck & Valley View"
           },
-          opt_c: {
-            note: "<strong>Concept 4.c (Architect's Proposal — Boutique Alpine Relais & Owner's Duplex):</strong> Blends luxury private living with high-yield boutique hospitality. <strong>GF:</strong> 2 independent Charming Suites ('Cervino' Fireplace Suite + 'Monte Bianco' Suite) + Breakfast/Co-Working Lounge linked to the Stable SPA. <strong>F1+F2:</strong> Owner's private Duplex with open-plan living & Master Suite.",
-            rooms: {
-              fpLbl_m1_taverna: "Wine Club Tasting Lounge & Private Events",
-              fpLbl_m1_boiler: "Technical & Relais Laundry Room",
-              fpLbl_m1_cellar: "Historic Barrel Cellar",
-              fpLbl_0_westbed: "🌟 'Monte Bianco' Guest Suite",
-              fpLbl_0_westbath: "Private Suite Bathroom",
-              fpLbl_0_kitchen: "Breakfast Pantry & Coffee Bar",
-              fpLbl_0_living: "Breakfast Lounge & Alpine Co-Working",
-              fpLbl_0_east: "🌟 'Cervino' Fireplace Suite & Private Bath",
-              fpLbl_1_kitchen: "[Owner Duplex F1] Designer Island Kitchen",
-              fpLbl_1_dining: "[Owner Duplex F1] Panoramic Dining Room",
-              fpLbl_1_salon: "[Owner Duplex F1] Double Grand Salon",
-              fpLbl_1_bath: "[Owner Duplex F1] Day Bathroom & Laundry",
-              fpLbl_1_east: "[Owner Duplex F1] Glazed Atelier / Home Office",
-              fpLbl_2_westbed: "[Owner Duplex F2] Junior Double Suite",
-              fpLbl_2_bath: "[Owner Duplex F2] Master Freestanding Spa Bath",
-              fpLbl_2_master: "[Owner Duplex F2] Owner's Master Suite",
-              fpLbl_2_storage: "Dressing Room",
-              fpLbl_2_east: "[Owner Duplex F2] 3rd Bedroom Suite + En-Suite Bath"
-            }
+          casa_pt: {
+            asIsBadge: "CURRENT STATE (AS-IS) • GROUND FLOOR",
+            toBeBadge: "ARCHITECTURAL PROJECT (TO-BE) • PROPOSAL C",
+            asIsTitle: "4/4 • MAIN HOUSE GROUND FLOOR (CURRENT LAYOUT)",
+            toBeTitle: "4/4 • HOUSE GROUND FLOOR — PROPOSAL C (SUITES & LOUNGE)",
+            asIsWestBed: "Double bedroom",
+            asIsWestBath: "Bathroom",
+            asIsKitchen: "Kitchen",
+            asIsLiving: "Living room",
+            asIsCorridor: "Corridor & Stairs",
+            asIsEast: "Fireplace room",
+            toBeWestBed: "🌟 'Monte Bianco' Suite",
+            toBeWestBath: "West Suite Bath",
+            toBeKitchen: "Coffee & Breakfast Bar",
+            toBeLiving: "Breakfast Lounge & Co-Working",
+            toBeEast: "🌟 'Cervino' Fireplace Suite",
+            toBeEastBath: "En-Suite Bath"
           }
         }
       },
       nl: {
         ui: {
-          fp_concept_bar_title: "📐 Architectonische Renovatieconcepten (Klik om de ontwerpen te verkennen)",
-          fp_concept_current: "Huidige Indeling",
-          fp_concept_current_sub: "Historische opname",
-          fp_concept_4a: "Project 4.a • Meerdere Units",
-          fp_concept_4a_sub: "BG Studio + 2-Kamer • V1 App. • V2 App.",
-          fp_concept_4b: "Project 4.b • Grote Herenwoning",
-          fp_concept_4b_sub: "Één grote villa • Biljart • Meerdere badk.",
-          fp_concept_4c: "Project 4.c • Voorstel Architect",
-          fp_concept_4c_sub: "Boutique Relais & Eigenaars-Duplex",
-          fp_zone_master: "🗺️ Overzicht Complex",
-          fp_zone_house: "🏠 Zoom Hoofdhuis",
-          fp_zone_annex: "♨️ Zoom Stal SPA • Dépendance • Terrassen",
-          fp_sub_dep_arches: "2 ZW-Bogen • 2-Kamer",
-          fp_sub_stable_spa: "2 ZO-NW Zuilen • SPA",
-          fp_annex_title_spa: "♨️ GEWELFDE STAL — ONTWERP PRIVÉ-SPA",
-          fp_annex_title_dep: "🏡 DÉPENDANCE — 2-KAMERAPP. (2 ZW-BOGEN)",
-          fp_spa_sauna: "Glazen Finse Sauna",
-          fp_spa_hammam: "Hammam & Belevenisdouche",
-          fp_spa_jacuzzi: "Verwarmde Jacuzzi / Whirlpool",
-          fp_spa_dressing: "Kleedkamer, Douches & SPA-Badkamer",
-          fp_spa_relax: "Relaxruimte & Theelounge",
-          fp_spa_kneipp: "Kneipp-pad (Warm/Koud)",
-          fp_spa_cols: "🏛️ 2 Historische Stenen Zuilen",
-          fp_spa_entrance: "🚪 Ingang SPA",
-          fp_dep_living: "Woonkamer & Kleine Keuken (1e Glazen ZW-Boog)",
-          fp_dep_bed: "Tweepersoonsslaapkamer (2e ZW-Boog)",
-          fp_dep_bath: "Badkamer met Inloopdouche",
-          fp_dep_arches_badge: "2 BREDE GLAZEN BOGEN OP HET ZUIDWESTEN",
-          fp_annex_title_terr1: "☀️ GROOT PANORAMATERRAS (BOVEN DE STAL)",
-          fp_annex_title_terr2: "🌅 2E TERRAS (BOVEN DÉPENDANCE)",
-          fp_terr_gazebo: "Bioklimatische Pergola / Gazebo & Eettafel (10 p.)",
-          fp_terr_bbq: "Stenen Buitenkeuken & Barbecue",
-          fp_terr_lounge: "L-Vormige Buitenlounge & Vuurplaats",
-          fp_terr_solarium: "Zonneterras & Doorgang naar Boventuin",
-          fp_terr2_pergola: "Sunset Lounge Pergola & ZW-Aperitiefhoek",
-          fp_terr2_jacuzzi: "Privé Zonnedek & Panoramische Mini-Pool"
+          proj3_title: "Ruimte-indeling & Projecten (Before / After)",
+          proj3_desc: "Vergelijk de huidige staat (AS-IS) met het nieuwe moderne architectenontwerp (TO-BE): 1) Stal naar Privé-SPA, 2) Dépendance naar 2-Kamerappartement, 3) Hoofdterras met Gazebo & Jacuzzi, 4) Hoofdhuis Begane Grond (Voorstel C).",
+          proj3_tab_1: "1. Stal → SPA",
+          proj3_tab_2: "2. Dépendance",
+          proj3_tab_3: "3. Hoofdterras",
+          proj3_tab_4: "4. Huis BG (Voorstel C)",
+          proj_cta_spaces: "Bekijk de 4 Before/After plannen (1/4)"
         },
-        concepts: {
-          current: {
-            note: "<strong>Huidige Indeling:</strong> Historische opname van het landgoed. Kies hierboven een van de <strong>Architectonische Projecten (4.a, 4.b, 4.c)</strong> om het <strong>Hoofdhuis</strong> te transformeren, of klik op <strong>♨️ Zoom Stal SPA • Dépendance • Terrassen</strong> voor het 2-kamerappartement met 2 brede ZW-bogen, de SPA rond de 2 zuilen en de dakterrassen.",
-            rooms: {
-              fpLbl_m1_taverna: "Taverne met ronde tafel",
-              fpLbl_m1_boiler: "Stookruimte",
-              fpLbl_m1_cellar: "Wijnkelder met vaten",
-              fpLbl_0_westbed: "Tweepersoonsslaapkamer",
-              fpLbl_0_westbath: "Badkamer",
-              fpLbl_0_kitchen: "Keuken",
-              fpLbl_0_living: "Woonkamer",
-              fpLbl_0_east: "Haardkamer",
-              fpLbl_1_kitchen: "Keuken",
-              fpLbl_1_dining: "Eetkamer (Tinello)",
-              fpLbl_1_salon: "Grote Salon",
-              fpLbl_1_bath: "Badkamer",
-              fpLbl_1_east: "Slaapkamer",
-              fpLbl_2_westbed: "Tweepersoonsslaapkamer",
-              fpLbl_2_bath: "Badkamer",
-              fpLbl_2_master: "Hoofdslaapkamer",
-              fpLbl_2_storage: "Berging",
-              fpLbl_2_east: "Slaapkamer"
-            }
+        slides: {
+          stalla: {
+            asIsBadge: "HUIDIGE STAAT (AS-IS) • HISTORISCHE OPNAME",
+            toBeBadge: "ARCHITECTENONTWERP (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "1/4 • GEWELFDE STAL (HUIDIGE LEGE STAAT)",
+            toBeTitle: "1/4 • GEWELFDE STAL — ONTWERP PRIVÉ-SPA",
+            emptyRoom: "Lege Historische Gewelfde Stal",
+            vaultSub: "Originele stenen kruisgewelven",
+            cols: "2 Stenen Zuilen (parallel aan wand)",
+            entranceAsIs: "Ingang Stal",
+            entranceSpa: "🚪 Ingang SPA",
+            sauna: "Glazen Finse Sauna",
+            hammam: "Hammam & Belevenisdouche",
+            jacuzzi: "Verwarmde Binnen-Jacuzzi",
+            kneipp: "Verticaal Kneipp-pad",
+            dressing: "Kleedkamer, Douches & Bad",
+            relax: "Relaxruimte & Theelounge"
           },
-          opt_a: {
-            note: "<strong>Project 4.a (4 Zelfstandige Appartementen + Dépendance):</strong> <strong>BG:</strong> Zelfstandige Studio met kitchenette & eigen badkamer op de plek van de haardkamer + 2-kamerappartement in de westvleugel. <strong>V1:</strong> Royaal appartement met lang balkon. <strong>V2:</strong> Bovenappartement met woonkeuken, 2 slaapkamers & 2 badkamers.",
-            rooms: {
-              fpLbl_m1_taverna: "Gezamenlijke Wijntaverne & Proeflokaal",
-              fpLbl_m1_boiler: "Technische Ruimte & Wasruimte",
-              fpLbl_m1_cellar: "Historische Vatenkelder",
-              fpLbl_0_westbed: "[2-Kamer BG] Tweepersoonsslaapkamer",
-              fpLbl_0_westbath: "[2-Kamer BG] Badkamer",
-              fpLbl_0_kitchen: "[2-Kamer BG] Keuken",
-              fpLbl_0_living: "[2-Kamer BG] Woonkamer",
-              fpLbl_0_east: "[Studio BG] Studio met Haard, Kitchenette & Badk.",
-              fpLbl_1_kitchen: "[App. V1] Woonkeuken",
-              fpLbl_1_dining: "[App. V1] Eetkamer / 2e Slaapkamer",
-              fpLbl_1_salon: "[App. V1] Grote Salon aan Lang Balkon",
-              fpLbl_1_bath: "[App. V1] Badkamer",
-              fpLbl_1_east: "[App. V1] Slaapkamer met Zuidbalkon",
-              fpLbl_2_westbed: "[App. V2] Panoramische Woonkeuken",
-              fpLbl_2_bath: "[App. V2] Badkamer",
-              fpLbl_2_master: "[App. V2] Woonkamer & Lounge",
-              fpLbl_2_storage: "Inloopkast",
-              fpLbl_2_east: "[App. V2] Master Suite + En-Suite Badkamer"
-            }
+          dependance: {
+            asIsBadge: "HUIDIGE STAAT (AS-IS) • HISTORISCHE OPNAME",
+            toBeBadge: "ARCHITECTENONTWERP (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "2/4 • DÉPENDANCE (AS-IS: 2 LEGE KAMERS)",
+            toBeTitle: "2/4 • DÉPENDANCE — 2-KAMER MINI-APPARTEMENT",
+            room1Empty: "1e Lege Ruimte (Noordzijde)",
+            room2Empty: "2e Lege Ruimte (Zuidzijde)",
+            archesAsIs: "2 Brede Bogen op ZW",
+            archesToBe: "2 GLAZEN ZW-BOGEN",
+            living: "Woonkamer & Kleine Keuken",
+            livingSub: "1e Glazen ZW-Boog • Eettafel",
+            bed: "Tweepersoonsslaapkamer",
+            bedSub: "2e ZW-Boog • Bed tegenoverliggende wand",
+            bath: "Badkamer met Douche",
+            doorsNote: "Deur Wonen/Slapen + Badkamerdeur"
           },
-          opt_b: {
-            note: "<strong>Project 4.b (Één Grote Exclusieve Herenwoning):</strong> Statige familieresidentie met meerdere badkamers per verdieping. <strong>BG:</strong> Biljartkamer & Cigar Lounge met historische haard, Bibliotheek/Cinema, Gastensuite & 2 badkamers. <strong>V1:</strong> Woonkeuken met kookeiland, Eetkamer, Grote Salon, Studie & 2 badkamers. <strong>V2:</strong> 3 Suites met eigen sanitair & Walk-in Closet.",
-            rooms: {
-              fpLbl_m1_taverna: "Grote Wijntaverne & Proeflokaal",
-              fpLbl_m1_boiler: "Techniek & Wijnkluis",
-              fpLbl_m1_cellar: "Carnotzet & Vatenkelder",
-              fpLbl_0_westbed: "Gastensuite Begane Grond",
-              fpLbl_0_westbath: "Badkamer Gastensuite",
-              fpLbl_0_kitchen: "2e Gastenbadkamer & Wijnbar",
-              fpLbl_0_living: "Bibliotheek & Thuisbioscoop",
-              fpLbl_0_east: "🎱 Biljartkamer & Cigar Lounge met Haard",
-              fpLbl_1_kitchen: "Luxe Keuken met Kookeiland",
-              fpLbl_1_dining: "Formele Eetkamer (12 pers.)",
-              fpLbl_1_salon: "Grote Salon aan het Lange Balkon",
-              fpLbl_1_bath: "Badkamer 1e Verdieping",
-              fpLbl_1_east: "Panoramische Werkkamer met Balkon",
-              fpLbl_2_westbed: "Slaapkamersuite West",
-              fpLbl_2_bath: "Luxe Master Badkamer (Ligbad & Inloopdouche)",
-              fpLbl_2_master: "Master Suite",
-              fpLbl_2_storage: "Walk-in Closet",
-              fpLbl_2_east: "Slaapkamersuite Oost + 2e En-Suite Badkamer"
-            }
+          terrazzo: {
+            asIsBadge: "HUIDIGE STAAT (AS-IS) • HISTORISCHE OPNAME",
+            toBeBadge: "ARCHITECTENONTWERP (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "3/4 • HOOFDTERRAS (AS-IS: ENKEL TUINZITJE)",
+            toBeTitle: "3/4 • HOOFDTERRAS — LOUNGE, GAZEBO & BUITEN-JACUZZI",
+            asIsLounge: "Tuinzitje / Buitenbank",
+            asIsEmpty: "Onbenut Panoramisch Terras",
+            toBeLounge: "L-Vormige Buitenlounge & Vuurplaats",
+            toBeGazebo: "Bioklimatische Gazebo / Pergola",
+            toBeGazeboSub: "Panoramische Eettafel (10 pers.)",
+            toBeJacuzzi: "Verwarmde Buiten-Jacuzzi",
+            toBeJacuzziSub: "Teak Zonnedek & Uitzicht op Vallei"
           },
-          opt_c: {
-            note: "<strong>Project 4.c (Voorstel Architect — Boutique Alpine Relais & Eigenaars-Duplex):</strong> Combineert luxe wonen met kleinschalige verhuur. <strong>BG:</strong> 2 zelfstandige Boutique Suites ('Cervino' met haard & 'Monte Bianco') + Breakfast/Co-Working Lounge direct verbonden met de Stal-SPA. <strong>V1+V2:</strong> Privé-Duplex voor de eigenaar met open leefruimte en Master Suite.",
-            rooms: {
-              fpLbl_m1_taverna: "Wijnclub & Degustatielounge",
-              fpLbl_m1_boiler: "Techniek & Linnenkamer Relais",
-              fpLbl_m1_cellar: "Historische Vatenkelder",
-              fpLbl_0_westbed: "🌟 Suite 'Monte Bianco' (Gasten/Relais)",
-              fpLbl_0_westbath: "Privébadkamer Suite West",
-              fpLbl_0_kitchen: "Ontbijtkeuken & Koffiebar",
-              fpLbl_0_living: "Ontbijtlounge & Alpine Co-Working",
-              fpLbl_0_east: "🌟 Suite 'Cervino' met Haard & Privébadkamer",
-              fpLbl_1_kitchen: "[Duplex V1] Designkeuken met Eiland",
-              fpLbl_1_dining: "[Duplex V1] Panoramische Eetkamer",
-              fpLbl_1_salon: "[Duplex V1] Dubbele Grote Salon",
-              fpLbl_1_bath: "[Duplex V1] Dagbadkamer & Bijkeuken",
-              fpLbl_1_east: "[Duplex V1] Glazen Atelier / Home Office",
-              fpLbl_2_westbed: "[Duplex V2] Junior Suite",
-              fpLbl_2_bath: "[Duplex V2] Privé Spa-Badkamer",
-              fpLbl_2_master: "[Duplex V2] Master Suite Eigenaar",
-              fpLbl_2_storage: "Dressing Room",
-              fpLbl_2_east: "[Duplex V2] 3e Slaapkamersuite + En-Suite Badk."
-            }
+          casa_pt: {
+            asIsBadge: "HUIDIGE STAAT (AS-IS) • BEGANE GROND",
+            toBeBadge: "ARCHITECTENONTWERP (TO-BE) • VOORSTEL C",
+            asIsTitle: "4/4 • HOOFDHUIS BEGANE GROND (HUIDIGE INDELING)",
+            toBeTitle: "4/4 • HUIS BEGANE GROND — VOORSTEL C (SUITES & LOUNGE)",
+            asIsWestBed: "Tweepersoonsslaapkamer",
+            asIsWestBath: "Badkamer",
+            asIsKitchen: "Keuken",
+            asIsLiving: "Woonkamer",
+            asIsCorridor: "Gang & Trap",
+            asIsEast: "Haardkamer",
+            toBeWestBed: "🌟 Suite 'Monte Bianco'",
+            toBeWestBath: "Badkamer Suite West",
+            toBeKitchen: "Koffie- & Ontbijtbar",
+            toBeLiving: "Ontbijtlounge & Co-Working",
+            toBeEast: "🌟 Suite 'Cervino' met Haard",
+            toBeEastBath: "En-Suite Badkamer"
           }
         }
       },
       fr: {
         ui: {
-          fp_concept_bar_title: "📐 Projets Architecturaux de Rénovation (Cliquez pour explorer)",
-          fp_concept_current: "État Actuel",
-          fp_concept_current_sub: "Relevé historique",
-          fp_concept_4a: "Projet 4.a • Multi-Logements",
-          fp_concept_4a_sub: "RDC Studio + T2 • R+1 App. • R+2 App.",
-          fp_concept_4b: "Projet 4.b • Grande Demeure",
-          fp_concept_4b_sub: "Maison unique • Billard • Salles de bain",
-          fp_concept_4c: "Projet 4.c • Idée Architecte",
-          fp_concept_4c_sub: "Relais de Charme & Duplex Propriétaire",
-          fp_zone_master: "🗺️ Plan du Domaine",
-          fp_zone_house: "🏠 Zoom Maison Principale",
-          fp_zone_annex: "♨️ Zoom Écurie SPA • Dépendance • Terrasses",
-          fp_sub_dep_arches: "2 Arcs SO • T2 Indép.",
-          fp_sub_stable_spa: "2 Colonnes SE-NO • SPA",
-          fp_annex_title_spa: "♨️ ÉCURIE VOÛTÉE HISTORIQUE — PROJET SPA PRIVÉ",
-          fp_annex_title_dep: "🏡 DÉPENDANCE — T2 INDÉPENDANT (2 ARCS SO)",
-          fp_spa_sauna: "Sauna Finlandais Vitré",
-          fp_spa_hammam: "Hammam & Douche Sensorielle",
-          fp_spa_jacuzzi: "Jacuzzi / Hydromassage Chauffé",
-          fp_spa_dressing: "Vestiaire, Douches & Salle d'Eau SPA",
-          fp_spa_relax: "Espace Détente & Tisanerie",
-          fp_spa_kneipp: "Parcours Kneipp (Chaud/Froid)",
-          fp_spa_cols: "🏛️ 2 Colonnes Monolithiques",
-          fp_spa_entrance: "🚪 Entrée SPA",
-          fp_dep_living: "Séjour & Petite Cuisine (1er Grand Arc Vitré SO)",
-          fp_dep_bed: "Chambre Double (2e Arc SO)",
-          fp_dep_bath: "Salle de Bain Douche Italienne",
-          fp_dep_arches_badge: "2 GRANDS ARCS VITRÉS PLEIN SUD-OUEST",
-          fp_annex_title_terr1: "☀️ TERRASSE PRINCIPALE (SUR L'ÉCURIE)",
-          fp_annex_title_terr2: "🌅 2E TERRASSE (SUR LA DÉPENDANCE)",
-          fp_terr_gazebo: "Pergola Bioclimatique / Gazebo & Table 10 Pers.",
-          fp_terr_bbq: "Cuisine d'Été en Pierre & Barbecue",
-          fp_terr_lounge: "Salon d'Extérieur en L & Brasero",
-          fp_terr_solarium: "Solarium & Accès au Jardin Supérieur",
-          fp_terr2_pergola: "Pergola Sunset Lounge & Coin Apéritif SO",
-          fp_terr2_jacuzzi: "Solarium Privé & Mini-Piscine Panoramique"
+          proj3_title: "Aménagement des Espaces (Before / After)",
+          proj3_desc: "Comparez l'état actuel (AS-IS) avec le nouveau projet d'architecte moderne (TO-BE) : 1) Écurie en SPA Privé, 2) Dépendance en T2 avec 2 arcs SO, 3) Terrasse Principale avec Gazebo & Jacuzzi, 4) Maison Rez-de-Chaussée (Proposition C).",
+          proj3_tab_1: "1. Écurie → SPA",
+          proj3_tab_2: "2. Dépendance",
+          proj3_tab_3: "3. Terrasse",
+          proj3_tab_4: "4. Maison RDC (Prop. C)",
+          proj_cta_spaces: "Explorer les 4 plans Before/After (1/4)"
         },
-        concepts: {
-          current: {
-            note: "<strong>État Actuel :</strong> Relevé historique de la propriété. Sélectionnez l'un des <strong>Projets Architecturaux (4.a, 4.b, 4.c)</strong> ci-dessus pour transformer la <strong>Maison Principale</strong>, ou cliquez sur <strong>♨️ Zoom Écurie SPA • Dépendance • Terrasses</strong> pour découvrir le T2 avec ses 2 grands arcs SO, le SPA autour des 2 colonnes SE–NO et les terrasses aménagées.",
-            rooms: {
-              fpLbl_m1_taverna: "Taverne avec table ronde",
-              fpLbl_m1_boiler: "Chaufferie",
-              fpLbl_m1_cellar: "Cave à tonneaux",
-              fpLbl_0_westbed: "Chambre double",
-              fpLbl_0_westbath: "Salle de bain",
-              fpLbl_0_kitchen: "Cuisine",
-              fpLbl_0_living: "Séjour",
-              fpLbl_0_east: "Salon cheminée",
-              fpLbl_1_kitchen: "Cuisine",
-              fpLbl_1_dining: "Salle à manger (Tinello)",
-              fpLbl_1_salon: "Grand Salon",
-              fpLbl_1_bath: "Salle de bain",
-              fpLbl_1_east: "Chambre",
-              fpLbl_2_westbed: "Chambre double",
-              fpLbl_2_bath: "Salle de bain",
-              fpLbl_2_master: "Chambre principale",
-              fpLbl_2_storage: "Débarras",
-              fpLbl_2_east: "Chambre"
-            }
+        slides: {
+          stalla: {
+            asIsBadge: "ÉTAT ACTUEL (AS-IS) • RELEVÉ HISTORIQUE",
+            toBeBadge: "PROJET D'ARCHITECTE (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "1/4 • ÉCURIE VOÛTÉE (ÉTAT ACTUEL VIDE)",
+            toBeTitle: "1/4 • ÉCURIE VOÛTÉE — PROJET SPA PRIVÉ",
+            emptyRoom: "Ancienne Écurie Voûtée Vide",
+            vaultSub: "Voûtes d'arêtes en pierre apparente",
+            cols: "2 Colonnes Historiques (parallèles au mur)",
+            entranceAsIs: "Entrée Écurie",
+            entranceSpa: "🚪 Entrée SPA",
+            sauna: "Sauna Finlandais Vitré",
+            hammam: "Hammam & Douche Sensorielle",
+            jacuzzi: "Jacuzzi Intérieur Chauffé",
+            kneipp: "Parcours Kneipp Vertical",
+            dressing: "Vestiaire, Douches & SdB",
+            relax: "Espace Détente & Tisanerie"
           },
-          opt_a: {
-            note: "<strong>Projet 4.a (4 Logements Indépendants + Dépendance T2) :</strong> <strong>RDC :</strong> Studio indépendant avec kitchenette et salle d'eau à la place du salon cheminée + Appartement T2 dans l'aile ouest. <strong>R+1 :</strong> Grand appartement noble avec long balcon. <strong>R+2 :</strong> Appartement panoramique avec cuisine-séjour, 2 chambres et 2 salles de bain.",
-            rooms: {
-              fpLbl_m1_taverna: "Carnotzet & Salle de Dégustation Commune",
-              fpLbl_m1_boiler: "Chaufferie & Buanderie",
-              fpLbl_m1_cellar: "Cave à Tonneaux Historique",
-              fpLbl_0_westbed: "[T2 RDC] Chambre Double",
-              fpLbl_0_westbath: "[T2 RDC] Salle de Bain",
-              fpLbl_0_kitchen: "[T2 RDC] Cuisine",
-              fpLbl_0_living: "[T2 RDC] Séjour",
-              fpLbl_0_east: "[Studio RDC] Studio Cheminée + Kitchenette & SdB",
-              fpLbl_1_kitchen: "[App. R+1] Cuisine Dînatoire",
-              fpLbl_1_dining: "[App. R+1] Salle à Manger / 2e Chambre",
-              fpLbl_1_salon: "[App. R+1] Grand Salon sur Long Balcon",
-              fpLbl_1_bath: "[App. R+1] Salle de Bain",
-              fpLbl_1_east: "[App. R+1] Chambre Double avec Balcon Sud",
-              fpLbl_2_westbed: "[App. R+2] Cuisine & Repas Panoramique",
-              fpLbl_2_bath: "[App. R+2] Salle de Bain",
-              fpLbl_2_master: "[App. R+2] Salon & Séjour",
-              fpLbl_2_storage: "Dressing / Rangement",
-              fpLbl_2_east: "[App. R+2] Suite Parentale + SdB En-Suite"
-            }
+          dependance: {
+            asIsBadge: "ÉTAT ACTUEL (AS-IS) • RELEVÉ HISTORIQUE",
+            toBeBadge: "PROJET D'ARCHITECTE (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "2/4 • DÉPENDANCE (AS-IS : 2 PIÈCES VIDES)",
+            toBeTitle: "2/4 • DÉPENDANCE — MINI-APPARTEMENT T2",
+            room1Empty: "1re Pièce Vide (Côté Nord)",
+            room2Empty: "2e Pièce Vide (Côté Sud)",
+            archesAsIs: "2 Grands Arcs Côté SO",
+            archesToBe: "2 ARCS VITRÉS SO",
+            living: "Séjour & Petite Cuisine",
+            livingSub: "1er Grand Arc Vitré SO • Table Repas",
+            bed: "Chambre Double",
+            bedSub: "2e Arc SO • Lit sur paroi opposée",
+            bath: "Salle d'Eau Douche Italienne",
+            doorsNote: "Porte Séjour/Chambre + Porte SdB"
           },
-          opt_b: {
-            note: "<strong>Projet 4.b (Une Seule Grande Demeure de Prestige) :</strong> Résidence familiale sur 4 niveaux avec plusieurs salles de bain par étage. <strong>RDC :</strong> Salle de Billard & Fumoir avec cheminée, Bibliothèque/Cinéma, Suite Invités & 2 SdB. <strong>R+1 :</strong> Cuisine avec îlot, Salle à manger, Grand Salon, Bureau & 2 SdB. <strong>R+2 :</strong> 3 Suites avec salles de bain et Dressing.",
-            rooms: {
-              fpLbl_m1_taverna: "Grande Taverne Conviviale & Wine Lounge",
-              fpLbl_m1_boiler: "Chaufferie & Cave à Grands Crus",
-              fpLbl_m1_cellar: "Carnotzet & Cave à Tonneaux",
-              fpLbl_0_westbed: "Suite Invités Rez-de-Chaussée",
-              fpLbl_0_westbath: "Salle de Bain Suite Invités",
-              fpLbl_0_kitchen: "2e Salle d'Eau & Bar à Vins",
-              fpLbl_0_living: "Bibliothèque & Salon Home-Cinéma",
-              fpLbl_0_east: "🎱 Salle de Billard & Fumoir avec Cheminée",
-              fpLbl_1_kitchen: "Cuisine Gourmet avec Îlot Central",
-              fpLbl_1_dining: "Salle à Manger Formelle (12 pl.)",
-              fpLbl_1_salon: "Grand Salon Noble sur Long Balcon",
-              fpLbl_1_bath: "Salle de Bain d'Étage",
-              fpLbl_1_east: "Bureau Panoramique avec Balcon Sud",
-              fpLbl_2_westbed: "Suite Double Ouest",
-              fpLbl_2_bath: "Grande Salle de Bain Master (Baignoire & Douche)",
-              fpLbl_2_master: "Master Suite Parentale",
-              fpLbl_2_storage: "Grand Dressing",
-              fpLbl_2_east: "Suite Double Est + 2e SdB En-Suite"
-            }
+          terrazzo: {
+            asIsBadge: "ÉTAT ACTUEL (AS-IS) • RELEVÉ HISTORIQUE",
+            toBeBadge: "PROJET D'ARCHITECTE (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "3/4 • TERRASSE PRINCIPALE (SALON DE JARDIN SEUL)",
+            toBeTitle: "3/4 • TERRASSE PRINCIPALE — SALON, GAZEBO & JACUZZI",
+            asIsLounge: "Salon de Jardin",
+            asIsEmpty: "Grande Terrasse Panoramique Libre",
+            toBeLounge: "Salon Extérieur en L & Brasero",
+            toBeGazebo: "Gazebo / Pergola Bioclimatique",
+            toBeGazeboSub: "Table à Manger Panoramique 10 Pl.",
+            toBeJacuzzi: "Jacuzzi Extérieur Chauffé",
+            toBeJacuzziSub: "Solarium en Teck & Vue Vallée"
           },
-          opt_c: {
-            note: "<strong>Projet 4.c (Proposition de l'Architecte — Boutique Relais Alpin & Duplex Propriétaire) :</strong> Allie résidence principale de luxe et hospitalité de charme. <strong>RDC :</strong> 2 Suites indépendantes ('Cervino' avec cheminée + 'Monte Bianco') + Salon Petit-Déjeuner/Co-Working relié au SPA de l'écurie. <strong>R+1/R+2 :</strong> Duplex Privé des propriétaires.",
-            rooms: {
-              fpLbl_m1_taverna: "Club Dégustation & Caveau Privé",
-              fpLbl_m1_boiler: "Chaufferie & Lingerie Relais",
-              fpLbl_m1_cellar: "Cave à Tonneaux Historique",
-              fpLbl_0_westbed: "🌟 Suite 'Monte Bianco' (Hôtes/Relais)",
-              fpLbl_0_westbath: "Salle de Bain Privée Suite Ouest",
-              fpLbl_0_kitchen: "Cuisine Petits-Déjeuners & Bar",
-              fpLbl_0_living: "Salon Petit-Déjeuner & Co-Working Alpin",
-              fpLbl_0_east: "🌟 Suite 'Cervino' avec Cheminée & SdB Privée",
-              fpLbl_1_kitchen: "[Duplex R+1] Cuisine Design avec Îlot",
-              fpLbl_1_dining: "[Duplex R+1] Salle à Manger Panoramique",
-              fpLbl_1_salon: "[Duplex R+1] Double Grand Salon",
-              fpLbl_1_bath: "[Duplex R+1] Salle d'Eau & Buanderie",
-              fpLbl_1_east: "[Duplex R+1] Atelier Vitré / Télétravail",
-              fpLbl_2_westbed: "[Duplex R+2] Suite Junior",
-              fpLbl_2_bath: "[Duplex R+2] Salle de Bain Spa Propriétaire",
-              fpLbl_2_master: "[Duplex R+2] Master Suite Propriétaire",
-              fpLbl_2_storage: "Dressing Room",
-              fpLbl_2_east: "[Duplex R+2] 3e Suite Double + SdB En-Suite"
-            }
+          casa_pt: {
+            asIsBadge: "ÉTAT ACTUEL (AS-IS) • REZ-DE-CHAUSSÉE",
+            toBeBadge: "PROJET D'ARCHITECTE (TO-BE) • PROPOSITION C",
+            asIsTitle: "4/4 • MAISON PRINCIPALE NIVEAU 0 (ÉTAT ACTUEL)",
+            toBeTitle: "4/4 • MAISON NIVEAU 0 — PROPOSITION C (SUITES & LOUNGE)",
+            asIsWestBed: "Chambre double",
+            asIsWestBath: "Salle de bain",
+            asIsKitchen: "Cuisine",
+            asIsLiving: "Séjour",
+            asIsCorridor: "Couloir & Escalier",
+            asIsEast: "Salon cheminée",
+            toBeWestBed: "🌟 Suite 'Monte Bianco'",
+            toBeWestBath: "SdB Suite Ouest",
+            toBeKitchen: "Bar Café & Petits-Déjeuners",
+            toBeLiving: "Breakfast Lounge & Co-Working",
+            toBeEast: "🌟 Suite 'Cervino' Cheminée",
+            toBeEastBath: "SdB En-Suite"
           }
         }
       },
       de: {
         ui: {
-          fp_concept_bar_title: "📐 Architektonische Renovierungskonzepte (Klicken zum Entdecken)",
-          fp_concept_current: "Bestand",
-          fp_concept_current_sub: "Historischer Grundriss",
-          fp_concept_4a: "Konzept 4.a • Mehrparteien",
-          fp_concept_4a_sub: "EG Studio + 2-Zi • 1.OG Whg • 2.OG Whg",
-          fp_concept_4b: "Konzept 4.b • Großes Herrenhaus",
-          fp_concept_4b_sub: "Eine Residenz • Billard • Bäder je Etage",
-          fp_concept_4c: "Konzept 4.c • Architekten-Idee",
-          fp_concept_4c_sub: "Boutique-Relais & Eigentümer-Duplex",
-          fp_zone_master: "🗺️ Gesamtensemble",
-          fp_zone_house: "🏠 Zoom Haupthaus",
-          fp_zone_annex: "♨️ Zoom Stall-SPA • Dépendance • Terrassen",
-          fp_sub_dep_arches: "2 SW-Bögen • 2-Zi-Whg",
-          fp_sub_stable_spa: "2 SO-NW Säulen • SPA",
-          fp_annex_title_spa: "♨️ HISTORISCHER GEWÖLBTESTALL — PROJEKT PRIVATE SPA",
-          fp_annex_title_dep: "🏡 DÉPENDANCE — 2-ZIMMER-WHG (2 SW-BÖGEN)",
-          fp_spa_sauna: "Verglaste Finnische Sauna",
-          fp_spa_hammam: "Hammam & Erlebnisdusche",
-          fp_spa_jacuzzi: "Beheizter Whirlpool / Jacuzzi",
-          fp_spa_dressing: "Umkleide, Duschen & SPA-Bad",
-          fp_spa_relax: "Ruhezone & Teelounge",
-          fp_spa_kneipp: "Kneipp-Pfad (Warm/Kalt)",
-          fp_spa_cols: "🏛️ 2 Monolithische Steinsäulen",
-          fp_spa_entrance: "🚪 SPA-Eingang",
-          fp_dep_living: "Wohnen & Kleine Küche (1. Verglaster SW-Bogen)",
-          fp_dep_bed: "Doppelschlafzimmer (2. SW-Bogen)",
-          fp_dep_bath: "Bad mit Walk-in-Dusche",
-          fp_dep_arches_badge: "2 GROSSE VERGLASTE BÖGEN NACH SÜDWESTEN",
-          fp_annex_title_terr1: "☀️ HAUPTTERRASSE (ÜBER DEM STALL)",
-          fp_annex_title_terr2: "🌅 2. TERRASSE (ÜBER DER DÉPENDANCE)",
-          fp_terr_gazebo: "Bioklimatische Pergola / Gazebo & Esstisch (10 P.)",
-          fp_terr_bbq: "Naturstein-Außenküche & Grill",
-          fp_terr_lounge: "L-Förmige Outdoor-Lounge & Feuerschale",
-          fp_terr_solarium: "Sonnendeck & Zugang zum Oberen Garten",
-          fp_terr2_pergola: "Sunset-Lounge-Pergola & SW-Aperitifdeck",
-          fp_terr2_jacuzzi: "Privates Sonnendeck & Panorama-Minipool"
+          proj3_title: "Raumaufteilung & Konzepte (Before / After)",
+          proj3_desc: "Vergleichen Sie den Bestand (AS-IS) mit der modernen Architektenplanung (TO-BE): 1) Gewölbestall wird Private SPA, 2) Dépendance wird 2-Zi-Apartment, 3) Hauptterrasse mit Gazebo & Außen-Jacuzzi, 4) Haupthaus Erdgeschoss (Konzept C).",
+          proj3_tab_1: "1. Stall → SPA",
+          proj3_tab_2: "2. Dépendance",
+          proj3_tab_3: "3. Hauptterrasse",
+          proj3_tab_4: "4. Haus EG (Konzept C)",
+          proj_cta_spaces: "Alle 4 Before/After-Pläne ansehen (1/4)"
         },
-        concepts: {
-          current: {
-            note: "<strong>Bestandsgrundriss:</strong> Historische Aufnahme des Anwesens. Wählen Sie oben eines der <strong>Architekturkonzepte (4.a, 4.b, 4.c)</strong>, um das <strong>Haupthaus</strong> neu zu gestalten, oder klicken Sie auf <strong>♨️ Zoom Stall-SPA • Dépendance • Terrassen</strong> für die 2-Zimmer-Dépendance mit 2 großen SW-Bögen, das SPA rund um die 2 Säulen und die Dachterrassen.",
-            rooms: {
-              fpLbl_m1_taverna: "Taverne mit rundem Tisch",
-              fpLbl_m1_boiler: "Heizraum",
-              fpLbl_m1_cellar: "Fasskeller",
-              fpLbl_0_westbed: "Doppelzimmer",
-              fpLbl_0_westbath: "Badezimmer",
-              fpLbl_0_kitchen: "Küche",
-              fpLbl_0_living: "Wohnzimmer",
-              fpLbl_0_east: "Kaminzimmer",
-              fpLbl_1_kitchen: "Küche",
-              fpLbl_1_dining: "Esszimmer (Tinello)",
-              fpLbl_1_salon: "Großer Salon",
-              fpLbl_1_bath: "Badezimmer",
-              fpLbl_1_east: "Schlafzimmer",
-              fpLbl_2_westbed: "Doppelzimmer",
-              fpLbl_2_bath: "Badezimmer",
-              fpLbl_2_master: "Hauptschlafzimmer",
-              fpLbl_2_storage: "Abstellraum",
-              fpLbl_2_east: "Schlafzimmer"
-            }
+        slides: {
+          stalla: {
+            asIsBadge: "BESTAND (AS-IS) • HISTORISCHE AUFNAHME",
+            toBeBadge: "ARCHITEKTENPLANUNG (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "1/4 • HISTORISCHER GEWÖLBESTALL (AKTUELL LEER)",
+            toBeTitle: "1/4 • GEWÖLBESTALL — PROJEKT PRIVATE SPA",
+            emptyRoom: "Leerer Historischer Gewölbestall",
+            vaultSub: "Sichtbare Naturstein-Kreuzgewölbe",
+            cols: "2 Historische Säulen (parallel zur Wand)",
+            entranceAsIs: "Eingang Stall",
+            entranceSpa: "🚪 SPA-Eingang",
+            sauna: "Verglaste Finnische Sauna",
+            hammam: "Hammam & Erlebnisdusche",
+            jacuzzi: "Beheizter Indoor-Whirlpool",
+            kneipp: "Vertikaler Kneipp-Pfad",
+            dressing: "Umkleide, Duschen & Bad",
+            relax: "Ruhezone & Teelounge"
           },
-          opt_a: {
-            note: "<strong>Konzept 4.a (4 Eigenständige Einheiten + Dépendance):</strong> <strong>EG:</strong> Eigenständiges Studio-Apartment (Monolocale) mit Pantryküche & Bad anstelle des Kaminzimmers + 2-Zimmer-Wohnung im Westflügel. <strong>1.OG:</strong> Repräsentative Wohnung mit langem Balkon. <strong>2.OG:</strong> Panorama-Wohnung mit Wohnküche, 2 Schlafzimmern & 2 Bädern.",
-            rooms: {
-              fpLbl_m1_taverna: "Gemeinsame Weintaverne & Verkostung",
-              fpLbl_m1_boiler: "Heiztechnik & Waschküche",
-              fpLbl_m1_cellar: "Historischer Fasskeller",
-              fpLbl_0_westbed: "[2-Zi EG] Doppelschlafzimmer",
-              fpLbl_0_westbath: "[2-Zi EG] Badezimmer",
-              fpLbl_0_kitchen: "[2-Zi EG] Küche",
-              fpLbl_0_living: "[2-Zi EG] Wohnzimmer",
-              fpLbl_0_east: "[Studio EG] Kaminstudio + Pantryküche & Bad",
-              fpLbl_1_kitchen: "[Whg 1.OG] Wohnküche",
-              fpLbl_1_dining: "[Whg 1.OG] Esszimmer / 2. Schlafzimmer",
-              fpLbl_1_salon: "[Whg 1.OG] Großer Salon am Langbalkon",
-              fpLbl_1_bath: "[Whg 1.OG] Hauptbad",
-              fpLbl_1_east: "[Whg 1.OG] Schlafzimmer mit Südbalkon",
-              fpLbl_2_westbed: "[Whg 2.OG] Panorama-Wohnküche",
-              fpLbl_2_bath: "[Whg 2.OG] Badezimmer",
-              fpLbl_2_master: "[Whg 2.OG] Wohn- & Loungebereich",
-              fpLbl_2_storage: "Ankleide / Abstell.",
-              fpLbl_2_east: "[Whg 2.OG] Master Suite + En-Suite-Bad"
-            }
+          dependance: {
+            asIsBadge: "BESTAND (AS-IS) • HISTORISCHE AUFNAHME",
+            toBeBadge: "ARCHITEKTENPLANUNG (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "2/4 • DÉPENDANCE (BESTAND: 2 LEERE RÄUME)",
+            toBeTitle: "2/4 • DÉPENDANCE — 2-ZIMMER-MINI-APARTMENT",
+            room1Empty: "1. Leerer Raum (Nordseite)",
+            room2Empty: "2. Leerer Raum (Südseite)",
+            archesAsIs: "2 Große Bögen an der SW-Wand",
+            archesToBe: "2 VERGLASTE SW-BÖGEN",
+            living: "Wohnbereich & Kleine Küche",
+            livingSub: "1. Verglaster SW-Bogen • Esstisch",
+            bed: "Doppelschlafzimmer",
+            bedSub: "2. SW-Bogen • Bett an gegenüberliegender Wand",
+            bath: "Bad mit Walk-in-Dusche",
+            doorsNote: "Tür Wohnen/Schlafen + Badtür"
           },
-          opt_b: {
-            note: "<strong>Konzept 4.b (Einziges Großes Herrenhaus):</strong> Exklusive Familienresidenz über 4 Ebenen mit mehreren Bädern pro Etage. <strong>EG:</strong> Billardzimmer & Cigar Lounge mit historischem Kamin, Bibliothek/Heimkino,ästesuite & 2 Bäder. <strong>1.OG:</strong> Gourmetküche mit Kochinsel, Speisesaal, Großer Salon, Studio & 2 Bäder. <strong>2.OG:</strong> 3 Suiten mit eigenen Bädern & Ankleide.",
-            rooms: {
-              fpLbl_m1_taverna: "Große Weintaverne & Genusslounge",
-              fpLbl_m1_boiler: "Haustechnik & Weinraritätenkeller",
-              fpLbl_m1_cellar: "Carnotzet & Fasskeller",
-              fpLbl_0_westbed: "Gästesuite im Erdgeschoss",
-              fpLbl_0_westbath: "Bad der Gästesuite",
-              fpLbl_0_kitchen: "2. Tagesbad & Weinbar",
-              fpLbl_0_living: "Bibliothek & Heimkino-Lounge",
-              fpLbl_0_east: "🎱 Billardzimmer & Cigar Lounge mit Kamin",
-              fpLbl_1_kitchen: "Gourmetküche mit Kochinsel",
-              fpLbl_1_dining: "Repräsentatives Esszimmer (12 Pl.)",
-              fpLbl_1_salon: "Edler Großer Salon am Langbalkon",
-              fpLbl_1_bath: "Etagenbad",
-              fpLbl_1_east: "Panorama-Arbeitszimmer mit Südbalkon",
-              fpLbl_2_westbed: "Doppelsuite West",
-              fpLbl_2_bath: "Großes Master-Wellnessbad (Wanne & Dusche)",
-              fpLbl_2_master: "Master Suite",
-              fpLbl_2_storage: "Walk-in Closet",
-              fpLbl_2_east: "Doppelsuite Ost + 2. En-Suite-Bad"
-            }
+          terrazzo: {
+            asIsBadge: "BESTAND (AS-IS) • HISTORISCHE AUFNAHME",
+            toBeBadge: "ARCHITEKTENPLANUNG (TO-BE) • STUDIO CONCEPT",
+            asIsTitle: "3/4 • HAUPTTERRASSE (BESTAND: NUR GARTENLOUNGE)",
+            toBeTitle: "3/4 • HAUPTTERRASSE — LOUNGE, GAZEBO & AUSSEN-JACUZZI",
+            asIsLounge: "Gartensitzgruppe",
+            asIsEmpty: "Freie Panoramaterrasse (unmöbliert)",
+            toBeLounge: "L-Förmige Outdoor-Lounge & Feuerschale",
+            toBeGazebo: "Bioklimatische Pergola / Gazebo",
+            toBeGazeboSub: "Panorama-Esstisch (10 Plätze)",
+            toBeJacuzzi: "Beheizter Außen-Whirlpool",
+            toBeJacuzziSub: "Teak-Sonnendeck & Talblick"
           },
-          opt_c: {
-            note: "<strong>Konzept 4.c (Architekten-Vorschlag — Boutique Alpine Relais & Eigentümer-Duplex):</strong> Verbindet luxuriöses Privatwohnen mit exklusiver Gastfreundschaft. <strong>EG:</strong> 2 eigenständige Boutique-Suiten ('Cervino' mit Kamin & 'Monte Bianco') + Frühstücks-/Co-Working-Lounge mit direktem Zugang zum Stall-SPA. <strong>1.+2.OG:</strong> Privates Eigentümer-Duplex.",
-            rooms: {
-              fpLbl_m1_taverna: "Wine-Club & Verkostungslounge",
-              fpLbl_m1_boiler: "Haustechnik & Relais-Wäscherei",
-              fpLbl_m1_cellar: "Historischer Fasskeller",
-              fpLbl_0_westbed: "🌟 Suite 'Monte Bianco' (Gäste/Relais)",
-              fpLbl_0_westbath: "Privatbad Suite West",
-              fpLbl_0_kitchen: "Frühstücksküche & Kaffeebar",
-              fpLbl_0_living: "Frühstückslounge & Alpine Co-Working",
-              fpLbl_0_east: "🌟 Suite 'Cervino' mit Kamin & Privatbad",
-              fpLbl_1_kitchen: "[Duplex 1.OG] Designküche mit Insel",
-              fpLbl_1_dining: "[Duplex 1.OG] Panorama-Esszimmer",
-              fpLbl_1_salon: "[Duplex 1.OG] Doppelter Großer Salon",
-              fpLbl_1_bath: "[Duplex 1.OG] Tagesbad & Hauswirtschaft",
-              fpLbl_1_east: "[Duplex 1.OG] Verglastes Atelier / Home-Office",
-              fpLbl_2_westbed: "[Duplex 2.OG] Junior-Suite",
-              fpLbl_2_bath: "[Duplex 2.OG] Privates Master-Spa-Bad",
-              fpLbl_2_master: "[Duplex 2.OG] Master Suite Eigentümer",
-              fpLbl_2_storage: "Ankleideraum",
-              fpLbl_2_east: "[Duplex 2.OG] 3. Schlafzimmersuite + En-Suite-Bad"
-            }
+          casa_pt: {
+            asIsBadge: "BESTAND (AS-IS) • ERDGESCHOSS (EBENE 0)",
+            toBeBadge: "ARCHITEKTENPLANUNG (TO-BE) • KONZEPT C",
+            asIsTitle: "4/4 • HAUPTHAUS EBENE 0 (BESTANDSGRUNDRISS)",
+            toBeTitle: "4/4 • HAUPTHAUS EBENE 0 — KONZEPT C (SUITEN & LOUNGE)",
+            asIsWestBed: "Doppelzimmer",
+            asIsWestBath: "Badezimmer",
+            asIsKitchen: "Küche",
+            asIsLiving: "Wohnzimmer",
+            asIsCorridor: "Flur & Treppe",
+            asIsEast: "Kaminzimmer",
+            toBeWestBed: "🌟 Suite 'Monte Bianco'",
+            toBeWestBath: "Bad Suite West",
+            toBeKitchen: "Kaffee- & Frühstücksbar",
+            toBeLiving: "Frühstückslounge & Co-Working",
+            toBeEast: "🌟 Kamin-Suite 'Cervino'",
+            toBeEastBath: "En-Suite-Bad"
           }
         }
       }
     };
 
-    // Merge UI keys into main i18n dictionary so setLanguage() translates them automatically
-    Object.keys(fpConceptI18n).forEach(lang => {
-      if (i18n[lang] && fpConceptI18n[lang].ui) {
-        Object.assign(i18n[lang], fpConceptI18n[lang].ui);
+    Object.keys(spacesBaI18n).forEach(lang => {
+      if (i18n[lang] && spacesBaI18n[lang].ui) {
+        Object.assign(i18n[lang], spacesBaI18n[lang].ui);
       }
     });
 
     let currentLang = 'nl';
     let currentFpLevel = '0';
     let currentFpViewMode = 'master';
-    let currentFpConcept = 'current';
     let showAllMasterplan = false;
 
-    function setFloorPlanConcept(concept) {
-      currentFpConcept = concept || 'current';
-      // If user selects 4.a, 4.b, or 4.c while on master view, smoothly open the Main House view so they immediately see the architectural room layout
-      if (currentFpConcept !== 'current' && currentFpViewMode === 'master') {
-        currentFpViewMode = 'house';
-      }
-      updateFloorPlanUI();
-    }
-
     function setFloorPlanViewMode(mode) {
-      if (mode === 'house' || mode === 'annex' || mode === 'master') {
-        currentFpViewMode = mode;
-      } else {
-        currentFpViewMode = 'master';
-      }
-      // If user enters Annex view (Stalla SPA / Dépendance / Terraces) while on level -1 or 2, switch to level 0 (or keep 1 if on 1)
-      if (currentFpViewMode === 'annex' && currentFpLevel !== '0' && currentFpLevel !== '1') {
-        currentFpLevel = '0';
-      }
+      currentFpViewMode = (mode === 'house') ? 'house' : 'master';
       updateFloorPlanUI();
     }
 
     function updateFloorPlanUI() {
       const dict = i18n[currentLang] || i18n.nl;
-      const conceptLang = fpConceptI18n[currentLang] || fpConceptI18n.it;
-      const conceptData = (conceptLang.concepts && conceptLang.concepts[currentFpConcept]) || conceptLang.concepts.current;
       const lvlKeyMap = { '-1': 'm1', '0': '0', '1': '1', '2': '2' };
       const suffix = lvlKeyMap[currentFpLevel] || '0';
 
@@ -6424,41 +5726,16 @@
         }
       });
 
-      // Update Concept buttons
-      ['current', 'opt_a', 'opt_b', 'opt_c'].forEach(cid => {
-        const cbtn = document.getElementById('fpConcept_' + cid);
-        if (cbtn) {
-          cbtn.classList.toggle('active', cid === currentFpConcept);
-        }
-      });
-
-      // Update Zone pills
-      ['master', 'house', 'annex'].forEach(zid => {
-        const zbtn = document.getElementById('fpZone_' + zid);
-        if (zbtn) {
-          zbtn.classList.toggle('active', zid === currentFpViewMode);
-        }
-      });
-
-      // Update Architect's Note banner
-      const archNoteEl = document.getElementById('fpArchNoteText');
-      if (archNoteEl && conceptData && conceptData.note) {
-        archNoteEl.innerHTML = conceptData.note;
-      }
-
-      // Update view mode SVGs & floating back button (Masterplan vs House Zoom vs Annex Zoom)
+      // Update view mode SVGs & floating back button (Masterplan vs House Zoom)
       const isHouseMode = (currentFpViewMode === 'house');
-      const isAnnexMode = (currentFpViewMode === 'annex');
       const svgMaster = document.getElementById('fpMasterSvg');
       const svgHouse = document.getElementById('fpHouseSvg');
-      const svgAnnex = document.getElementById('fpAnnexSvg');
       const switchCta = document.getElementById('fpSwitchModeCta');
       const switchCtaText = document.getElementById('fpSwitchModeCtaText');
 
-      if (svgMaster) svgMaster.style.display = (!isHouseMode && !isAnnexMode) ? 'block' : 'none';
+      if (svgMaster) svgMaster.style.display = isHouseMode ? 'none' : 'block';
       if (svgHouse) svgHouse.style.display = isHouseMode ? 'block' : 'none';
-      if (svgAnnex) svgAnnex.style.display = isAnnexMode ? 'block' : 'none';
-      if (switchCta) switchCta.style.display = (isHouseMode || isAnnexMode) ? 'inline-flex' : 'none';
+      if (switchCta) switchCta.style.display = isHouseMode ? 'inline-flex' : 'none';
 
       const lvlTitle = dict['fp_tab_' + suffix] || ('Piano ' + currentFpLevel);
 
@@ -6466,12 +5743,6 @@
         switchCtaText.setAttribute('data-i18n', 'fp_left_title');
         switchCtaText.textContent = (dict.fp_left_title || 'Complesso & Spazi Esterni').replace(/^1\.\s*/, '');
       }
-
-      // Toggle Masterplan Stalla internal preview (Piano 0 SPA vs Piano 1 Terrace Gazebo/BBQ)
-      const stSketch0 = document.getElementById('mpStableSketch_0');
-      const stSketch1 = document.getElementById('mpStableSketch_1');
-      if (stSketch0) stSketch0.style.display = (currentFpLevel === '1') ? 'none' : 'block';
-      if (stSketch1) stSketch1.style.display = (currentFpLevel === '1') ? 'block' : 'none';
 
       // Update dynamic labels on Masterplan blocks (Stalla vs Terrazzo principale, Dépendance vs Secondo terrazzo, Casa principale vs Cantine a volta)
       const stableLbl = document.getElementById('mpStableLabel');
@@ -6519,26 +5790,6 @@
           grp.style.display = (sfx === suffix) ? 'block' : 'none';
         }
       });
-
-      // Toggle internal annex floor group (Piano 0 = SPA + Dépendance Bilocale; Piano 1 = Terrazzi)
-      const annex0 = document.getElementById('fpAnnexFloor_0');
-      const annex1 = document.getElementById('fpAnnexFloor_1');
-      if (annex0) annex0.style.display = (currentFpLevel === '1') ? 'none' : 'block';
-      if (annex1) annex1.style.display = (currentFpLevel === '1') ? 'block' : 'none';
-
-      // Update House room labels & architectural overlays for the active concept
-      if (conceptData && conceptData.rooms) {
-        Object.keys(conceptData.rooms).forEach(rmId => {
-          const el = document.getElementById(rmId);
-          if (el) {
-            el.textContent = conceptData.rooms[rmId];
-          }
-        });
-      }
-      document.querySelectorAll('#fpHouseSvg .fp-concept-layer').forEach(layer => {
-        const allowed = (layer.getAttribute('data-concepts') || '').split(',');
-        layer.style.display = allowed.includes(currentFpConcept) ? 'block' : 'none';
-      });
     }
 
     function selectFloorPlanLevel(lvl) {
@@ -6548,10 +5799,6 @@
       if (allBtn) {
         allBtn.classList.remove('active');
         allBtn.setAttribute('aria-pressed', 'false');
-      }
-      // If user is in Annex mode and clicks level -1 or 2, switch to House mode so they see that floor
-      if (currentFpViewMode === 'annex' && currentFpLevel !== '0' && currentFpLevel !== '1') {
-        currentFpViewMode = 'house';
       }
       updateFloorPlanUI();
     }
@@ -6641,6 +5888,9 @@
         canonicalEl.setAttribute('href', `https://www.montjovet-residence.nl/?lang=${lang}`);
       }
       updateFloorPlanUI();
+      if (typeof refreshSpacesBaGallery === 'function') {
+        refreshSpacesBaGallery();
+      }
     }
 
     // Mobile nav
@@ -7142,6 +6392,448 @@
   <script>
     let currentProjSlides = [];
     let currentProjIdx = 0;
+    let currentProjType = 'ext';
+    let currentSpacesCardIdx = 0;
+    const spacesSlideKeys = ['stalla', 'dependance', 'terrazzo', 'casa_pt'];
+
+    function escXml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function buildSpacesBaSvg(slideKey, mode, lang) {
+      const pack = (spacesBaI18n[lang] || spacesBaI18n.it).slides[slideKey] || spacesBaI18n.it.slides[slideKey];
+      const isAfter = (mode === 'after');
+
+      // Common SVG Header & Defs (Vintage Parchment Survey for AS-IS vs Modern Dark Slate Architect Studio CAD for TO-BE)
+      const bgFill = isAfter ? '#121A1D' : '#F6EFE2';
+      const gridStroke = isAfter ? 'rgba(197,160,89,0.09)' : 'rgba(110,92,72,0.09)';
+      const subGridStroke = isAfter ? 'rgba(92,200,220,0.04)' : 'rgba(110,92,72,0.04)';
+      const headerBg = isAfter ? '#1B262B' : '#EAE0CE';
+      const headerBorder = isAfter ? '#C5A059' : '#8C7A65';
+      const badgeBg = isAfter ? '#C5A059' : '#6E5A46';
+      const badgeColor = isAfter ? '#10171A' : '#FAF6EE';
+      const titleColor = isAfter ? '#F5EFE6' : '#3A2E23';
+      const wallStroke = isAfter ? '#E8DEC8' : '#5C4938';
+      const wallFill = isAfter ? '#182328' : '#FBF7F0';
+
+      let body = '';
+
+      if (slideKey === 'stalla') {
+        if (!isAfter) {
+          // 1. STALLA AS-IS: Empty vaulted stable with 2 monolithic columns parallel to vertical wall (x=470) & entrance on left wall
+          body = `
+            <!-- Perimeter Stone Building Shadow & Walls -->
+            <rect x="136" y="88" width="540" height="364" rx="6" fill="#D5C7B4"/>
+            <rect x="126" y="78" width="540" height="364" rx="6" fill="${wallFill}" stroke="${wallStroke}" stroke-width="8"/>
+            <rect x="134" y="86" width="524" height="348" rx="3" fill="none" stroke="#9E8C78" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+            <!-- Left Wall Entrance Opening (x=126, y=224..284) -->
+            <line x1="126" y1="224" x2="126" y2="284" stroke="${wallFill}" stroke-width="10"/>
+            <line x1="126" y1="224" x2="168" y2="238" stroke="#6E472B" stroke-width="3"/>
+            <path d="M 168,238 A 44,44 0 0,1 126,268" fill="none" stroke="#8C7A65" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <path d="M 78,254 L 146,254 M 146,254 L 135,246 M 146,254 L 135,262" stroke="#7A5C43" stroke-width="3" stroke-linecap="round"/>
+            <rect x="42" y="214" width="112" height="26" rx="6" fill="#6E5A46"/>
+            <text x="98" y="231" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#FAF6EE">${escXml(pack.entranceAsIs)}</text>
+
+            <!-- Cross-Vault Structural Ribs converging on the 2 vertical columns (x=470) -->
+            <g stroke="rgba(110,90,70,0.34)" stroke-width="1.8" stroke-dasharray="6 5">
+              <line x1="134" y1="86" x2="470" y2="196"/>
+              <line x1="658" y1="86" x2="470" y2="196"/>
+              <line x1="134" y1="260" x2="470" y2="196"/>
+              <line x1="658" y1="260" x2="470" y2="196"/>
+              <line x1="134" y1="260" x2="470" y2="332"/>
+              <line x1="658" y1="260" x2="470" y2="332"/>
+              <line x1="134" y1="434" x2="470" y2="332"/>
+              <line x1="658" y1="434" x2="470" y2="332"/>
+              <line x1="470" y1="86" x2="470" y2="434" stroke="rgba(140,80,60,0.45)" stroke-width="2"/>
+            </g>
+
+            <!-- Empty Room Center Label -->
+            <rect x="184" y="220" width="236" height="72" rx="10" fill="rgba(246,239,226,0.92)" stroke="#8C7A65" stroke-width="1.5"/>
+            <text x="302" y="250" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="14" font-weight="700" fill="#3E3024">${escXml(pack.emptyRoom)}</text>
+            <text x="302" y="272" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="500" fill="#6E5A46">${escXml(pack.vaultSub)}</text>
+
+            <!-- 2 Monolithic Stone Columns Parallel to the Vertical Wall (x=470, y=196 & y=332) -->
+            <circle cx="470" cy="196" r="18" fill="#D8CFC2" stroke="#4A3B2C" stroke-width="3"/>
+            <circle cx="470" cy="196" r="9" fill="#8C7D6B" stroke="#4A3B2C" stroke-width="1.5"/>
+            <circle cx="470" cy="332" r="18" fill="#D8CFC2" stroke="#4A3B2C" stroke-width="3"/>
+            <circle cx="470" cy="332" r="9" fill="#8C7D6B" stroke="#4A3B2C" stroke-width="1.5"/>
+
+            <rect x="350" y="138" width="240" height="28" rx="6" fill="#4A3B2C"/>
+            <text x="470" y="156" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#FAF6EE">🏛️ ${escXml(pack.cols)}</text>
+          `;
+        } else {
+          // 1. STALLA TO-BE: Modern Architect CAD Private SPA
+          body = `
+            <!-- Outer Glow & Structural Perimeter Walls -->
+            <rect x="126" y="78" width="540" height="364" rx="6" fill="#162126" stroke="#E8DEC8" stroke-width="7"/>
+
+            <!-- 1. Sauna Finlandese Vetrata (Top-Left, warm cedar slats) -->
+            <rect x="134" y="86" width="196" height="128" rx="4" fill="#2C2119" stroke="#D49B6A" stroke-width="2"/>
+            <g stroke="rgba(212,155,106,0.32)" stroke-width="2">
+              <line x1="142" y1="98" x2="322" y2="98"/><line x1="142" y1="108" x2="322" y2="108"/><line x1="142" y1="118" x2="322" y2="118"/>
+              <line x1="142" y1="98" x2="142" y2="206"/><line x1="152" y1="98" x2="152" y2="206"/>
+            </g>
+            <!-- Sauna Heater Stone Unit -->
+            <rect x="292" y="172" width="28" height="28" rx="4" fill="#4A251B" stroke="#FF784F" stroke-width="1.8"/>
+            <circle cx="300" cy="180" r="3" fill="#FF784F"/><circle cx="312" cy="180" r="3" fill="#FF784F"/><circle cx="306" cy="191" r="3" fill="#FF784F"/>
+            <!-- Glass front wall of Sauna -->
+            <line x1="190" y1="214" x2="326" y2="214" stroke="#5CE1E6" stroke-width="3.5"/>
+            <rect x="150" y="134" width="164" height="34" rx="6" fill="rgba(18,26,29,0.88)" stroke="#D49B6A" stroke-width="1.2"/>
+            <text x="232" y="155" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#F5DFC6">${escXml(pack.sauna)}</text>
+
+            <!-- 2. Hammam & Sensory Shower (Top-Center) -->
+            <rect x="336" y="86" width="154" height="92" rx="4" fill="#1A2C32" stroke="#64C2D1" stroke-width="1.8"/>
+            <circle cx="466" cy="112" r="12" fill="none" stroke="#64C2D1" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <rect x="344" y="114" width="138" height="36" rx="6" fill="rgba(18,26,29,0.88)" stroke="#64C2D1" stroke-width="1"/>
+            <text x="413" y="136" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#C2F0F7">${escXml(pack.hammam)}</text>
+
+            <!-- 3. Heated Indoor Jacuzzi Pool (Top-Right, glowing aqua CAD pool) -->
+            <rect x="498" y="86" width="160" height="156" rx="6" fill="#13333D" stroke="#48CAE4" stroke-width="2.2"/>
+            <rect x="512" y="100" width="132" height="128" rx="18" fill="#1C5263" stroke="#90E0EF" stroke-width="2"/>
+            <rect x="522" y="110" width="112" height="108" rx="12" fill="none" stroke="rgba(144,224,239,0.4)" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <!-- Hydro-jets -->
+            <circle cx="536" cy="126" r="5" fill="#CAF0F8"/><circle cx="620" cy="126" r="5" fill="#CAF0F8"/>
+            <circle cx="536" cy="202" r="5" fill="#CAF0F8"/><circle cx="620" cy="202" r="5" fill="#CAF0F8"/>
+            <rect x="506" y="146" width="144" height="36" rx="6" fill="rgba(15,32,39,0.9)" stroke="#90E0EF" stroke-width="1.2"/>
+            <text x="578" y="168" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#E0FBFC">${escXml(pack.jacuzzi)}</text>
+
+            <!-- 4. SPA Entrance on Left Wall (x=126, y=224..284, where Kneipp previously started) -->
+            <line x1="126" y1="224" x2="126" y2="284" stroke="#162126" stroke-width="9"/>
+            <line x1="126" y1="224" x2="170" y2="224" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 170,224 A 44,44 0 0,1 126,268" fill="rgba(197,160,89,0.15)" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <path d="M 68,254 L 146,254 M 146,254 L 134,246 M 146,254 L 134,262" stroke="#C5A059" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="154" y="236" width="136" height="32" rx="8" fill="#C5A059"/>
+            <text x="222" y="256" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="800" fill="#10171A">${escXml(pack.entranceSpa)}</text>
+
+            <!-- 5. Dressing Room, Showers & SPA Bath (Bottom-Left, with internal door & swing arc) -->
+            <rect x="134" y="294" width="186" height="140" rx="4" fill="#1E282D" stroke="#A3B1B8" stroke-width="2"/>
+            <!-- Internal Door on top wall of Spogliatoio (x=186..226, y=294) -->
+            <line x1="186" y1="294" x2="228" y2="294" stroke="#1E282D" stroke-width="4"/>
+            <line x1="186" y1="294" x2="186" y2="334" stroke="#C5A059" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M 228,294 A 40,40 0 0,1 186,334" fill="rgba(197,160,89,0.14)" stroke="#C5A059" stroke-width="1.4" stroke-dasharray="3 2"/>
+            <!-- Lockers & Bench CAD symbols -->
+            <rect x="144" y="408" width="96" height="16" rx="2" fill="#2C393F" stroke="#C5A059" stroke-width="1.2"/>
+            <rect x="272" y="304" width="38" height="38" rx="4" fill="#163038" stroke="#64C2D1" stroke-width="1.2"/>
+            <rect x="146" y="346" width="162" height="44" rx="6" fill="rgba(18,26,29,0.9)" stroke="#A3B1B8" stroke-width="1.1"/>
+            <text x="227" y="372" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.8" font-weight="700" fill="#E8EEF2">${escXml(pack.dressing)}</text>
+
+            <!-- 6. Vertical Kneipp Path (Caldo/Freddo basins running vertically at x=366, y=196..420) -->
+            <rect x="342" y="194" width="54" height="232" rx="14" fill="#12303B" stroke="#48CAE4" stroke-width="2"/>
+            <!-- Alternating Warm (amber glow) & Cold (cyan glow) pebble hydro-basins -->
+            <rect x="350" y="204" width="38" height="44" rx="8" fill="rgba(255,140,90,0.35)" stroke="#FF9F68" stroke-width="1.5"/>
+            <rect x="350" y="256" width="38" height="44" rx="8" fill="rgba(72,202,228,0.38)" stroke="#48CAE4" stroke-width="1.5"/>
+            <rect x="350" y="308" width="38" height="44" rx="8" fill="rgba(255,140,90,0.35)" stroke="#FF9F68" stroke-width="1.5"/>
+            <rect x="350" y="360" width="38" height="48" rx="8" fill="rgba(72,202,228,0.38)" stroke="#48CAE4" stroke-width="1.5"/>
+            <rect x="314" y="286" width="118" height="32" rx="6" fill="rgba(15,28,34,0.94)" stroke="#48CAE4" stroke-width="1.3"/>
+            <text x="373" y="306" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#90E0EF">${escXml(pack.kneipp)}</text>
+
+            <!-- 7. Relax & Herbal Tea Lounge (Bottom-Right) -->
+            <rect x="498" y="252" width="160" height="182" rx="4" fill="#20282C" stroke="#C5A059" stroke-width="1.8"/>
+            <!-- 3 Architectural Wellness Chaises Longues -->
+            <g fill="#2A353B" stroke="#C5A059" stroke-width="1.4">
+              <rect x="582" y="266" width="62" height="24" rx="5"/><rect x="628" y="269" width="12" height="18" rx="2"/>
+              <rect x="582" y="298" width="62" height="24" rx="5"/><rect x="628" y="301" width="12" height="18" rx="2"/>
+              <rect x="582" y="330" width="62" height="24" rx="5"/><rect x="628" y="333" width="12" height="18" rx="2"/>
+            </g>
+            <rect x="508" y="372" width="140" height="44" rx="6" fill="rgba(18,26,29,0.92)" stroke="#C5A059" stroke-width="1.2"/>
+            <text x="578" y="398" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#F3E5AB">${escXml(pack.relax)}</text>
+
+            <!-- 8. The 2 Historic Monolithic Columns Parallel to the Vertical Wall (x=456, y=202 & y=342) -->
+            <line x1="456" y1="86" x2="456" y2="434" stroke="rgba(197,160,89,0.5)" stroke-width="2" stroke-dasharray="6 4"/>
+            <circle cx="456" cy="202" r="17" fill="#2B353A" stroke="#C5A059" stroke-width="3"/>
+            <circle cx="456" cy="202" r="8" fill="#C5A059"/>
+            <circle cx="456" cy="342" r="17" fill="#2B353A" stroke="#C5A059" stroke-width="3"/>
+            <circle cx="456" cy="342" r="8" fill="#C5A059"/>
+            <rect x="338" y="400" width="236" height="26" rx="6" fill="#C5A059"/>
+            <text x="456" y="417" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="800" fill="#10171A">🏛️ ${escXml(pack.cols)}</text>
+          `;
+        }
+      } else if (slideKey === 'dependance') {
+        if (!isAfter) {
+          // 2. DÉPENDANCE AS-IS: Two empty rooms with 2 wide SW arches on the left wall
+          body = `
+            <rect x="216" y="84" width="380" height="372" rx="6" fill="#D5C7B4"/>
+            <rect x="206" y="74" width="380" height="372" rx="6" fill="${wallFill}" stroke="${wallStroke}" stroke-width="8"/>
+
+            <!-- Dividing wall between the 2 empty rooms -->
+            <line x1="206" y1="256" x2="586" y2="256" stroke="${wallStroke}" stroke-width="6"/>
+
+            <!-- 2 Wide SW Arches on Left Wall (x=206) -->
+            <path d="M 206,98 C 180,118 180,214 206,234" fill="rgba(218,195,162,0.55)" stroke="#7A5C38" stroke-width="3.5" stroke-dasharray="5 3"/>
+            <path d="M 206,280 C 180,300 180,402 206,422" fill="rgba(218,195,162,0.55)" stroke="#7A5C38" stroke-width="3.5" stroke-dasharray="5 3"/>
+
+            <rect x="64" y="236" width="124" height="44" rx="8" fill="#6E5A46"/>
+            <text x="126" y="262" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#FAF6EE">${escXml(pack.archesAsIs)}</text>
+
+            <!-- Empty Room 1 Label (Top) -->
+            <rect x="276" y="142" width="240" height="52" rx="8" fill="rgba(246,239,226,0.94)" stroke="#8C7A65" stroke-width="1.5"/>
+            <text x="396" y="173" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13.5" font-weight="700" fill="#3E3024">${escXml(pack.room1Empty)}</text>
+
+            <!-- Empty Room 2 Label (Bottom) -->
+            <rect x="276" y="324" width="240" height="52" rx="8" fill="rgba(246,239,226,0.94)" stroke="#8C7A65" stroke-width="1.5"/>
+            <text x="396" y="355" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13.5" font-weight="700" fill="#3E3024">${escXml(pack.room2Empty)}</text>
+          `;
+        } else {
+          // 2. DÉPENDANCE TO-BE: Modern Architect Bilocale (Living+Kitchen in Room 1, Bedroom with bed on opposite bottom wall + Bathroom in Room 2, Doors between Living/Bedroom & Bathroom, 2 Glazed SW Arches)
+          body = `
+            <rect x="206" y="74" width="380" height="372" rx="6" fill="#172227" stroke="#E8DEC8" stroke-width="7"/>
+
+            <!-- 2 Wide Glazed SW Arches on Left Wall (x=206) -->
+            <path d="M 206,96 C 176,118 176,216 206,238" fill="rgba(72,202,228,0.28)" stroke="#48CAE4" stroke-width="4"/>
+            <path d="M 206,278 C 176,300 176,404 206,426" fill="rgba(72,202,228,0.28)" stroke="#48CAE4" stroke-width="4"/>
+            <rect x="46" y="238" width="138" height="40" rx="8" fill="#183942" stroke="#48CAE4" stroke-width="1.5"/>
+            <text x="115" y="262" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="800" fill="#90E0EF">${escXml(pack.archesToBe)}</text>
+
+            <!-- ROOM 1 (TOP): Living Room & Compact Kitchen -->
+            <rect x="214" y="82" width="364" height="170" rx="3" fill="#1D2A30" stroke="#C5A059" stroke-width="1.8"/>
+            <!-- Compact Kitchen Counter along Top Wall (with sink & induction hob) -->
+            <rect x="226" y="90" width="196" height="32" rx="3" fill="#2A3940" stroke="#C5A059" stroke-width="1.5"/>
+            <rect x="246" y="96" width="34" height="20" rx="3" fill="#162227" stroke="#90E0EF" stroke-width="1.2"/>
+            <circle cx="332" cy="101" r="4" fill="#FF784F"/><circle cx="348" cy="101" r="4" fill="#FF784F"/>
+            <circle cx="332" cy="112" r="4" fill="#FF784F"/><circle cx="348" cy="112" r="4" fill="#FF784F"/>
+            <!-- Round Dining Table & 4 Architect Chairs -->
+            <circle cx="508" cy="146" r="28" fill="#29363C" stroke="#C5A059" stroke-width="1.8"/>
+            <circle cx="508" cy="110" r="7" fill="#C5A059"/><circle cx="508" cy="182" r="7" fill="#C5A059"/>
+            <circle cx="472" cy="146" r="7" fill="#C5A059"/><circle cx="544" cy="146" r="7" fill="#C5A059"/>
+            <!-- Living Label -->
+            <rect x="230" y="144" width="218" height="52" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.2"/>
+            <text x="339" y="166" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#F5EFE6">${escXml(pack.living)}</text>
+            <text x="339" y="184" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.8" font-weight="500" fill="#C5A059">${escXml(pack.livingSub)}</text>
+
+            <!-- ROOM 2 (BOTTOM-LEFT): Double Bedroom (2nd SW Arch + Bed on Opposite Bottom Wall y=434) -->
+            <rect x="214" y="256" width="232" height="182" rx="3" fill="#212B30" stroke="#E0C389" stroke-width="1.8"/>
+            <!-- Double Bed on the OPPOSITE (Bottom) Wall (headboard & 2 pillows against bottom wall y=432 facing up) -->
+            <g transform="translate(268, 350)">
+              <rect x="0" y="0" width="116" height="82" rx="6" fill="#2D3B42" stroke="#E8DEC8" stroke-width="2"/>
+              <rect x="4" y="4" width="108" height="46" rx="4" fill="#394A53" stroke="#C5A059" stroke-width="1.2"/>
+              <!-- 2 Pillows near bottom headboard -->
+              <rect x="12" y="56" width="40" height="18" rx="4" fill="#E8DEC8"/>
+              <rect x="64" y="56" width="40" height="18" rx="4" fill="#E8DEC8"/>
+              <!-- Nightstands -->
+              <rect x="-22" y="58" width="18" height="20" rx="3" fill="#2A353B" stroke="#C5A059" stroke-width="1.2"/>
+              <rect x="120" y="58" width="18" height="20" rx="3" fill="#2A353B" stroke="#C5A059" stroke-width="1.2"/>
+            </g>
+            <rect x="224" y="294" width="210" height="46" rx="6" fill="rgba(16,23,26,0.92)" stroke="#E0C389" stroke-width="1.1"/>
+            <text x="329" y="314" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#F5EFE6">${escXml(pack.bed)}</text>
+            <text x="329" y="331" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="500" fill="#E0C389">${escXml(pack.bedSub)}</text>
+
+            <!-- ROOM 3 (BOTTOM-RIGHT): Bathroom with Walk-in Shower -->
+            <rect x="450" y="256" width="128" height="182" rx="3" fill="#172D34" stroke="#64C2D1" stroke-width="1.8"/>
+            <!-- Walk-in Glass Shower at bottom of bathroom (y=386..432) -->
+            <rect x="458" y="386" width="112" height="46" rx="4" fill="#1D434F" stroke="#90E0EF" stroke-width="1.5"/>
+            <line x1="458" y1="386" x2="570" y2="432" stroke="rgba(144,224,239,0.35)" stroke-width="1.2"/>
+            <line x1="570" y1="386" x2="458" y2="432" stroke="rgba(144,224,239,0.35)" stroke-width="1.2"/>
+            <!-- Sink & WC -->
+            <rect x="542" y="280" width="28" height="42" rx="4" fill="#223C44" stroke="#90E0EF" stroke-width="1.2"/>
+            <ellipse cx="554" cy="352" rx="14" ry="10" fill="#223C44" stroke="#90E0EF" stroke-width="1.2"/>
+            <rect x="456" y="314" width="82" height="48" rx="6" fill="rgba(15,28,34,0.92)" stroke="#64C2D1" stroke-width="1.1"/>
+            <text x="497" y="342" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#CAF0F8">${escXml(pack.bath)}</text>
+
+            <!-- ARCHITECTURAL DOORS WITH SWING ARCS: 1) Door between Living & Bedroom (y=254, x=264..312) + 2) Door to Bathroom (x=448, y=268..310) -->
+            <g>
+              <!-- Door 1: Living to Bedroom -->
+              <line x1="264" y1="254" x2="312" y2="254" stroke="#212B30" stroke-width="6"/>
+              <line x1="264" y1="254" x2="264" y2="298" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 312,254 A 46,46 0 0,1 264,298" fill="rgba(92,225,230,0.18)" stroke="#5CE1E6" stroke-width="1.6" stroke-dasharray="4 3"/>
+
+              <!-- Door 2: Bedroom/Hall to Bathroom -->
+              <line x1="448" y1="266" x2="448" y2="308" stroke="#172D34" stroke-width="6"/>
+              <line x1="448" y1="266" x2="490" y2="266" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 448,308 A 42,42 0 0,0 490,266" fill="rgba(92,225,230,0.18)" stroke="#5CE1E6" stroke-width="1.6" stroke-dasharray="4 3"/>
+            </g>
+          `;
+        }
+      } else if (slideKey === 'terrazzo') {
+        if (!isAfter) {
+          // 3. TERRAZZO PRINCIPALE AS-IS: Only a garden seating area (solo salotto da giardino), rest of terrace empty
+          body = `
+            <rect x="136" y="88" width="540" height="364" rx="6" fill="#D5C7B4"/>
+            <rect x="126" y="78" width="540" height="364" rx="6" fill="#EFE4D2" stroke="#6B5335" stroke-width="7"/>
+            <rect x="136" y="88" width="520" height="344" rx="4" fill="none" stroke="#9E8970" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+            <!-- AS-IS Simple Garden Seating Area (Bottom-Left) -->
+            <rect x="154" y="256" width="196" height="156" rx="8" fill="#E4D3B8" stroke="#7A6042" stroke-width="2" stroke-dasharray="5 3"/>
+            <path d="M 176,278 H 284 V 306 H 204 V 354 H 176 Z" fill="#FAF6EE" stroke="#5C4028" stroke-width="2"/>
+            <rect x="226" y="320" width="48" height="30" rx="4" fill="#D5B895" stroke="#5C4028" stroke-width="1.5"/>
+            <rect x="166" y="366" width="172" height="34" rx="6" fill="rgba(250,246,238,0.95)" stroke="#6B5335" stroke-width="1.3"/>
+            <text x="252" y="388" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#3E2C1C">🪑 ${escXml(pack.asIsLounge)}</text>
+
+            <!-- Rest of Terrace Empty Label -->
+            <rect x="368" y="182" width="268" height="68" rx="8" fill="rgba(246,239,226,0.9)" stroke="#8C7A65" stroke-width="1.5"/>
+            <text x="502" y="221" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#5C4938">${escXml(pack.asIsEmpty)}</text>
+          `;
+        } else {
+          // 3. TERRAZZO PRINCIPALE TO-BE: Salotto da esterno, Gazebo/Pergola Bioclimatica con tavolo, Jacuzzi Esterna Riscaldata
+          body = `
+            <!-- Terrace Perimeter & Modern Teak Decking Planks -->
+            <rect x="126" y="78" width="540" height="364" rx="6" fill="#1C2426" stroke="#E8DEC8" stroke-width="7"/>
+
+            <!-- 1. Bioclimatic Gazebo / Pergola (Top-Left) with 10-seater Dining Table -->
+            <rect x="142" y="94" width="304" height="164" rx="6" fill="#26211B" stroke="#C5A059" stroke-width="2.5" stroke-dasharray="8 4"/>
+            <!-- Pergola Louvered Blades -->
+            <g stroke="rgba(197,160,89,0.22)" stroke-width="2">
+              <line x1="152" y1="110" x2="436" y2="110"/><line x1="152" y1="128" x2="436" y2="128"/>
+              <line x1="152" y1="146" x2="436" y2="146"/><line x1="152" y1="164" x2="436" y2="164"/>
+              <line x1="152" y1="182" x2="436" y2="182"/>
+            </g>
+            <!-- 10-Seater Architectural Dining Table -->
+            <rect x="196" y="116" width="196" height="58" rx="6" fill="#382B1E" stroke="#E0C389" stroke-width="2"/>
+            <!-- Chairs around table -->
+            <g fill="#C5A059">
+              <rect x="212" y="104" width="24" height="8" rx="2"/><rect x="254" y="104" width="24" height="8" rx="2"/><rect x="296" y="104" width="24" height="8" rx="2"/><rect x="338" y="104" width="24" height="8" rx="2"/>
+              <rect x="212" y="178" width="24" height="8" rx="2"/><rect x="254" y="178" width="24" height="8" rx="2"/><rect x="296" y="178" width="24" height="8" rx="2"/><rect x="338" y="178" width="24" height="8" rx="2"/>
+            </g>
+            <rect x="164" y="196" width="260" height="50" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.3"/>
+            <text x="294" y="217" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12" font-weight="700" fill="#F5EFE6">⛺ ${escXml(pack.toBeGazebo)}</text>
+            <text x="294" y="235" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="500" fill="#C5A059">${escXml(pack.toBeGazeboSub)}</text>
+
+            <!-- 2. Designer L-Shaped Outdoor Lounge & Fire Pit (Bottom-Left) -->
+            <rect x="142" y="268" width="304" height="158" rx="6" fill="#212B30" stroke="#A3B1B8" stroke-width="1.8"/>
+            <path d="M 164,284 H 316 V 318 H 204 V 378 H 164 Z" fill="#324148" stroke="#E8DEC8" stroke-width="2"/>
+            <!-- Designer Brazier / Fire Pit -->
+            <circle cx="268" cy="352" r="20" fill="#3A241B" stroke="#FF784F" stroke-width="2"/>
+            <circle cx="268" cy="352" r="9" fill="#FF784F"/>
+            <rect x="164" y="384" width="260" height="34" rx="6" fill="rgba(16,23,26,0.92)" stroke="#A3B1B8" stroke-width="1.2"/>
+            <text x="294" y="405" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#F5EFE6">🛋️ ${escXml(pack.toBeLounge)}</text>
+
+            <!-- 3. Heated Outdoor Jacuzzi & Teak Solarium (Right Wing) -->
+            <rect x="458" y="94" width="192" height="332" rx="6" fill="#152E36" stroke="#48CAE4" stroke-width="2.2"/>
+            <!-- Teak deck lines -->
+            <g stroke="rgba(197,160,89,0.2)" stroke-width="1.5">
+              <line x1="466" y1="112" x2="642" y2="112"/><line x1="466" y1="128" x2="642" y2="128"/><line x1="466" y1="144" x2="642" y2="144"/>
+            </g>
+            <!-- Glowing Panoramic Outdoor Jacuzzi -->
+            <rect x="480" y="156" width="148" height="148" rx="24" fill="#194B5A" stroke="#90E0EF" stroke-width="2.5"/>
+            <circle cx="554" cy="230" r="52" fill="#22677A" stroke="#CAF0F8" stroke-width="2"/>
+            <circle cx="534" cy="212" r="5" fill="#E0FBFC"/><circle cx="574" cy="212" r="5" fill="#E0FBFC"/>
+            <circle cx="534" cy="248" r="5" fill="#E0FBFC"/><circle cx="574" cy="248" r="5" fill="#E0FBFC"/>
+            <!-- 2 Sun Loungers -->
+            <rect x="486" y="104" width="56" height="22" rx="4" fill="#2B373D" stroke="#C5A059" stroke-width="1.3"/>
+            <rect x="562" y="104" width="56" height="22" rx="4" fill="#2B373D" stroke="#C5A059" stroke-width="1.3"/>
+
+            <rect x="468" y="330" width="172" height="54" rx="6" fill="rgba(14,26,32,0.94)" stroke="#48CAE4" stroke-width="1.4"/>
+            <text x="554" y="353" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#E0FBFC">♨️ ${escXml(pack.toBeJacuzzi)}</text>
+            <text x="554" y="372" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.8" font-weight="500" fill="#90E0EF">${escXml(pack.toBeJacuzziSub)}</text>
+          `;
+        }
+      } else if (slideKey === 'casa_pt') {
+        if (!isAfter) {
+          // 4. CASA PIANO 0 AS-IS: Camera matrimoniale, Bagno, Cucina, Soggiorno, Corridoio/Scala, Sala camino
+          body = `
+            <rect x="68" y="92" width="676" height="352" rx="6" fill="#D5C7B4"/>
+            <rect x="58" y="82" width="676" height="352" rx="6" fill="${wallFill}" stroke="${wallStroke}" stroke-width="7"/>
+
+            <!-- West Wing: Camera Matrimoniale (top-left) + Bagno (bottom-left) -->
+            <rect x="66" y="90" width="146" height="214" fill="#EAD7CD" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="139" y="198" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#422E25">${escXml(pack.asIsWestBed)}</text>
+
+            <rect x="66" y="308" width="146" height="118" fill="#D2E2E4" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="139" y="372" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#233D42">${escXml(pack.asIsWestBath)}</text>
+
+            <!-- Central Wing: Cucina (top) + Soggiorno (bottom) -->
+            <rect x="216" y="90" width="214" height="150" fill="#E4D4BA" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="323" y="170" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#3E2E1E">${escXml(pack.asIsKitchen)}</text>
+
+            <rect x="216" y="244" width="214" height="182" fill="#E6D6BC" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="323" y="340" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#3E2E1E">${escXml(pack.asIsLiving)}</text>
+
+            <!-- Corridor & Stairs -->
+            <rect x="434" y="90" width="114" height="336" fill="#EFE5D4" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="491" y="264" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#4A3B2C">${escXml(pack.asIsCorridor)}</text>
+
+            <!-- East Wing: Sala camino -->
+            <rect x="552" y="90" width="174" height="336" fill="#E3C8B2" stroke="${wallStroke}" stroke-width="2.5"/>
+            <text x="639" y="264" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="700" fill="#44271D">${escXml(pack.asIsEast)}</text>
+          `;
+        } else {
+          // 4. CASA PIANO 0 TO-BE (PROPOSTA C): Boutique Alpine Relais (Suite Monte Bianco West + Breakfast Lounge & Coffee Bar Center + Suite Cervino col Camino & En-Suite Bath East)
+          body = `
+            <rect x="58" y="82" width="676" height="352" rx="6" fill="#151F24" stroke="#E8DEC8" stroke-width="7"/>
+
+            <!-- WEST WING: Suite "Monte Bianco" (Top-Left) + Private Suite Bath (Bottom-Left) -->
+            <rect x="66" y="90" width="146" height="214" fill="#212B30" stroke="#C5A059" stroke-width="2.2"/>
+            <!-- King Bed in Suite Monte Bianco -->
+            <rect x="94" y="102" width="90" height="68" rx="5" fill="#2D3B42" stroke="#E8DEC8" stroke-width="1.6"/>
+            <rect x="102" y="108" width="32" height="14" rx="3" fill="#C5A059"/><rect x="144" y="108" width="32" height="14" rx="3" fill="#C5A059"/>
+            <rect x="74" y="218" width="130" height="44" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.2"/>
+            <text x="139" y="244" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#F5EFE6">${escXml(pack.toBeWestBed)}</text>
+
+            <rect x="66" y="308" width="146" height="118" fill="#172D34" stroke="#64C2D1" stroke-width="2"/>
+            <rect x="76" y="348" width="126" height="36" rx="6" fill="rgba(15,28,34,0.92)" stroke="#64C2D1" stroke-width="1.1"/>
+            <text x="139" y="370" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#CAF0F8">${escXml(pack.toBeWestBath)}</text>
+
+            <!-- CENTER WING: Coffee & Breakfast Bar (Top) + Breakfast Lounge & Co-Working (Bottom) -->
+            <rect x="216" y="90" width="214" height="150" fill="#1E282E" stroke="#C5A059" stroke-width="2"/>
+            <!-- Island Breakfast Counter -->
+            <rect x="248" y="106" width="150" height="30" rx="4" fill="#2E3D44" stroke="#E0C389" stroke-width="1.5"/>
+            <rect x="230" y="168" width="186" height="40" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.1"/>
+            <text x="323" y="192" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#F3E5AB">☕ ${escXml(pack.toBeKitchen)}</text>
+
+            <rect x="216" y="244" width="214" height="182" fill="#1B252B" stroke="#A3B1B8" stroke-width="2"/>
+            <!-- Co-working & Breakfast Tables -->
+            <circle cx="272" cy="296" r="20" fill="#29363C" stroke="#C5A059" stroke-width="1.5"/>
+            <circle cx="368" cy="296" r="20" fill="#29363C" stroke="#C5A059" stroke-width="1.5"/>
+            <rect x="228" y="354" width="190" height="44" rx="6" fill="rgba(16,23,26,0.92)" stroke="#A3B1B8" stroke-width="1.1"/>
+            <text x="323" y="380" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#E8EEF2">${escXml(pack.toBeLiving)}</text>
+
+            <!-- CORRIDOR & STAIRS -->
+            <rect x="434" y="90" width="114" height="336" fill="#172025" stroke="#6C7D86" stroke-width="1.8"/>
+            <text x="491" y="264" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#A3B1B8">${escXml(pack.asIsCorridor)}</text>
+
+            <!-- EAST WING: Suite "Cervino" with Historic Fireplace + New En-Suite Bathroom -->
+            <rect x="552" y="90" width="174" height="232" fill="#242220" stroke="#C5A059" stroke-width="2.4"/>
+            <!-- Historic Fireplace Icon on East Wall -->
+            <rect x="706" y="156" width="18" height="56" rx="2" fill="#4A251B" stroke="#FF784F" stroke-width="1.6"/>
+            <!-- King Bed in Suite Cervino -->
+            <rect x="594" y="104" width="90" height="68" rx="5" fill="#2D3B42" stroke="#E8DEC8" stroke-width="1.6"/>
+            <rect x="602" y="110" width="32" height="14" rx="3" fill="#C5A059"/><rect x="644" y="110" width="32" height="14" rx="3" fill="#C5A059"/>
+            <rect x="560" y="232" width="158" height="46" rx="6" fill="rgba(16,23,26,0.92)" stroke="#C5A059" stroke-width="1.2"/>
+            <text x="639" y="259" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#F5EFE6">${escXml(pack.toBeEast)}</text>
+
+            <!-- New En-Suite Bathroom in Suite Cervino (Bottom-Right) -->
+            <rect x="552" y="326" width="174" height="100" fill="#15313A" stroke="#48CAE4" stroke-width="2.2"/>
+            <rect x="564" y="356" width="150" height="40" rx="6" fill="rgba(14,26,32,0.92)" stroke="#48CAE4" stroke-width="1.2"/>
+            <text x="639" y="380" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.8" font-weight="700" fill="#90E0EF">🚿 ${escXml(pack.toBeEastBath)}</text>
+          `;
+        }
+      }
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+        <defs>
+          <pattern id="grid_${mode}" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${gridStroke}" stroke-width="1"/>
+            <path d="M 20 0 L 20 40 M 0 20 L 40 20" fill="none" stroke="${subGridStroke}" stroke-width="0.6"/>
+          </pattern>
+        </defs>
+        <rect width="800" height="500" fill="${bgFill}"/>
+        <rect width="800" height="500" fill="url(#grid_${mode})"/>
+
+        <!-- Top Architect Title Bar -->
+        <rect x="24" y="16" width="752" height="46" rx="8" fill="${headerBg}" stroke="${headerBorder}" stroke-width="1.5"/>
+        <rect x="36" y="25" width="276" height="28" rx="6" fill="${badgeBg}"/>
+        <text x="174" y="43" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="800" letter-spacing="0.05em" fill="${badgeColor}">${escXml(isAfter ? pack.toBeBadge : pack.asIsBadge)}</text>
+        <text x="540" y="44" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="800" letter-spacing="0.03em" fill="${titleColor}">${escXml(isAfter ? pack.toBeTitle : pack.asIsTitle)}</text>
+
+        <!-- Compass Rose (Top-Left below header) -->
+        <g transform="translate(56, 108) scale(0.78)">
+          <circle cx="0" cy="0" r="24" fill="${headerBg}" stroke="${headerBorder}" stroke-width="1.5"/>
+          <g transform="rotate(58)">
+            <polygon points="0,-18 4,0 -4,0" fill="#C84B3A"/>
+            <polygon points="0,18 4,0 -4,0" fill="${titleColor}" opacity="0.5"/>
+          </g>
+          <text x="20" y="-12" font-family="Montserrat,sans-serif" font-size="10" font-weight="800" fill="#C84B3A">N</text>
+        </g>
+
+        ${body}
+      </svg>`;
+
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
 
     const projGalleries = {
       ext: [
@@ -7151,13 +6843,72 @@
       spa: [
         { before: 'images/stables-vault.jpg', after: 'images/project-spa-1.jpg' },
         { before: 'images/stables-vault-2.jpg', after: 'images/project-spa-2.jpg' }
-      ]
+      ],
+      spaces: []
     };
 
-    function openProjectGallery(type) {
+    function buildSpacesSlidesForLang(lang) {
+      return spacesSlideKeys.map(key => ({
+        key,
+        before: buildSpacesBaSvg(key, 'before', lang),
+        after: buildSpacesBaSvg(key, 'after', lang)
+      }));
+    }
+
+    function selectSpacesCardSlide(idx, ev) {
+      if (ev) ev.stopPropagation();
+      currentSpacesCardIdx = idx || 0;
+      const slides = projGalleries.spaces;
+      if (!slides || !slides[currentSpacesCardIdx]) return;
+      const pair = slides[currentSpacesCardIdx];
+
+      // Update all Card 3 instances (including mobile peek carousel clones)
+      document.querySelectorAll('.ba-slider.is-arch-plan').forEach(slider => {
+        if (slider.id === 'projModalBaSlider') return;
+        const bImg = slider.querySelector('.ba-img-before');
+        const aImg = slider.querySelector('.ba-img-after');
+        if (bImg) bImg.src = pair.before;
+        if (aImg) aImg.src = pair.after;
+      });
+
+      document.querySelectorAll('.spaces-ba-tabs').forEach(tabBar => {
+        Array.from(tabBar.querySelectorAll('.spaces-ba-tab')).forEach((btn, bIdx) => {
+          btn.classList.toggle('active', bIdx === currentSpacesCardIdx);
+        });
+      });
+
+      // Update Card 3 CTA counter text (e.g. 1/4, 2/4...)
+      document.querySelectorAll('[data-i18n="proj_cta_spaces"]').forEach(el => {
+        const base = (i18n[currentLang] && i18n[currentLang].proj_cta_spaces) || 'Before/After (1/4)';
+        el.textContent = base.replace(/\(\d+\/4\)/, `(${currentSpacesCardIdx + 1}/4)`);
+      });
+    }
+
+    function refreshSpacesBaGallery() {
+      projGalleries.spaces = buildSpacesSlidesForLang(currentLang || 'nl');
+      selectSpacesCardSlide(currentSpacesCardIdx);
+      const modal = document.getElementById('projectModal');
+      if (modal && modal.classList.contains('active') && currentProjType === 'spaces') {
+        currentProjSlides = projGalleries.spaces;
+        updateProjModal();
+      }
+    }
+
+    function openProjectGallery(type, startIdx) {
+      if (type === 'spaces') {
+        projGalleries.spaces = buildSpacesSlidesForLang(currentLang || 'nl');
+      }
       if (!projGalleries[type]) return;
+      currentProjType = type;
       currentProjSlides = projGalleries[type];
-      currentProjIdx = 0;
+      currentProjIdx = (typeof startIdx === 'number') ? startIdx : 0;
+
+      const wrapper = document.querySelector('#projectModal .project-modal-wrapper');
+      const slider = document.getElementById('projModalBaSlider');
+      const isSpaces = (type === 'spaces');
+      if (wrapper) wrapper.classList.toggle('is-arch-modal', isSpaces);
+      if (slider) slider.classList.toggle('is-arch-plan', isSpaces);
+
       updateProjModal();
       document.getElementById('projectModal').classList.add('active');
     }
@@ -7171,6 +6922,9 @@
       currentProjIdx += dir;
       if (currentProjIdx >= currentProjSlides.length) currentProjIdx = 0;
       if (currentProjIdx < 0) currentProjIdx = currentProjSlides.length - 1;
+      if (currentProjType === 'spaces') {
+        selectSpacesCardSlide(currentProjIdx);
+      }
       updateProjModal();
     }
 
@@ -7189,6 +6943,9 @@
         if (counter) counter.textContent = `${currentProjIdx + 1} / ${currentProjSlides.length}`;
       }
     }
+
+    // Initialize Spaces Before/After SVG slides immediately
+    refreshSpacesBaGallery();
   </script>
 
 </body>
