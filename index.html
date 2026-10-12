@@ -6424,7 +6424,7 @@
 
       if (slideKey === 'stalla') {
         if (!isAfter) {
-          // 1. STALLA AS-IS: Empty vaulted stable with 2 monolithic columns parallel to vertical wall (x=470) & entrance on left wall
+          // 1. STALLA AS-IS: Empty vaulted stable with 2 monolithic columns centered horizontally (x=396) & parallel to the vertical wall
           body = `
             <!-- Perimeter Stone Building Shadow & Walls -->
             <rect x="136" y="88" width="540" height="364" rx="6" fill="#D5C7B4"/>
@@ -6439,70 +6439,77 @@
             <rect x="42" y="214" width="112" height="26" rx="6" fill="#6E5A46"/>
             <text x="98" y="231" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#FAF6EE">${escXml(pack.entranceAsIs)}</text>
 
-            <!-- Cross-Vault Structural Ribs converging on the 2 vertical columns (x=470) -->
+            <!-- Cross-Vault Structural Ribs converging on the 2 horizontally-centered vertical columns (x=396) -->
             <g stroke="rgba(110,90,70,0.34)" stroke-width="1.8" stroke-dasharray="6 5">
-              <line x1="134" y1="86" x2="470" y2="196"/>
-              <line x1="658" y1="86" x2="470" y2="196"/>
-              <line x1="134" y1="260" x2="470" y2="196"/>
-              <line x1="658" y1="260" x2="470" y2="196"/>
-              <line x1="134" y1="260" x2="470" y2="332"/>
-              <line x1="658" y1="260" x2="470" y2="332"/>
-              <line x1="134" y1="434" x2="470" y2="332"/>
-              <line x1="658" y1="434" x2="470" y2="332"/>
-              <line x1="470" y1="86" x2="470" y2="434" stroke="rgba(140,80,60,0.45)" stroke-width="2"/>
+              <line x1="134" y1="86" x2="396" y2="188"/>
+              <line x1="658" y1="86" x2="396" y2="188"/>
+              <line x1="134" y1="260" x2="396" y2="188"/>
+              <line x1="658" y1="260" x2="396" y2="188"/>
+              <line x1="134" y1="260" x2="396" y2="372"/>
+              <line x1="658" y1="260" x2="396" y2="372"/>
+              <line x1="134" y1="434" x2="396" y2="372"/>
+              <line x1="658" y1="434" x2="396" y2="372"/>
+              <line x1="396" y1="86" x2="396" y2="434" stroke="rgba(140,80,60,0.45)" stroke-width="2.2"/>
             </g>
 
-            <!-- Empty Room Center Label -->
-            <rect x="184" y="220" width="236" height="72" rx="10" fill="rgba(246,239,226,0.92)" stroke="#8C7A65" stroke-width="1.5"/>
-            <text x="302" y="250" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="14" font-weight="700" fill="#3E3024">${escXml(pack.emptyRoom)}</text>
-            <text x="302" y="272" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="500" fill="#6E5A46">${escXml(pack.vaultSub)}</text>
+            <!-- Empty Room Label -->
+            <rect x="278" y="244" width="236" height="68" rx="10" fill="rgba(246,239,226,0.94)" stroke="#8C7A65" stroke-width="1.5"/>
+            <text x="396" y="272" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="13.5" font-weight="700" fill="#3E3024">${escXml(pack.emptyRoom)}</text>
+            <text x="396" y="294" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.8" font-weight="500" fill="#6E5A46">${escXml(pack.vaultSub)}</text>
 
-            <!-- 2 Monolithic Stone Columns Parallel to the Vertical Wall (x=470, y=196 & y=332) -->
-            <circle cx="470" cy="196" r="18" fill="#D8CFC2" stroke="#4A3B2C" stroke-width="3"/>
-            <circle cx="470" cy="196" r="9" fill="#8C7D6B" stroke="#4A3B2C" stroke-width="1.5"/>
-            <circle cx="470" cy="332" r="18" fill="#D8CFC2" stroke="#4A3B2C" stroke-width="3"/>
-            <circle cx="470" cy="332" r="9" fill="#8C7D6B" stroke="#4A3B2C" stroke-width="1.5"/>
+            <!-- 2 Monolithic Stone Columns Centered Horizontally (x=396, y=188 & y=372) -->
+            <circle cx="396" cy="188" r="19" fill="#D8CFC2" stroke="#4A3B2C" stroke-width="3.2"/>
+            <circle cx="396" cy="188" r="9.5" fill="#8C7D6B" stroke="#4A3B2C" stroke-width="1.5"/>
+            <circle cx="396" cy="372" r="19" fill="#D8CFC2" stroke="#4A3B2C" stroke-width="3.2"/>
+            <circle cx="396" cy="372" r="9.5" fill="#8C7D6B" stroke="#4A3B2C" stroke-width="1.5"/>
 
-            <rect x="350" y="138" width="240" height="28" rx="6" fill="#4A3B2C"/>
-            <text x="470" y="156" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#FAF6EE">🏛️ ${escXml(pack.cols)}</text>
+            <rect x="276" y="132" width="240" height="28" rx="6" fill="#4A3B2C"/>
+            <text x="396" y="150" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#FAF6EE">🏛️ ${escXml(pack.cols)}</text>
           `;
         } else {
-          // 1. STALLA TO-BE: Modern Architect CAD Private SPA
+          // 1. STALLA TO-BE: Modern Architect CAD Private SPA (2 Columns centered at x=396 + Vertical Kneipp Path passing right between the 2 columns!)
           body = `
             <!-- Outer Glow & Structural Perimeter Walls -->
             <rect x="126" y="78" width="540" height="364" rx="6" fill="#162126" stroke="#E8DEC8" stroke-width="7"/>
 
+            <!-- Subtle Cross-Vault Ribs converging on the 2 centered columns (x=396, y=188 & y=372) -->
+            <g stroke="rgba(197,160,89,0.22)" stroke-width="1.5" stroke-dasharray="5 4">
+              <line x1="134" y1="86" x2="396" y2="188"/>
+              <line x1="658" y1="86" x2="396" y2="188"/>
+              <line x1="134" y1="434" x2="396" y2="372"/>
+              <line x1="658" y1="434" x2="396" y2="372"/>
+            </g>
+
             <!-- 1. Sauna Finlandese Vetrata (Top-Left, warm cedar slats) -->
-            <rect x="134" y="86" width="196" height="128" rx="4" fill="#2C2119" stroke="#D49B6A" stroke-width="2"/>
+            <rect x="134" y="86" width="184" height="124" rx="4" fill="#2C2119" stroke="#D49B6A" stroke-width="2"/>
             <g stroke="rgba(212,155,106,0.32)" stroke-width="2">
-              <line x1="142" y1="98" x2="322" y2="98"/><line x1="142" y1="108" x2="322" y2="108"/><line x1="142" y1="118" x2="322" y2="118"/>
-              <line x1="142" y1="98" x2="142" y2="206"/><line x1="152" y1="98" x2="152" y2="206"/>
+              <line x1="142" y1="98" x2="310" y2="98"/><line x1="142" y1="108" x2="310" y2="108"/><line x1="142" y1="118" x2="310" y2="118"/>
+              <line x1="142" y1="98" x2="142" y2="202"/><line x1="152" y1="98" x2="152" y2="202"/>
             </g>
             <!-- Sauna Heater Stone Unit -->
-            <rect x="292" y="172" width="28" height="28" rx="4" fill="#4A251B" stroke="#FF784F" stroke-width="1.8"/>
-            <circle cx="300" cy="180" r="3" fill="#FF784F"/><circle cx="312" cy="180" r="3" fill="#FF784F"/><circle cx="306" cy="191" r="3" fill="#FF784F"/>
+            <rect x="282" y="168" width="26" height="26" rx="4" fill="#4A251B" stroke="#FF784F" stroke-width="1.8"/>
+            <circle cx="290" cy="176" r="2.8" fill="#FF784F"/><circle cx="300" cy="176" r="2.8" fill="#FF784F"/><circle cx="295" cy="186" r="2.8" fill="#FF784F"/>
             <!-- Glass front wall of Sauna -->
-            <line x1="190" y1="214" x2="326" y2="214" stroke="#5CE1E6" stroke-width="3.5"/>
-            <rect x="150" y="134" width="164" height="34" rx="6" fill="rgba(18,26,29,0.88)" stroke="#D49B6A" stroke-width="1.2"/>
-            <text x="232" y="155" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11.5" font-weight="700" fill="#F5DFC6">${escXml(pack.sauna)}</text>
+            <line x1="184" y1="210" x2="314" y2="210" stroke="#5CE1E6" stroke-width="3.5"/>
+            <rect x="146" y="132" width="160" height="34" rx="6" fill="rgba(18,26,29,0.88)" stroke="#D49B6A" stroke-width="1.2"/>
+            <text x="226" y="153" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#F5DFC6">${escXml(pack.sauna)}</text>
 
-            <!-- 2. Hammam & Sensory Shower (Top-Center) -->
-            <rect x="336" y="86" width="154" height="92" rx="4" fill="#1A2C32" stroke="#64C2D1" stroke-width="1.8"/>
-            <circle cx="466" cy="112" r="12" fill="none" stroke="#64C2D1" stroke-width="1.5" stroke-dasharray="3 2"/>
-            <rect x="344" y="114" width="138" height="36" rx="6" fill="rgba(18,26,29,0.88)" stroke="#64C2D1" stroke-width="1"/>
-            <text x="413" y="136" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.5" font-weight="700" fill="#C2F0F7">${escXml(pack.hammam)}</text>
+            <!-- 2. Hammam & Sensory Shower (Top-Center, above Column 1) -->
+            <rect x="324" y="86" width="144" height="74" rx="4" fill="#1A2C32" stroke="#64C2D1" stroke-width="1.8"/>
+            <circle cx="450" cy="106" r="10" fill="none" stroke="#64C2D1" stroke-width="1.4" stroke-dasharray="3 2"/>
+            <rect x="330" y="106" width="132" height="34" rx="6" fill="rgba(18,26,29,0.88)" stroke="#64C2D1" stroke-width="1"/>
+            <text x="396" y="127" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="700" fill="#C2F0F7">${escXml(pack.hammam)}</text>
 
             <!-- 3. Heated Indoor Jacuzzi Pool (Top-Right, glowing aqua CAD pool) -->
-            <rect x="498" y="86" width="160" height="156" rx="6" fill="#13333D" stroke="#48CAE4" stroke-width="2.2"/>
-            <rect x="512" y="100" width="132" height="128" rx="18" fill="#1C5263" stroke="#90E0EF" stroke-width="2"/>
-            <rect x="522" y="110" width="112" height="108" rx="12" fill="none" stroke="rgba(144,224,239,0.4)" stroke-width="1.2" stroke-dasharray="4 3"/>
-            <!-- Hydro-jets -->
-            <circle cx="536" cy="126" r="5" fill="#CAF0F8"/><circle cx="620" cy="126" r="5" fill="#CAF0F8"/>
-            <circle cx="536" cy="202" r="5" fill="#CAF0F8"/><circle cx="620" cy="202" r="5" fill="#CAF0F8"/>
-            <rect x="506" y="146" width="144" height="36" rx="6" fill="rgba(15,32,39,0.9)" stroke="#90E0EF" stroke-width="1.2"/>
-            <text x="578" y="168" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#E0FBFC">${escXml(pack.jacuzzi)}</text>
+            <rect x="476" y="86" width="182" height="156" rx="6" fill="#13333D" stroke="#48CAE4" stroke-width="2.2"/>
+            <rect x="492" y="100" width="150" height="128" rx="18" fill="#1C5263" stroke="#90E0EF" stroke-width="2"/>
+            <rect x="502" y="110" width="130" height="108" rx="12" fill="none" stroke="rgba(144,224,239,0.4)" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <circle cx="518" cy="126" r="5" fill="#CAF0F8"/><circle cx="616" cy="126" r="5" fill="#CAF0F8"/>
+            <circle cx="518" cy="202" r="5" fill="#CAF0F8"/><circle cx="616" cy="202" r="5" fill="#CAF0F8"/>
+            <rect x="492" y="146" width="150" height="36" rx="6" fill="rgba(15,32,39,0.9)" stroke="#90E0EF" stroke-width="1.2"/>
+            <text x="567" y="168" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#E0FBFC">${escXml(pack.jacuzzi)}</text>
 
-            <!-- 4. SPA Entrance on Left Wall (x=126, y=224..284, where Kneipp previously started) -->
+            <!-- 4. SPA Entrance on Left Wall (x=126, y=224..284) -->
             <line x1="126" y1="224" x2="126" y2="284" stroke="#162126" stroke-width="9"/>
             <line x1="126" y1="224" x2="170" y2="224" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
             <path d="M 170,224 A 44,44 0 0,1 126,268" fill="rgba(197,160,89,0.15)" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -6511,46 +6518,45 @@
             <text x="222" y="256" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="800" fill="#10171A">${escXml(pack.entranceSpa)}</text>
 
             <!-- 5. Dressing Room, Showers & SPA Bath (Bottom-Left, with internal door & swing arc) -->
-            <rect x="134" y="294" width="186" height="140" rx="4" fill="#1E282D" stroke="#A3B1B8" stroke-width="2"/>
-            <!-- Internal Door on top wall of Spogliatoio (x=186..226, y=294) -->
-            <line x1="186" y1="294" x2="228" y2="294" stroke="#1E282D" stroke-width="4"/>
-            <line x1="186" y1="294" x2="186" y2="334" stroke="#C5A059" stroke-width="2.4" stroke-linecap="round"/>
-            <path d="M 228,294 A 40,40 0 0,1 186,334" fill="rgba(197,160,89,0.14)" stroke="#C5A059" stroke-width="1.4" stroke-dasharray="3 2"/>
-            <!-- Lockers & Bench CAD symbols -->
-            <rect x="144" y="408" width="96" height="16" rx="2" fill="#2C393F" stroke="#C5A059" stroke-width="1.2"/>
-            <rect x="272" y="304" width="38" height="38" rx="4" fill="#163038" stroke="#64C2D1" stroke-width="1.2"/>
-            <rect x="146" y="346" width="162" height="44" rx="6" fill="rgba(18,26,29,0.9)" stroke="#A3B1B8" stroke-width="1.1"/>
-            <text x="227" y="372" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.8" font-weight="700" fill="#E8EEF2">${escXml(pack.dressing)}</text>
+            <rect x="134" y="294" width="184" height="140" rx="4" fill="#1E282D" stroke="#A3B1B8" stroke-width="2"/>
+            <line x1="184" y1="294" x2="226" y2="294" stroke="#1E282D" stroke-width="4"/>
+            <line x1="184" y1="294" x2="184" y2="334" stroke="#C5A059" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M 226,294 A 40,40 0 0,1 184,334" fill="rgba(197,160,89,0.14)" stroke="#C5A059" stroke-width="1.4" stroke-dasharray="3 2"/>
+            <rect x="144" y="408" width="94" height="16" rx="2" fill="#2C393F" stroke="#C5A059" stroke-width="1.2"/>
+            <rect x="270" y="304" width="38" height="38" rx="4" fill="#163038" stroke="#64C2D1" stroke-width="1.2"/>
+            <rect x="144" y="346" width="164" height="44" rx="6" fill="rgba(18,26,29,0.9)" stroke="#A3B1B8" stroke-width="1.1"/>
+            <text x="226" y="372" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.8" font-weight="700" fill="#E8EEF2">${escXml(pack.dressing)}</text>
 
-            <!-- 6. Vertical Kneipp Path (Caldo/Freddo basins running vertically at x=366, y=196..420) -->
-            <rect x="342" y="194" width="54" height="232" rx="14" fill="#12303B" stroke="#48CAE4" stroke-width="2"/>
-            <!-- Alternating Warm (amber glow) & Cold (cyan glow) pebble hydro-basins -->
-            <rect x="350" y="204" width="38" height="44" rx="8" fill="rgba(255,140,90,0.35)" stroke="#FF9F68" stroke-width="1.5"/>
-            <rect x="350" y="256" width="38" height="44" rx="8" fill="rgba(72,202,228,0.38)" stroke="#48CAE4" stroke-width="1.5"/>
-            <rect x="350" y="308" width="38" height="44" rx="8" fill="rgba(255,140,90,0.35)" stroke="#FF9F68" stroke-width="1.5"/>
-            <rect x="350" y="360" width="38" height="48" rx="8" fill="rgba(72,202,228,0.38)" stroke="#48CAE4" stroke-width="1.5"/>
-            <rect x="314" y="286" width="118" height="32" rx="6" fill="rgba(15,28,34,0.94)" stroke="#48CAE4" stroke-width="1.3"/>
-            <text x="373" y="306" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#90E0EF">${escXml(pack.kneipp)}</text>
-
-            <!-- 7. Relax & Herbal Tea Lounge (Bottom-Right) -->
-            <rect x="498" y="252" width="160" height="182" rx="4" fill="#20282C" stroke="#C5A059" stroke-width="1.8"/>
-            <!-- 3 Architectural Wellness Chaises Longues -->
+            <!-- 6. Relax & Herbal Tea Lounge (Bottom-Right) -->
+            <rect x="476" y="252" width="182" height="182" rx="4" fill="#20282C" stroke="#C5A059" stroke-width="1.8"/>
             <g fill="#2A353B" stroke="#C5A059" stroke-width="1.4">
-              <rect x="582" y="266" width="62" height="24" rx="5"/><rect x="628" y="269" width="12" height="18" rx="2"/>
-              <rect x="582" y="298" width="62" height="24" rx="5"/><rect x="628" y="301" width="12" height="18" rx="2"/>
-              <rect x="582" y="330" width="62" height="24" rx="5"/><rect x="628" y="333" width="12" height="18" rx="2"/>
+              <rect x="578" y="266" width="64" height="24" rx="5"/><rect x="626" y="269" width="12" height="18" rx="2"/>
+              <rect x="578" y="298" width="64" height="24" rx="5"/><rect x="626" y="301" width="12" height="18" rx="2"/>
+              <rect x="578" y="330" width="64" height="24" rx="5"/><rect x="626" y="333" width="12" height="18" rx="2"/>
             </g>
-            <rect x="508" y="372" width="140" height="44" rx="6" fill="rgba(18,26,29,0.92)" stroke="#C5A059" stroke-width="1.2"/>
-            <text x="578" y="398" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#F3E5AB">${escXml(pack.relax)}</text>
+            <rect x="492" y="372" width="150" height="44" rx="6" fill="rgba(18,26,29,0.92)" stroke="#C5A059" stroke-width="1.2"/>
+            <text x="567" y="398" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" font-weight="700" fill="#F3E5AB">${escXml(pack.relax)}</text>
 
-            <!-- 8. The 2 Historic Monolithic Columns Parallel to the Vertical Wall (x=456, y=202 & y=342) -->
-            <line x1="456" y1="86" x2="456" y2="434" stroke="rgba(197,160,89,0.5)" stroke-width="2" stroke-dasharray="6 4"/>
-            <circle cx="456" cy="202" r="17" fill="#2B353A" stroke="#C5A059" stroke-width="3"/>
-            <circle cx="456" cy="202" r="8" fill="#C5A059"/>
-            <circle cx="456" cy="342" r="17" fill="#2B353A" stroke="#C5A059" stroke-width="3"/>
-            <circle cx="456" cy="342" r="8" fill="#C5A059"/>
-            <rect x="338" y="400" width="236" height="26" rx="6" fill="#C5A059"/>
-            <text x="456" y="417" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="800" fill="#10171A">🏛️ ${escXml(pack.cols)}</text>
+            <!-- 7. Vertical Kneipp Path PASSING DIRECTLY BETWEEN THE TWO COLUMNS (x=396, from y=188 to y=372) -->
+            <line x1="396" y1="86" x2="396" y2="434" stroke="rgba(197,160,89,0.45)" stroke-width="2" stroke-dasharray="6 4"/>
+            <!-- Stone & glass Kneipp channel framed between Column 1 (y=188) and Column 2 (y=372) -->
+            <rect x="364" y="208" width="64" height="144" rx="16" fill="#12303B" stroke="#48CAE4" stroke-width="2.2"/>
+            <!-- Alternating Warm (amber) & Cold (cyan) hydro-basins between the 2 columns -->
+            <rect x="372" y="216" width="48" height="28" rx="6" fill="rgba(255,140,90,0.42)" stroke="#FF9F68" stroke-width="1.5"/>
+            <rect x="372" y="248" width="48" height="28" rx="6" fill="rgba(72,202,228,0.45)" stroke="#48CAE4" stroke-width="1.5"/>
+            <rect x="372" y="280" width="48" height="28" rx="6" fill="rgba(255,140,90,0.42)" stroke="#FF9F68" stroke-width="1.5"/>
+            <rect x="372" y="312" width="48" height="30" rx="6" fill="rgba(72,202,228,0.45)" stroke="#48CAE4" stroke-width="1.5"/>
+            <!-- Kneipp Label centered on the path between the columns -->
+            <rect x="328" y="264" width="136" height="32" rx="8" fill="rgba(15,28,34,0.95)" stroke="#48CAE4" stroke-width="1.5"/>
+            <text x="396" y="284" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10.2" font-weight="700" fill="#90E0EF">${escXml(pack.kneipp)}</text>
+
+            <!-- 8. The 2 Historic Monolithic Columns Centered Horizontally at x=396 (y=188 & y=372) Framing the Kneipp Path -->
+            <circle cx="396" cy="188" r="19" fill="#2B353A" stroke="#C5A059" stroke-width="3.2"/>
+            <circle cx="396" cy="188" r="9" fill="#C5A059"/>
+            <circle cx="396" cy="372" r="19" fill="#2B353A" stroke="#C5A059" stroke-width="3.2"/>
+            <circle cx="396" cy="372" r="9" fill="#C5A059"/>
+            <rect x="282" y="402" width="228" height="26" rx="6" fill="#C5A059"/>
+            <text x="396" y="419" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="800" fill="#10171A">🏛️ ${escXml(pack.cols)}</text>
           `;
         }
       } else if (slideKey === 'dependance') {
